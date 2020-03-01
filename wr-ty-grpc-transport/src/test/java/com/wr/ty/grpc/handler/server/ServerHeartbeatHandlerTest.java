@@ -1,5 +1,6 @@
 package com.wr.ty.grpc.handler.server;
 
+import com.wr.ty.grpc.TransportConfig;
 import com.wr.ty.grpc.core.channel.ChannelHandler;
 import com.wr.ty.grpc.core.channel.ChannelPipeline;
 import com.wr.ty.grpc.transport.ChannelHandlerStub;
@@ -25,7 +26,9 @@ public class ServerHeartbeatHandlerTest {
     private static final long HEARTBEAT_TIMEOUT = 5 * 1000;
     private final ChannelHandler nextHandler = new ChannelHandlerStub();
     private VirtualTimeScheduler testScheduler = VirtualTimeScheduler.create();
-    private final ServerHeartbeatHandler handler = new ServerHeartbeatHandler(HEARTBEAT_TIMEOUT, testScheduler);
+    private TransportConfig config=new TransportConfig() {};
+
+    private final ServerHeartbeatHandler handler = new ServerHeartbeatHandler(config.heartbeatTimeout(), testScheduler);
     private ChannelPipeline channelPipeline;
     TestPublisher<WrTy.ProtocolMessageEnvelope> testPublisher;
     Flux<WrTy.ProtocolMessageEnvelope> reply;

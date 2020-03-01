@@ -89,13 +89,13 @@ public class RegistrationClientTransportHandler implements ChannelHandler {
                         submittedRegistrationsObserver.onCompleted();
                     })
                     .subscribe(
-                            registrationNotification -> {
-                                WrTy.ProtocolMessageEnvelope.MessageOneOfCase messageOneOfCase = registrationNotification.getMessageOneOfCase();
-                                channelLogger.debug("Forwarding notification of type {} over the transport", messageOneOfCase);
-                                if (messageOneOfCase == WrTy.ProtocolMessageEnvelope.MessageOneOfCase.INSTANCEINFO) {
-                                    updatesQueue.add(registrationNotification);
+                            value -> {
+                                WrTy.ProtocolMessageEnvelope.ItemCase itemCase = value.getItemCase();
+                                channelLogger.debug("Forwarding notification of type {} over the transport", itemCase);
+                                if (itemCase == WrTy.ProtocolMessageEnvelope.ItemCase.INSTANCEINFO) {
+                                    updatesQueue.add(value);
                                 }
-                                submittedRegistrationsObserver.onNext(toRegistrationRequest(registrationNotification));
+                                submittedRegistrationsObserver.onNext(toRegistrationRequest(value));
                             },
                             e -> {
                                 channelLogger.debug("Forwarding error from registration update stream to transport ({})", e.getMessage());
@@ -112,8 +112,8 @@ public class RegistrationClientTransportHandler implements ChannelHandler {
 
 
     private static WrTy.RegistrationRequest toRegistrationRequest(WrTy.ProtocolMessageEnvelope protocolMessageEnvelope) {
-        WrTy.ProtocolMessageEnvelope.MessageOneOfCase messageOneOfCase = protocolMessageEnvelope.getMessageOneOfCase();
-        switch (messageOneOfCase) {
+        WrTy.ProtocolMessageEnvelope.ItemCase itemCase = protocolMessageEnvelope.getItemCase();
+        switch (itemCase) {
             case HEARTBEAT:
                 return WrTy.RegistrationRequest.newBuilder().setHeartbeat(WrTy.Heartbeat.getDefaultInstance()).build();
             case CLIENTHELLO:
@@ -121,6 +121,6 @@ public class RegistrationClientTransportHandler implements ChannelHandler {
             case INSTANCEINFO:
                 return WrTy.RegistrationRequest.newBuilder().setInstanceInfo(protocolMessageEnvelope.getInstanceInfo()).build();
         }
-        throw new IllegalStateException("Unrecognized channel notification type " + messageOneOfCase);
+        throw new IllegalStateException("Unrecognized channel notification type " + itemCase);
     }
 }

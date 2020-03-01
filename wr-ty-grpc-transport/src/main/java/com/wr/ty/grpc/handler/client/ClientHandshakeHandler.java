@@ -66,14 +66,14 @@ public class ClientHandshakeHandler implements ChannelHandler {
 
     protected Function<WrTy.ProtocolMessageEnvelope, Flux<WrTy.ProtocolMessageEnvelope>> handshakeVerifier(AtomicBoolean handshakeCompleted) {
         return replyNotification -> {
-            if (replyNotification.getMessageOneOfCase() == WrTy.ProtocolMessageEnvelope.MessageOneOfCase.SERVERHELLO) {
+            if (replyNotification.getItemCase() == WrTy.ProtocolMessageEnvelope.ItemCase.SERVERHELLO) {
                 if (!handshakeCompleted.getAndSet(true)) {
                     channelLogger.debug("Handshake has completed");
 
                     return Flux.empty();
                 }
             }
-            if (replyNotification.getMessageOneOfCase() == WrTy.ProtocolMessageEnvelope.MessageOneOfCase.INSTANCEINFO && !handshakeCompleted.get()) {
+            if (replyNotification.getItemCase() == WrTy.ProtocolMessageEnvelope.ItemCase.INSTANCEINFO && !handshakeCompleted.get()) {
                 channelLogger.error("Data sent from server before handshake has completed");
                 return Flux.error(DATA_BEFORE_HANDSHAKE_REPLY);
             }

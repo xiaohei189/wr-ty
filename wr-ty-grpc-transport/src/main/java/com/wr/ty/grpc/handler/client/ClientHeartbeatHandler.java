@@ -32,7 +32,7 @@ import java.time.Duration;
 import java.util.concurrent.atomic.AtomicLong;
 
 import static com.wr.ty.grpc.util.ProtocolMessageEnvelopes.HEART_BEAT;
-import static com.xh.demo.grpc.WrTy.ProtocolMessageEnvelope.MessageOneOfCase.HEARTBEAT;
+import static com.xh.demo.grpc.WrTy.ProtocolMessageEnvelope.ItemCase.HEARTBEAT;
 import static java.util.concurrent.TimeUnit.MILLISECONDS;
 
 public class ClientHeartbeatHandler implements ChannelHandler {
@@ -85,7 +85,7 @@ public class ClientHeartbeatHandler implements ChannelHandler {
                     .doOnCancel(() -> channelLogger.debug("Unsubscribing from ClientHeartbeatHandler"))
                     .subscribe(
                             next -> {
-                                if (next.getMessageOneOfCase() == HEARTBEAT) {
+                                if (next.getItemCase() == HEARTBEAT) {
                                     channelLogger.debug("Heartbeat reply from server received");
                                     lastHeartbeatReply.set(scheduler.now(MILLISECONDS));
                                 } else {

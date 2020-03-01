@@ -33,9 +33,9 @@ public class ServerLoggingChannelHandler implements ChannelHandler {
                         inputStream
                                 .doOnSubscribe(value -> logger.debug("Subscribed to input stream"))
                                 .doOnCancel(() -> logger.debug("Unsubscribed from input stream"))
-                                .doOnNext(next -> {
-                                    WrTy.ProtocolMessageEnvelope.MessageOneOfCase kind = next.getMessageOneOfCase();
-                                    switch (kind) {
+                                .doOnNext(value -> {
+                                    WrTy.ProtocolMessageEnvelope.ItemCase itemCase = value.getItemCase();
+                                    switch (itemCase) {
                                         case HEARTBEAT:
                                             logger.debug("Received Heartbeat");
                                             break;
@@ -43,7 +43,7 @@ public class ServerLoggingChannelHandler implements ChannelHandler {
                                             logger.debug("Received Client Hello");
                                             break;
                                         case INSTANCEINFO:
-                                            logger.debug("Received Data {}", next.toString());
+                                            logger.debug("Received Data {}", value.toString());
                                             break;
                                     }
                                 })
@@ -52,8 +52,8 @@ public class ServerLoggingChannelHandler implements ChannelHandler {
                 )
                 .doOnSubscribe(value -> logger.debug("Subscribed to reply stream"))
                 .doOnCancel(() -> logger.debug("Unsubscribed from reply stream"))
-                .doOnNext(next -> {
-                    switch (next.getMessageOneOfCase()) {
+                .doOnNext(value -> {
+                    switch (value.getItemCase()) {
                         case HEARTBEAT:
                             logger.debug("Send Heartbeat");
                             break;
@@ -61,7 +61,7 @@ public class ServerLoggingChannelHandler implements ChannelHandler {
                             logger.debug("Send Server Hello");
                             break;
                         case INSTANCEINFO:
-                            logger.debug("Send Data ",next.getInstanceInfo().toString());
+                            logger.debug("Send Data ", value.getInstanceInfo().toString());
                             break;
                     }
                 })

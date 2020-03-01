@@ -3,8 +3,8 @@ package com.wr.ty.grpc.interest;
 import com.xh.demo.grpc.WrTy;
 
 /**
- * @author weirui (xiao hei)
- * @date 2019/4/7 15:42
+ * @author xiaohei
+ * @date 2020/2/13 13:18
  */
 public interface Interest {
 

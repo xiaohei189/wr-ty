@@ -46,7 +46,7 @@ public class RegistrationProcessorHandler implements ChannelHandler {
 
             AtomicReference<WrTy.InstanceInfo> lastInstance = new AtomicReference();
             Disposable disposable = registrationUpdates
-                    .filter(next -> next.getMessageOneOfCase() == WrTy.ProtocolMessageEnvelope.MessageOneOfCase.INSTANCEINFO)
+                    .filter(value -> value.getItemCase() == WrTy.ProtocolMessageEnvelope.ItemCase.INSTANCEINFO)
                     .doOnNext(value -> {
                         fluxSink.next(value);// reply
                         if (lastInstance.get() == null) {

@@ -3,6 +3,8 @@ package com.wr.ty.grpc.util;
 import com.xh.demo.grpc.WrTy;
 
 /**
+ * @deprecated
+ * @see RegistrationMessages
  * @author xiaohei
  * @date 2020/2/29 21:05
  */

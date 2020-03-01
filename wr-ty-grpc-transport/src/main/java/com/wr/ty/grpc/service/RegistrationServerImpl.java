@@ -1,6 +1,8 @@
 package com.wr.ty.grpc.service;
 
 import com.wr.ty.grpc.Session;
+import com.wr.ty.grpc.TransportConfig;
+import com.wr.ty.grpc.core.PipelineNameGenerator;
 import com.wr.ty.grpc.core.channel.ChannelPipeline;
 import com.wr.ty.grpc.core.channel.ChannelPipelineFactory;
 import com.wr.ty.grpc.handler.server.RegistrationProcessorHandler;
@@ -8,27 +10,22 @@ import com.wr.ty.grpc.handler.server.ServerHandshakeHandler;
 import com.wr.ty.grpc.handler.server.ServerHeartbeatHandler;
 import com.wr.ty.grpc.handler.server.ServerLoggingChannelHandler;
 import com.wr.ty.grpc.register.Registry;
-import com.wr.ty.grpc.util.ProtocolMessageEnvelopes;
 import com.wr.ty.grpc.util.SourceIdGenerator;
 import com.xh.demo.grpc.RegistrationServiceGrpc;
 import com.xh.demo.grpc.WrTy;
 import io.grpc.stub.StreamObserver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import reactor.core.Disposable;
-import reactor.core.publisher.EmitterProcessor;
-import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import reactor.core.scheduler.Scheduler;
 
-import java.io.IOException;
 import java.util.Objects;
 import java.util.function.Function;
 
 import static com.wr.ty.grpc.util.ProtocolMessageEnvelopes.*;
-import static com.wr.ty.grpc.util.Registrations.convertAck;
 import static com.wr.ty.grpc.util.Registrations.convertHeartbeat;
 import static com.wr.ty.grpc.util.Registrations.convertServerHello;
+import static com.wr.ty.grpc.util.Registrations.*;
 
 /**
  * @author xiaohei
@@ -36,9 +33,8 @@ import static com.wr.ty.grpc.util.Registrations.convertServerHello;
  */
 public class RegistrationServerImpl extends RegistrationServiceGrpc.RegistrationServiceImplBase {
     private static final Logger logger = LoggerFactory.getLogger(RegistrationServerImpl.class);
-    private final ChannelPipelineFactory pipelineFactory;
-    private final Registry register;
-    private Function<WrTy.RegistrationRequest, WrTy.ProtocolMessageEnvelope> inputMap = value -> {
+
+    private static final Function<WrTy.RegistrationRequest, WrTy.ProtocolMessageEnvelope> inputMap = value -> {
         WrTy.RegistrationRequest.ItemCase itemCase = value.getItemCase();
         switch (itemCase) {
             case CLIENTHELLO:
@@ -51,7 +47,7 @@ public class RegistrationServerImpl extends RegistrationServiceGrpc.Registration
                 throw new RuntimeException("unknown message type");
         }
     };
-    private Function<WrTy.ProtocolMessageEnvelope, WrTy.RegistrationResponse> outMap = value -> {
+    private static final Function<WrTy.ProtocolMessageEnvelope, WrTy.RegistrationResponse> outMap = value -> {
         WrTy.ProtocolMessageEnvelope.ItemCase itemCase = value.getItemCase();
         WrTy.RegistrationResponse.Builder builder = WrTy.RegistrationResponse.newBuilder();
         switch (itemCase) {
@@ -66,17 +62,22 @@ public class RegistrationServerImpl extends RegistrationServiceGrpc.Registration
 
         }
     };
+    private final ChannelPipelineFactory pipelineFactory;
+    private final Registry register;
 
-    public RegistrationServerImpl(Registry registry, Scheduler scheduler) {
+    public RegistrationServerImpl(Registry registry,
+                                  TransportConfig config,
+                                  PipelineNameGenerator pipelineNameGenerator,
+                                  Scheduler scheduler) {
         Objects.requireNonNull(scheduler);
         Objects.requireNonNull(registry);
         this.register = registry;
-        SourceIdGenerator idGenerator = new SourceIdGenerator();
         this.pipelineFactory = () -> Mono.create(fluxSink -> {
-            fluxSink.success(new ChannelPipeline("registrationServer@" + "test",
+            String pipelineName = pipelineNameGenerator.generate("registrationServer@");
+            fluxSink.success(new ChannelPipeline(pipelineName,
                     new ServerLoggingChannelHandler(),
-                    new ServerHeartbeatHandler(1000 * 30, scheduler),
-                    new ServerHandshakeHandler(idGenerator),
+                    new ServerHeartbeatHandler(config.heartbeatTimeout(), scheduler),
+                    new ServerHandshakeHandler(),
                     new RegistrationProcessorHandler(RegistrationServerImpl.this.register)
             ));
         });

@@ -14,4 +14,19 @@ public class RegistrationMessages {
     public static final WrTy.RegistrationResponse SERVER_HELLO = WrTy.RegistrationResponse.newBuilder().setServerHello(WrTy.ServerHello.getDefaultInstance()).build();
     public static final WrTy.RegistrationResponse SERVER_HEART = WrTy.RegistrationResponse.newBuilder().setHeartbeat(WrTy.Heartbeat.getDefaultInstance()).build();
     public static final WrTy.RegistrationResponse ACK = WrTy.RegistrationResponse.newBuilder().setAck(WrTy.Acknowledgement.getDefaultInstance()).build();
+
+    public static WrTy.RegistrationResponse convertServerHello(WrTy.ServerHello value) {
+        WrTy.RegistrationResponse messageEnvelope = WrTy.RegistrationResponse.newBuilder().setServerHello(value).build();
+        return messageEnvelope;
+    }
+
+    public static WrTy.RegistrationResponse convertHeartbeat(WrTy.Heartbeat value) {
+        WrTy.RegistrationResponse messageEnvelope = WrTy.RegistrationResponse.newBuilder().setHeartbeat(value).build();
+        return messageEnvelope;
+    }
+
+    public static WrTy.RegistrationResponse convertAck(WrTy.InstanceInfo value) {
+        WrTy.RegistrationResponse messageEnvelope = WrTy.RegistrationResponse.newBuilder().setAck(WrTy.Acknowledgement.getDefaultInstance()).build();
+        return messageEnvelope;
+    }
 }

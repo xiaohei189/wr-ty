@@ -15,25 +15,25 @@ import java.util.concurrent.CountDownLatch;
  * @author xiaohei
  * @date 2020/2/23 1:52
  */
-public class RegistryTest {
+public class DefaultRegistryTest {
     @Test
     public void testHello() throws InterruptedException {
         CountDownLatch latch = new CountDownLatch(1);
-        Registry registry = new Registry(Schedulers.newElastic("register-------"));
+        Registry registry = new DefaultRegistry(Schedulers.newElastic("register-------"));
         Disposable subscribe = Flux.interval(Duration.ofSeconds(3)).doOnNext(value -> {
             WrTy.InstanceInfo instanceInfo = WrTy.InstanceInfo.newBuilder().setId(value + "").setTimeStamp(System.currentTimeMillis()).build();
             WrTy.ChangeNotification notification = ChangeNotifications.newAddNotification(instanceInfo);
             registry.register(notification);
         }).subscribe();
 
-        Flux<WrTy.ChangeNotification> changeNotificationFlux = registry.interest(null);
+        Flux<WrTy.ChangeNotification> changeNotificationFlux = registry.subscribe(null);
         Disposable subscribe1 = changeNotificationFlux.subscribe(value -> {
             System.out.println("subscribe1 receive change notification: " + value);
         });
 
         Thread.sleep(1000*10);
 
-        Disposable subscribe2 = registry.interest(null).subscribe(value -> {
+        Disposable subscribe2 = registry.subscribe(null).subscribe(value -> {
             System.out.println("subscribe2 receive change notification: " + value);
         });
         Thread.sleep(1000*10);

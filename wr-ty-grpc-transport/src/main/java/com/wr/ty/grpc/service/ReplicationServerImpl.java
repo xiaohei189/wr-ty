@@ -5,10 +5,7 @@ import com.wr.ty.grpc.TransportConfig;
 import com.wr.ty.grpc.core.PipelineNameGenerator;
 import com.wr.ty.grpc.core.channel.ChannelPipeline;
 import com.wr.ty.grpc.core.channel.ChannelPipelineFactory;
-import com.wr.ty.grpc.handler.server.RegistrationProcessorHandler;
-import com.wr.ty.grpc.handler.server.ServerHandshakeHandler;
-import com.wr.ty.grpc.handler.server.ServerHeartbeatHandler;
-import com.wr.ty.grpc.handler.server.ServerLoggingChannelHandler;
+import com.wr.ty.grpc.handler.server.*;
 import com.wr.ty.grpc.register.Registry;
 import com.wr.ty.grpc.util.ProtocolMessageEnvelopes;
 import com.wr.ty.grpc.util.SourceIdGenerator;
@@ -35,7 +32,7 @@ public class ReplicationServerImpl extends ReplicationServiceGrpc.ReplicationSer
 
     private final ChannelPipelineFactory channelPipelineFactory;
     private final Registry register;
-    private Function<WrTy.SubscribeRequest, WrTy.ProtocolMessageEnvelope> inputMap = value -> {
+    private static Function<WrTy.SubscribeRequest, WrTy.ProtocolMessageEnvelope> inputMap = value -> {
 
         WrTy.SubscribeRequest.ItemCase itemCase = value.getItemCase();
         switch (itemCase) {
@@ -50,7 +47,7 @@ public class ReplicationServerImpl extends ReplicationServiceGrpc.ReplicationSer
                 throw new RuntimeException("unknown message type");
         }
     };
-    private Function<WrTy.ProtocolMessageEnvelope, WrTy.SubscribeResponse> outMap = value -> {
+    private static Function<WrTy.ProtocolMessageEnvelope, WrTy.SubscribeResponse> outMap = value -> {
         WrTy.ProtocolMessageEnvelope.ItemCase itemCase = value.getItemCase();
         switch (itemCase) {
             case SERVERHELLO:
@@ -78,7 +75,8 @@ public class ReplicationServerImpl extends ReplicationServiceGrpc.ReplicationSer
                     new ServerLoggingChannelHandler(),
                     new ServerHeartbeatHandler(config.heartbeatTimeout(), scheduler),
                     new ServerHandshakeHandler(),
-                    new RegistrationProcessorHandler(ReplicationServerImpl.this.register)
+                    new ServerReplicationHandler(),
+                    new ServerSubscribeHandler(register)
             ));
 
         });

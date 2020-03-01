@@ -21,9 +21,8 @@ import java.time.Duration;
 public class ServerHandshakeHandlerTest {
     private ChannelPipeline channelPipeline;
     TestPublisher<WrTy.ProtocolMessageEnvelope> testPublisher;
-    SourceIdGenerator sourceIdGenerator = new SourceIdGenerator();
     private final ChannelHandler nextHandler = new ChannelHandlerStub();
-    ServerHandshakeHandler handler = new ServerHandshakeHandler(sourceIdGenerator);
+    ServerHandshakeHandler handler = new ServerHandshakeHandler();
     Flux<WrTy.ProtocolMessageEnvelope> reply;
 
     @Before

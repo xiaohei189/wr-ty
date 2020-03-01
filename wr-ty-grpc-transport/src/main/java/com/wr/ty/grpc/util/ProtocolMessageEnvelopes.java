@@ -18,10 +18,12 @@ public class ProtocolMessageEnvelopes {
         WrTy.ProtocolMessageEnvelope messageEnvelope = WrTy.ProtocolMessageEnvelope.newBuilder().setClientHello(clientHello).build();
         return messageEnvelope;
     }
+
     public static WrTy.ProtocolMessageEnvelope fromServerHello(WrTy.ServerHello value) {
         WrTy.ProtocolMessageEnvelope messageEnvelope = WrTy.ProtocolMessageEnvelope.newBuilder().setServerHello(value).build();
         return messageEnvelope;
     }
+
     public static WrTy.ProtocolMessageEnvelope fromHeartbeat(WrTy.Heartbeat heartbeat) {
         WrTy.ProtocolMessageEnvelope messageEnvelope = WrTy.ProtocolMessageEnvelope.newBuilder().setHeartbeat(heartbeat).build();
         return messageEnvelope;
@@ -31,8 +33,16 @@ public class ProtocolMessageEnvelopes {
         WrTy.ProtocolMessageEnvelope messageEnvelope = WrTy.ProtocolMessageEnvelope.newBuilder().setInstanceInfo(value).build();
         return messageEnvelope;
     }
+
     public static WrTy.ProtocolMessageEnvelope fromInterestRegistration(WrTy.InterestRegistration value) {
         WrTy.ProtocolMessageEnvelope messageEnvelope = WrTy.ProtocolMessageEnvelope.newBuilder().setInterestRegistration(value).build();
+        return messageEnvelope;
+    }
+
+    public static WrTy.ProtocolMessageEnvelope createSubscribeAllRegistration() {
+        WrTy.InterestRegistration interestRegistration = WrTy.InterestRegistration.newBuilder()
+                .addInterests(WrTy.Interest.newBuilder().setAll(WrTy.Interest.AllInterest.getDefaultInstance())).build();
+        WrTy.ProtocolMessageEnvelope messageEnvelope = WrTy.ProtocolMessageEnvelope.newBuilder().setInterestRegistration(interestRegistration).build();
         return messageEnvelope;
     }
 
