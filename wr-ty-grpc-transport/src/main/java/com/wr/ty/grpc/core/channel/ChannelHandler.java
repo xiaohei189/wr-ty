@@ -4,8 +4,8 @@ import com.xh.demo.grpc.WrTy;
 import reactor.core.publisher.Flux;
 
 /**
- * @author xiaohei
- * @date 2020/2/12 13:56
+ * @author weirui (xiao hei)
+ * @date 2019/4/7 17:26
  */
 public interface ChannelHandler {
 

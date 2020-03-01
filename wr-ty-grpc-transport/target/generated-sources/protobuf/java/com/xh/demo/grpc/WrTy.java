@@ -5710,7 +5710,7 @@ public final class WrTy {
      */
     com.xh.demo.grpc.WrTy.Interest.InstanceInterestOrBuilder getInstanceOrBuilder();
 
-    public com.xh.demo.grpc.WrTy.Interest.InterestOneofCase getInterestOneofCase();
+    public com.xh.demo.grpc.WrTy.Interest.ItemCase getItemCase();
   }
   /**
    * Protobuf type {@code com.xh.demo.grpc.Interest}
@@ -5753,44 +5753,44 @@ public final class WrTy {
               break;
             case 10: {
               com.xh.demo.grpc.WrTy.Interest.NoneInterest.Builder subBuilder = null;
-              if (interestOneofCase_ == 1) {
-                subBuilder = ((com.xh.demo.grpc.WrTy.Interest.NoneInterest) interestOneof_).toBuilder();
+              if (itemCase_ == 1) {
+                subBuilder = ((com.xh.demo.grpc.WrTy.Interest.NoneInterest) item_).toBuilder();
               }
-              interestOneof_ =
+              item_ =
                   input.readMessage(com.xh.demo.grpc.WrTy.Interest.NoneInterest.parser(), extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom((com.xh.demo.grpc.WrTy.Interest.NoneInterest) interestOneof_);
-                interestOneof_ = subBuilder.buildPartial();
+                subBuilder.mergeFrom((com.xh.demo.grpc.WrTy.Interest.NoneInterest) item_);
+                item_ = subBuilder.buildPartial();
               }
-              interestOneofCase_ = 1;
+              itemCase_ = 1;
               break;
             }
             case 18: {
               com.xh.demo.grpc.WrTy.Interest.AllInterest.Builder subBuilder = null;
-              if (interestOneofCase_ == 2) {
-                subBuilder = ((com.xh.demo.grpc.WrTy.Interest.AllInterest) interestOneof_).toBuilder();
+              if (itemCase_ == 2) {
+                subBuilder = ((com.xh.demo.grpc.WrTy.Interest.AllInterest) item_).toBuilder();
               }
-              interestOneof_ =
+              item_ =
                   input.readMessage(com.xh.demo.grpc.WrTy.Interest.AllInterest.parser(), extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom((com.xh.demo.grpc.WrTy.Interest.AllInterest) interestOneof_);
-                interestOneof_ = subBuilder.buildPartial();
+                subBuilder.mergeFrom((com.xh.demo.grpc.WrTy.Interest.AllInterest) item_);
+                item_ = subBuilder.buildPartial();
               }
-              interestOneofCase_ = 2;
+              itemCase_ = 2;
               break;
             }
             case 50: {
               com.xh.demo.grpc.WrTy.Interest.InstanceInterest.Builder subBuilder = null;
-              if (interestOneofCase_ == 6) {
-                subBuilder = ((com.xh.demo.grpc.WrTy.Interest.InstanceInterest) interestOneof_).toBuilder();
+              if (itemCase_ == 6) {
+                subBuilder = ((com.xh.demo.grpc.WrTy.Interest.InstanceInterest) item_).toBuilder();
               }
-              interestOneof_ =
+              item_ =
                   input.readMessage(com.xh.demo.grpc.WrTy.Interest.InstanceInterest.parser(), extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom((com.xh.demo.grpc.WrTy.Interest.InstanceInterest) interestOneof_);
-                interestOneof_ = subBuilder.buildPartial();
+                subBuilder.mergeFrom((com.xh.demo.grpc.WrTy.Interest.InstanceInterest) item_);
+                item_ = subBuilder.buildPartial();
               }
-              interestOneofCase_ = 6;
+              itemCase_ = 6;
               break;
             }
             default: {
@@ -7388,32 +7388,32 @@ public final class WrTy {
 
     }
 
-    private int interestOneofCase_ = 0;
-    private java.lang.Object interestOneof_;
-    public enum InterestOneofCase
+    private int itemCase_ = 0;
+    private java.lang.Object item_;
+    public enum ItemCase
         implements com.google.protobuf.Internal.EnumLite {
       NONE(1),
       ALL(2),
       INSTANCE(6),
-      INTERESTONEOF_NOT_SET(0);
+      ITEM_NOT_SET(0);
       private final int value;
-      private InterestOneofCase(int value) {
+      private ItemCase(int value) {
         this.value = value;
       }
       /**
        * @deprecated Use {@link #forNumber(int)} instead.
        */
       @java.lang.Deprecated
-      public static InterestOneofCase valueOf(int value) {
+      public static ItemCase valueOf(int value) {
         return forNumber(value);
       }
 
-      public static InterestOneofCase forNumber(int value) {
+      public static ItemCase forNumber(int value) {
         switch (value) {
           case 1: return NONE;
           case 2: return ALL;
           case 6: return INSTANCE;
-          case 0: return INTERESTONEOF_NOT_SET;
+          case 0: return ITEM_NOT_SET;
           default: return null;
         }
       }
@@ -7422,10 +7422,10 @@ public final class WrTy {
       }
     };
 
-    public InterestOneofCase
-    getInterestOneofCase() {
-      return InterestOneofCase.forNumber(
-          interestOneofCase_);
+    public ItemCase
+    getItemCase() {
+      return ItemCase.forNumber(
+          itemCase_);
     }
 
     public static final int NONE_FIELD_NUMBER = 1;
@@ -7433,14 +7433,14 @@ public final class WrTy {
      * <code>.com.xh.demo.grpc.Interest.NoneInterest none = 1;</code>
      */
     public boolean hasNone() {
-      return interestOneofCase_ == 1;
+      return itemCase_ == 1;
     }
     /**
      * <code>.com.xh.demo.grpc.Interest.NoneInterest none = 1;</code>
      */
     public com.xh.demo.grpc.WrTy.Interest.NoneInterest getNone() {
-      if (interestOneofCase_ == 1) {
-         return (com.xh.demo.grpc.WrTy.Interest.NoneInterest) interestOneof_;
+      if (itemCase_ == 1) {
+         return (com.xh.demo.grpc.WrTy.Interest.NoneInterest) item_;
       }
       return com.xh.demo.grpc.WrTy.Interest.NoneInterest.getDefaultInstance();
     }
@@ -7448,8 +7448,8 @@ public final class WrTy {
      * <code>.com.xh.demo.grpc.Interest.NoneInterest none = 1;</code>
      */
     public com.xh.demo.grpc.WrTy.Interest.NoneInterestOrBuilder getNoneOrBuilder() {
-      if (interestOneofCase_ == 1) {
-         return (com.xh.demo.grpc.WrTy.Interest.NoneInterest) interestOneof_;
+      if (itemCase_ == 1) {
+         return (com.xh.demo.grpc.WrTy.Interest.NoneInterest) item_;
       }
       return com.xh.demo.grpc.WrTy.Interest.NoneInterest.getDefaultInstance();
     }
@@ -7459,14 +7459,14 @@ public final class WrTy {
      * <code>.com.xh.demo.grpc.Interest.AllInterest all = 2;</code>
      */
     public boolean hasAll() {
-      return interestOneofCase_ == 2;
+      return itemCase_ == 2;
     }
     /**
      * <code>.com.xh.demo.grpc.Interest.AllInterest all = 2;</code>
      */
     public com.xh.demo.grpc.WrTy.Interest.AllInterest getAll() {
-      if (interestOneofCase_ == 2) {
-         return (com.xh.demo.grpc.WrTy.Interest.AllInterest) interestOneof_;
+      if (itemCase_ == 2) {
+         return (com.xh.demo.grpc.WrTy.Interest.AllInterest) item_;
       }
       return com.xh.demo.grpc.WrTy.Interest.AllInterest.getDefaultInstance();
     }
@@ -7474,8 +7474,8 @@ public final class WrTy {
      * <code>.com.xh.demo.grpc.Interest.AllInterest all = 2;</code>
      */
     public com.xh.demo.grpc.WrTy.Interest.AllInterestOrBuilder getAllOrBuilder() {
-      if (interestOneofCase_ == 2) {
-         return (com.xh.demo.grpc.WrTy.Interest.AllInterest) interestOneof_;
+      if (itemCase_ == 2) {
+         return (com.xh.demo.grpc.WrTy.Interest.AllInterest) item_;
       }
       return com.xh.demo.grpc.WrTy.Interest.AllInterest.getDefaultInstance();
     }
@@ -7485,14 +7485,14 @@ public final class WrTy {
      * <code>.com.xh.demo.grpc.Interest.InstanceInterest instance = 6;</code>
      */
     public boolean hasInstance() {
-      return interestOneofCase_ == 6;
+      return itemCase_ == 6;
     }
     /**
      * <code>.com.xh.demo.grpc.Interest.InstanceInterest instance = 6;</code>
      */
     public com.xh.demo.grpc.WrTy.Interest.InstanceInterest getInstance() {
-      if (interestOneofCase_ == 6) {
-         return (com.xh.demo.grpc.WrTy.Interest.InstanceInterest) interestOneof_;
+      if (itemCase_ == 6) {
+         return (com.xh.demo.grpc.WrTy.Interest.InstanceInterest) item_;
       }
       return com.xh.demo.grpc.WrTy.Interest.InstanceInterest.getDefaultInstance();
     }
@@ -7500,8 +7500,8 @@ public final class WrTy {
      * <code>.com.xh.demo.grpc.Interest.InstanceInterest instance = 6;</code>
      */
     public com.xh.demo.grpc.WrTy.Interest.InstanceInterestOrBuilder getInstanceOrBuilder() {
-      if (interestOneofCase_ == 6) {
-         return (com.xh.demo.grpc.WrTy.Interest.InstanceInterest) interestOneof_;
+      if (itemCase_ == 6) {
+         return (com.xh.demo.grpc.WrTy.Interest.InstanceInterest) item_;
       }
       return com.xh.demo.grpc.WrTy.Interest.InstanceInterest.getDefaultInstance();
     }
@@ -7520,14 +7520,14 @@ public final class WrTy {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (interestOneofCase_ == 1) {
-        output.writeMessage(1, (com.xh.demo.grpc.WrTy.Interest.NoneInterest) interestOneof_);
+      if (itemCase_ == 1) {
+        output.writeMessage(1, (com.xh.demo.grpc.WrTy.Interest.NoneInterest) item_);
       }
-      if (interestOneofCase_ == 2) {
-        output.writeMessage(2, (com.xh.demo.grpc.WrTy.Interest.AllInterest) interestOneof_);
+      if (itemCase_ == 2) {
+        output.writeMessage(2, (com.xh.demo.grpc.WrTy.Interest.AllInterest) item_);
       }
-      if (interestOneofCase_ == 6) {
-        output.writeMessage(6, (com.xh.demo.grpc.WrTy.Interest.InstanceInterest) interestOneof_);
+      if (itemCase_ == 6) {
+        output.writeMessage(6, (com.xh.demo.grpc.WrTy.Interest.InstanceInterest) item_);
       }
       unknownFields.writeTo(output);
     }
@@ -7538,17 +7538,17 @@ public final class WrTy {
       if (size != -1) return size;
 
       size = 0;
-      if (interestOneofCase_ == 1) {
+      if (itemCase_ == 1) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, (com.xh.demo.grpc.WrTy.Interest.NoneInterest) interestOneof_);
+          .computeMessageSize(1, (com.xh.demo.grpc.WrTy.Interest.NoneInterest) item_);
       }
-      if (interestOneofCase_ == 2) {
+      if (itemCase_ == 2) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, (com.xh.demo.grpc.WrTy.Interest.AllInterest) interestOneof_);
+          .computeMessageSize(2, (com.xh.demo.grpc.WrTy.Interest.AllInterest) item_);
       }
-      if (interestOneofCase_ == 6) {
+      if (itemCase_ == 6) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(6, (com.xh.demo.grpc.WrTy.Interest.InstanceInterest) interestOneof_);
+          .computeMessageSize(6, (com.xh.demo.grpc.WrTy.Interest.InstanceInterest) item_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -7565,8 +7565,8 @@ public final class WrTy {
       }
       com.xh.demo.grpc.WrTy.Interest other = (com.xh.demo.grpc.WrTy.Interest) obj;
 
-      if (!getInterestOneofCase().equals(other.getInterestOneofCase())) return false;
-      switch (interestOneofCase_) {
+      if (!getItemCase().equals(other.getItemCase())) return false;
+      switch (itemCase_) {
         case 1:
           if (!getNone()
               .equals(other.getNone())) return false;
@@ -7593,7 +7593,7 @@ public final class WrTy {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      switch (interestOneofCase_) {
+      switch (itemCase_) {
         case 1:
           hash = (37 * hash) + NONE_FIELD_NUMBER;
           hash = (53 * hash) + getNone().hashCode();
@@ -7742,8 +7742,8 @@ public final class WrTy {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        interestOneofCase_ = 0;
-        interestOneof_ = null;
+        itemCase_ = 0;
+        item_ = null;
         return this;
       }
 
@@ -7770,28 +7770,28 @@ public final class WrTy {
       @java.lang.Override
       public com.xh.demo.grpc.WrTy.Interest buildPartial() {
         com.xh.demo.grpc.WrTy.Interest result = new com.xh.demo.grpc.WrTy.Interest(this);
-        if (interestOneofCase_ == 1) {
+        if (itemCase_ == 1) {
           if (noneBuilder_ == null) {
-            result.interestOneof_ = interestOneof_;
+            result.item_ = item_;
           } else {
-            result.interestOneof_ = noneBuilder_.build();
+            result.item_ = noneBuilder_.build();
           }
         }
-        if (interestOneofCase_ == 2) {
+        if (itemCase_ == 2) {
           if (allBuilder_ == null) {
-            result.interestOneof_ = interestOneof_;
+            result.item_ = item_;
           } else {
-            result.interestOneof_ = allBuilder_.build();
+            result.item_ = allBuilder_.build();
           }
         }
-        if (interestOneofCase_ == 6) {
+        if (itemCase_ == 6) {
           if (instanceBuilder_ == null) {
-            result.interestOneof_ = interestOneof_;
+            result.item_ = item_;
           } else {
-            result.interestOneof_ = instanceBuilder_.build();
+            result.item_ = instanceBuilder_.build();
           }
         }
-        result.interestOneofCase_ = interestOneofCase_;
+        result.itemCase_ = itemCase_;
         onBuilt();
         return result;
       }
@@ -7840,7 +7840,7 @@ public final class WrTy {
 
       public Builder mergeFrom(com.xh.demo.grpc.WrTy.Interest other) {
         if (other == com.xh.demo.grpc.WrTy.Interest.getDefaultInstance()) return this;
-        switch (other.getInterestOneofCase()) {
+        switch (other.getItemCase()) {
           case NONE: {
             mergeNone(other.getNone());
             break;
@@ -7853,7 +7853,7 @@ public final class WrTy {
             mergeInstance(other.getInstance());
             break;
           }
-          case INTERESTONEOF_NOT_SET: {
+          case ITEM_NOT_SET: {
             break;
           }
         }
@@ -7885,17 +7885,17 @@ public final class WrTy {
         }
         return this;
       }
-      private int interestOneofCase_ = 0;
-      private java.lang.Object interestOneof_;
-      public InterestOneofCase
-          getInterestOneofCase() {
-        return InterestOneofCase.forNumber(
-            interestOneofCase_);
+      private int itemCase_ = 0;
+      private java.lang.Object item_;
+      public ItemCase
+          getItemCase() {
+        return ItemCase.forNumber(
+            itemCase_);
       }
 
-      public Builder clearInterestOneof() {
-        interestOneofCase_ = 0;
-        interestOneof_ = null;
+      public Builder clearItem() {
+        itemCase_ = 0;
+        item_ = null;
         onChanged();
         return this;
       }
@@ -7907,19 +7907,19 @@ public final class WrTy {
        * <code>.com.xh.demo.grpc.Interest.NoneInterest none = 1;</code>
        */
       public boolean hasNone() {
-        return interestOneofCase_ == 1;
+        return itemCase_ == 1;
       }
       /**
        * <code>.com.xh.demo.grpc.Interest.NoneInterest none = 1;</code>
        */
       public com.xh.demo.grpc.WrTy.Interest.NoneInterest getNone() {
         if (noneBuilder_ == null) {
-          if (interestOneofCase_ == 1) {
-            return (com.xh.demo.grpc.WrTy.Interest.NoneInterest) interestOneof_;
+          if (itemCase_ == 1) {
+            return (com.xh.demo.grpc.WrTy.Interest.NoneInterest) item_;
           }
           return com.xh.demo.grpc.WrTy.Interest.NoneInterest.getDefaultInstance();
         } else {
-          if (interestOneofCase_ == 1) {
+          if (itemCase_ == 1) {
             return noneBuilder_.getMessage();
           }
           return com.xh.demo.grpc.WrTy.Interest.NoneInterest.getDefaultInstance();
@@ -7933,12 +7933,12 @@ public final class WrTy {
           if (value == null) {
             throw new NullPointerException();
           }
-          interestOneof_ = value;
+          item_ = value;
           onChanged();
         } else {
           noneBuilder_.setMessage(value);
         }
-        interestOneofCase_ = 1;
+        itemCase_ = 1;
         return this;
       }
       /**
@@ -7947,12 +7947,12 @@ public final class WrTy {
       public Builder setNone(
           com.xh.demo.grpc.WrTy.Interest.NoneInterest.Builder builderForValue) {
         if (noneBuilder_ == null) {
-          interestOneof_ = builderForValue.build();
+          item_ = builderForValue.build();
           onChanged();
         } else {
           noneBuilder_.setMessage(builderForValue.build());
         }
-        interestOneofCase_ = 1;
+        itemCase_ = 1;
         return this;
       }
       /**
@@ -7960,21 +7960,21 @@ public final class WrTy {
        */
       public Builder mergeNone(com.xh.demo.grpc.WrTy.Interest.NoneInterest value) {
         if (noneBuilder_ == null) {
-          if (interestOneofCase_ == 1 &&
-              interestOneof_ != com.xh.demo.grpc.WrTy.Interest.NoneInterest.getDefaultInstance()) {
-            interestOneof_ = com.xh.demo.grpc.WrTy.Interest.NoneInterest.newBuilder((com.xh.demo.grpc.WrTy.Interest.NoneInterest) interestOneof_)
+          if (itemCase_ == 1 &&
+              item_ != com.xh.demo.grpc.WrTy.Interest.NoneInterest.getDefaultInstance()) {
+            item_ = com.xh.demo.grpc.WrTy.Interest.NoneInterest.newBuilder((com.xh.demo.grpc.WrTy.Interest.NoneInterest) item_)
                 .mergeFrom(value).buildPartial();
           } else {
-            interestOneof_ = value;
+            item_ = value;
           }
           onChanged();
         } else {
-          if (interestOneofCase_ == 1) {
+          if (itemCase_ == 1) {
             noneBuilder_.mergeFrom(value);
           }
           noneBuilder_.setMessage(value);
         }
-        interestOneofCase_ = 1;
+        itemCase_ = 1;
         return this;
       }
       /**
@@ -7982,15 +7982,15 @@ public final class WrTy {
        */
       public Builder clearNone() {
         if (noneBuilder_ == null) {
-          if (interestOneofCase_ == 1) {
-            interestOneofCase_ = 0;
-            interestOneof_ = null;
+          if (itemCase_ == 1) {
+            itemCase_ = 0;
+            item_ = null;
             onChanged();
           }
         } else {
-          if (interestOneofCase_ == 1) {
-            interestOneofCase_ = 0;
-            interestOneof_ = null;
+          if (itemCase_ == 1) {
+            itemCase_ = 0;
+            item_ = null;
           }
           noneBuilder_.clear();
         }
@@ -8006,11 +8006,11 @@ public final class WrTy {
        * <code>.com.xh.demo.grpc.Interest.NoneInterest none = 1;</code>
        */
       public com.xh.demo.grpc.WrTy.Interest.NoneInterestOrBuilder getNoneOrBuilder() {
-        if ((interestOneofCase_ == 1) && (noneBuilder_ != null)) {
+        if ((itemCase_ == 1) && (noneBuilder_ != null)) {
           return noneBuilder_.getMessageOrBuilder();
         } else {
-          if (interestOneofCase_ == 1) {
-            return (com.xh.demo.grpc.WrTy.Interest.NoneInterest) interestOneof_;
+          if (itemCase_ == 1) {
+            return (com.xh.demo.grpc.WrTy.Interest.NoneInterest) item_;
           }
           return com.xh.demo.grpc.WrTy.Interest.NoneInterest.getDefaultInstance();
         }
@@ -8022,17 +8022,17 @@ public final class WrTy {
           com.xh.demo.grpc.WrTy.Interest.NoneInterest, com.xh.demo.grpc.WrTy.Interest.NoneInterest.Builder, com.xh.demo.grpc.WrTy.Interest.NoneInterestOrBuilder> 
           getNoneFieldBuilder() {
         if (noneBuilder_ == null) {
-          if (!(interestOneofCase_ == 1)) {
-            interestOneof_ = com.xh.demo.grpc.WrTy.Interest.NoneInterest.getDefaultInstance();
+          if (!(itemCase_ == 1)) {
+            item_ = com.xh.demo.grpc.WrTy.Interest.NoneInterest.getDefaultInstance();
           }
           noneBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               com.xh.demo.grpc.WrTy.Interest.NoneInterest, com.xh.demo.grpc.WrTy.Interest.NoneInterest.Builder, com.xh.demo.grpc.WrTy.Interest.NoneInterestOrBuilder>(
-                  (com.xh.demo.grpc.WrTy.Interest.NoneInterest) interestOneof_,
+                  (com.xh.demo.grpc.WrTy.Interest.NoneInterest) item_,
                   getParentForChildren(),
                   isClean());
-          interestOneof_ = null;
+          item_ = null;
         }
-        interestOneofCase_ = 1;
+        itemCase_ = 1;
         onChanged();;
         return noneBuilder_;
       }
@@ -8043,19 +8043,19 @@ public final class WrTy {
        * <code>.com.xh.demo.grpc.Interest.AllInterest all = 2;</code>
        */
       public boolean hasAll() {
-        return interestOneofCase_ == 2;
+        return itemCase_ == 2;
       }
       /**
        * <code>.com.xh.demo.grpc.Interest.AllInterest all = 2;</code>
        */
       public com.xh.demo.grpc.WrTy.Interest.AllInterest getAll() {
         if (allBuilder_ == null) {
-          if (interestOneofCase_ == 2) {
-            return (com.xh.demo.grpc.WrTy.Interest.AllInterest) interestOneof_;
+          if (itemCase_ == 2) {
+            return (com.xh.demo.grpc.WrTy.Interest.AllInterest) item_;
           }
           return com.xh.demo.grpc.WrTy.Interest.AllInterest.getDefaultInstance();
         } else {
-          if (interestOneofCase_ == 2) {
+          if (itemCase_ == 2) {
             return allBuilder_.getMessage();
           }
           return com.xh.demo.grpc.WrTy.Interest.AllInterest.getDefaultInstance();
@@ -8069,12 +8069,12 @@ public final class WrTy {
           if (value == null) {
             throw new NullPointerException();
           }
-          interestOneof_ = value;
+          item_ = value;
           onChanged();
         } else {
           allBuilder_.setMessage(value);
         }
-        interestOneofCase_ = 2;
+        itemCase_ = 2;
         return this;
       }
       /**
@@ -8083,12 +8083,12 @@ public final class WrTy {
       public Builder setAll(
           com.xh.demo.grpc.WrTy.Interest.AllInterest.Builder builderForValue) {
         if (allBuilder_ == null) {
-          interestOneof_ = builderForValue.build();
+          item_ = builderForValue.build();
           onChanged();
         } else {
           allBuilder_.setMessage(builderForValue.build());
         }
-        interestOneofCase_ = 2;
+        itemCase_ = 2;
         return this;
       }
       /**
@@ -8096,21 +8096,21 @@ public final class WrTy {
        */
       public Builder mergeAll(com.xh.demo.grpc.WrTy.Interest.AllInterest value) {
         if (allBuilder_ == null) {
-          if (interestOneofCase_ == 2 &&
-              interestOneof_ != com.xh.demo.grpc.WrTy.Interest.AllInterest.getDefaultInstance()) {
-            interestOneof_ = com.xh.demo.grpc.WrTy.Interest.AllInterest.newBuilder((com.xh.demo.grpc.WrTy.Interest.AllInterest) interestOneof_)
+          if (itemCase_ == 2 &&
+              item_ != com.xh.demo.grpc.WrTy.Interest.AllInterest.getDefaultInstance()) {
+            item_ = com.xh.demo.grpc.WrTy.Interest.AllInterest.newBuilder((com.xh.demo.grpc.WrTy.Interest.AllInterest) item_)
                 .mergeFrom(value).buildPartial();
           } else {
-            interestOneof_ = value;
+            item_ = value;
           }
           onChanged();
         } else {
-          if (interestOneofCase_ == 2) {
+          if (itemCase_ == 2) {
             allBuilder_.mergeFrom(value);
           }
           allBuilder_.setMessage(value);
         }
-        interestOneofCase_ = 2;
+        itemCase_ = 2;
         return this;
       }
       /**
@@ -8118,15 +8118,15 @@ public final class WrTy {
        */
       public Builder clearAll() {
         if (allBuilder_ == null) {
-          if (interestOneofCase_ == 2) {
-            interestOneofCase_ = 0;
-            interestOneof_ = null;
+          if (itemCase_ == 2) {
+            itemCase_ = 0;
+            item_ = null;
             onChanged();
           }
         } else {
-          if (interestOneofCase_ == 2) {
-            interestOneofCase_ = 0;
-            interestOneof_ = null;
+          if (itemCase_ == 2) {
+            itemCase_ = 0;
+            item_ = null;
           }
           allBuilder_.clear();
         }
@@ -8142,11 +8142,11 @@ public final class WrTy {
        * <code>.com.xh.demo.grpc.Interest.AllInterest all = 2;</code>
        */
       public com.xh.demo.grpc.WrTy.Interest.AllInterestOrBuilder getAllOrBuilder() {
-        if ((interestOneofCase_ == 2) && (allBuilder_ != null)) {
+        if ((itemCase_ == 2) && (allBuilder_ != null)) {
           return allBuilder_.getMessageOrBuilder();
         } else {
-          if (interestOneofCase_ == 2) {
-            return (com.xh.demo.grpc.WrTy.Interest.AllInterest) interestOneof_;
+          if (itemCase_ == 2) {
+            return (com.xh.demo.grpc.WrTy.Interest.AllInterest) item_;
           }
           return com.xh.demo.grpc.WrTy.Interest.AllInterest.getDefaultInstance();
         }
@@ -8158,17 +8158,17 @@ public final class WrTy {
           com.xh.demo.grpc.WrTy.Interest.AllInterest, com.xh.demo.grpc.WrTy.Interest.AllInterest.Builder, com.xh.demo.grpc.WrTy.Interest.AllInterestOrBuilder> 
           getAllFieldBuilder() {
         if (allBuilder_ == null) {
-          if (!(interestOneofCase_ == 2)) {
-            interestOneof_ = com.xh.demo.grpc.WrTy.Interest.AllInterest.getDefaultInstance();
+          if (!(itemCase_ == 2)) {
+            item_ = com.xh.demo.grpc.WrTy.Interest.AllInterest.getDefaultInstance();
           }
           allBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               com.xh.demo.grpc.WrTy.Interest.AllInterest, com.xh.demo.grpc.WrTy.Interest.AllInterest.Builder, com.xh.demo.grpc.WrTy.Interest.AllInterestOrBuilder>(
-                  (com.xh.demo.grpc.WrTy.Interest.AllInterest) interestOneof_,
+                  (com.xh.demo.grpc.WrTy.Interest.AllInterest) item_,
                   getParentForChildren(),
                   isClean());
-          interestOneof_ = null;
+          item_ = null;
         }
-        interestOneofCase_ = 2;
+        itemCase_ = 2;
         onChanged();;
         return allBuilder_;
       }
@@ -8179,19 +8179,19 @@ public final class WrTy {
        * <code>.com.xh.demo.grpc.Interest.InstanceInterest instance = 6;</code>
        */
       public boolean hasInstance() {
-        return interestOneofCase_ == 6;
+        return itemCase_ == 6;
       }
       /**
        * <code>.com.xh.demo.grpc.Interest.InstanceInterest instance = 6;</code>
        */
       public com.xh.demo.grpc.WrTy.Interest.InstanceInterest getInstance() {
         if (instanceBuilder_ == null) {
-          if (interestOneofCase_ == 6) {
-            return (com.xh.demo.grpc.WrTy.Interest.InstanceInterest) interestOneof_;
+          if (itemCase_ == 6) {
+            return (com.xh.demo.grpc.WrTy.Interest.InstanceInterest) item_;
           }
           return com.xh.demo.grpc.WrTy.Interest.InstanceInterest.getDefaultInstance();
         } else {
-          if (interestOneofCase_ == 6) {
+          if (itemCase_ == 6) {
             return instanceBuilder_.getMessage();
           }
           return com.xh.demo.grpc.WrTy.Interest.InstanceInterest.getDefaultInstance();
@@ -8205,12 +8205,12 @@ public final class WrTy {
           if (value == null) {
             throw new NullPointerException();
           }
-          interestOneof_ = value;
+          item_ = value;
           onChanged();
         } else {
           instanceBuilder_.setMessage(value);
         }
-        interestOneofCase_ = 6;
+        itemCase_ = 6;
         return this;
       }
       /**
@@ -8219,12 +8219,12 @@ public final class WrTy {
       public Builder setInstance(
           com.xh.demo.grpc.WrTy.Interest.InstanceInterest.Builder builderForValue) {
         if (instanceBuilder_ == null) {
-          interestOneof_ = builderForValue.build();
+          item_ = builderForValue.build();
           onChanged();
         } else {
           instanceBuilder_.setMessage(builderForValue.build());
         }
-        interestOneofCase_ = 6;
+        itemCase_ = 6;
         return this;
       }
       /**
@@ -8232,21 +8232,21 @@ public final class WrTy {
        */
       public Builder mergeInstance(com.xh.demo.grpc.WrTy.Interest.InstanceInterest value) {
         if (instanceBuilder_ == null) {
-          if (interestOneofCase_ == 6 &&
-              interestOneof_ != com.xh.demo.grpc.WrTy.Interest.InstanceInterest.getDefaultInstance()) {
-            interestOneof_ = com.xh.demo.grpc.WrTy.Interest.InstanceInterest.newBuilder((com.xh.demo.grpc.WrTy.Interest.InstanceInterest) interestOneof_)
+          if (itemCase_ == 6 &&
+              item_ != com.xh.demo.grpc.WrTy.Interest.InstanceInterest.getDefaultInstance()) {
+            item_ = com.xh.demo.grpc.WrTy.Interest.InstanceInterest.newBuilder((com.xh.demo.grpc.WrTy.Interest.InstanceInterest) item_)
                 .mergeFrom(value).buildPartial();
           } else {
-            interestOneof_ = value;
+            item_ = value;
           }
           onChanged();
         } else {
-          if (interestOneofCase_ == 6) {
+          if (itemCase_ == 6) {
             instanceBuilder_.mergeFrom(value);
           }
           instanceBuilder_.setMessage(value);
         }
-        interestOneofCase_ = 6;
+        itemCase_ = 6;
         return this;
       }
       /**
@@ -8254,15 +8254,15 @@ public final class WrTy {
        */
       public Builder clearInstance() {
         if (instanceBuilder_ == null) {
-          if (interestOneofCase_ == 6) {
-            interestOneofCase_ = 0;
-            interestOneof_ = null;
+          if (itemCase_ == 6) {
+            itemCase_ = 0;
+            item_ = null;
             onChanged();
           }
         } else {
-          if (interestOneofCase_ == 6) {
-            interestOneofCase_ = 0;
-            interestOneof_ = null;
+          if (itemCase_ == 6) {
+            itemCase_ = 0;
+            item_ = null;
           }
           instanceBuilder_.clear();
         }
@@ -8278,11 +8278,11 @@ public final class WrTy {
        * <code>.com.xh.demo.grpc.Interest.InstanceInterest instance = 6;</code>
        */
       public com.xh.demo.grpc.WrTy.Interest.InstanceInterestOrBuilder getInstanceOrBuilder() {
-        if ((interestOneofCase_ == 6) && (instanceBuilder_ != null)) {
+        if ((itemCase_ == 6) && (instanceBuilder_ != null)) {
           return instanceBuilder_.getMessageOrBuilder();
         } else {
-          if (interestOneofCase_ == 6) {
-            return (com.xh.demo.grpc.WrTy.Interest.InstanceInterest) interestOneof_;
+          if (itemCase_ == 6) {
+            return (com.xh.demo.grpc.WrTy.Interest.InstanceInterest) item_;
           }
           return com.xh.demo.grpc.WrTy.Interest.InstanceInterest.getDefaultInstance();
         }
@@ -8294,17 +8294,17 @@ public final class WrTy {
           com.xh.demo.grpc.WrTy.Interest.InstanceInterest, com.xh.demo.grpc.WrTy.Interest.InstanceInterest.Builder, com.xh.demo.grpc.WrTy.Interest.InstanceInterestOrBuilder> 
           getInstanceFieldBuilder() {
         if (instanceBuilder_ == null) {
-          if (!(interestOneofCase_ == 6)) {
-            interestOneof_ = com.xh.demo.grpc.WrTy.Interest.InstanceInterest.getDefaultInstance();
+          if (!(itemCase_ == 6)) {
+            item_ = com.xh.demo.grpc.WrTy.Interest.InstanceInterest.getDefaultInstance();
           }
           instanceBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               com.xh.demo.grpc.WrTy.Interest.InstanceInterest, com.xh.demo.grpc.WrTy.Interest.InstanceInterest.Builder, com.xh.demo.grpc.WrTy.Interest.InstanceInterestOrBuilder>(
-                  (com.xh.demo.grpc.WrTy.Interest.InstanceInterest) interestOneof_,
+                  (com.xh.demo.grpc.WrTy.Interest.InstanceInterest) item_,
                   getParentForChildren(),
                   isClean());
-          interestOneof_ = null;
+          item_ = null;
         }
-        interestOneofCase_ = 6;
+        itemCase_ = 6;
         onChanged();;
         return instanceBuilder_;
       }
@@ -14045,19 +14045,6 @@ public final class WrTy {
     com.xh.demo.grpc.WrTy.AcknowledgementOrBuilder getAcknowledgementOrBuilder();
 
     /**
-     * <code>.com.xh.demo.grpc.HeartbeatReply heartbeatReply = 3;</code>
-     */
-    boolean hasHeartbeatReply();
-    /**
-     * <code>.com.xh.demo.grpc.HeartbeatReply heartbeatReply = 3;</code>
-     */
-    com.xh.demo.grpc.WrTy.HeartbeatReply getHeartbeatReply();
-    /**
-     * <code>.com.xh.demo.grpc.HeartbeatReply heartbeatReply = 3;</code>
-     */
-    com.xh.demo.grpc.WrTy.HeartbeatReplyOrBuilder getHeartbeatReplyOrBuilder();
-
-    /**
      * <code>.com.xh.demo.grpc.Heartbeat heartbeat = 4;</code>
      */
     boolean hasHeartbeat();
@@ -14084,19 +14071,6 @@ public final class WrTy {
     com.xh.demo.grpc.WrTy.ClientHelloOrBuilder getClientHelloOrBuilder();
 
     /**
-     * <code>.com.xh.demo.grpc.ReplicationClientHello replicationClientHello = 6;</code>
-     */
-    boolean hasReplicationClientHello();
-    /**
-     * <code>.com.xh.demo.grpc.ReplicationClientHello replicationClientHello = 6;</code>
-     */
-    com.xh.demo.grpc.WrTy.ReplicationClientHello getReplicationClientHello();
-    /**
-     * <code>.com.xh.demo.grpc.ReplicationClientHello replicationClientHello = 6;</code>
-     */
-    com.xh.demo.grpc.WrTy.ReplicationClientHelloOrBuilder getReplicationClientHelloOrBuilder();
-
-    /**
      * <code>.com.xh.demo.grpc.ServerHello serverHello = 7;</code>
      */
     boolean hasServerHello();
@@ -14108,19 +14082,6 @@ public final class WrTy {
      * <code>.com.xh.demo.grpc.ServerHello serverHello = 7;</code>
      */
     com.xh.demo.grpc.WrTy.ServerHelloOrBuilder getServerHelloOrBuilder();
-
-    /**
-     * <code>.com.xh.demo.grpc.ReplicationServerHello replicationServerHello = 8;</code>
-     */
-    boolean hasReplicationServerHello();
-    /**
-     * <code>.com.xh.demo.grpc.ReplicationServerHello replicationServerHello = 8;</code>
-     */
-    com.xh.demo.grpc.WrTy.ReplicationServerHello getReplicationServerHello();
-    /**
-     * <code>.com.xh.demo.grpc.ReplicationServerHello replicationServerHello = 8;</code>
-     */
-    com.xh.demo.grpc.WrTy.ReplicationServerHelloOrBuilder getReplicationServerHelloOrBuilder();
 
     /**
      * <code>.com.xh.demo.grpc.InstanceInfo instanceInfo = 9;</code>
@@ -14149,45 +14110,19 @@ public final class WrTy {
     com.xh.demo.grpc.WrTy.InterestRegistrationOrBuilder getInterestRegistrationOrBuilder();
 
     /**
-     * <code>.com.xh.demo.grpc.AddInstance addInstance = 11;</code>
+     * <code>.com.xh.demo.grpc.ChangeNotification changeNotification = 11;</code>
      */
-    boolean hasAddInstance();
+    boolean hasChangeNotification();
     /**
-     * <code>.com.xh.demo.grpc.AddInstance addInstance = 11;</code>
+     * <code>.com.xh.demo.grpc.ChangeNotification changeNotification = 11;</code>
      */
-    com.xh.demo.grpc.WrTy.AddInstance getAddInstance();
+    com.xh.demo.grpc.WrTy.ChangeNotification getChangeNotification();
     /**
-     * <code>.com.xh.demo.grpc.AddInstance addInstance = 11;</code>
+     * <code>.com.xh.demo.grpc.ChangeNotification changeNotification = 11;</code>
      */
-    com.xh.demo.grpc.WrTy.AddInstanceOrBuilder getAddInstanceOrBuilder();
+    com.xh.demo.grpc.WrTy.ChangeNotificationOrBuilder getChangeNotificationOrBuilder();
 
-    /**
-     * <code>.com.xh.demo.grpc.DeleteInstance deleteInstance = 12;</code>
-     */
-    boolean hasDeleteInstance();
-    /**
-     * <code>.com.xh.demo.grpc.DeleteInstance deleteInstance = 12;</code>
-     */
-    com.xh.demo.grpc.WrTy.DeleteInstance getDeleteInstance();
-    /**
-     * <code>.com.xh.demo.grpc.DeleteInstance deleteInstance = 12;</code>
-     */
-    com.xh.demo.grpc.WrTy.DeleteInstanceOrBuilder getDeleteInstanceOrBuilder();
-
-    /**
-     * <code>.com.xh.demo.grpc.UpdateInstanceInfo updateInstanceInfo = 13;</code>
-     */
-    boolean hasUpdateInstanceInfo();
-    /**
-     * <code>.com.xh.demo.grpc.UpdateInstanceInfo updateInstanceInfo = 13;</code>
-     */
-    com.xh.demo.grpc.WrTy.UpdateInstanceInfo getUpdateInstanceInfo();
-    /**
-     * <code>.com.xh.demo.grpc.UpdateInstanceInfo updateInstanceInfo = 13;</code>
-     */
-    com.xh.demo.grpc.WrTy.UpdateInstanceInfoOrBuilder getUpdateInstanceInfoOrBuilder();
-
-    public com.xh.demo.grpc.WrTy.ProtocolMessageEnvelope.MessageOneOfCase getMessageOneOfCase();
+    public com.xh.demo.grpc.WrTy.ProtocolMessageEnvelope.ItemCase getItemCase();
   }
   /**
    * Protobuf type {@code com.xh.demo.grpc.ProtocolMessageEnvelope}
@@ -14237,170 +14172,100 @@ public final class WrTy {
             }
             case 18: {
               com.xh.demo.grpc.WrTy.Acknowledgement.Builder subBuilder = null;
-              if (messageOneOfCase_ == 2) {
-                subBuilder = ((com.xh.demo.grpc.WrTy.Acknowledgement) messageOneOf_).toBuilder();
+              if (itemCase_ == 2) {
+                subBuilder = ((com.xh.demo.grpc.WrTy.Acknowledgement) item_).toBuilder();
               }
-              messageOneOf_ =
+              item_ =
                   input.readMessage(com.xh.demo.grpc.WrTy.Acknowledgement.parser(), extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom((com.xh.demo.grpc.WrTy.Acknowledgement) messageOneOf_);
-                messageOneOf_ = subBuilder.buildPartial();
+                subBuilder.mergeFrom((com.xh.demo.grpc.WrTy.Acknowledgement) item_);
+                item_ = subBuilder.buildPartial();
               }
-              messageOneOfCase_ = 2;
-              break;
-            }
-            case 26: {
-              com.xh.demo.grpc.WrTy.HeartbeatReply.Builder subBuilder = null;
-              if (messageOneOfCase_ == 3) {
-                subBuilder = ((com.xh.demo.grpc.WrTy.HeartbeatReply) messageOneOf_).toBuilder();
-              }
-              messageOneOf_ =
-                  input.readMessage(com.xh.demo.grpc.WrTy.HeartbeatReply.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((com.xh.demo.grpc.WrTy.HeartbeatReply) messageOneOf_);
-                messageOneOf_ = subBuilder.buildPartial();
-              }
-              messageOneOfCase_ = 3;
+              itemCase_ = 2;
               break;
             }
             case 34: {
               com.xh.demo.grpc.WrTy.Heartbeat.Builder subBuilder = null;
-              if (messageOneOfCase_ == 4) {
-                subBuilder = ((com.xh.demo.grpc.WrTy.Heartbeat) messageOneOf_).toBuilder();
+              if (itemCase_ == 4) {
+                subBuilder = ((com.xh.demo.grpc.WrTy.Heartbeat) item_).toBuilder();
               }
-              messageOneOf_ =
+              item_ =
                   input.readMessage(com.xh.demo.grpc.WrTy.Heartbeat.parser(), extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom((com.xh.demo.grpc.WrTy.Heartbeat) messageOneOf_);
-                messageOneOf_ = subBuilder.buildPartial();
+                subBuilder.mergeFrom((com.xh.demo.grpc.WrTy.Heartbeat) item_);
+                item_ = subBuilder.buildPartial();
               }
-              messageOneOfCase_ = 4;
+              itemCase_ = 4;
               break;
             }
             case 42: {
               com.xh.demo.grpc.WrTy.ClientHello.Builder subBuilder = null;
-              if (messageOneOfCase_ == 5) {
-                subBuilder = ((com.xh.demo.grpc.WrTy.ClientHello) messageOneOf_).toBuilder();
+              if (itemCase_ == 5) {
+                subBuilder = ((com.xh.demo.grpc.WrTy.ClientHello) item_).toBuilder();
               }
-              messageOneOf_ =
+              item_ =
                   input.readMessage(com.xh.demo.grpc.WrTy.ClientHello.parser(), extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom((com.xh.demo.grpc.WrTy.ClientHello) messageOneOf_);
-                messageOneOf_ = subBuilder.buildPartial();
+                subBuilder.mergeFrom((com.xh.demo.grpc.WrTy.ClientHello) item_);
+                item_ = subBuilder.buildPartial();
               }
-              messageOneOfCase_ = 5;
-              break;
-            }
-            case 50: {
-              com.xh.demo.grpc.WrTy.ReplicationClientHello.Builder subBuilder = null;
-              if (messageOneOfCase_ == 6) {
-                subBuilder = ((com.xh.demo.grpc.WrTy.ReplicationClientHello) messageOneOf_).toBuilder();
-              }
-              messageOneOf_ =
-                  input.readMessage(com.xh.demo.grpc.WrTy.ReplicationClientHello.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((com.xh.demo.grpc.WrTy.ReplicationClientHello) messageOneOf_);
-                messageOneOf_ = subBuilder.buildPartial();
-              }
-              messageOneOfCase_ = 6;
+              itemCase_ = 5;
               break;
             }
             case 58: {
               com.xh.demo.grpc.WrTy.ServerHello.Builder subBuilder = null;
-              if (messageOneOfCase_ == 7) {
-                subBuilder = ((com.xh.demo.grpc.WrTy.ServerHello) messageOneOf_).toBuilder();
+              if (itemCase_ == 7) {
+                subBuilder = ((com.xh.demo.grpc.WrTy.ServerHello) item_).toBuilder();
               }
-              messageOneOf_ =
+              item_ =
                   input.readMessage(com.xh.demo.grpc.WrTy.ServerHello.parser(), extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom((com.xh.demo.grpc.WrTy.ServerHello) messageOneOf_);
-                messageOneOf_ = subBuilder.buildPartial();
+                subBuilder.mergeFrom((com.xh.demo.grpc.WrTy.ServerHello) item_);
+                item_ = subBuilder.buildPartial();
               }
-              messageOneOfCase_ = 7;
-              break;
-            }
-            case 66: {
-              com.xh.demo.grpc.WrTy.ReplicationServerHello.Builder subBuilder = null;
-              if (messageOneOfCase_ == 8) {
-                subBuilder = ((com.xh.demo.grpc.WrTy.ReplicationServerHello) messageOneOf_).toBuilder();
-              }
-              messageOneOf_ =
-                  input.readMessage(com.xh.demo.grpc.WrTy.ReplicationServerHello.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((com.xh.demo.grpc.WrTy.ReplicationServerHello) messageOneOf_);
-                messageOneOf_ = subBuilder.buildPartial();
-              }
-              messageOneOfCase_ = 8;
+              itemCase_ = 7;
               break;
             }
             case 74: {
               com.xh.demo.grpc.WrTy.InstanceInfo.Builder subBuilder = null;
-              if (messageOneOfCase_ == 9) {
-                subBuilder = ((com.xh.demo.grpc.WrTy.InstanceInfo) messageOneOf_).toBuilder();
+              if (itemCase_ == 9) {
+                subBuilder = ((com.xh.demo.grpc.WrTy.InstanceInfo) item_).toBuilder();
               }
-              messageOneOf_ =
+              item_ =
                   input.readMessage(com.xh.demo.grpc.WrTy.InstanceInfo.parser(), extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom((com.xh.demo.grpc.WrTy.InstanceInfo) messageOneOf_);
-                messageOneOf_ = subBuilder.buildPartial();
+                subBuilder.mergeFrom((com.xh.demo.grpc.WrTy.InstanceInfo) item_);
+                item_ = subBuilder.buildPartial();
               }
-              messageOneOfCase_ = 9;
+              itemCase_ = 9;
               break;
             }
             case 82: {
               com.xh.demo.grpc.WrTy.InterestRegistration.Builder subBuilder = null;
-              if (messageOneOfCase_ == 10) {
-                subBuilder = ((com.xh.demo.grpc.WrTy.InterestRegistration) messageOneOf_).toBuilder();
+              if (itemCase_ == 10) {
+                subBuilder = ((com.xh.demo.grpc.WrTy.InterestRegistration) item_).toBuilder();
               }
-              messageOneOf_ =
+              item_ =
                   input.readMessage(com.xh.demo.grpc.WrTy.InterestRegistration.parser(), extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom((com.xh.demo.grpc.WrTy.InterestRegistration) messageOneOf_);
-                messageOneOf_ = subBuilder.buildPartial();
+                subBuilder.mergeFrom((com.xh.demo.grpc.WrTy.InterestRegistration) item_);
+                item_ = subBuilder.buildPartial();
               }
-              messageOneOfCase_ = 10;
+              itemCase_ = 10;
               break;
             }
             case 90: {
-              com.xh.demo.grpc.WrTy.AddInstance.Builder subBuilder = null;
-              if (messageOneOfCase_ == 11) {
-                subBuilder = ((com.xh.demo.grpc.WrTy.AddInstance) messageOneOf_).toBuilder();
+              com.xh.demo.grpc.WrTy.ChangeNotification.Builder subBuilder = null;
+              if (itemCase_ == 11) {
+                subBuilder = ((com.xh.demo.grpc.WrTy.ChangeNotification) item_).toBuilder();
               }
-              messageOneOf_ =
-                  input.readMessage(com.xh.demo.grpc.WrTy.AddInstance.parser(), extensionRegistry);
+              item_ =
+                  input.readMessage(com.xh.demo.grpc.WrTy.ChangeNotification.parser(), extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom((com.xh.demo.grpc.WrTy.AddInstance) messageOneOf_);
-                messageOneOf_ = subBuilder.buildPartial();
+                subBuilder.mergeFrom((com.xh.demo.grpc.WrTy.ChangeNotification) item_);
+                item_ = subBuilder.buildPartial();
               }
-              messageOneOfCase_ = 11;
-              break;
-            }
-            case 98: {
-              com.xh.demo.grpc.WrTy.DeleteInstance.Builder subBuilder = null;
-              if (messageOneOfCase_ == 12) {
-                subBuilder = ((com.xh.demo.grpc.WrTy.DeleteInstance) messageOneOf_).toBuilder();
-              }
-              messageOneOf_ =
-                  input.readMessage(com.xh.demo.grpc.WrTy.DeleteInstance.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((com.xh.demo.grpc.WrTy.DeleteInstance) messageOneOf_);
-                messageOneOf_ = subBuilder.buildPartial();
-              }
-              messageOneOfCase_ = 12;
-              break;
-            }
-            case 106: {
-              com.xh.demo.grpc.WrTy.UpdateInstanceInfo.Builder subBuilder = null;
-              if (messageOneOfCase_ == 13) {
-                subBuilder = ((com.xh.demo.grpc.WrTy.UpdateInstanceInfo) messageOneOf_).toBuilder();
-              }
-              messageOneOf_ =
-                  input.readMessage(com.xh.demo.grpc.WrTy.UpdateInstanceInfo.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((com.xh.demo.grpc.WrTy.UpdateInstanceInfo) messageOneOf_);
-                messageOneOf_ = subBuilder.buildPartial();
-              }
-              messageOneOfCase_ = 13;
+              itemCase_ = 11;
               break;
             }
             default: {
@@ -14542,50 +14407,40 @@ public final class WrTy {
       // @@protoc_insertion_point(enum_scope:com.xh.demo.grpc.ProtocolMessageEnvelope.ProtocolType)
     }
 
-    private int messageOneOfCase_ = 0;
-    private java.lang.Object messageOneOf_;
-    public enum MessageOneOfCase
+    private int itemCase_ = 0;
+    private java.lang.Object item_;
+    public enum ItemCase
         implements com.google.protobuf.Internal.EnumLite {
       ACKNOWLEDGEMENT(2),
-      HEARTBEATREPLY(3),
       HEARTBEAT(4),
       CLIENTHELLO(5),
-      REPLICATIONCLIENTHELLO(6),
       SERVERHELLO(7),
-      REPLICATIONSERVERHELLO(8),
       INSTANCEINFO(9),
       INTERESTREGISTRATION(10),
-      ADDINSTANCE(11),
-      DELETEINSTANCE(12),
-      UPDATEINSTANCEINFO(13),
-      MESSAGEONEOF_NOT_SET(0);
+      CHANGENOTIFICATION(11),
+      ITEM_NOT_SET(0);
       private final int value;
-      private MessageOneOfCase(int value) {
+      private ItemCase(int value) {
         this.value = value;
       }
       /**
        * @deprecated Use {@link #forNumber(int)} instead.
        */
       @java.lang.Deprecated
-      public static MessageOneOfCase valueOf(int value) {
+      public static ItemCase valueOf(int value) {
         return forNumber(value);
       }
 
-      public static MessageOneOfCase forNumber(int value) {
+      public static ItemCase forNumber(int value) {
         switch (value) {
           case 2: return ACKNOWLEDGEMENT;
-          case 3: return HEARTBEATREPLY;
           case 4: return HEARTBEAT;
           case 5: return CLIENTHELLO;
-          case 6: return REPLICATIONCLIENTHELLO;
           case 7: return SERVERHELLO;
-          case 8: return REPLICATIONSERVERHELLO;
           case 9: return INSTANCEINFO;
           case 10: return INTERESTREGISTRATION;
-          case 11: return ADDINSTANCE;
-          case 12: return DELETEINSTANCE;
-          case 13: return UPDATEINSTANCEINFO;
-          case 0: return MESSAGEONEOF_NOT_SET;
+          case 11: return CHANGENOTIFICATION;
+          case 0: return ITEM_NOT_SET;
           default: return null;
         }
       }
@@ -14594,10 +14449,10 @@ public final class WrTy {
       }
     };
 
-    public MessageOneOfCase
-    getMessageOneOfCase() {
-      return MessageOneOfCase.forNumber(
-          messageOneOfCase_);
+    public ItemCase
+    getItemCase() {
+      return ItemCase.forNumber(
+          itemCase_);
     }
 
     public static final int PROTOCOLTYPE_FIELD_NUMBER = 1;
@@ -14622,14 +14477,14 @@ public final class WrTy {
      * <code>.com.xh.demo.grpc.Acknowledgement acknowledgement = 2;</code>
      */
     public boolean hasAcknowledgement() {
-      return messageOneOfCase_ == 2;
+      return itemCase_ == 2;
     }
     /**
      * <code>.com.xh.demo.grpc.Acknowledgement acknowledgement = 2;</code>
      */
     public com.xh.demo.grpc.WrTy.Acknowledgement getAcknowledgement() {
-      if (messageOneOfCase_ == 2) {
-         return (com.xh.demo.grpc.WrTy.Acknowledgement) messageOneOf_;
+      if (itemCase_ == 2) {
+         return (com.xh.demo.grpc.WrTy.Acknowledgement) item_;
       }
       return com.xh.demo.grpc.WrTy.Acknowledgement.getDefaultInstance();
     }
@@ -14637,36 +14492,10 @@ public final class WrTy {
      * <code>.com.xh.demo.grpc.Acknowledgement acknowledgement = 2;</code>
      */
     public com.xh.demo.grpc.WrTy.AcknowledgementOrBuilder getAcknowledgementOrBuilder() {
-      if (messageOneOfCase_ == 2) {
-         return (com.xh.demo.grpc.WrTy.Acknowledgement) messageOneOf_;
+      if (itemCase_ == 2) {
+         return (com.xh.demo.grpc.WrTy.Acknowledgement) item_;
       }
       return com.xh.demo.grpc.WrTy.Acknowledgement.getDefaultInstance();
-    }
-
-    public static final int HEARTBEATREPLY_FIELD_NUMBER = 3;
-    /**
-     * <code>.com.xh.demo.grpc.HeartbeatReply heartbeatReply = 3;</code>
-     */
-    public boolean hasHeartbeatReply() {
-      return messageOneOfCase_ == 3;
-    }
-    /**
-     * <code>.com.xh.demo.grpc.HeartbeatReply heartbeatReply = 3;</code>
-     */
-    public com.xh.demo.grpc.WrTy.HeartbeatReply getHeartbeatReply() {
-      if (messageOneOfCase_ == 3) {
-         return (com.xh.demo.grpc.WrTy.HeartbeatReply) messageOneOf_;
-      }
-      return com.xh.demo.grpc.WrTy.HeartbeatReply.getDefaultInstance();
-    }
-    /**
-     * <code>.com.xh.demo.grpc.HeartbeatReply heartbeatReply = 3;</code>
-     */
-    public com.xh.demo.grpc.WrTy.HeartbeatReplyOrBuilder getHeartbeatReplyOrBuilder() {
-      if (messageOneOfCase_ == 3) {
-         return (com.xh.demo.grpc.WrTy.HeartbeatReply) messageOneOf_;
-      }
-      return com.xh.demo.grpc.WrTy.HeartbeatReply.getDefaultInstance();
     }
 
     public static final int HEARTBEAT_FIELD_NUMBER = 4;
@@ -14674,14 +14503,14 @@ public final class WrTy {
      * <code>.com.xh.demo.grpc.Heartbeat heartbeat = 4;</code>
      */
     public boolean hasHeartbeat() {
-      return messageOneOfCase_ == 4;
+      return itemCase_ == 4;
     }
     /**
      * <code>.com.xh.demo.grpc.Heartbeat heartbeat = 4;</code>
      */
     public com.xh.demo.grpc.WrTy.Heartbeat getHeartbeat() {
-      if (messageOneOfCase_ == 4) {
-         return (com.xh.demo.grpc.WrTy.Heartbeat) messageOneOf_;
+      if (itemCase_ == 4) {
+         return (com.xh.demo.grpc.WrTy.Heartbeat) item_;
       }
       return com.xh.demo.grpc.WrTy.Heartbeat.getDefaultInstance();
     }
@@ -14689,8 +14518,8 @@ public final class WrTy {
      * <code>.com.xh.demo.grpc.Heartbeat heartbeat = 4;</code>
      */
     public com.xh.demo.grpc.WrTy.HeartbeatOrBuilder getHeartbeatOrBuilder() {
-      if (messageOneOfCase_ == 4) {
-         return (com.xh.demo.grpc.WrTy.Heartbeat) messageOneOf_;
+      if (itemCase_ == 4) {
+         return (com.xh.demo.grpc.WrTy.Heartbeat) item_;
       }
       return com.xh.demo.grpc.WrTy.Heartbeat.getDefaultInstance();
     }
@@ -14700,14 +14529,14 @@ public final class WrTy {
      * <code>.com.xh.demo.grpc.ClientHello clientHello = 5;</code>
      */
     public boolean hasClientHello() {
-      return messageOneOfCase_ == 5;
+      return itemCase_ == 5;
     }
     /**
      * <code>.com.xh.demo.grpc.ClientHello clientHello = 5;</code>
      */
     public com.xh.demo.grpc.WrTy.ClientHello getClientHello() {
-      if (messageOneOfCase_ == 5) {
-         return (com.xh.demo.grpc.WrTy.ClientHello) messageOneOf_;
+      if (itemCase_ == 5) {
+         return (com.xh.demo.grpc.WrTy.ClientHello) item_;
       }
       return com.xh.demo.grpc.WrTy.ClientHello.getDefaultInstance();
     }
@@ -14715,36 +14544,10 @@ public final class WrTy {
      * <code>.com.xh.demo.grpc.ClientHello clientHello = 5;</code>
      */
     public com.xh.demo.grpc.WrTy.ClientHelloOrBuilder getClientHelloOrBuilder() {
-      if (messageOneOfCase_ == 5) {
-         return (com.xh.demo.grpc.WrTy.ClientHello) messageOneOf_;
+      if (itemCase_ == 5) {
+         return (com.xh.demo.grpc.WrTy.ClientHello) item_;
       }
       return com.xh.demo.grpc.WrTy.ClientHello.getDefaultInstance();
-    }
-
-    public static final int REPLICATIONCLIENTHELLO_FIELD_NUMBER = 6;
-    /**
-     * <code>.com.xh.demo.grpc.ReplicationClientHello replicationClientHello = 6;</code>
-     */
-    public boolean hasReplicationClientHello() {
-      return messageOneOfCase_ == 6;
-    }
-    /**
-     * <code>.com.xh.demo.grpc.ReplicationClientHello replicationClientHello = 6;</code>
-     */
-    public com.xh.demo.grpc.WrTy.ReplicationClientHello getReplicationClientHello() {
-      if (messageOneOfCase_ == 6) {
-         return (com.xh.demo.grpc.WrTy.ReplicationClientHello) messageOneOf_;
-      }
-      return com.xh.demo.grpc.WrTy.ReplicationClientHello.getDefaultInstance();
-    }
-    /**
-     * <code>.com.xh.demo.grpc.ReplicationClientHello replicationClientHello = 6;</code>
-     */
-    public com.xh.demo.grpc.WrTy.ReplicationClientHelloOrBuilder getReplicationClientHelloOrBuilder() {
-      if (messageOneOfCase_ == 6) {
-         return (com.xh.demo.grpc.WrTy.ReplicationClientHello) messageOneOf_;
-      }
-      return com.xh.demo.grpc.WrTy.ReplicationClientHello.getDefaultInstance();
     }
 
     public static final int SERVERHELLO_FIELD_NUMBER = 7;
@@ -14752,14 +14555,14 @@ public final class WrTy {
      * <code>.com.xh.demo.grpc.ServerHello serverHello = 7;</code>
      */
     public boolean hasServerHello() {
-      return messageOneOfCase_ == 7;
+      return itemCase_ == 7;
     }
     /**
      * <code>.com.xh.demo.grpc.ServerHello serverHello = 7;</code>
      */
     public com.xh.demo.grpc.WrTy.ServerHello getServerHello() {
-      if (messageOneOfCase_ == 7) {
-         return (com.xh.demo.grpc.WrTy.ServerHello) messageOneOf_;
+      if (itemCase_ == 7) {
+         return (com.xh.demo.grpc.WrTy.ServerHello) item_;
       }
       return com.xh.demo.grpc.WrTy.ServerHello.getDefaultInstance();
     }
@@ -14767,36 +14570,10 @@ public final class WrTy {
      * <code>.com.xh.demo.grpc.ServerHello serverHello = 7;</code>
      */
     public com.xh.demo.grpc.WrTy.ServerHelloOrBuilder getServerHelloOrBuilder() {
-      if (messageOneOfCase_ == 7) {
-         return (com.xh.demo.grpc.WrTy.ServerHello) messageOneOf_;
+      if (itemCase_ == 7) {
+         return (com.xh.demo.grpc.WrTy.ServerHello) item_;
       }
       return com.xh.demo.grpc.WrTy.ServerHello.getDefaultInstance();
-    }
-
-    public static final int REPLICATIONSERVERHELLO_FIELD_NUMBER = 8;
-    /**
-     * <code>.com.xh.demo.grpc.ReplicationServerHello replicationServerHello = 8;</code>
-     */
-    public boolean hasReplicationServerHello() {
-      return messageOneOfCase_ == 8;
-    }
-    /**
-     * <code>.com.xh.demo.grpc.ReplicationServerHello replicationServerHello = 8;</code>
-     */
-    public com.xh.demo.grpc.WrTy.ReplicationServerHello getReplicationServerHello() {
-      if (messageOneOfCase_ == 8) {
-         return (com.xh.demo.grpc.WrTy.ReplicationServerHello) messageOneOf_;
-      }
-      return com.xh.demo.grpc.WrTy.ReplicationServerHello.getDefaultInstance();
-    }
-    /**
-     * <code>.com.xh.demo.grpc.ReplicationServerHello replicationServerHello = 8;</code>
-     */
-    public com.xh.demo.grpc.WrTy.ReplicationServerHelloOrBuilder getReplicationServerHelloOrBuilder() {
-      if (messageOneOfCase_ == 8) {
-         return (com.xh.demo.grpc.WrTy.ReplicationServerHello) messageOneOf_;
-      }
-      return com.xh.demo.grpc.WrTy.ReplicationServerHello.getDefaultInstance();
     }
 
     public static final int INSTANCEINFO_FIELD_NUMBER = 9;
@@ -14804,14 +14581,14 @@ public final class WrTy {
      * <code>.com.xh.demo.grpc.InstanceInfo instanceInfo = 9;</code>
      */
     public boolean hasInstanceInfo() {
-      return messageOneOfCase_ == 9;
+      return itemCase_ == 9;
     }
     /**
      * <code>.com.xh.demo.grpc.InstanceInfo instanceInfo = 9;</code>
      */
     public com.xh.demo.grpc.WrTy.InstanceInfo getInstanceInfo() {
-      if (messageOneOfCase_ == 9) {
-         return (com.xh.demo.grpc.WrTy.InstanceInfo) messageOneOf_;
+      if (itemCase_ == 9) {
+         return (com.xh.demo.grpc.WrTy.InstanceInfo) item_;
       }
       return com.xh.demo.grpc.WrTy.InstanceInfo.getDefaultInstance();
     }
@@ -14819,8 +14596,8 @@ public final class WrTy {
      * <code>.com.xh.demo.grpc.InstanceInfo instanceInfo = 9;</code>
      */
     public com.xh.demo.grpc.WrTy.InstanceInfoOrBuilder getInstanceInfoOrBuilder() {
-      if (messageOneOfCase_ == 9) {
-         return (com.xh.demo.grpc.WrTy.InstanceInfo) messageOneOf_;
+      if (itemCase_ == 9) {
+         return (com.xh.demo.grpc.WrTy.InstanceInfo) item_;
       }
       return com.xh.demo.grpc.WrTy.InstanceInfo.getDefaultInstance();
     }
@@ -14830,14 +14607,14 @@ public final class WrTy {
      * <code>.com.xh.demo.grpc.InterestRegistration interestRegistration = 10;</code>
      */
     public boolean hasInterestRegistration() {
-      return messageOneOfCase_ == 10;
+      return itemCase_ == 10;
     }
     /**
      * <code>.com.xh.demo.grpc.InterestRegistration interestRegistration = 10;</code>
      */
     public com.xh.demo.grpc.WrTy.InterestRegistration getInterestRegistration() {
-      if (messageOneOfCase_ == 10) {
-         return (com.xh.demo.grpc.WrTy.InterestRegistration) messageOneOf_;
+      if (itemCase_ == 10) {
+         return (com.xh.demo.grpc.WrTy.InterestRegistration) item_;
       }
       return com.xh.demo.grpc.WrTy.InterestRegistration.getDefaultInstance();
     }
@@ -14845,88 +14622,36 @@ public final class WrTy {
      * <code>.com.xh.demo.grpc.InterestRegistration interestRegistration = 10;</code>
      */
     public com.xh.demo.grpc.WrTy.InterestRegistrationOrBuilder getInterestRegistrationOrBuilder() {
-      if (messageOneOfCase_ == 10) {
-         return (com.xh.demo.grpc.WrTy.InterestRegistration) messageOneOf_;
+      if (itemCase_ == 10) {
+         return (com.xh.demo.grpc.WrTy.InterestRegistration) item_;
       }
       return com.xh.demo.grpc.WrTy.InterestRegistration.getDefaultInstance();
     }
 
-    public static final int ADDINSTANCE_FIELD_NUMBER = 11;
+    public static final int CHANGENOTIFICATION_FIELD_NUMBER = 11;
     /**
-     * <code>.com.xh.demo.grpc.AddInstance addInstance = 11;</code>
+     * <code>.com.xh.demo.grpc.ChangeNotification changeNotification = 11;</code>
      */
-    public boolean hasAddInstance() {
-      return messageOneOfCase_ == 11;
+    public boolean hasChangeNotification() {
+      return itemCase_ == 11;
     }
     /**
-     * <code>.com.xh.demo.grpc.AddInstance addInstance = 11;</code>
+     * <code>.com.xh.demo.grpc.ChangeNotification changeNotification = 11;</code>
      */
-    public com.xh.demo.grpc.WrTy.AddInstance getAddInstance() {
-      if (messageOneOfCase_ == 11) {
-         return (com.xh.demo.grpc.WrTy.AddInstance) messageOneOf_;
+    public com.xh.demo.grpc.WrTy.ChangeNotification getChangeNotification() {
+      if (itemCase_ == 11) {
+         return (com.xh.demo.grpc.WrTy.ChangeNotification) item_;
       }
-      return com.xh.demo.grpc.WrTy.AddInstance.getDefaultInstance();
+      return com.xh.demo.grpc.WrTy.ChangeNotification.getDefaultInstance();
     }
     /**
-     * <code>.com.xh.demo.grpc.AddInstance addInstance = 11;</code>
+     * <code>.com.xh.demo.grpc.ChangeNotification changeNotification = 11;</code>
      */
-    public com.xh.demo.grpc.WrTy.AddInstanceOrBuilder getAddInstanceOrBuilder() {
-      if (messageOneOfCase_ == 11) {
-         return (com.xh.demo.grpc.WrTy.AddInstance) messageOneOf_;
+    public com.xh.demo.grpc.WrTy.ChangeNotificationOrBuilder getChangeNotificationOrBuilder() {
+      if (itemCase_ == 11) {
+         return (com.xh.demo.grpc.WrTy.ChangeNotification) item_;
       }
-      return com.xh.demo.grpc.WrTy.AddInstance.getDefaultInstance();
-    }
-
-    public static final int DELETEINSTANCE_FIELD_NUMBER = 12;
-    /**
-     * <code>.com.xh.demo.grpc.DeleteInstance deleteInstance = 12;</code>
-     */
-    public boolean hasDeleteInstance() {
-      return messageOneOfCase_ == 12;
-    }
-    /**
-     * <code>.com.xh.demo.grpc.DeleteInstance deleteInstance = 12;</code>
-     */
-    public com.xh.demo.grpc.WrTy.DeleteInstance getDeleteInstance() {
-      if (messageOneOfCase_ == 12) {
-         return (com.xh.demo.grpc.WrTy.DeleteInstance) messageOneOf_;
-      }
-      return com.xh.demo.grpc.WrTy.DeleteInstance.getDefaultInstance();
-    }
-    /**
-     * <code>.com.xh.demo.grpc.DeleteInstance deleteInstance = 12;</code>
-     */
-    public com.xh.demo.grpc.WrTy.DeleteInstanceOrBuilder getDeleteInstanceOrBuilder() {
-      if (messageOneOfCase_ == 12) {
-         return (com.xh.demo.grpc.WrTy.DeleteInstance) messageOneOf_;
-      }
-      return com.xh.demo.grpc.WrTy.DeleteInstance.getDefaultInstance();
-    }
-
-    public static final int UPDATEINSTANCEINFO_FIELD_NUMBER = 13;
-    /**
-     * <code>.com.xh.demo.grpc.UpdateInstanceInfo updateInstanceInfo = 13;</code>
-     */
-    public boolean hasUpdateInstanceInfo() {
-      return messageOneOfCase_ == 13;
-    }
-    /**
-     * <code>.com.xh.demo.grpc.UpdateInstanceInfo updateInstanceInfo = 13;</code>
-     */
-    public com.xh.demo.grpc.WrTy.UpdateInstanceInfo getUpdateInstanceInfo() {
-      if (messageOneOfCase_ == 13) {
-         return (com.xh.demo.grpc.WrTy.UpdateInstanceInfo) messageOneOf_;
-      }
-      return com.xh.demo.grpc.WrTy.UpdateInstanceInfo.getDefaultInstance();
-    }
-    /**
-     * <code>.com.xh.demo.grpc.UpdateInstanceInfo updateInstanceInfo = 13;</code>
-     */
-    public com.xh.demo.grpc.WrTy.UpdateInstanceInfoOrBuilder getUpdateInstanceInfoOrBuilder() {
-      if (messageOneOfCase_ == 13) {
-         return (com.xh.demo.grpc.WrTy.UpdateInstanceInfo) messageOneOf_;
-      }
-      return com.xh.demo.grpc.WrTy.UpdateInstanceInfo.getDefaultInstance();
+      return com.xh.demo.grpc.WrTy.ChangeNotification.getDefaultInstance();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -14946,41 +14671,26 @@ public final class WrTy {
       if (protocolType_ != com.xh.demo.grpc.WrTy.ProtocolMessageEnvelope.ProtocolType.Registration.getNumber()) {
         output.writeEnum(1, protocolType_);
       }
-      if (messageOneOfCase_ == 2) {
-        output.writeMessage(2, (com.xh.demo.grpc.WrTy.Acknowledgement) messageOneOf_);
+      if (itemCase_ == 2) {
+        output.writeMessage(2, (com.xh.demo.grpc.WrTy.Acknowledgement) item_);
       }
-      if (messageOneOfCase_ == 3) {
-        output.writeMessage(3, (com.xh.demo.grpc.WrTy.HeartbeatReply) messageOneOf_);
+      if (itemCase_ == 4) {
+        output.writeMessage(4, (com.xh.demo.grpc.WrTy.Heartbeat) item_);
       }
-      if (messageOneOfCase_ == 4) {
-        output.writeMessage(4, (com.xh.demo.grpc.WrTy.Heartbeat) messageOneOf_);
+      if (itemCase_ == 5) {
+        output.writeMessage(5, (com.xh.demo.grpc.WrTy.ClientHello) item_);
       }
-      if (messageOneOfCase_ == 5) {
-        output.writeMessage(5, (com.xh.demo.grpc.WrTy.ClientHello) messageOneOf_);
+      if (itemCase_ == 7) {
+        output.writeMessage(7, (com.xh.demo.grpc.WrTy.ServerHello) item_);
       }
-      if (messageOneOfCase_ == 6) {
-        output.writeMessage(6, (com.xh.demo.grpc.WrTy.ReplicationClientHello) messageOneOf_);
+      if (itemCase_ == 9) {
+        output.writeMessage(9, (com.xh.demo.grpc.WrTy.InstanceInfo) item_);
       }
-      if (messageOneOfCase_ == 7) {
-        output.writeMessage(7, (com.xh.demo.grpc.WrTy.ServerHello) messageOneOf_);
+      if (itemCase_ == 10) {
+        output.writeMessage(10, (com.xh.demo.grpc.WrTy.InterestRegistration) item_);
       }
-      if (messageOneOfCase_ == 8) {
-        output.writeMessage(8, (com.xh.demo.grpc.WrTy.ReplicationServerHello) messageOneOf_);
-      }
-      if (messageOneOfCase_ == 9) {
-        output.writeMessage(9, (com.xh.demo.grpc.WrTy.InstanceInfo) messageOneOf_);
-      }
-      if (messageOneOfCase_ == 10) {
-        output.writeMessage(10, (com.xh.demo.grpc.WrTy.InterestRegistration) messageOneOf_);
-      }
-      if (messageOneOfCase_ == 11) {
-        output.writeMessage(11, (com.xh.demo.grpc.WrTy.AddInstance) messageOneOf_);
-      }
-      if (messageOneOfCase_ == 12) {
-        output.writeMessage(12, (com.xh.demo.grpc.WrTy.DeleteInstance) messageOneOf_);
-      }
-      if (messageOneOfCase_ == 13) {
-        output.writeMessage(13, (com.xh.demo.grpc.WrTy.UpdateInstanceInfo) messageOneOf_);
+      if (itemCase_ == 11) {
+        output.writeMessage(11, (com.xh.demo.grpc.WrTy.ChangeNotification) item_);
       }
       unknownFields.writeTo(output);
     }
@@ -14995,53 +14705,33 @@ public final class WrTy {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(1, protocolType_);
       }
-      if (messageOneOfCase_ == 2) {
+      if (itemCase_ == 2) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, (com.xh.demo.grpc.WrTy.Acknowledgement) messageOneOf_);
+          .computeMessageSize(2, (com.xh.demo.grpc.WrTy.Acknowledgement) item_);
       }
-      if (messageOneOfCase_ == 3) {
+      if (itemCase_ == 4) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, (com.xh.demo.grpc.WrTy.HeartbeatReply) messageOneOf_);
+          .computeMessageSize(4, (com.xh.demo.grpc.WrTy.Heartbeat) item_);
       }
-      if (messageOneOfCase_ == 4) {
+      if (itemCase_ == 5) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(4, (com.xh.demo.grpc.WrTy.Heartbeat) messageOneOf_);
+          .computeMessageSize(5, (com.xh.demo.grpc.WrTy.ClientHello) item_);
       }
-      if (messageOneOfCase_ == 5) {
+      if (itemCase_ == 7) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(5, (com.xh.demo.grpc.WrTy.ClientHello) messageOneOf_);
+          .computeMessageSize(7, (com.xh.demo.grpc.WrTy.ServerHello) item_);
       }
-      if (messageOneOfCase_ == 6) {
+      if (itemCase_ == 9) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(6, (com.xh.demo.grpc.WrTy.ReplicationClientHello) messageOneOf_);
+          .computeMessageSize(9, (com.xh.demo.grpc.WrTy.InstanceInfo) item_);
       }
-      if (messageOneOfCase_ == 7) {
+      if (itemCase_ == 10) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(7, (com.xh.demo.grpc.WrTy.ServerHello) messageOneOf_);
+          .computeMessageSize(10, (com.xh.demo.grpc.WrTy.InterestRegistration) item_);
       }
-      if (messageOneOfCase_ == 8) {
+      if (itemCase_ == 11) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(8, (com.xh.demo.grpc.WrTy.ReplicationServerHello) messageOneOf_);
-      }
-      if (messageOneOfCase_ == 9) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(9, (com.xh.demo.grpc.WrTy.InstanceInfo) messageOneOf_);
-      }
-      if (messageOneOfCase_ == 10) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(10, (com.xh.demo.grpc.WrTy.InterestRegistration) messageOneOf_);
-      }
-      if (messageOneOfCase_ == 11) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(11, (com.xh.demo.grpc.WrTy.AddInstance) messageOneOf_);
-      }
-      if (messageOneOfCase_ == 12) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(12, (com.xh.demo.grpc.WrTy.DeleteInstance) messageOneOf_);
-      }
-      if (messageOneOfCase_ == 13) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(13, (com.xh.demo.grpc.WrTy.UpdateInstanceInfo) messageOneOf_);
+          .computeMessageSize(11, (com.xh.demo.grpc.WrTy.ChangeNotification) item_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -15059,15 +14749,11 @@ public final class WrTy {
       com.xh.demo.grpc.WrTy.ProtocolMessageEnvelope other = (com.xh.demo.grpc.WrTy.ProtocolMessageEnvelope) obj;
 
       if (protocolType_ != other.protocolType_) return false;
-      if (!getMessageOneOfCase().equals(other.getMessageOneOfCase())) return false;
-      switch (messageOneOfCase_) {
+      if (!getItemCase().equals(other.getItemCase())) return false;
+      switch (itemCase_) {
         case 2:
           if (!getAcknowledgement()
               .equals(other.getAcknowledgement())) return false;
-          break;
-        case 3:
-          if (!getHeartbeatReply()
-              .equals(other.getHeartbeatReply())) return false;
           break;
         case 4:
           if (!getHeartbeat()
@@ -15077,17 +14763,9 @@ public final class WrTy {
           if (!getClientHello()
               .equals(other.getClientHello())) return false;
           break;
-        case 6:
-          if (!getReplicationClientHello()
-              .equals(other.getReplicationClientHello())) return false;
-          break;
         case 7:
           if (!getServerHello()
               .equals(other.getServerHello())) return false;
-          break;
-        case 8:
-          if (!getReplicationServerHello()
-              .equals(other.getReplicationServerHello())) return false;
           break;
         case 9:
           if (!getInstanceInfo()
@@ -15098,16 +14776,8 @@ public final class WrTy {
               .equals(other.getInterestRegistration())) return false;
           break;
         case 11:
-          if (!getAddInstance()
-              .equals(other.getAddInstance())) return false;
-          break;
-        case 12:
-          if (!getDeleteInstance()
-              .equals(other.getDeleteInstance())) return false;
-          break;
-        case 13:
-          if (!getUpdateInstanceInfo()
-              .equals(other.getUpdateInstanceInfo())) return false;
+          if (!getChangeNotification()
+              .equals(other.getChangeNotification())) return false;
           break;
         case 0:
         default:
@@ -15125,14 +14795,10 @@ public final class WrTy {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + PROTOCOLTYPE_FIELD_NUMBER;
       hash = (53 * hash) + protocolType_;
-      switch (messageOneOfCase_) {
+      switch (itemCase_) {
         case 2:
           hash = (37 * hash) + ACKNOWLEDGEMENT_FIELD_NUMBER;
           hash = (53 * hash) + getAcknowledgement().hashCode();
-          break;
-        case 3:
-          hash = (37 * hash) + HEARTBEATREPLY_FIELD_NUMBER;
-          hash = (53 * hash) + getHeartbeatReply().hashCode();
           break;
         case 4:
           hash = (37 * hash) + HEARTBEAT_FIELD_NUMBER;
@@ -15142,17 +14808,9 @@ public final class WrTy {
           hash = (37 * hash) + CLIENTHELLO_FIELD_NUMBER;
           hash = (53 * hash) + getClientHello().hashCode();
           break;
-        case 6:
-          hash = (37 * hash) + REPLICATIONCLIENTHELLO_FIELD_NUMBER;
-          hash = (53 * hash) + getReplicationClientHello().hashCode();
-          break;
         case 7:
           hash = (37 * hash) + SERVERHELLO_FIELD_NUMBER;
           hash = (53 * hash) + getServerHello().hashCode();
-          break;
-        case 8:
-          hash = (37 * hash) + REPLICATIONSERVERHELLO_FIELD_NUMBER;
-          hash = (53 * hash) + getReplicationServerHello().hashCode();
           break;
         case 9:
           hash = (37 * hash) + INSTANCEINFO_FIELD_NUMBER;
@@ -15163,16 +14821,8 @@ public final class WrTy {
           hash = (53 * hash) + getInterestRegistration().hashCode();
           break;
         case 11:
-          hash = (37 * hash) + ADDINSTANCE_FIELD_NUMBER;
-          hash = (53 * hash) + getAddInstance().hashCode();
-          break;
-        case 12:
-          hash = (37 * hash) + DELETEINSTANCE_FIELD_NUMBER;
-          hash = (53 * hash) + getDeleteInstance().hashCode();
-          break;
-        case 13:
-          hash = (37 * hash) + UPDATEINSTANCEINFO_FIELD_NUMBER;
-          hash = (53 * hash) + getUpdateInstanceInfo().hashCode();
+          hash = (37 * hash) + CHANGENOTIFICATION_FIELD_NUMBER;
+          hash = (53 * hash) + getChangeNotification().hashCode();
           break;
         case 0:
         default:
@@ -15312,8 +14962,8 @@ public final class WrTy {
         super.clear();
         protocolType_ = 0;
 
-        messageOneOfCase_ = 0;
-        messageOneOf_ = null;
+        itemCase_ = 0;
+        item_ = null;
         return this;
       }
 
@@ -15341,91 +14991,56 @@ public final class WrTy {
       public com.xh.demo.grpc.WrTy.ProtocolMessageEnvelope buildPartial() {
         com.xh.demo.grpc.WrTy.ProtocolMessageEnvelope result = new com.xh.demo.grpc.WrTy.ProtocolMessageEnvelope(this);
         result.protocolType_ = protocolType_;
-        if (messageOneOfCase_ == 2) {
+        if (itemCase_ == 2) {
           if (acknowledgementBuilder_ == null) {
-            result.messageOneOf_ = messageOneOf_;
+            result.item_ = item_;
           } else {
-            result.messageOneOf_ = acknowledgementBuilder_.build();
+            result.item_ = acknowledgementBuilder_.build();
           }
         }
-        if (messageOneOfCase_ == 3) {
-          if (heartbeatReplyBuilder_ == null) {
-            result.messageOneOf_ = messageOneOf_;
-          } else {
-            result.messageOneOf_ = heartbeatReplyBuilder_.build();
-          }
-        }
-        if (messageOneOfCase_ == 4) {
+        if (itemCase_ == 4) {
           if (heartbeatBuilder_ == null) {
-            result.messageOneOf_ = messageOneOf_;
+            result.item_ = item_;
           } else {
-            result.messageOneOf_ = heartbeatBuilder_.build();
+            result.item_ = heartbeatBuilder_.build();
           }
         }
-        if (messageOneOfCase_ == 5) {
+        if (itemCase_ == 5) {
           if (clientHelloBuilder_ == null) {
-            result.messageOneOf_ = messageOneOf_;
+            result.item_ = item_;
           } else {
-            result.messageOneOf_ = clientHelloBuilder_.build();
+            result.item_ = clientHelloBuilder_.build();
           }
         }
-        if (messageOneOfCase_ == 6) {
-          if (replicationClientHelloBuilder_ == null) {
-            result.messageOneOf_ = messageOneOf_;
-          } else {
-            result.messageOneOf_ = replicationClientHelloBuilder_.build();
-          }
-        }
-        if (messageOneOfCase_ == 7) {
+        if (itemCase_ == 7) {
           if (serverHelloBuilder_ == null) {
-            result.messageOneOf_ = messageOneOf_;
+            result.item_ = item_;
           } else {
-            result.messageOneOf_ = serverHelloBuilder_.build();
+            result.item_ = serverHelloBuilder_.build();
           }
         }
-        if (messageOneOfCase_ == 8) {
-          if (replicationServerHelloBuilder_ == null) {
-            result.messageOneOf_ = messageOneOf_;
-          } else {
-            result.messageOneOf_ = replicationServerHelloBuilder_.build();
-          }
-        }
-        if (messageOneOfCase_ == 9) {
+        if (itemCase_ == 9) {
           if (instanceInfoBuilder_ == null) {
-            result.messageOneOf_ = messageOneOf_;
+            result.item_ = item_;
           } else {
-            result.messageOneOf_ = instanceInfoBuilder_.build();
+            result.item_ = instanceInfoBuilder_.build();
           }
         }
-        if (messageOneOfCase_ == 10) {
+        if (itemCase_ == 10) {
           if (interestRegistrationBuilder_ == null) {
-            result.messageOneOf_ = messageOneOf_;
+            result.item_ = item_;
           } else {
-            result.messageOneOf_ = interestRegistrationBuilder_.build();
+            result.item_ = interestRegistrationBuilder_.build();
           }
         }
-        if (messageOneOfCase_ == 11) {
-          if (addInstanceBuilder_ == null) {
-            result.messageOneOf_ = messageOneOf_;
+        if (itemCase_ == 11) {
+          if (changeNotificationBuilder_ == null) {
+            result.item_ = item_;
           } else {
-            result.messageOneOf_ = addInstanceBuilder_.build();
+            result.item_ = changeNotificationBuilder_.build();
           }
         }
-        if (messageOneOfCase_ == 12) {
-          if (deleteInstanceBuilder_ == null) {
-            result.messageOneOf_ = messageOneOf_;
-          } else {
-            result.messageOneOf_ = deleteInstanceBuilder_.build();
-          }
-        }
-        if (messageOneOfCase_ == 13) {
-          if (updateInstanceInfoBuilder_ == null) {
-            result.messageOneOf_ = messageOneOf_;
-          } else {
-            result.messageOneOf_ = updateInstanceInfoBuilder_.build();
-          }
-        }
-        result.messageOneOfCase_ = messageOneOfCase_;
+        result.itemCase_ = itemCase_;
         onBuilt();
         return result;
       }
@@ -15477,13 +15092,9 @@ public final class WrTy {
         if (other.protocolType_ != 0) {
           setProtocolTypeValue(other.getProtocolTypeValue());
         }
-        switch (other.getMessageOneOfCase()) {
+        switch (other.getItemCase()) {
           case ACKNOWLEDGEMENT: {
             mergeAcknowledgement(other.getAcknowledgement());
-            break;
-          }
-          case HEARTBEATREPLY: {
-            mergeHeartbeatReply(other.getHeartbeatReply());
             break;
           }
           case HEARTBEAT: {
@@ -15494,16 +15105,8 @@ public final class WrTy {
             mergeClientHello(other.getClientHello());
             break;
           }
-          case REPLICATIONCLIENTHELLO: {
-            mergeReplicationClientHello(other.getReplicationClientHello());
-            break;
-          }
           case SERVERHELLO: {
             mergeServerHello(other.getServerHello());
-            break;
-          }
-          case REPLICATIONSERVERHELLO: {
-            mergeReplicationServerHello(other.getReplicationServerHello());
             break;
           }
           case INSTANCEINFO: {
@@ -15514,19 +15117,11 @@ public final class WrTy {
             mergeInterestRegistration(other.getInterestRegistration());
             break;
           }
-          case ADDINSTANCE: {
-            mergeAddInstance(other.getAddInstance());
+          case CHANGENOTIFICATION: {
+            mergeChangeNotification(other.getChangeNotification());
             break;
           }
-          case DELETEINSTANCE: {
-            mergeDeleteInstance(other.getDeleteInstance());
-            break;
-          }
-          case UPDATEINSTANCEINFO: {
-            mergeUpdateInstanceInfo(other.getUpdateInstanceInfo());
-            break;
-          }
-          case MESSAGEONEOF_NOT_SET: {
+          case ITEM_NOT_SET: {
             break;
           }
         }
@@ -15558,17 +15153,17 @@ public final class WrTy {
         }
         return this;
       }
-      private int messageOneOfCase_ = 0;
-      private java.lang.Object messageOneOf_;
-      public MessageOneOfCase
-          getMessageOneOfCase() {
-        return MessageOneOfCase.forNumber(
-            messageOneOfCase_);
+      private int itemCase_ = 0;
+      private java.lang.Object item_;
+      public ItemCase
+          getItemCase() {
+        return ItemCase.forNumber(
+            itemCase_);
       }
 
-      public Builder clearMessageOneOf() {
-        messageOneOfCase_ = 0;
-        messageOneOf_ = null;
+      public Builder clearItem() {
+        itemCase_ = 0;
+        item_ = null;
         onChanged();
         return this;
       }
@@ -15625,19 +15220,19 @@ public final class WrTy {
        * <code>.com.xh.demo.grpc.Acknowledgement acknowledgement = 2;</code>
        */
       public boolean hasAcknowledgement() {
-        return messageOneOfCase_ == 2;
+        return itemCase_ == 2;
       }
       /**
        * <code>.com.xh.demo.grpc.Acknowledgement acknowledgement = 2;</code>
        */
       public com.xh.demo.grpc.WrTy.Acknowledgement getAcknowledgement() {
         if (acknowledgementBuilder_ == null) {
-          if (messageOneOfCase_ == 2) {
-            return (com.xh.demo.grpc.WrTy.Acknowledgement) messageOneOf_;
+          if (itemCase_ == 2) {
+            return (com.xh.demo.grpc.WrTy.Acknowledgement) item_;
           }
           return com.xh.demo.grpc.WrTy.Acknowledgement.getDefaultInstance();
         } else {
-          if (messageOneOfCase_ == 2) {
+          if (itemCase_ == 2) {
             return acknowledgementBuilder_.getMessage();
           }
           return com.xh.demo.grpc.WrTy.Acknowledgement.getDefaultInstance();
@@ -15651,12 +15246,12 @@ public final class WrTy {
           if (value == null) {
             throw new NullPointerException();
           }
-          messageOneOf_ = value;
+          item_ = value;
           onChanged();
         } else {
           acknowledgementBuilder_.setMessage(value);
         }
-        messageOneOfCase_ = 2;
+        itemCase_ = 2;
         return this;
       }
       /**
@@ -15665,12 +15260,12 @@ public final class WrTy {
       public Builder setAcknowledgement(
           com.xh.demo.grpc.WrTy.Acknowledgement.Builder builderForValue) {
         if (acknowledgementBuilder_ == null) {
-          messageOneOf_ = builderForValue.build();
+          item_ = builderForValue.build();
           onChanged();
         } else {
           acknowledgementBuilder_.setMessage(builderForValue.build());
         }
-        messageOneOfCase_ = 2;
+        itemCase_ = 2;
         return this;
       }
       /**
@@ -15678,21 +15273,21 @@ public final class WrTy {
        */
       public Builder mergeAcknowledgement(com.xh.demo.grpc.WrTy.Acknowledgement value) {
         if (acknowledgementBuilder_ == null) {
-          if (messageOneOfCase_ == 2 &&
-              messageOneOf_ != com.xh.demo.grpc.WrTy.Acknowledgement.getDefaultInstance()) {
-            messageOneOf_ = com.xh.demo.grpc.WrTy.Acknowledgement.newBuilder((com.xh.demo.grpc.WrTy.Acknowledgement) messageOneOf_)
+          if (itemCase_ == 2 &&
+              item_ != com.xh.demo.grpc.WrTy.Acknowledgement.getDefaultInstance()) {
+            item_ = com.xh.demo.grpc.WrTy.Acknowledgement.newBuilder((com.xh.demo.grpc.WrTy.Acknowledgement) item_)
                 .mergeFrom(value).buildPartial();
           } else {
-            messageOneOf_ = value;
+            item_ = value;
           }
           onChanged();
         } else {
-          if (messageOneOfCase_ == 2) {
+          if (itemCase_ == 2) {
             acknowledgementBuilder_.mergeFrom(value);
           }
           acknowledgementBuilder_.setMessage(value);
         }
-        messageOneOfCase_ = 2;
+        itemCase_ = 2;
         return this;
       }
       /**
@@ -15700,15 +15295,15 @@ public final class WrTy {
        */
       public Builder clearAcknowledgement() {
         if (acknowledgementBuilder_ == null) {
-          if (messageOneOfCase_ == 2) {
-            messageOneOfCase_ = 0;
-            messageOneOf_ = null;
+          if (itemCase_ == 2) {
+            itemCase_ = 0;
+            item_ = null;
             onChanged();
           }
         } else {
-          if (messageOneOfCase_ == 2) {
-            messageOneOfCase_ = 0;
-            messageOneOf_ = null;
+          if (itemCase_ == 2) {
+            itemCase_ = 0;
+            item_ = null;
           }
           acknowledgementBuilder_.clear();
         }
@@ -15724,11 +15319,11 @@ public final class WrTy {
        * <code>.com.xh.demo.grpc.Acknowledgement acknowledgement = 2;</code>
        */
       public com.xh.demo.grpc.WrTy.AcknowledgementOrBuilder getAcknowledgementOrBuilder() {
-        if ((messageOneOfCase_ == 2) && (acknowledgementBuilder_ != null)) {
+        if ((itemCase_ == 2) && (acknowledgementBuilder_ != null)) {
           return acknowledgementBuilder_.getMessageOrBuilder();
         } else {
-          if (messageOneOfCase_ == 2) {
-            return (com.xh.demo.grpc.WrTy.Acknowledgement) messageOneOf_;
+          if (itemCase_ == 2) {
+            return (com.xh.demo.grpc.WrTy.Acknowledgement) item_;
           }
           return com.xh.demo.grpc.WrTy.Acknowledgement.getDefaultInstance();
         }
@@ -15740,155 +15335,19 @@ public final class WrTy {
           com.xh.demo.grpc.WrTy.Acknowledgement, com.xh.demo.grpc.WrTy.Acknowledgement.Builder, com.xh.demo.grpc.WrTy.AcknowledgementOrBuilder> 
           getAcknowledgementFieldBuilder() {
         if (acknowledgementBuilder_ == null) {
-          if (!(messageOneOfCase_ == 2)) {
-            messageOneOf_ = com.xh.demo.grpc.WrTy.Acknowledgement.getDefaultInstance();
+          if (!(itemCase_ == 2)) {
+            item_ = com.xh.demo.grpc.WrTy.Acknowledgement.getDefaultInstance();
           }
           acknowledgementBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               com.xh.demo.grpc.WrTy.Acknowledgement, com.xh.demo.grpc.WrTy.Acknowledgement.Builder, com.xh.demo.grpc.WrTy.AcknowledgementOrBuilder>(
-                  (com.xh.demo.grpc.WrTy.Acknowledgement) messageOneOf_,
+                  (com.xh.demo.grpc.WrTy.Acknowledgement) item_,
                   getParentForChildren(),
                   isClean());
-          messageOneOf_ = null;
+          item_ = null;
         }
-        messageOneOfCase_ = 2;
+        itemCase_ = 2;
         onChanged();;
         return acknowledgementBuilder_;
-      }
-
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.xh.demo.grpc.WrTy.HeartbeatReply, com.xh.demo.grpc.WrTy.HeartbeatReply.Builder, com.xh.demo.grpc.WrTy.HeartbeatReplyOrBuilder> heartbeatReplyBuilder_;
-      /**
-       * <code>.com.xh.demo.grpc.HeartbeatReply heartbeatReply = 3;</code>
-       */
-      public boolean hasHeartbeatReply() {
-        return messageOneOfCase_ == 3;
-      }
-      /**
-       * <code>.com.xh.demo.grpc.HeartbeatReply heartbeatReply = 3;</code>
-       */
-      public com.xh.demo.grpc.WrTy.HeartbeatReply getHeartbeatReply() {
-        if (heartbeatReplyBuilder_ == null) {
-          if (messageOneOfCase_ == 3) {
-            return (com.xh.demo.grpc.WrTy.HeartbeatReply) messageOneOf_;
-          }
-          return com.xh.demo.grpc.WrTy.HeartbeatReply.getDefaultInstance();
-        } else {
-          if (messageOneOfCase_ == 3) {
-            return heartbeatReplyBuilder_.getMessage();
-          }
-          return com.xh.demo.grpc.WrTy.HeartbeatReply.getDefaultInstance();
-        }
-      }
-      /**
-       * <code>.com.xh.demo.grpc.HeartbeatReply heartbeatReply = 3;</code>
-       */
-      public Builder setHeartbeatReply(com.xh.demo.grpc.WrTy.HeartbeatReply value) {
-        if (heartbeatReplyBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          messageOneOf_ = value;
-          onChanged();
-        } else {
-          heartbeatReplyBuilder_.setMessage(value);
-        }
-        messageOneOfCase_ = 3;
-        return this;
-      }
-      /**
-       * <code>.com.xh.demo.grpc.HeartbeatReply heartbeatReply = 3;</code>
-       */
-      public Builder setHeartbeatReply(
-          com.xh.demo.grpc.WrTy.HeartbeatReply.Builder builderForValue) {
-        if (heartbeatReplyBuilder_ == null) {
-          messageOneOf_ = builderForValue.build();
-          onChanged();
-        } else {
-          heartbeatReplyBuilder_.setMessage(builderForValue.build());
-        }
-        messageOneOfCase_ = 3;
-        return this;
-      }
-      /**
-       * <code>.com.xh.demo.grpc.HeartbeatReply heartbeatReply = 3;</code>
-       */
-      public Builder mergeHeartbeatReply(com.xh.demo.grpc.WrTy.HeartbeatReply value) {
-        if (heartbeatReplyBuilder_ == null) {
-          if (messageOneOfCase_ == 3 &&
-              messageOneOf_ != com.xh.demo.grpc.WrTy.HeartbeatReply.getDefaultInstance()) {
-            messageOneOf_ = com.xh.demo.grpc.WrTy.HeartbeatReply.newBuilder((com.xh.demo.grpc.WrTy.HeartbeatReply) messageOneOf_)
-                .mergeFrom(value).buildPartial();
-          } else {
-            messageOneOf_ = value;
-          }
-          onChanged();
-        } else {
-          if (messageOneOfCase_ == 3) {
-            heartbeatReplyBuilder_.mergeFrom(value);
-          }
-          heartbeatReplyBuilder_.setMessage(value);
-        }
-        messageOneOfCase_ = 3;
-        return this;
-      }
-      /**
-       * <code>.com.xh.demo.grpc.HeartbeatReply heartbeatReply = 3;</code>
-       */
-      public Builder clearHeartbeatReply() {
-        if (heartbeatReplyBuilder_ == null) {
-          if (messageOneOfCase_ == 3) {
-            messageOneOfCase_ = 0;
-            messageOneOf_ = null;
-            onChanged();
-          }
-        } else {
-          if (messageOneOfCase_ == 3) {
-            messageOneOfCase_ = 0;
-            messageOneOf_ = null;
-          }
-          heartbeatReplyBuilder_.clear();
-        }
-        return this;
-      }
-      /**
-       * <code>.com.xh.demo.grpc.HeartbeatReply heartbeatReply = 3;</code>
-       */
-      public com.xh.demo.grpc.WrTy.HeartbeatReply.Builder getHeartbeatReplyBuilder() {
-        return getHeartbeatReplyFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>.com.xh.demo.grpc.HeartbeatReply heartbeatReply = 3;</code>
-       */
-      public com.xh.demo.grpc.WrTy.HeartbeatReplyOrBuilder getHeartbeatReplyOrBuilder() {
-        if ((messageOneOfCase_ == 3) && (heartbeatReplyBuilder_ != null)) {
-          return heartbeatReplyBuilder_.getMessageOrBuilder();
-        } else {
-          if (messageOneOfCase_ == 3) {
-            return (com.xh.demo.grpc.WrTy.HeartbeatReply) messageOneOf_;
-          }
-          return com.xh.demo.grpc.WrTy.HeartbeatReply.getDefaultInstance();
-        }
-      }
-      /**
-       * <code>.com.xh.demo.grpc.HeartbeatReply heartbeatReply = 3;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.xh.demo.grpc.WrTy.HeartbeatReply, com.xh.demo.grpc.WrTy.HeartbeatReply.Builder, com.xh.demo.grpc.WrTy.HeartbeatReplyOrBuilder> 
-          getHeartbeatReplyFieldBuilder() {
-        if (heartbeatReplyBuilder_ == null) {
-          if (!(messageOneOfCase_ == 3)) {
-            messageOneOf_ = com.xh.demo.grpc.WrTy.HeartbeatReply.getDefaultInstance();
-          }
-          heartbeatReplyBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.xh.demo.grpc.WrTy.HeartbeatReply, com.xh.demo.grpc.WrTy.HeartbeatReply.Builder, com.xh.demo.grpc.WrTy.HeartbeatReplyOrBuilder>(
-                  (com.xh.demo.grpc.WrTy.HeartbeatReply) messageOneOf_,
-                  getParentForChildren(),
-                  isClean());
-          messageOneOf_ = null;
-        }
-        messageOneOfCase_ = 3;
-        onChanged();;
-        return heartbeatReplyBuilder_;
       }
 
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -15897,19 +15356,19 @@ public final class WrTy {
        * <code>.com.xh.demo.grpc.Heartbeat heartbeat = 4;</code>
        */
       public boolean hasHeartbeat() {
-        return messageOneOfCase_ == 4;
+        return itemCase_ == 4;
       }
       /**
        * <code>.com.xh.demo.grpc.Heartbeat heartbeat = 4;</code>
        */
       public com.xh.demo.grpc.WrTy.Heartbeat getHeartbeat() {
         if (heartbeatBuilder_ == null) {
-          if (messageOneOfCase_ == 4) {
-            return (com.xh.demo.grpc.WrTy.Heartbeat) messageOneOf_;
+          if (itemCase_ == 4) {
+            return (com.xh.demo.grpc.WrTy.Heartbeat) item_;
           }
           return com.xh.demo.grpc.WrTy.Heartbeat.getDefaultInstance();
         } else {
-          if (messageOneOfCase_ == 4) {
+          if (itemCase_ == 4) {
             return heartbeatBuilder_.getMessage();
           }
           return com.xh.demo.grpc.WrTy.Heartbeat.getDefaultInstance();
@@ -15923,12 +15382,12 @@ public final class WrTy {
           if (value == null) {
             throw new NullPointerException();
           }
-          messageOneOf_ = value;
+          item_ = value;
           onChanged();
         } else {
           heartbeatBuilder_.setMessage(value);
         }
-        messageOneOfCase_ = 4;
+        itemCase_ = 4;
         return this;
       }
       /**
@@ -15937,12 +15396,12 @@ public final class WrTy {
       public Builder setHeartbeat(
           com.xh.demo.grpc.WrTy.Heartbeat.Builder builderForValue) {
         if (heartbeatBuilder_ == null) {
-          messageOneOf_ = builderForValue.build();
+          item_ = builderForValue.build();
           onChanged();
         } else {
           heartbeatBuilder_.setMessage(builderForValue.build());
         }
-        messageOneOfCase_ = 4;
+        itemCase_ = 4;
         return this;
       }
       /**
@@ -15950,21 +15409,21 @@ public final class WrTy {
        */
       public Builder mergeHeartbeat(com.xh.demo.grpc.WrTy.Heartbeat value) {
         if (heartbeatBuilder_ == null) {
-          if (messageOneOfCase_ == 4 &&
-              messageOneOf_ != com.xh.demo.grpc.WrTy.Heartbeat.getDefaultInstance()) {
-            messageOneOf_ = com.xh.demo.grpc.WrTy.Heartbeat.newBuilder((com.xh.demo.grpc.WrTy.Heartbeat) messageOneOf_)
+          if (itemCase_ == 4 &&
+              item_ != com.xh.demo.grpc.WrTy.Heartbeat.getDefaultInstance()) {
+            item_ = com.xh.demo.grpc.WrTy.Heartbeat.newBuilder((com.xh.demo.grpc.WrTy.Heartbeat) item_)
                 .mergeFrom(value).buildPartial();
           } else {
-            messageOneOf_ = value;
+            item_ = value;
           }
           onChanged();
         } else {
-          if (messageOneOfCase_ == 4) {
+          if (itemCase_ == 4) {
             heartbeatBuilder_.mergeFrom(value);
           }
           heartbeatBuilder_.setMessage(value);
         }
-        messageOneOfCase_ = 4;
+        itemCase_ = 4;
         return this;
       }
       /**
@@ -15972,15 +15431,15 @@ public final class WrTy {
        */
       public Builder clearHeartbeat() {
         if (heartbeatBuilder_ == null) {
-          if (messageOneOfCase_ == 4) {
-            messageOneOfCase_ = 0;
-            messageOneOf_ = null;
+          if (itemCase_ == 4) {
+            itemCase_ = 0;
+            item_ = null;
             onChanged();
           }
         } else {
-          if (messageOneOfCase_ == 4) {
-            messageOneOfCase_ = 0;
-            messageOneOf_ = null;
+          if (itemCase_ == 4) {
+            itemCase_ = 0;
+            item_ = null;
           }
           heartbeatBuilder_.clear();
         }
@@ -15996,11 +15455,11 @@ public final class WrTy {
        * <code>.com.xh.demo.grpc.Heartbeat heartbeat = 4;</code>
        */
       public com.xh.demo.grpc.WrTy.HeartbeatOrBuilder getHeartbeatOrBuilder() {
-        if ((messageOneOfCase_ == 4) && (heartbeatBuilder_ != null)) {
+        if ((itemCase_ == 4) && (heartbeatBuilder_ != null)) {
           return heartbeatBuilder_.getMessageOrBuilder();
         } else {
-          if (messageOneOfCase_ == 4) {
-            return (com.xh.demo.grpc.WrTy.Heartbeat) messageOneOf_;
+          if (itemCase_ == 4) {
+            return (com.xh.demo.grpc.WrTy.Heartbeat) item_;
           }
           return com.xh.demo.grpc.WrTy.Heartbeat.getDefaultInstance();
         }
@@ -16012,17 +15471,17 @@ public final class WrTy {
           com.xh.demo.grpc.WrTy.Heartbeat, com.xh.demo.grpc.WrTy.Heartbeat.Builder, com.xh.demo.grpc.WrTy.HeartbeatOrBuilder> 
           getHeartbeatFieldBuilder() {
         if (heartbeatBuilder_ == null) {
-          if (!(messageOneOfCase_ == 4)) {
-            messageOneOf_ = com.xh.demo.grpc.WrTy.Heartbeat.getDefaultInstance();
+          if (!(itemCase_ == 4)) {
+            item_ = com.xh.demo.grpc.WrTy.Heartbeat.getDefaultInstance();
           }
           heartbeatBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               com.xh.demo.grpc.WrTy.Heartbeat, com.xh.demo.grpc.WrTy.Heartbeat.Builder, com.xh.demo.grpc.WrTy.HeartbeatOrBuilder>(
-                  (com.xh.demo.grpc.WrTy.Heartbeat) messageOneOf_,
+                  (com.xh.demo.grpc.WrTy.Heartbeat) item_,
                   getParentForChildren(),
                   isClean());
-          messageOneOf_ = null;
+          item_ = null;
         }
-        messageOneOfCase_ = 4;
+        itemCase_ = 4;
         onChanged();;
         return heartbeatBuilder_;
       }
@@ -16033,19 +15492,19 @@ public final class WrTy {
        * <code>.com.xh.demo.grpc.ClientHello clientHello = 5;</code>
        */
       public boolean hasClientHello() {
-        return messageOneOfCase_ == 5;
+        return itemCase_ == 5;
       }
       /**
        * <code>.com.xh.demo.grpc.ClientHello clientHello = 5;</code>
        */
       public com.xh.demo.grpc.WrTy.ClientHello getClientHello() {
         if (clientHelloBuilder_ == null) {
-          if (messageOneOfCase_ == 5) {
-            return (com.xh.demo.grpc.WrTy.ClientHello) messageOneOf_;
+          if (itemCase_ == 5) {
+            return (com.xh.demo.grpc.WrTy.ClientHello) item_;
           }
           return com.xh.demo.grpc.WrTy.ClientHello.getDefaultInstance();
         } else {
-          if (messageOneOfCase_ == 5) {
+          if (itemCase_ == 5) {
             return clientHelloBuilder_.getMessage();
           }
           return com.xh.demo.grpc.WrTy.ClientHello.getDefaultInstance();
@@ -16059,12 +15518,12 @@ public final class WrTy {
           if (value == null) {
             throw new NullPointerException();
           }
-          messageOneOf_ = value;
+          item_ = value;
           onChanged();
         } else {
           clientHelloBuilder_.setMessage(value);
         }
-        messageOneOfCase_ = 5;
+        itemCase_ = 5;
         return this;
       }
       /**
@@ -16073,12 +15532,12 @@ public final class WrTy {
       public Builder setClientHello(
           com.xh.demo.grpc.WrTy.ClientHello.Builder builderForValue) {
         if (clientHelloBuilder_ == null) {
-          messageOneOf_ = builderForValue.build();
+          item_ = builderForValue.build();
           onChanged();
         } else {
           clientHelloBuilder_.setMessage(builderForValue.build());
         }
-        messageOneOfCase_ = 5;
+        itemCase_ = 5;
         return this;
       }
       /**
@@ -16086,21 +15545,21 @@ public final class WrTy {
        */
       public Builder mergeClientHello(com.xh.demo.grpc.WrTy.ClientHello value) {
         if (clientHelloBuilder_ == null) {
-          if (messageOneOfCase_ == 5 &&
-              messageOneOf_ != com.xh.demo.grpc.WrTy.ClientHello.getDefaultInstance()) {
-            messageOneOf_ = com.xh.demo.grpc.WrTy.ClientHello.newBuilder((com.xh.demo.grpc.WrTy.ClientHello) messageOneOf_)
+          if (itemCase_ == 5 &&
+              item_ != com.xh.demo.grpc.WrTy.ClientHello.getDefaultInstance()) {
+            item_ = com.xh.demo.grpc.WrTy.ClientHello.newBuilder((com.xh.demo.grpc.WrTy.ClientHello) item_)
                 .mergeFrom(value).buildPartial();
           } else {
-            messageOneOf_ = value;
+            item_ = value;
           }
           onChanged();
         } else {
-          if (messageOneOfCase_ == 5) {
+          if (itemCase_ == 5) {
             clientHelloBuilder_.mergeFrom(value);
           }
           clientHelloBuilder_.setMessage(value);
         }
-        messageOneOfCase_ = 5;
+        itemCase_ = 5;
         return this;
       }
       /**
@@ -16108,15 +15567,15 @@ public final class WrTy {
        */
       public Builder clearClientHello() {
         if (clientHelloBuilder_ == null) {
-          if (messageOneOfCase_ == 5) {
-            messageOneOfCase_ = 0;
-            messageOneOf_ = null;
+          if (itemCase_ == 5) {
+            itemCase_ = 0;
+            item_ = null;
             onChanged();
           }
         } else {
-          if (messageOneOfCase_ == 5) {
-            messageOneOfCase_ = 0;
-            messageOneOf_ = null;
+          if (itemCase_ == 5) {
+            itemCase_ = 0;
+            item_ = null;
           }
           clientHelloBuilder_.clear();
         }
@@ -16132,11 +15591,11 @@ public final class WrTy {
        * <code>.com.xh.demo.grpc.ClientHello clientHello = 5;</code>
        */
       public com.xh.demo.grpc.WrTy.ClientHelloOrBuilder getClientHelloOrBuilder() {
-        if ((messageOneOfCase_ == 5) && (clientHelloBuilder_ != null)) {
+        if ((itemCase_ == 5) && (clientHelloBuilder_ != null)) {
           return clientHelloBuilder_.getMessageOrBuilder();
         } else {
-          if (messageOneOfCase_ == 5) {
-            return (com.xh.demo.grpc.WrTy.ClientHello) messageOneOf_;
+          if (itemCase_ == 5) {
+            return (com.xh.demo.grpc.WrTy.ClientHello) item_;
           }
           return com.xh.demo.grpc.WrTy.ClientHello.getDefaultInstance();
         }
@@ -16148,155 +15607,19 @@ public final class WrTy {
           com.xh.demo.grpc.WrTy.ClientHello, com.xh.demo.grpc.WrTy.ClientHello.Builder, com.xh.demo.grpc.WrTy.ClientHelloOrBuilder> 
           getClientHelloFieldBuilder() {
         if (clientHelloBuilder_ == null) {
-          if (!(messageOneOfCase_ == 5)) {
-            messageOneOf_ = com.xh.demo.grpc.WrTy.ClientHello.getDefaultInstance();
+          if (!(itemCase_ == 5)) {
+            item_ = com.xh.demo.grpc.WrTy.ClientHello.getDefaultInstance();
           }
           clientHelloBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               com.xh.demo.grpc.WrTy.ClientHello, com.xh.demo.grpc.WrTy.ClientHello.Builder, com.xh.demo.grpc.WrTy.ClientHelloOrBuilder>(
-                  (com.xh.demo.grpc.WrTy.ClientHello) messageOneOf_,
+                  (com.xh.demo.grpc.WrTy.ClientHello) item_,
                   getParentForChildren(),
                   isClean());
-          messageOneOf_ = null;
+          item_ = null;
         }
-        messageOneOfCase_ = 5;
+        itemCase_ = 5;
         onChanged();;
         return clientHelloBuilder_;
-      }
-
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.xh.demo.grpc.WrTy.ReplicationClientHello, com.xh.demo.grpc.WrTy.ReplicationClientHello.Builder, com.xh.demo.grpc.WrTy.ReplicationClientHelloOrBuilder> replicationClientHelloBuilder_;
-      /**
-       * <code>.com.xh.demo.grpc.ReplicationClientHello replicationClientHello = 6;</code>
-       */
-      public boolean hasReplicationClientHello() {
-        return messageOneOfCase_ == 6;
-      }
-      /**
-       * <code>.com.xh.demo.grpc.ReplicationClientHello replicationClientHello = 6;</code>
-       */
-      public com.xh.demo.grpc.WrTy.ReplicationClientHello getReplicationClientHello() {
-        if (replicationClientHelloBuilder_ == null) {
-          if (messageOneOfCase_ == 6) {
-            return (com.xh.demo.grpc.WrTy.ReplicationClientHello) messageOneOf_;
-          }
-          return com.xh.demo.grpc.WrTy.ReplicationClientHello.getDefaultInstance();
-        } else {
-          if (messageOneOfCase_ == 6) {
-            return replicationClientHelloBuilder_.getMessage();
-          }
-          return com.xh.demo.grpc.WrTy.ReplicationClientHello.getDefaultInstance();
-        }
-      }
-      /**
-       * <code>.com.xh.demo.grpc.ReplicationClientHello replicationClientHello = 6;</code>
-       */
-      public Builder setReplicationClientHello(com.xh.demo.grpc.WrTy.ReplicationClientHello value) {
-        if (replicationClientHelloBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          messageOneOf_ = value;
-          onChanged();
-        } else {
-          replicationClientHelloBuilder_.setMessage(value);
-        }
-        messageOneOfCase_ = 6;
-        return this;
-      }
-      /**
-       * <code>.com.xh.demo.grpc.ReplicationClientHello replicationClientHello = 6;</code>
-       */
-      public Builder setReplicationClientHello(
-          com.xh.demo.grpc.WrTy.ReplicationClientHello.Builder builderForValue) {
-        if (replicationClientHelloBuilder_ == null) {
-          messageOneOf_ = builderForValue.build();
-          onChanged();
-        } else {
-          replicationClientHelloBuilder_.setMessage(builderForValue.build());
-        }
-        messageOneOfCase_ = 6;
-        return this;
-      }
-      /**
-       * <code>.com.xh.demo.grpc.ReplicationClientHello replicationClientHello = 6;</code>
-       */
-      public Builder mergeReplicationClientHello(com.xh.demo.grpc.WrTy.ReplicationClientHello value) {
-        if (replicationClientHelloBuilder_ == null) {
-          if (messageOneOfCase_ == 6 &&
-              messageOneOf_ != com.xh.demo.grpc.WrTy.ReplicationClientHello.getDefaultInstance()) {
-            messageOneOf_ = com.xh.demo.grpc.WrTy.ReplicationClientHello.newBuilder((com.xh.demo.grpc.WrTy.ReplicationClientHello) messageOneOf_)
-                .mergeFrom(value).buildPartial();
-          } else {
-            messageOneOf_ = value;
-          }
-          onChanged();
-        } else {
-          if (messageOneOfCase_ == 6) {
-            replicationClientHelloBuilder_.mergeFrom(value);
-          }
-          replicationClientHelloBuilder_.setMessage(value);
-        }
-        messageOneOfCase_ = 6;
-        return this;
-      }
-      /**
-       * <code>.com.xh.demo.grpc.ReplicationClientHello replicationClientHello = 6;</code>
-       */
-      public Builder clearReplicationClientHello() {
-        if (replicationClientHelloBuilder_ == null) {
-          if (messageOneOfCase_ == 6) {
-            messageOneOfCase_ = 0;
-            messageOneOf_ = null;
-            onChanged();
-          }
-        } else {
-          if (messageOneOfCase_ == 6) {
-            messageOneOfCase_ = 0;
-            messageOneOf_ = null;
-          }
-          replicationClientHelloBuilder_.clear();
-        }
-        return this;
-      }
-      /**
-       * <code>.com.xh.demo.grpc.ReplicationClientHello replicationClientHello = 6;</code>
-       */
-      public com.xh.demo.grpc.WrTy.ReplicationClientHello.Builder getReplicationClientHelloBuilder() {
-        return getReplicationClientHelloFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>.com.xh.demo.grpc.ReplicationClientHello replicationClientHello = 6;</code>
-       */
-      public com.xh.demo.grpc.WrTy.ReplicationClientHelloOrBuilder getReplicationClientHelloOrBuilder() {
-        if ((messageOneOfCase_ == 6) && (replicationClientHelloBuilder_ != null)) {
-          return replicationClientHelloBuilder_.getMessageOrBuilder();
-        } else {
-          if (messageOneOfCase_ == 6) {
-            return (com.xh.demo.grpc.WrTy.ReplicationClientHello) messageOneOf_;
-          }
-          return com.xh.demo.grpc.WrTy.ReplicationClientHello.getDefaultInstance();
-        }
-      }
-      /**
-       * <code>.com.xh.demo.grpc.ReplicationClientHello replicationClientHello = 6;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.xh.demo.grpc.WrTy.ReplicationClientHello, com.xh.demo.grpc.WrTy.ReplicationClientHello.Builder, com.xh.demo.grpc.WrTy.ReplicationClientHelloOrBuilder> 
-          getReplicationClientHelloFieldBuilder() {
-        if (replicationClientHelloBuilder_ == null) {
-          if (!(messageOneOfCase_ == 6)) {
-            messageOneOf_ = com.xh.demo.grpc.WrTy.ReplicationClientHello.getDefaultInstance();
-          }
-          replicationClientHelloBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.xh.demo.grpc.WrTy.ReplicationClientHello, com.xh.demo.grpc.WrTy.ReplicationClientHello.Builder, com.xh.demo.grpc.WrTy.ReplicationClientHelloOrBuilder>(
-                  (com.xh.demo.grpc.WrTy.ReplicationClientHello) messageOneOf_,
-                  getParentForChildren(),
-                  isClean());
-          messageOneOf_ = null;
-        }
-        messageOneOfCase_ = 6;
-        onChanged();;
-        return replicationClientHelloBuilder_;
       }
 
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -16305,19 +15628,19 @@ public final class WrTy {
        * <code>.com.xh.demo.grpc.ServerHello serverHello = 7;</code>
        */
       public boolean hasServerHello() {
-        return messageOneOfCase_ == 7;
+        return itemCase_ == 7;
       }
       /**
        * <code>.com.xh.demo.grpc.ServerHello serverHello = 7;</code>
        */
       public com.xh.demo.grpc.WrTy.ServerHello getServerHello() {
         if (serverHelloBuilder_ == null) {
-          if (messageOneOfCase_ == 7) {
-            return (com.xh.demo.grpc.WrTy.ServerHello) messageOneOf_;
+          if (itemCase_ == 7) {
+            return (com.xh.demo.grpc.WrTy.ServerHello) item_;
           }
           return com.xh.demo.grpc.WrTy.ServerHello.getDefaultInstance();
         } else {
-          if (messageOneOfCase_ == 7) {
+          if (itemCase_ == 7) {
             return serverHelloBuilder_.getMessage();
           }
           return com.xh.demo.grpc.WrTy.ServerHello.getDefaultInstance();
@@ -16331,12 +15654,12 @@ public final class WrTy {
           if (value == null) {
             throw new NullPointerException();
           }
-          messageOneOf_ = value;
+          item_ = value;
           onChanged();
         } else {
           serverHelloBuilder_.setMessage(value);
         }
-        messageOneOfCase_ = 7;
+        itemCase_ = 7;
         return this;
       }
       /**
@@ -16345,12 +15668,12 @@ public final class WrTy {
       public Builder setServerHello(
           com.xh.demo.grpc.WrTy.ServerHello.Builder builderForValue) {
         if (serverHelloBuilder_ == null) {
-          messageOneOf_ = builderForValue.build();
+          item_ = builderForValue.build();
           onChanged();
         } else {
           serverHelloBuilder_.setMessage(builderForValue.build());
         }
-        messageOneOfCase_ = 7;
+        itemCase_ = 7;
         return this;
       }
       /**
@@ -16358,21 +15681,21 @@ public final class WrTy {
        */
       public Builder mergeServerHello(com.xh.demo.grpc.WrTy.ServerHello value) {
         if (serverHelloBuilder_ == null) {
-          if (messageOneOfCase_ == 7 &&
-              messageOneOf_ != com.xh.demo.grpc.WrTy.ServerHello.getDefaultInstance()) {
-            messageOneOf_ = com.xh.demo.grpc.WrTy.ServerHello.newBuilder((com.xh.demo.grpc.WrTy.ServerHello) messageOneOf_)
+          if (itemCase_ == 7 &&
+              item_ != com.xh.demo.grpc.WrTy.ServerHello.getDefaultInstance()) {
+            item_ = com.xh.demo.grpc.WrTy.ServerHello.newBuilder((com.xh.demo.grpc.WrTy.ServerHello) item_)
                 .mergeFrom(value).buildPartial();
           } else {
-            messageOneOf_ = value;
+            item_ = value;
           }
           onChanged();
         } else {
-          if (messageOneOfCase_ == 7) {
+          if (itemCase_ == 7) {
             serverHelloBuilder_.mergeFrom(value);
           }
           serverHelloBuilder_.setMessage(value);
         }
-        messageOneOfCase_ = 7;
+        itemCase_ = 7;
         return this;
       }
       /**
@@ -16380,15 +15703,15 @@ public final class WrTy {
        */
       public Builder clearServerHello() {
         if (serverHelloBuilder_ == null) {
-          if (messageOneOfCase_ == 7) {
-            messageOneOfCase_ = 0;
-            messageOneOf_ = null;
+          if (itemCase_ == 7) {
+            itemCase_ = 0;
+            item_ = null;
             onChanged();
           }
         } else {
-          if (messageOneOfCase_ == 7) {
-            messageOneOfCase_ = 0;
-            messageOneOf_ = null;
+          if (itemCase_ == 7) {
+            itemCase_ = 0;
+            item_ = null;
           }
           serverHelloBuilder_.clear();
         }
@@ -16404,11 +15727,11 @@ public final class WrTy {
        * <code>.com.xh.demo.grpc.ServerHello serverHello = 7;</code>
        */
       public com.xh.demo.grpc.WrTy.ServerHelloOrBuilder getServerHelloOrBuilder() {
-        if ((messageOneOfCase_ == 7) && (serverHelloBuilder_ != null)) {
+        if ((itemCase_ == 7) && (serverHelloBuilder_ != null)) {
           return serverHelloBuilder_.getMessageOrBuilder();
         } else {
-          if (messageOneOfCase_ == 7) {
-            return (com.xh.demo.grpc.WrTy.ServerHello) messageOneOf_;
+          if (itemCase_ == 7) {
+            return (com.xh.demo.grpc.WrTy.ServerHello) item_;
           }
           return com.xh.demo.grpc.WrTy.ServerHello.getDefaultInstance();
         }
@@ -16420,155 +15743,19 @@ public final class WrTy {
           com.xh.demo.grpc.WrTy.ServerHello, com.xh.demo.grpc.WrTy.ServerHello.Builder, com.xh.demo.grpc.WrTy.ServerHelloOrBuilder> 
           getServerHelloFieldBuilder() {
         if (serverHelloBuilder_ == null) {
-          if (!(messageOneOfCase_ == 7)) {
-            messageOneOf_ = com.xh.demo.grpc.WrTy.ServerHello.getDefaultInstance();
+          if (!(itemCase_ == 7)) {
+            item_ = com.xh.demo.grpc.WrTy.ServerHello.getDefaultInstance();
           }
           serverHelloBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               com.xh.demo.grpc.WrTy.ServerHello, com.xh.demo.grpc.WrTy.ServerHello.Builder, com.xh.demo.grpc.WrTy.ServerHelloOrBuilder>(
-                  (com.xh.demo.grpc.WrTy.ServerHello) messageOneOf_,
+                  (com.xh.demo.grpc.WrTy.ServerHello) item_,
                   getParentForChildren(),
                   isClean());
-          messageOneOf_ = null;
+          item_ = null;
         }
-        messageOneOfCase_ = 7;
+        itemCase_ = 7;
         onChanged();;
         return serverHelloBuilder_;
-      }
-
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.xh.demo.grpc.WrTy.ReplicationServerHello, com.xh.demo.grpc.WrTy.ReplicationServerHello.Builder, com.xh.demo.grpc.WrTy.ReplicationServerHelloOrBuilder> replicationServerHelloBuilder_;
-      /**
-       * <code>.com.xh.demo.grpc.ReplicationServerHello replicationServerHello = 8;</code>
-       */
-      public boolean hasReplicationServerHello() {
-        return messageOneOfCase_ == 8;
-      }
-      /**
-       * <code>.com.xh.demo.grpc.ReplicationServerHello replicationServerHello = 8;</code>
-       */
-      public com.xh.demo.grpc.WrTy.ReplicationServerHello getReplicationServerHello() {
-        if (replicationServerHelloBuilder_ == null) {
-          if (messageOneOfCase_ == 8) {
-            return (com.xh.demo.grpc.WrTy.ReplicationServerHello) messageOneOf_;
-          }
-          return com.xh.demo.grpc.WrTy.ReplicationServerHello.getDefaultInstance();
-        } else {
-          if (messageOneOfCase_ == 8) {
-            return replicationServerHelloBuilder_.getMessage();
-          }
-          return com.xh.demo.grpc.WrTy.ReplicationServerHello.getDefaultInstance();
-        }
-      }
-      /**
-       * <code>.com.xh.demo.grpc.ReplicationServerHello replicationServerHello = 8;</code>
-       */
-      public Builder setReplicationServerHello(com.xh.demo.grpc.WrTy.ReplicationServerHello value) {
-        if (replicationServerHelloBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          messageOneOf_ = value;
-          onChanged();
-        } else {
-          replicationServerHelloBuilder_.setMessage(value);
-        }
-        messageOneOfCase_ = 8;
-        return this;
-      }
-      /**
-       * <code>.com.xh.demo.grpc.ReplicationServerHello replicationServerHello = 8;</code>
-       */
-      public Builder setReplicationServerHello(
-          com.xh.demo.grpc.WrTy.ReplicationServerHello.Builder builderForValue) {
-        if (replicationServerHelloBuilder_ == null) {
-          messageOneOf_ = builderForValue.build();
-          onChanged();
-        } else {
-          replicationServerHelloBuilder_.setMessage(builderForValue.build());
-        }
-        messageOneOfCase_ = 8;
-        return this;
-      }
-      /**
-       * <code>.com.xh.demo.grpc.ReplicationServerHello replicationServerHello = 8;</code>
-       */
-      public Builder mergeReplicationServerHello(com.xh.demo.grpc.WrTy.ReplicationServerHello value) {
-        if (replicationServerHelloBuilder_ == null) {
-          if (messageOneOfCase_ == 8 &&
-              messageOneOf_ != com.xh.demo.grpc.WrTy.ReplicationServerHello.getDefaultInstance()) {
-            messageOneOf_ = com.xh.demo.grpc.WrTy.ReplicationServerHello.newBuilder((com.xh.demo.grpc.WrTy.ReplicationServerHello) messageOneOf_)
-                .mergeFrom(value).buildPartial();
-          } else {
-            messageOneOf_ = value;
-          }
-          onChanged();
-        } else {
-          if (messageOneOfCase_ == 8) {
-            replicationServerHelloBuilder_.mergeFrom(value);
-          }
-          replicationServerHelloBuilder_.setMessage(value);
-        }
-        messageOneOfCase_ = 8;
-        return this;
-      }
-      /**
-       * <code>.com.xh.demo.grpc.ReplicationServerHello replicationServerHello = 8;</code>
-       */
-      public Builder clearReplicationServerHello() {
-        if (replicationServerHelloBuilder_ == null) {
-          if (messageOneOfCase_ == 8) {
-            messageOneOfCase_ = 0;
-            messageOneOf_ = null;
-            onChanged();
-          }
-        } else {
-          if (messageOneOfCase_ == 8) {
-            messageOneOfCase_ = 0;
-            messageOneOf_ = null;
-          }
-          replicationServerHelloBuilder_.clear();
-        }
-        return this;
-      }
-      /**
-       * <code>.com.xh.demo.grpc.ReplicationServerHello replicationServerHello = 8;</code>
-       */
-      public com.xh.demo.grpc.WrTy.ReplicationServerHello.Builder getReplicationServerHelloBuilder() {
-        return getReplicationServerHelloFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>.com.xh.demo.grpc.ReplicationServerHello replicationServerHello = 8;</code>
-       */
-      public com.xh.demo.grpc.WrTy.ReplicationServerHelloOrBuilder getReplicationServerHelloOrBuilder() {
-        if ((messageOneOfCase_ == 8) && (replicationServerHelloBuilder_ != null)) {
-          return replicationServerHelloBuilder_.getMessageOrBuilder();
-        } else {
-          if (messageOneOfCase_ == 8) {
-            return (com.xh.demo.grpc.WrTy.ReplicationServerHello) messageOneOf_;
-          }
-          return com.xh.demo.grpc.WrTy.ReplicationServerHello.getDefaultInstance();
-        }
-      }
-      /**
-       * <code>.com.xh.demo.grpc.ReplicationServerHello replicationServerHello = 8;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.xh.demo.grpc.WrTy.ReplicationServerHello, com.xh.demo.grpc.WrTy.ReplicationServerHello.Builder, com.xh.demo.grpc.WrTy.ReplicationServerHelloOrBuilder> 
-          getReplicationServerHelloFieldBuilder() {
-        if (replicationServerHelloBuilder_ == null) {
-          if (!(messageOneOfCase_ == 8)) {
-            messageOneOf_ = com.xh.demo.grpc.WrTy.ReplicationServerHello.getDefaultInstance();
-          }
-          replicationServerHelloBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.xh.demo.grpc.WrTy.ReplicationServerHello, com.xh.demo.grpc.WrTy.ReplicationServerHello.Builder, com.xh.demo.grpc.WrTy.ReplicationServerHelloOrBuilder>(
-                  (com.xh.demo.grpc.WrTy.ReplicationServerHello) messageOneOf_,
-                  getParentForChildren(),
-                  isClean());
-          messageOneOf_ = null;
-        }
-        messageOneOfCase_ = 8;
-        onChanged();;
-        return replicationServerHelloBuilder_;
       }
 
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -16577,19 +15764,19 @@ public final class WrTy {
        * <code>.com.xh.demo.grpc.InstanceInfo instanceInfo = 9;</code>
        */
       public boolean hasInstanceInfo() {
-        return messageOneOfCase_ == 9;
+        return itemCase_ == 9;
       }
       /**
        * <code>.com.xh.demo.grpc.InstanceInfo instanceInfo = 9;</code>
        */
       public com.xh.demo.grpc.WrTy.InstanceInfo getInstanceInfo() {
         if (instanceInfoBuilder_ == null) {
-          if (messageOneOfCase_ == 9) {
-            return (com.xh.demo.grpc.WrTy.InstanceInfo) messageOneOf_;
+          if (itemCase_ == 9) {
+            return (com.xh.demo.grpc.WrTy.InstanceInfo) item_;
           }
           return com.xh.demo.grpc.WrTy.InstanceInfo.getDefaultInstance();
         } else {
-          if (messageOneOfCase_ == 9) {
+          if (itemCase_ == 9) {
             return instanceInfoBuilder_.getMessage();
           }
           return com.xh.demo.grpc.WrTy.InstanceInfo.getDefaultInstance();
@@ -16603,12 +15790,12 @@ public final class WrTy {
           if (value == null) {
             throw new NullPointerException();
           }
-          messageOneOf_ = value;
+          item_ = value;
           onChanged();
         } else {
           instanceInfoBuilder_.setMessage(value);
         }
-        messageOneOfCase_ = 9;
+        itemCase_ = 9;
         return this;
       }
       /**
@@ -16617,12 +15804,12 @@ public final class WrTy {
       public Builder setInstanceInfo(
           com.xh.demo.grpc.WrTy.InstanceInfo.Builder builderForValue) {
         if (instanceInfoBuilder_ == null) {
-          messageOneOf_ = builderForValue.build();
+          item_ = builderForValue.build();
           onChanged();
         } else {
           instanceInfoBuilder_.setMessage(builderForValue.build());
         }
-        messageOneOfCase_ = 9;
+        itemCase_ = 9;
         return this;
       }
       /**
@@ -16630,21 +15817,21 @@ public final class WrTy {
        */
       public Builder mergeInstanceInfo(com.xh.demo.grpc.WrTy.InstanceInfo value) {
         if (instanceInfoBuilder_ == null) {
-          if (messageOneOfCase_ == 9 &&
-              messageOneOf_ != com.xh.demo.grpc.WrTy.InstanceInfo.getDefaultInstance()) {
-            messageOneOf_ = com.xh.demo.grpc.WrTy.InstanceInfo.newBuilder((com.xh.demo.grpc.WrTy.InstanceInfo) messageOneOf_)
+          if (itemCase_ == 9 &&
+              item_ != com.xh.demo.grpc.WrTy.InstanceInfo.getDefaultInstance()) {
+            item_ = com.xh.demo.grpc.WrTy.InstanceInfo.newBuilder((com.xh.demo.grpc.WrTy.InstanceInfo) item_)
                 .mergeFrom(value).buildPartial();
           } else {
-            messageOneOf_ = value;
+            item_ = value;
           }
           onChanged();
         } else {
-          if (messageOneOfCase_ == 9) {
+          if (itemCase_ == 9) {
             instanceInfoBuilder_.mergeFrom(value);
           }
           instanceInfoBuilder_.setMessage(value);
         }
-        messageOneOfCase_ = 9;
+        itemCase_ = 9;
         return this;
       }
       /**
@@ -16652,15 +15839,15 @@ public final class WrTy {
        */
       public Builder clearInstanceInfo() {
         if (instanceInfoBuilder_ == null) {
-          if (messageOneOfCase_ == 9) {
-            messageOneOfCase_ = 0;
-            messageOneOf_ = null;
+          if (itemCase_ == 9) {
+            itemCase_ = 0;
+            item_ = null;
             onChanged();
           }
         } else {
-          if (messageOneOfCase_ == 9) {
-            messageOneOfCase_ = 0;
-            messageOneOf_ = null;
+          if (itemCase_ == 9) {
+            itemCase_ = 0;
+            item_ = null;
           }
           instanceInfoBuilder_.clear();
         }
@@ -16676,11 +15863,11 @@ public final class WrTy {
        * <code>.com.xh.demo.grpc.InstanceInfo instanceInfo = 9;</code>
        */
       public com.xh.demo.grpc.WrTy.InstanceInfoOrBuilder getInstanceInfoOrBuilder() {
-        if ((messageOneOfCase_ == 9) && (instanceInfoBuilder_ != null)) {
+        if ((itemCase_ == 9) && (instanceInfoBuilder_ != null)) {
           return instanceInfoBuilder_.getMessageOrBuilder();
         } else {
-          if (messageOneOfCase_ == 9) {
-            return (com.xh.demo.grpc.WrTy.InstanceInfo) messageOneOf_;
+          if (itemCase_ == 9) {
+            return (com.xh.demo.grpc.WrTy.InstanceInfo) item_;
           }
           return com.xh.demo.grpc.WrTy.InstanceInfo.getDefaultInstance();
         }
@@ -16692,17 +15879,17 @@ public final class WrTy {
           com.xh.demo.grpc.WrTy.InstanceInfo, com.xh.demo.grpc.WrTy.InstanceInfo.Builder, com.xh.demo.grpc.WrTy.InstanceInfoOrBuilder> 
           getInstanceInfoFieldBuilder() {
         if (instanceInfoBuilder_ == null) {
-          if (!(messageOneOfCase_ == 9)) {
-            messageOneOf_ = com.xh.demo.grpc.WrTy.InstanceInfo.getDefaultInstance();
+          if (!(itemCase_ == 9)) {
+            item_ = com.xh.demo.grpc.WrTy.InstanceInfo.getDefaultInstance();
           }
           instanceInfoBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               com.xh.demo.grpc.WrTy.InstanceInfo, com.xh.demo.grpc.WrTy.InstanceInfo.Builder, com.xh.demo.grpc.WrTy.InstanceInfoOrBuilder>(
-                  (com.xh.demo.grpc.WrTy.InstanceInfo) messageOneOf_,
+                  (com.xh.demo.grpc.WrTy.InstanceInfo) item_,
                   getParentForChildren(),
                   isClean());
-          messageOneOf_ = null;
+          item_ = null;
         }
-        messageOneOfCase_ = 9;
+        itemCase_ = 9;
         onChanged();;
         return instanceInfoBuilder_;
       }
@@ -16713,19 +15900,19 @@ public final class WrTy {
        * <code>.com.xh.demo.grpc.InterestRegistration interestRegistration = 10;</code>
        */
       public boolean hasInterestRegistration() {
-        return messageOneOfCase_ == 10;
+        return itemCase_ == 10;
       }
       /**
        * <code>.com.xh.demo.grpc.InterestRegistration interestRegistration = 10;</code>
        */
       public com.xh.demo.grpc.WrTy.InterestRegistration getInterestRegistration() {
         if (interestRegistrationBuilder_ == null) {
-          if (messageOneOfCase_ == 10) {
-            return (com.xh.demo.grpc.WrTy.InterestRegistration) messageOneOf_;
+          if (itemCase_ == 10) {
+            return (com.xh.demo.grpc.WrTy.InterestRegistration) item_;
           }
           return com.xh.demo.grpc.WrTy.InterestRegistration.getDefaultInstance();
         } else {
-          if (messageOneOfCase_ == 10) {
+          if (itemCase_ == 10) {
             return interestRegistrationBuilder_.getMessage();
           }
           return com.xh.demo.grpc.WrTy.InterestRegistration.getDefaultInstance();
@@ -16739,12 +15926,12 @@ public final class WrTy {
           if (value == null) {
             throw new NullPointerException();
           }
-          messageOneOf_ = value;
+          item_ = value;
           onChanged();
         } else {
           interestRegistrationBuilder_.setMessage(value);
         }
-        messageOneOfCase_ = 10;
+        itemCase_ = 10;
         return this;
       }
       /**
@@ -16753,12 +15940,12 @@ public final class WrTy {
       public Builder setInterestRegistration(
           com.xh.demo.grpc.WrTy.InterestRegistration.Builder builderForValue) {
         if (interestRegistrationBuilder_ == null) {
-          messageOneOf_ = builderForValue.build();
+          item_ = builderForValue.build();
           onChanged();
         } else {
           interestRegistrationBuilder_.setMessage(builderForValue.build());
         }
-        messageOneOfCase_ = 10;
+        itemCase_ = 10;
         return this;
       }
       /**
@@ -16766,21 +15953,21 @@ public final class WrTy {
        */
       public Builder mergeInterestRegistration(com.xh.demo.grpc.WrTy.InterestRegistration value) {
         if (interestRegistrationBuilder_ == null) {
-          if (messageOneOfCase_ == 10 &&
-              messageOneOf_ != com.xh.demo.grpc.WrTy.InterestRegistration.getDefaultInstance()) {
-            messageOneOf_ = com.xh.demo.grpc.WrTy.InterestRegistration.newBuilder((com.xh.demo.grpc.WrTy.InterestRegistration) messageOneOf_)
+          if (itemCase_ == 10 &&
+              item_ != com.xh.demo.grpc.WrTy.InterestRegistration.getDefaultInstance()) {
+            item_ = com.xh.demo.grpc.WrTy.InterestRegistration.newBuilder((com.xh.demo.grpc.WrTy.InterestRegistration) item_)
                 .mergeFrom(value).buildPartial();
           } else {
-            messageOneOf_ = value;
+            item_ = value;
           }
           onChanged();
         } else {
-          if (messageOneOfCase_ == 10) {
+          if (itemCase_ == 10) {
             interestRegistrationBuilder_.mergeFrom(value);
           }
           interestRegistrationBuilder_.setMessage(value);
         }
-        messageOneOfCase_ = 10;
+        itemCase_ = 10;
         return this;
       }
       /**
@@ -16788,15 +15975,15 @@ public final class WrTy {
        */
       public Builder clearInterestRegistration() {
         if (interestRegistrationBuilder_ == null) {
-          if (messageOneOfCase_ == 10) {
-            messageOneOfCase_ = 0;
-            messageOneOf_ = null;
+          if (itemCase_ == 10) {
+            itemCase_ = 0;
+            item_ = null;
             onChanged();
           }
         } else {
-          if (messageOneOfCase_ == 10) {
-            messageOneOfCase_ = 0;
-            messageOneOf_ = null;
+          if (itemCase_ == 10) {
+            itemCase_ = 0;
+            item_ = null;
           }
           interestRegistrationBuilder_.clear();
         }
@@ -16812,11 +15999,11 @@ public final class WrTy {
        * <code>.com.xh.demo.grpc.InterestRegistration interestRegistration = 10;</code>
        */
       public com.xh.demo.grpc.WrTy.InterestRegistrationOrBuilder getInterestRegistrationOrBuilder() {
-        if ((messageOneOfCase_ == 10) && (interestRegistrationBuilder_ != null)) {
+        if ((itemCase_ == 10) && (interestRegistrationBuilder_ != null)) {
           return interestRegistrationBuilder_.getMessageOrBuilder();
         } else {
-          if (messageOneOfCase_ == 10) {
-            return (com.xh.demo.grpc.WrTy.InterestRegistration) messageOneOf_;
+          if (itemCase_ == 10) {
+            return (com.xh.demo.grpc.WrTy.InterestRegistration) item_;
           }
           return com.xh.demo.grpc.WrTy.InterestRegistration.getDefaultInstance();
         }
@@ -16828,427 +16015,155 @@ public final class WrTy {
           com.xh.demo.grpc.WrTy.InterestRegistration, com.xh.demo.grpc.WrTy.InterestRegistration.Builder, com.xh.demo.grpc.WrTy.InterestRegistrationOrBuilder> 
           getInterestRegistrationFieldBuilder() {
         if (interestRegistrationBuilder_ == null) {
-          if (!(messageOneOfCase_ == 10)) {
-            messageOneOf_ = com.xh.demo.grpc.WrTy.InterestRegistration.getDefaultInstance();
+          if (!(itemCase_ == 10)) {
+            item_ = com.xh.demo.grpc.WrTy.InterestRegistration.getDefaultInstance();
           }
           interestRegistrationBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               com.xh.demo.grpc.WrTy.InterestRegistration, com.xh.demo.grpc.WrTy.InterestRegistration.Builder, com.xh.demo.grpc.WrTy.InterestRegistrationOrBuilder>(
-                  (com.xh.demo.grpc.WrTy.InterestRegistration) messageOneOf_,
+                  (com.xh.demo.grpc.WrTy.InterestRegistration) item_,
                   getParentForChildren(),
                   isClean());
-          messageOneOf_ = null;
+          item_ = null;
         }
-        messageOneOfCase_ = 10;
+        itemCase_ = 10;
         onChanged();;
         return interestRegistrationBuilder_;
       }
 
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.xh.demo.grpc.WrTy.AddInstance, com.xh.demo.grpc.WrTy.AddInstance.Builder, com.xh.demo.grpc.WrTy.AddInstanceOrBuilder> addInstanceBuilder_;
+          com.xh.demo.grpc.WrTy.ChangeNotification, com.xh.demo.grpc.WrTy.ChangeNotification.Builder, com.xh.demo.grpc.WrTy.ChangeNotificationOrBuilder> changeNotificationBuilder_;
       /**
-       * <code>.com.xh.demo.grpc.AddInstance addInstance = 11;</code>
+       * <code>.com.xh.demo.grpc.ChangeNotification changeNotification = 11;</code>
        */
-      public boolean hasAddInstance() {
-        return messageOneOfCase_ == 11;
+      public boolean hasChangeNotification() {
+        return itemCase_ == 11;
       }
       /**
-       * <code>.com.xh.demo.grpc.AddInstance addInstance = 11;</code>
+       * <code>.com.xh.demo.grpc.ChangeNotification changeNotification = 11;</code>
        */
-      public com.xh.demo.grpc.WrTy.AddInstance getAddInstance() {
-        if (addInstanceBuilder_ == null) {
-          if (messageOneOfCase_ == 11) {
-            return (com.xh.demo.grpc.WrTy.AddInstance) messageOneOf_;
+      public com.xh.demo.grpc.WrTy.ChangeNotification getChangeNotification() {
+        if (changeNotificationBuilder_ == null) {
+          if (itemCase_ == 11) {
+            return (com.xh.demo.grpc.WrTy.ChangeNotification) item_;
           }
-          return com.xh.demo.grpc.WrTy.AddInstance.getDefaultInstance();
+          return com.xh.demo.grpc.WrTy.ChangeNotification.getDefaultInstance();
         } else {
-          if (messageOneOfCase_ == 11) {
-            return addInstanceBuilder_.getMessage();
+          if (itemCase_ == 11) {
+            return changeNotificationBuilder_.getMessage();
           }
-          return com.xh.demo.grpc.WrTy.AddInstance.getDefaultInstance();
+          return com.xh.demo.grpc.WrTy.ChangeNotification.getDefaultInstance();
         }
       }
       /**
-       * <code>.com.xh.demo.grpc.AddInstance addInstance = 11;</code>
+       * <code>.com.xh.demo.grpc.ChangeNotification changeNotification = 11;</code>
        */
-      public Builder setAddInstance(com.xh.demo.grpc.WrTy.AddInstance value) {
-        if (addInstanceBuilder_ == null) {
+      public Builder setChangeNotification(com.xh.demo.grpc.WrTy.ChangeNotification value) {
+        if (changeNotificationBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          messageOneOf_ = value;
+          item_ = value;
           onChanged();
         } else {
-          addInstanceBuilder_.setMessage(value);
+          changeNotificationBuilder_.setMessage(value);
         }
-        messageOneOfCase_ = 11;
+        itemCase_ = 11;
         return this;
       }
       /**
-       * <code>.com.xh.demo.grpc.AddInstance addInstance = 11;</code>
+       * <code>.com.xh.demo.grpc.ChangeNotification changeNotification = 11;</code>
        */
-      public Builder setAddInstance(
-          com.xh.demo.grpc.WrTy.AddInstance.Builder builderForValue) {
-        if (addInstanceBuilder_ == null) {
-          messageOneOf_ = builderForValue.build();
+      public Builder setChangeNotification(
+          com.xh.demo.grpc.WrTy.ChangeNotification.Builder builderForValue) {
+        if (changeNotificationBuilder_ == null) {
+          item_ = builderForValue.build();
           onChanged();
         } else {
-          addInstanceBuilder_.setMessage(builderForValue.build());
+          changeNotificationBuilder_.setMessage(builderForValue.build());
         }
-        messageOneOfCase_ = 11;
+        itemCase_ = 11;
         return this;
       }
       /**
-       * <code>.com.xh.demo.grpc.AddInstance addInstance = 11;</code>
+       * <code>.com.xh.demo.grpc.ChangeNotification changeNotification = 11;</code>
        */
-      public Builder mergeAddInstance(com.xh.demo.grpc.WrTy.AddInstance value) {
-        if (addInstanceBuilder_ == null) {
-          if (messageOneOfCase_ == 11 &&
-              messageOneOf_ != com.xh.demo.grpc.WrTy.AddInstance.getDefaultInstance()) {
-            messageOneOf_ = com.xh.demo.grpc.WrTy.AddInstance.newBuilder((com.xh.demo.grpc.WrTy.AddInstance) messageOneOf_)
+      public Builder mergeChangeNotification(com.xh.demo.grpc.WrTy.ChangeNotification value) {
+        if (changeNotificationBuilder_ == null) {
+          if (itemCase_ == 11 &&
+              item_ != com.xh.demo.grpc.WrTy.ChangeNotification.getDefaultInstance()) {
+            item_ = com.xh.demo.grpc.WrTy.ChangeNotification.newBuilder((com.xh.demo.grpc.WrTy.ChangeNotification) item_)
                 .mergeFrom(value).buildPartial();
           } else {
-            messageOneOf_ = value;
+            item_ = value;
           }
           onChanged();
         } else {
-          if (messageOneOfCase_ == 11) {
-            addInstanceBuilder_.mergeFrom(value);
+          if (itemCase_ == 11) {
+            changeNotificationBuilder_.mergeFrom(value);
           }
-          addInstanceBuilder_.setMessage(value);
+          changeNotificationBuilder_.setMessage(value);
         }
-        messageOneOfCase_ = 11;
+        itemCase_ = 11;
         return this;
       }
       /**
-       * <code>.com.xh.demo.grpc.AddInstance addInstance = 11;</code>
+       * <code>.com.xh.demo.grpc.ChangeNotification changeNotification = 11;</code>
        */
-      public Builder clearAddInstance() {
-        if (addInstanceBuilder_ == null) {
-          if (messageOneOfCase_ == 11) {
-            messageOneOfCase_ = 0;
-            messageOneOf_ = null;
+      public Builder clearChangeNotification() {
+        if (changeNotificationBuilder_ == null) {
+          if (itemCase_ == 11) {
+            itemCase_ = 0;
+            item_ = null;
             onChanged();
           }
         } else {
-          if (messageOneOfCase_ == 11) {
-            messageOneOfCase_ = 0;
-            messageOneOf_ = null;
+          if (itemCase_ == 11) {
+            itemCase_ = 0;
+            item_ = null;
           }
-          addInstanceBuilder_.clear();
+          changeNotificationBuilder_.clear();
         }
         return this;
       }
       /**
-       * <code>.com.xh.demo.grpc.AddInstance addInstance = 11;</code>
+       * <code>.com.xh.demo.grpc.ChangeNotification changeNotification = 11;</code>
        */
-      public com.xh.demo.grpc.WrTy.AddInstance.Builder getAddInstanceBuilder() {
-        return getAddInstanceFieldBuilder().getBuilder();
+      public com.xh.demo.grpc.WrTy.ChangeNotification.Builder getChangeNotificationBuilder() {
+        return getChangeNotificationFieldBuilder().getBuilder();
       }
       /**
-       * <code>.com.xh.demo.grpc.AddInstance addInstance = 11;</code>
+       * <code>.com.xh.demo.grpc.ChangeNotification changeNotification = 11;</code>
        */
-      public com.xh.demo.grpc.WrTy.AddInstanceOrBuilder getAddInstanceOrBuilder() {
-        if ((messageOneOfCase_ == 11) && (addInstanceBuilder_ != null)) {
-          return addInstanceBuilder_.getMessageOrBuilder();
+      public com.xh.demo.grpc.WrTy.ChangeNotificationOrBuilder getChangeNotificationOrBuilder() {
+        if ((itemCase_ == 11) && (changeNotificationBuilder_ != null)) {
+          return changeNotificationBuilder_.getMessageOrBuilder();
         } else {
-          if (messageOneOfCase_ == 11) {
-            return (com.xh.demo.grpc.WrTy.AddInstance) messageOneOf_;
+          if (itemCase_ == 11) {
+            return (com.xh.demo.grpc.WrTy.ChangeNotification) item_;
           }
-          return com.xh.demo.grpc.WrTy.AddInstance.getDefaultInstance();
+          return com.xh.demo.grpc.WrTy.ChangeNotification.getDefaultInstance();
         }
       }
       /**
-       * <code>.com.xh.demo.grpc.AddInstance addInstance = 11;</code>
+       * <code>.com.xh.demo.grpc.ChangeNotification changeNotification = 11;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.xh.demo.grpc.WrTy.AddInstance, com.xh.demo.grpc.WrTy.AddInstance.Builder, com.xh.demo.grpc.WrTy.AddInstanceOrBuilder> 
-          getAddInstanceFieldBuilder() {
-        if (addInstanceBuilder_ == null) {
-          if (!(messageOneOfCase_ == 11)) {
-            messageOneOf_ = com.xh.demo.grpc.WrTy.AddInstance.getDefaultInstance();
+          com.xh.demo.grpc.WrTy.ChangeNotification, com.xh.demo.grpc.WrTy.ChangeNotification.Builder, com.xh.demo.grpc.WrTy.ChangeNotificationOrBuilder> 
+          getChangeNotificationFieldBuilder() {
+        if (changeNotificationBuilder_ == null) {
+          if (!(itemCase_ == 11)) {
+            item_ = com.xh.demo.grpc.WrTy.ChangeNotification.getDefaultInstance();
           }
-          addInstanceBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.xh.demo.grpc.WrTy.AddInstance, com.xh.demo.grpc.WrTy.AddInstance.Builder, com.xh.demo.grpc.WrTy.AddInstanceOrBuilder>(
-                  (com.xh.demo.grpc.WrTy.AddInstance) messageOneOf_,
+          changeNotificationBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.xh.demo.grpc.WrTy.ChangeNotification, com.xh.demo.grpc.WrTy.ChangeNotification.Builder, com.xh.demo.grpc.WrTy.ChangeNotificationOrBuilder>(
+                  (com.xh.demo.grpc.WrTy.ChangeNotification) item_,
                   getParentForChildren(),
                   isClean());
-          messageOneOf_ = null;
+          item_ = null;
         }
-        messageOneOfCase_ = 11;
+        itemCase_ = 11;
         onChanged();;
-        return addInstanceBuilder_;
-      }
-
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.xh.demo.grpc.WrTy.DeleteInstance, com.xh.demo.grpc.WrTy.DeleteInstance.Builder, com.xh.demo.grpc.WrTy.DeleteInstanceOrBuilder> deleteInstanceBuilder_;
-      /**
-       * <code>.com.xh.demo.grpc.DeleteInstance deleteInstance = 12;</code>
-       */
-      public boolean hasDeleteInstance() {
-        return messageOneOfCase_ == 12;
-      }
-      /**
-       * <code>.com.xh.demo.grpc.DeleteInstance deleteInstance = 12;</code>
-       */
-      public com.xh.demo.grpc.WrTy.DeleteInstance getDeleteInstance() {
-        if (deleteInstanceBuilder_ == null) {
-          if (messageOneOfCase_ == 12) {
-            return (com.xh.demo.grpc.WrTy.DeleteInstance) messageOneOf_;
-          }
-          return com.xh.demo.grpc.WrTy.DeleteInstance.getDefaultInstance();
-        } else {
-          if (messageOneOfCase_ == 12) {
-            return deleteInstanceBuilder_.getMessage();
-          }
-          return com.xh.demo.grpc.WrTy.DeleteInstance.getDefaultInstance();
-        }
-      }
-      /**
-       * <code>.com.xh.demo.grpc.DeleteInstance deleteInstance = 12;</code>
-       */
-      public Builder setDeleteInstance(com.xh.demo.grpc.WrTy.DeleteInstance value) {
-        if (deleteInstanceBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          messageOneOf_ = value;
-          onChanged();
-        } else {
-          deleteInstanceBuilder_.setMessage(value);
-        }
-        messageOneOfCase_ = 12;
-        return this;
-      }
-      /**
-       * <code>.com.xh.demo.grpc.DeleteInstance deleteInstance = 12;</code>
-       */
-      public Builder setDeleteInstance(
-          com.xh.demo.grpc.WrTy.DeleteInstance.Builder builderForValue) {
-        if (deleteInstanceBuilder_ == null) {
-          messageOneOf_ = builderForValue.build();
-          onChanged();
-        } else {
-          deleteInstanceBuilder_.setMessage(builderForValue.build());
-        }
-        messageOneOfCase_ = 12;
-        return this;
-      }
-      /**
-       * <code>.com.xh.demo.grpc.DeleteInstance deleteInstance = 12;</code>
-       */
-      public Builder mergeDeleteInstance(com.xh.demo.grpc.WrTy.DeleteInstance value) {
-        if (deleteInstanceBuilder_ == null) {
-          if (messageOneOfCase_ == 12 &&
-              messageOneOf_ != com.xh.demo.grpc.WrTy.DeleteInstance.getDefaultInstance()) {
-            messageOneOf_ = com.xh.demo.grpc.WrTy.DeleteInstance.newBuilder((com.xh.demo.grpc.WrTy.DeleteInstance) messageOneOf_)
-                .mergeFrom(value).buildPartial();
-          } else {
-            messageOneOf_ = value;
-          }
-          onChanged();
-        } else {
-          if (messageOneOfCase_ == 12) {
-            deleteInstanceBuilder_.mergeFrom(value);
-          }
-          deleteInstanceBuilder_.setMessage(value);
-        }
-        messageOneOfCase_ = 12;
-        return this;
-      }
-      /**
-       * <code>.com.xh.demo.grpc.DeleteInstance deleteInstance = 12;</code>
-       */
-      public Builder clearDeleteInstance() {
-        if (deleteInstanceBuilder_ == null) {
-          if (messageOneOfCase_ == 12) {
-            messageOneOfCase_ = 0;
-            messageOneOf_ = null;
-            onChanged();
-          }
-        } else {
-          if (messageOneOfCase_ == 12) {
-            messageOneOfCase_ = 0;
-            messageOneOf_ = null;
-          }
-          deleteInstanceBuilder_.clear();
-        }
-        return this;
-      }
-      /**
-       * <code>.com.xh.demo.grpc.DeleteInstance deleteInstance = 12;</code>
-       */
-      public com.xh.demo.grpc.WrTy.DeleteInstance.Builder getDeleteInstanceBuilder() {
-        return getDeleteInstanceFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>.com.xh.demo.grpc.DeleteInstance deleteInstance = 12;</code>
-       */
-      public com.xh.demo.grpc.WrTy.DeleteInstanceOrBuilder getDeleteInstanceOrBuilder() {
-        if ((messageOneOfCase_ == 12) && (deleteInstanceBuilder_ != null)) {
-          return deleteInstanceBuilder_.getMessageOrBuilder();
-        } else {
-          if (messageOneOfCase_ == 12) {
-            return (com.xh.demo.grpc.WrTy.DeleteInstance) messageOneOf_;
-          }
-          return com.xh.demo.grpc.WrTy.DeleteInstance.getDefaultInstance();
-        }
-      }
-      /**
-       * <code>.com.xh.demo.grpc.DeleteInstance deleteInstance = 12;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.xh.demo.grpc.WrTy.DeleteInstance, com.xh.demo.grpc.WrTy.DeleteInstance.Builder, com.xh.demo.grpc.WrTy.DeleteInstanceOrBuilder> 
-          getDeleteInstanceFieldBuilder() {
-        if (deleteInstanceBuilder_ == null) {
-          if (!(messageOneOfCase_ == 12)) {
-            messageOneOf_ = com.xh.demo.grpc.WrTy.DeleteInstance.getDefaultInstance();
-          }
-          deleteInstanceBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.xh.demo.grpc.WrTy.DeleteInstance, com.xh.demo.grpc.WrTy.DeleteInstance.Builder, com.xh.demo.grpc.WrTy.DeleteInstanceOrBuilder>(
-                  (com.xh.demo.grpc.WrTy.DeleteInstance) messageOneOf_,
-                  getParentForChildren(),
-                  isClean());
-          messageOneOf_ = null;
-        }
-        messageOneOfCase_ = 12;
-        onChanged();;
-        return deleteInstanceBuilder_;
-      }
-
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.xh.demo.grpc.WrTy.UpdateInstanceInfo, com.xh.demo.grpc.WrTy.UpdateInstanceInfo.Builder, com.xh.demo.grpc.WrTy.UpdateInstanceInfoOrBuilder> updateInstanceInfoBuilder_;
-      /**
-       * <code>.com.xh.demo.grpc.UpdateInstanceInfo updateInstanceInfo = 13;</code>
-       */
-      public boolean hasUpdateInstanceInfo() {
-        return messageOneOfCase_ == 13;
-      }
-      /**
-       * <code>.com.xh.demo.grpc.UpdateInstanceInfo updateInstanceInfo = 13;</code>
-       */
-      public com.xh.demo.grpc.WrTy.UpdateInstanceInfo getUpdateInstanceInfo() {
-        if (updateInstanceInfoBuilder_ == null) {
-          if (messageOneOfCase_ == 13) {
-            return (com.xh.demo.grpc.WrTy.UpdateInstanceInfo) messageOneOf_;
-          }
-          return com.xh.demo.grpc.WrTy.UpdateInstanceInfo.getDefaultInstance();
-        } else {
-          if (messageOneOfCase_ == 13) {
-            return updateInstanceInfoBuilder_.getMessage();
-          }
-          return com.xh.demo.grpc.WrTy.UpdateInstanceInfo.getDefaultInstance();
-        }
-      }
-      /**
-       * <code>.com.xh.demo.grpc.UpdateInstanceInfo updateInstanceInfo = 13;</code>
-       */
-      public Builder setUpdateInstanceInfo(com.xh.demo.grpc.WrTy.UpdateInstanceInfo value) {
-        if (updateInstanceInfoBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          messageOneOf_ = value;
-          onChanged();
-        } else {
-          updateInstanceInfoBuilder_.setMessage(value);
-        }
-        messageOneOfCase_ = 13;
-        return this;
-      }
-      /**
-       * <code>.com.xh.demo.grpc.UpdateInstanceInfo updateInstanceInfo = 13;</code>
-       */
-      public Builder setUpdateInstanceInfo(
-          com.xh.demo.grpc.WrTy.UpdateInstanceInfo.Builder builderForValue) {
-        if (updateInstanceInfoBuilder_ == null) {
-          messageOneOf_ = builderForValue.build();
-          onChanged();
-        } else {
-          updateInstanceInfoBuilder_.setMessage(builderForValue.build());
-        }
-        messageOneOfCase_ = 13;
-        return this;
-      }
-      /**
-       * <code>.com.xh.demo.grpc.UpdateInstanceInfo updateInstanceInfo = 13;</code>
-       */
-      public Builder mergeUpdateInstanceInfo(com.xh.demo.grpc.WrTy.UpdateInstanceInfo value) {
-        if (updateInstanceInfoBuilder_ == null) {
-          if (messageOneOfCase_ == 13 &&
-              messageOneOf_ != com.xh.demo.grpc.WrTy.UpdateInstanceInfo.getDefaultInstance()) {
-            messageOneOf_ = com.xh.demo.grpc.WrTy.UpdateInstanceInfo.newBuilder((com.xh.demo.grpc.WrTy.UpdateInstanceInfo) messageOneOf_)
-                .mergeFrom(value).buildPartial();
-          } else {
-            messageOneOf_ = value;
-          }
-          onChanged();
-        } else {
-          if (messageOneOfCase_ == 13) {
-            updateInstanceInfoBuilder_.mergeFrom(value);
-          }
-          updateInstanceInfoBuilder_.setMessage(value);
-        }
-        messageOneOfCase_ = 13;
-        return this;
-      }
-      /**
-       * <code>.com.xh.demo.grpc.UpdateInstanceInfo updateInstanceInfo = 13;</code>
-       */
-      public Builder clearUpdateInstanceInfo() {
-        if (updateInstanceInfoBuilder_ == null) {
-          if (messageOneOfCase_ == 13) {
-            messageOneOfCase_ = 0;
-            messageOneOf_ = null;
-            onChanged();
-          }
-        } else {
-          if (messageOneOfCase_ == 13) {
-            messageOneOfCase_ = 0;
-            messageOneOf_ = null;
-          }
-          updateInstanceInfoBuilder_.clear();
-        }
-        return this;
-      }
-      /**
-       * <code>.com.xh.demo.grpc.UpdateInstanceInfo updateInstanceInfo = 13;</code>
-       */
-      public com.xh.demo.grpc.WrTy.UpdateInstanceInfo.Builder getUpdateInstanceInfoBuilder() {
-        return getUpdateInstanceInfoFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>.com.xh.demo.grpc.UpdateInstanceInfo updateInstanceInfo = 13;</code>
-       */
-      public com.xh.demo.grpc.WrTy.UpdateInstanceInfoOrBuilder getUpdateInstanceInfoOrBuilder() {
-        if ((messageOneOfCase_ == 13) && (updateInstanceInfoBuilder_ != null)) {
-          return updateInstanceInfoBuilder_.getMessageOrBuilder();
-        } else {
-          if (messageOneOfCase_ == 13) {
-            return (com.xh.demo.grpc.WrTy.UpdateInstanceInfo) messageOneOf_;
-          }
-          return com.xh.demo.grpc.WrTy.UpdateInstanceInfo.getDefaultInstance();
-        }
-      }
-      /**
-       * <code>.com.xh.demo.grpc.UpdateInstanceInfo updateInstanceInfo = 13;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.xh.demo.grpc.WrTy.UpdateInstanceInfo, com.xh.demo.grpc.WrTy.UpdateInstanceInfo.Builder, com.xh.demo.grpc.WrTy.UpdateInstanceInfoOrBuilder> 
-          getUpdateInstanceInfoFieldBuilder() {
-        if (updateInstanceInfoBuilder_ == null) {
-          if (!(messageOneOfCase_ == 13)) {
-            messageOneOf_ = com.xh.demo.grpc.WrTy.UpdateInstanceInfo.getDefaultInstance();
-          }
-          updateInstanceInfoBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.xh.demo.grpc.WrTy.UpdateInstanceInfo, com.xh.demo.grpc.WrTy.UpdateInstanceInfo.Builder, com.xh.demo.grpc.WrTy.UpdateInstanceInfoOrBuilder>(
-                  (com.xh.demo.grpc.WrTy.UpdateInstanceInfo) messageOneOf_,
-                  getParentForChildren(),
-                  isClean());
-          messageOneOf_ = null;
-        }
-        messageOneOfCase_ = 13;
-        onChanged();;
-        return updateInstanceInfoBuilder_;
+        return changeNotificationBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -17346,7 +16261,7 @@ public final class WrTy {
      */
     com.xh.demo.grpc.WrTy.HeartbeatOrBuilder getHeartbeatOrBuilder();
 
-    public com.xh.demo.grpc.WrTy.RegistrationRequest.OneofRequestCase getOneofRequestCase();
+    public com.xh.demo.grpc.WrTy.RegistrationRequest.ItemCase getItemCase();
   }
   /**
    * Protobuf type {@code com.xh.demo.grpc.RegistrationRequest}
@@ -17389,44 +16304,44 @@ public final class WrTy {
               break;
             case 10: {
               com.xh.demo.grpc.WrTy.ClientHello.Builder subBuilder = null;
-              if (oneofRequestCase_ == 1) {
-                subBuilder = ((com.xh.demo.grpc.WrTy.ClientHello) oneofRequest_).toBuilder();
+              if (itemCase_ == 1) {
+                subBuilder = ((com.xh.demo.grpc.WrTy.ClientHello) item_).toBuilder();
               }
-              oneofRequest_ =
+              item_ =
                   input.readMessage(com.xh.demo.grpc.WrTy.ClientHello.parser(), extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom((com.xh.demo.grpc.WrTy.ClientHello) oneofRequest_);
-                oneofRequest_ = subBuilder.buildPartial();
+                subBuilder.mergeFrom((com.xh.demo.grpc.WrTy.ClientHello) item_);
+                item_ = subBuilder.buildPartial();
               }
-              oneofRequestCase_ = 1;
+              itemCase_ = 1;
               break;
             }
             case 18: {
               com.xh.demo.grpc.WrTy.InstanceInfo.Builder subBuilder = null;
-              if (oneofRequestCase_ == 2) {
-                subBuilder = ((com.xh.demo.grpc.WrTy.InstanceInfo) oneofRequest_).toBuilder();
+              if (itemCase_ == 2) {
+                subBuilder = ((com.xh.demo.grpc.WrTy.InstanceInfo) item_).toBuilder();
               }
-              oneofRequest_ =
+              item_ =
                   input.readMessage(com.xh.demo.grpc.WrTy.InstanceInfo.parser(), extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom((com.xh.demo.grpc.WrTy.InstanceInfo) oneofRequest_);
-                oneofRequest_ = subBuilder.buildPartial();
+                subBuilder.mergeFrom((com.xh.demo.grpc.WrTy.InstanceInfo) item_);
+                item_ = subBuilder.buildPartial();
               }
-              oneofRequestCase_ = 2;
+              itemCase_ = 2;
               break;
             }
             case 26: {
               com.xh.demo.grpc.WrTy.Heartbeat.Builder subBuilder = null;
-              if (oneofRequestCase_ == 3) {
-                subBuilder = ((com.xh.demo.grpc.WrTy.Heartbeat) oneofRequest_).toBuilder();
+              if (itemCase_ == 3) {
+                subBuilder = ((com.xh.demo.grpc.WrTy.Heartbeat) item_).toBuilder();
               }
-              oneofRequest_ =
+              item_ =
                   input.readMessage(com.xh.demo.grpc.WrTy.Heartbeat.parser(), extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom((com.xh.demo.grpc.WrTy.Heartbeat) oneofRequest_);
-                oneofRequest_ = subBuilder.buildPartial();
+                subBuilder.mergeFrom((com.xh.demo.grpc.WrTy.Heartbeat) item_);
+                item_ = subBuilder.buildPartial();
               }
-              oneofRequestCase_ = 3;
+              itemCase_ = 3;
               break;
             }
             default: {
@@ -17461,32 +16376,32 @@ public final class WrTy {
               com.xh.demo.grpc.WrTy.RegistrationRequest.class, com.xh.demo.grpc.WrTy.RegistrationRequest.Builder.class);
     }
 
-    private int oneofRequestCase_ = 0;
-    private java.lang.Object oneofRequest_;
-    public enum OneofRequestCase
+    private int itemCase_ = 0;
+    private java.lang.Object item_;
+    public enum ItemCase
         implements com.google.protobuf.Internal.EnumLite {
       CLIENTHELLO(1),
       INSTANCEINFO(2),
       HEARTBEAT(3),
-      ONEOFREQUEST_NOT_SET(0);
+      ITEM_NOT_SET(0);
       private final int value;
-      private OneofRequestCase(int value) {
+      private ItemCase(int value) {
         this.value = value;
       }
       /**
        * @deprecated Use {@link #forNumber(int)} instead.
        */
       @java.lang.Deprecated
-      public static OneofRequestCase valueOf(int value) {
+      public static ItemCase valueOf(int value) {
         return forNumber(value);
       }
 
-      public static OneofRequestCase forNumber(int value) {
+      public static ItemCase forNumber(int value) {
         switch (value) {
           case 1: return CLIENTHELLO;
           case 2: return INSTANCEINFO;
           case 3: return HEARTBEAT;
-          case 0: return ONEOFREQUEST_NOT_SET;
+          case 0: return ITEM_NOT_SET;
           default: return null;
         }
       }
@@ -17495,10 +16410,10 @@ public final class WrTy {
       }
     };
 
-    public OneofRequestCase
-    getOneofRequestCase() {
-      return OneofRequestCase.forNumber(
-          oneofRequestCase_);
+    public ItemCase
+    getItemCase() {
+      return ItemCase.forNumber(
+          itemCase_);
     }
 
     public static final int CLIENTHELLO_FIELD_NUMBER = 1;
@@ -17506,14 +16421,14 @@ public final class WrTy {
      * <code>.com.xh.demo.grpc.ClientHello clientHello = 1;</code>
      */
     public boolean hasClientHello() {
-      return oneofRequestCase_ == 1;
+      return itemCase_ == 1;
     }
     /**
      * <code>.com.xh.demo.grpc.ClientHello clientHello = 1;</code>
      */
     public com.xh.demo.grpc.WrTy.ClientHello getClientHello() {
-      if (oneofRequestCase_ == 1) {
-         return (com.xh.demo.grpc.WrTy.ClientHello) oneofRequest_;
+      if (itemCase_ == 1) {
+         return (com.xh.demo.grpc.WrTy.ClientHello) item_;
       }
       return com.xh.demo.grpc.WrTy.ClientHello.getDefaultInstance();
     }
@@ -17521,8 +16436,8 @@ public final class WrTy {
      * <code>.com.xh.demo.grpc.ClientHello clientHello = 1;</code>
      */
     public com.xh.demo.grpc.WrTy.ClientHelloOrBuilder getClientHelloOrBuilder() {
-      if (oneofRequestCase_ == 1) {
-         return (com.xh.demo.grpc.WrTy.ClientHello) oneofRequest_;
+      if (itemCase_ == 1) {
+         return (com.xh.demo.grpc.WrTy.ClientHello) item_;
       }
       return com.xh.demo.grpc.WrTy.ClientHello.getDefaultInstance();
     }
@@ -17532,14 +16447,14 @@ public final class WrTy {
      * <code>.com.xh.demo.grpc.InstanceInfo instanceInfo = 2;</code>
      */
     public boolean hasInstanceInfo() {
-      return oneofRequestCase_ == 2;
+      return itemCase_ == 2;
     }
     /**
      * <code>.com.xh.demo.grpc.InstanceInfo instanceInfo = 2;</code>
      */
     public com.xh.demo.grpc.WrTy.InstanceInfo getInstanceInfo() {
-      if (oneofRequestCase_ == 2) {
-         return (com.xh.demo.grpc.WrTy.InstanceInfo) oneofRequest_;
+      if (itemCase_ == 2) {
+         return (com.xh.demo.grpc.WrTy.InstanceInfo) item_;
       }
       return com.xh.demo.grpc.WrTy.InstanceInfo.getDefaultInstance();
     }
@@ -17547,8 +16462,8 @@ public final class WrTy {
      * <code>.com.xh.demo.grpc.InstanceInfo instanceInfo = 2;</code>
      */
     public com.xh.demo.grpc.WrTy.InstanceInfoOrBuilder getInstanceInfoOrBuilder() {
-      if (oneofRequestCase_ == 2) {
-         return (com.xh.demo.grpc.WrTy.InstanceInfo) oneofRequest_;
+      if (itemCase_ == 2) {
+         return (com.xh.demo.grpc.WrTy.InstanceInfo) item_;
       }
       return com.xh.demo.grpc.WrTy.InstanceInfo.getDefaultInstance();
     }
@@ -17558,14 +16473,14 @@ public final class WrTy {
      * <code>.com.xh.demo.grpc.Heartbeat heartbeat = 3;</code>
      */
     public boolean hasHeartbeat() {
-      return oneofRequestCase_ == 3;
+      return itemCase_ == 3;
     }
     /**
      * <code>.com.xh.demo.grpc.Heartbeat heartbeat = 3;</code>
      */
     public com.xh.demo.grpc.WrTy.Heartbeat getHeartbeat() {
-      if (oneofRequestCase_ == 3) {
-         return (com.xh.demo.grpc.WrTy.Heartbeat) oneofRequest_;
+      if (itemCase_ == 3) {
+         return (com.xh.demo.grpc.WrTy.Heartbeat) item_;
       }
       return com.xh.demo.grpc.WrTy.Heartbeat.getDefaultInstance();
     }
@@ -17573,8 +16488,8 @@ public final class WrTy {
      * <code>.com.xh.demo.grpc.Heartbeat heartbeat = 3;</code>
      */
     public com.xh.demo.grpc.WrTy.HeartbeatOrBuilder getHeartbeatOrBuilder() {
-      if (oneofRequestCase_ == 3) {
-         return (com.xh.demo.grpc.WrTy.Heartbeat) oneofRequest_;
+      if (itemCase_ == 3) {
+         return (com.xh.demo.grpc.WrTy.Heartbeat) item_;
       }
       return com.xh.demo.grpc.WrTy.Heartbeat.getDefaultInstance();
     }
@@ -17593,14 +16508,14 @@ public final class WrTy {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (oneofRequestCase_ == 1) {
-        output.writeMessage(1, (com.xh.demo.grpc.WrTy.ClientHello) oneofRequest_);
+      if (itemCase_ == 1) {
+        output.writeMessage(1, (com.xh.demo.grpc.WrTy.ClientHello) item_);
       }
-      if (oneofRequestCase_ == 2) {
-        output.writeMessage(2, (com.xh.demo.grpc.WrTy.InstanceInfo) oneofRequest_);
+      if (itemCase_ == 2) {
+        output.writeMessage(2, (com.xh.demo.grpc.WrTy.InstanceInfo) item_);
       }
-      if (oneofRequestCase_ == 3) {
-        output.writeMessage(3, (com.xh.demo.grpc.WrTy.Heartbeat) oneofRequest_);
+      if (itemCase_ == 3) {
+        output.writeMessage(3, (com.xh.demo.grpc.WrTy.Heartbeat) item_);
       }
       unknownFields.writeTo(output);
     }
@@ -17611,17 +16526,17 @@ public final class WrTy {
       if (size != -1) return size;
 
       size = 0;
-      if (oneofRequestCase_ == 1) {
+      if (itemCase_ == 1) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, (com.xh.demo.grpc.WrTy.ClientHello) oneofRequest_);
+          .computeMessageSize(1, (com.xh.demo.grpc.WrTy.ClientHello) item_);
       }
-      if (oneofRequestCase_ == 2) {
+      if (itemCase_ == 2) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, (com.xh.demo.grpc.WrTy.InstanceInfo) oneofRequest_);
+          .computeMessageSize(2, (com.xh.demo.grpc.WrTy.InstanceInfo) item_);
       }
-      if (oneofRequestCase_ == 3) {
+      if (itemCase_ == 3) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, (com.xh.demo.grpc.WrTy.Heartbeat) oneofRequest_);
+          .computeMessageSize(3, (com.xh.demo.grpc.WrTy.Heartbeat) item_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -17638,8 +16553,8 @@ public final class WrTy {
       }
       com.xh.demo.grpc.WrTy.RegistrationRequest other = (com.xh.demo.grpc.WrTy.RegistrationRequest) obj;
 
-      if (!getOneofRequestCase().equals(other.getOneofRequestCase())) return false;
-      switch (oneofRequestCase_) {
+      if (!getItemCase().equals(other.getItemCase())) return false;
+      switch (itemCase_) {
         case 1:
           if (!getClientHello()
               .equals(other.getClientHello())) return false;
@@ -17666,7 +16581,7 @@ public final class WrTy {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      switch (oneofRequestCase_) {
+      switch (itemCase_) {
         case 1:
           hash = (37 * hash) + CLIENTHELLO_FIELD_NUMBER;
           hash = (53 * hash) + getClientHello().hashCode();
@@ -17815,8 +16730,8 @@ public final class WrTy {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        oneofRequestCase_ = 0;
-        oneofRequest_ = null;
+        itemCase_ = 0;
+        item_ = null;
         return this;
       }
 
@@ -17843,28 +16758,28 @@ public final class WrTy {
       @java.lang.Override
       public com.xh.demo.grpc.WrTy.RegistrationRequest buildPartial() {
         com.xh.demo.grpc.WrTy.RegistrationRequest result = new com.xh.demo.grpc.WrTy.RegistrationRequest(this);
-        if (oneofRequestCase_ == 1) {
+        if (itemCase_ == 1) {
           if (clientHelloBuilder_ == null) {
-            result.oneofRequest_ = oneofRequest_;
+            result.item_ = item_;
           } else {
-            result.oneofRequest_ = clientHelloBuilder_.build();
+            result.item_ = clientHelloBuilder_.build();
           }
         }
-        if (oneofRequestCase_ == 2) {
+        if (itemCase_ == 2) {
           if (instanceInfoBuilder_ == null) {
-            result.oneofRequest_ = oneofRequest_;
+            result.item_ = item_;
           } else {
-            result.oneofRequest_ = instanceInfoBuilder_.build();
+            result.item_ = instanceInfoBuilder_.build();
           }
         }
-        if (oneofRequestCase_ == 3) {
+        if (itemCase_ == 3) {
           if (heartbeatBuilder_ == null) {
-            result.oneofRequest_ = oneofRequest_;
+            result.item_ = item_;
           } else {
-            result.oneofRequest_ = heartbeatBuilder_.build();
+            result.item_ = heartbeatBuilder_.build();
           }
         }
-        result.oneofRequestCase_ = oneofRequestCase_;
+        result.itemCase_ = itemCase_;
         onBuilt();
         return result;
       }
@@ -17913,7 +16828,7 @@ public final class WrTy {
 
       public Builder mergeFrom(com.xh.demo.grpc.WrTy.RegistrationRequest other) {
         if (other == com.xh.demo.grpc.WrTy.RegistrationRequest.getDefaultInstance()) return this;
-        switch (other.getOneofRequestCase()) {
+        switch (other.getItemCase()) {
           case CLIENTHELLO: {
             mergeClientHello(other.getClientHello());
             break;
@@ -17926,7 +16841,7 @@ public final class WrTy {
             mergeHeartbeat(other.getHeartbeat());
             break;
           }
-          case ONEOFREQUEST_NOT_SET: {
+          case ITEM_NOT_SET: {
             break;
           }
         }
@@ -17958,17 +16873,17 @@ public final class WrTy {
         }
         return this;
       }
-      private int oneofRequestCase_ = 0;
-      private java.lang.Object oneofRequest_;
-      public OneofRequestCase
-          getOneofRequestCase() {
-        return OneofRequestCase.forNumber(
-            oneofRequestCase_);
+      private int itemCase_ = 0;
+      private java.lang.Object item_;
+      public ItemCase
+          getItemCase() {
+        return ItemCase.forNumber(
+            itemCase_);
       }
 
-      public Builder clearOneofRequest() {
-        oneofRequestCase_ = 0;
-        oneofRequest_ = null;
+      public Builder clearItem() {
+        itemCase_ = 0;
+        item_ = null;
         onChanged();
         return this;
       }
@@ -17980,19 +16895,19 @@ public final class WrTy {
        * <code>.com.xh.demo.grpc.ClientHello clientHello = 1;</code>
        */
       public boolean hasClientHello() {
-        return oneofRequestCase_ == 1;
+        return itemCase_ == 1;
       }
       /**
        * <code>.com.xh.demo.grpc.ClientHello clientHello = 1;</code>
        */
       public com.xh.demo.grpc.WrTy.ClientHello getClientHello() {
         if (clientHelloBuilder_ == null) {
-          if (oneofRequestCase_ == 1) {
-            return (com.xh.demo.grpc.WrTy.ClientHello) oneofRequest_;
+          if (itemCase_ == 1) {
+            return (com.xh.demo.grpc.WrTy.ClientHello) item_;
           }
           return com.xh.demo.grpc.WrTy.ClientHello.getDefaultInstance();
         } else {
-          if (oneofRequestCase_ == 1) {
+          if (itemCase_ == 1) {
             return clientHelloBuilder_.getMessage();
           }
           return com.xh.demo.grpc.WrTy.ClientHello.getDefaultInstance();
@@ -18006,12 +16921,12 @@ public final class WrTy {
           if (value == null) {
             throw new NullPointerException();
           }
-          oneofRequest_ = value;
+          item_ = value;
           onChanged();
         } else {
           clientHelloBuilder_.setMessage(value);
         }
-        oneofRequestCase_ = 1;
+        itemCase_ = 1;
         return this;
       }
       /**
@@ -18020,12 +16935,12 @@ public final class WrTy {
       public Builder setClientHello(
           com.xh.demo.grpc.WrTy.ClientHello.Builder builderForValue) {
         if (clientHelloBuilder_ == null) {
-          oneofRequest_ = builderForValue.build();
+          item_ = builderForValue.build();
           onChanged();
         } else {
           clientHelloBuilder_.setMessage(builderForValue.build());
         }
-        oneofRequestCase_ = 1;
+        itemCase_ = 1;
         return this;
       }
       /**
@@ -18033,21 +16948,21 @@ public final class WrTy {
        */
       public Builder mergeClientHello(com.xh.demo.grpc.WrTy.ClientHello value) {
         if (clientHelloBuilder_ == null) {
-          if (oneofRequestCase_ == 1 &&
-              oneofRequest_ != com.xh.demo.grpc.WrTy.ClientHello.getDefaultInstance()) {
-            oneofRequest_ = com.xh.demo.grpc.WrTy.ClientHello.newBuilder((com.xh.demo.grpc.WrTy.ClientHello) oneofRequest_)
+          if (itemCase_ == 1 &&
+              item_ != com.xh.demo.grpc.WrTy.ClientHello.getDefaultInstance()) {
+            item_ = com.xh.demo.grpc.WrTy.ClientHello.newBuilder((com.xh.demo.grpc.WrTy.ClientHello) item_)
                 .mergeFrom(value).buildPartial();
           } else {
-            oneofRequest_ = value;
+            item_ = value;
           }
           onChanged();
         } else {
-          if (oneofRequestCase_ == 1) {
+          if (itemCase_ == 1) {
             clientHelloBuilder_.mergeFrom(value);
           }
           clientHelloBuilder_.setMessage(value);
         }
-        oneofRequestCase_ = 1;
+        itemCase_ = 1;
         return this;
       }
       /**
@@ -18055,15 +16970,15 @@ public final class WrTy {
        */
       public Builder clearClientHello() {
         if (clientHelloBuilder_ == null) {
-          if (oneofRequestCase_ == 1) {
-            oneofRequestCase_ = 0;
-            oneofRequest_ = null;
+          if (itemCase_ == 1) {
+            itemCase_ = 0;
+            item_ = null;
             onChanged();
           }
         } else {
-          if (oneofRequestCase_ == 1) {
-            oneofRequestCase_ = 0;
-            oneofRequest_ = null;
+          if (itemCase_ == 1) {
+            itemCase_ = 0;
+            item_ = null;
           }
           clientHelloBuilder_.clear();
         }
@@ -18079,11 +16994,11 @@ public final class WrTy {
        * <code>.com.xh.demo.grpc.ClientHello clientHello = 1;</code>
        */
       public com.xh.demo.grpc.WrTy.ClientHelloOrBuilder getClientHelloOrBuilder() {
-        if ((oneofRequestCase_ == 1) && (clientHelloBuilder_ != null)) {
+        if ((itemCase_ == 1) && (clientHelloBuilder_ != null)) {
           return clientHelloBuilder_.getMessageOrBuilder();
         } else {
-          if (oneofRequestCase_ == 1) {
-            return (com.xh.demo.grpc.WrTy.ClientHello) oneofRequest_;
+          if (itemCase_ == 1) {
+            return (com.xh.demo.grpc.WrTy.ClientHello) item_;
           }
           return com.xh.demo.grpc.WrTy.ClientHello.getDefaultInstance();
         }
@@ -18095,17 +17010,17 @@ public final class WrTy {
           com.xh.demo.grpc.WrTy.ClientHello, com.xh.demo.grpc.WrTy.ClientHello.Builder, com.xh.demo.grpc.WrTy.ClientHelloOrBuilder> 
           getClientHelloFieldBuilder() {
         if (clientHelloBuilder_ == null) {
-          if (!(oneofRequestCase_ == 1)) {
-            oneofRequest_ = com.xh.demo.grpc.WrTy.ClientHello.getDefaultInstance();
+          if (!(itemCase_ == 1)) {
+            item_ = com.xh.demo.grpc.WrTy.ClientHello.getDefaultInstance();
           }
           clientHelloBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               com.xh.demo.grpc.WrTy.ClientHello, com.xh.demo.grpc.WrTy.ClientHello.Builder, com.xh.demo.grpc.WrTy.ClientHelloOrBuilder>(
-                  (com.xh.demo.grpc.WrTy.ClientHello) oneofRequest_,
+                  (com.xh.demo.grpc.WrTy.ClientHello) item_,
                   getParentForChildren(),
                   isClean());
-          oneofRequest_ = null;
+          item_ = null;
         }
-        oneofRequestCase_ = 1;
+        itemCase_ = 1;
         onChanged();;
         return clientHelloBuilder_;
       }
@@ -18116,19 +17031,19 @@ public final class WrTy {
        * <code>.com.xh.demo.grpc.InstanceInfo instanceInfo = 2;</code>
        */
       public boolean hasInstanceInfo() {
-        return oneofRequestCase_ == 2;
+        return itemCase_ == 2;
       }
       /**
        * <code>.com.xh.demo.grpc.InstanceInfo instanceInfo = 2;</code>
        */
       public com.xh.demo.grpc.WrTy.InstanceInfo getInstanceInfo() {
         if (instanceInfoBuilder_ == null) {
-          if (oneofRequestCase_ == 2) {
-            return (com.xh.demo.grpc.WrTy.InstanceInfo) oneofRequest_;
+          if (itemCase_ == 2) {
+            return (com.xh.demo.grpc.WrTy.InstanceInfo) item_;
           }
           return com.xh.demo.grpc.WrTy.InstanceInfo.getDefaultInstance();
         } else {
-          if (oneofRequestCase_ == 2) {
+          if (itemCase_ == 2) {
             return instanceInfoBuilder_.getMessage();
           }
           return com.xh.demo.grpc.WrTy.InstanceInfo.getDefaultInstance();
@@ -18142,12 +17057,12 @@ public final class WrTy {
           if (value == null) {
             throw new NullPointerException();
           }
-          oneofRequest_ = value;
+          item_ = value;
           onChanged();
         } else {
           instanceInfoBuilder_.setMessage(value);
         }
-        oneofRequestCase_ = 2;
+        itemCase_ = 2;
         return this;
       }
       /**
@@ -18156,12 +17071,12 @@ public final class WrTy {
       public Builder setInstanceInfo(
           com.xh.demo.grpc.WrTy.InstanceInfo.Builder builderForValue) {
         if (instanceInfoBuilder_ == null) {
-          oneofRequest_ = builderForValue.build();
+          item_ = builderForValue.build();
           onChanged();
         } else {
           instanceInfoBuilder_.setMessage(builderForValue.build());
         }
-        oneofRequestCase_ = 2;
+        itemCase_ = 2;
         return this;
       }
       /**
@@ -18169,21 +17084,21 @@ public final class WrTy {
        */
       public Builder mergeInstanceInfo(com.xh.demo.grpc.WrTy.InstanceInfo value) {
         if (instanceInfoBuilder_ == null) {
-          if (oneofRequestCase_ == 2 &&
-              oneofRequest_ != com.xh.demo.grpc.WrTy.InstanceInfo.getDefaultInstance()) {
-            oneofRequest_ = com.xh.demo.grpc.WrTy.InstanceInfo.newBuilder((com.xh.demo.grpc.WrTy.InstanceInfo) oneofRequest_)
+          if (itemCase_ == 2 &&
+              item_ != com.xh.demo.grpc.WrTy.InstanceInfo.getDefaultInstance()) {
+            item_ = com.xh.demo.grpc.WrTy.InstanceInfo.newBuilder((com.xh.demo.grpc.WrTy.InstanceInfo) item_)
                 .mergeFrom(value).buildPartial();
           } else {
-            oneofRequest_ = value;
+            item_ = value;
           }
           onChanged();
         } else {
-          if (oneofRequestCase_ == 2) {
+          if (itemCase_ == 2) {
             instanceInfoBuilder_.mergeFrom(value);
           }
           instanceInfoBuilder_.setMessage(value);
         }
-        oneofRequestCase_ = 2;
+        itemCase_ = 2;
         return this;
       }
       /**
@@ -18191,15 +17106,15 @@ public final class WrTy {
        */
       public Builder clearInstanceInfo() {
         if (instanceInfoBuilder_ == null) {
-          if (oneofRequestCase_ == 2) {
-            oneofRequestCase_ = 0;
-            oneofRequest_ = null;
+          if (itemCase_ == 2) {
+            itemCase_ = 0;
+            item_ = null;
             onChanged();
           }
         } else {
-          if (oneofRequestCase_ == 2) {
-            oneofRequestCase_ = 0;
-            oneofRequest_ = null;
+          if (itemCase_ == 2) {
+            itemCase_ = 0;
+            item_ = null;
           }
           instanceInfoBuilder_.clear();
         }
@@ -18215,11 +17130,11 @@ public final class WrTy {
        * <code>.com.xh.demo.grpc.InstanceInfo instanceInfo = 2;</code>
        */
       public com.xh.demo.grpc.WrTy.InstanceInfoOrBuilder getInstanceInfoOrBuilder() {
-        if ((oneofRequestCase_ == 2) && (instanceInfoBuilder_ != null)) {
+        if ((itemCase_ == 2) && (instanceInfoBuilder_ != null)) {
           return instanceInfoBuilder_.getMessageOrBuilder();
         } else {
-          if (oneofRequestCase_ == 2) {
-            return (com.xh.demo.grpc.WrTy.InstanceInfo) oneofRequest_;
+          if (itemCase_ == 2) {
+            return (com.xh.demo.grpc.WrTy.InstanceInfo) item_;
           }
           return com.xh.demo.grpc.WrTy.InstanceInfo.getDefaultInstance();
         }
@@ -18231,17 +17146,17 @@ public final class WrTy {
           com.xh.demo.grpc.WrTy.InstanceInfo, com.xh.demo.grpc.WrTy.InstanceInfo.Builder, com.xh.demo.grpc.WrTy.InstanceInfoOrBuilder> 
           getInstanceInfoFieldBuilder() {
         if (instanceInfoBuilder_ == null) {
-          if (!(oneofRequestCase_ == 2)) {
-            oneofRequest_ = com.xh.demo.grpc.WrTy.InstanceInfo.getDefaultInstance();
+          if (!(itemCase_ == 2)) {
+            item_ = com.xh.demo.grpc.WrTy.InstanceInfo.getDefaultInstance();
           }
           instanceInfoBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               com.xh.demo.grpc.WrTy.InstanceInfo, com.xh.demo.grpc.WrTy.InstanceInfo.Builder, com.xh.demo.grpc.WrTy.InstanceInfoOrBuilder>(
-                  (com.xh.demo.grpc.WrTy.InstanceInfo) oneofRequest_,
+                  (com.xh.demo.grpc.WrTy.InstanceInfo) item_,
                   getParentForChildren(),
                   isClean());
-          oneofRequest_ = null;
+          item_ = null;
         }
-        oneofRequestCase_ = 2;
+        itemCase_ = 2;
         onChanged();;
         return instanceInfoBuilder_;
       }
@@ -18252,19 +17167,19 @@ public final class WrTy {
        * <code>.com.xh.demo.grpc.Heartbeat heartbeat = 3;</code>
        */
       public boolean hasHeartbeat() {
-        return oneofRequestCase_ == 3;
+        return itemCase_ == 3;
       }
       /**
        * <code>.com.xh.demo.grpc.Heartbeat heartbeat = 3;</code>
        */
       public com.xh.demo.grpc.WrTy.Heartbeat getHeartbeat() {
         if (heartbeatBuilder_ == null) {
-          if (oneofRequestCase_ == 3) {
-            return (com.xh.demo.grpc.WrTy.Heartbeat) oneofRequest_;
+          if (itemCase_ == 3) {
+            return (com.xh.demo.grpc.WrTy.Heartbeat) item_;
           }
           return com.xh.demo.grpc.WrTy.Heartbeat.getDefaultInstance();
         } else {
-          if (oneofRequestCase_ == 3) {
+          if (itemCase_ == 3) {
             return heartbeatBuilder_.getMessage();
           }
           return com.xh.demo.grpc.WrTy.Heartbeat.getDefaultInstance();
@@ -18278,12 +17193,12 @@ public final class WrTy {
           if (value == null) {
             throw new NullPointerException();
           }
-          oneofRequest_ = value;
+          item_ = value;
           onChanged();
         } else {
           heartbeatBuilder_.setMessage(value);
         }
-        oneofRequestCase_ = 3;
+        itemCase_ = 3;
         return this;
       }
       /**
@@ -18292,12 +17207,12 @@ public final class WrTy {
       public Builder setHeartbeat(
           com.xh.demo.grpc.WrTy.Heartbeat.Builder builderForValue) {
         if (heartbeatBuilder_ == null) {
-          oneofRequest_ = builderForValue.build();
+          item_ = builderForValue.build();
           onChanged();
         } else {
           heartbeatBuilder_.setMessage(builderForValue.build());
         }
-        oneofRequestCase_ = 3;
+        itemCase_ = 3;
         return this;
       }
       /**
@@ -18305,21 +17220,21 @@ public final class WrTy {
        */
       public Builder mergeHeartbeat(com.xh.demo.grpc.WrTy.Heartbeat value) {
         if (heartbeatBuilder_ == null) {
-          if (oneofRequestCase_ == 3 &&
-              oneofRequest_ != com.xh.demo.grpc.WrTy.Heartbeat.getDefaultInstance()) {
-            oneofRequest_ = com.xh.demo.grpc.WrTy.Heartbeat.newBuilder((com.xh.demo.grpc.WrTy.Heartbeat) oneofRequest_)
+          if (itemCase_ == 3 &&
+              item_ != com.xh.demo.grpc.WrTy.Heartbeat.getDefaultInstance()) {
+            item_ = com.xh.demo.grpc.WrTy.Heartbeat.newBuilder((com.xh.demo.grpc.WrTy.Heartbeat) item_)
                 .mergeFrom(value).buildPartial();
           } else {
-            oneofRequest_ = value;
+            item_ = value;
           }
           onChanged();
         } else {
-          if (oneofRequestCase_ == 3) {
+          if (itemCase_ == 3) {
             heartbeatBuilder_.mergeFrom(value);
           }
           heartbeatBuilder_.setMessage(value);
         }
-        oneofRequestCase_ = 3;
+        itemCase_ = 3;
         return this;
       }
       /**
@@ -18327,15 +17242,15 @@ public final class WrTy {
        */
       public Builder clearHeartbeat() {
         if (heartbeatBuilder_ == null) {
-          if (oneofRequestCase_ == 3) {
-            oneofRequestCase_ = 0;
-            oneofRequest_ = null;
+          if (itemCase_ == 3) {
+            itemCase_ = 0;
+            item_ = null;
             onChanged();
           }
         } else {
-          if (oneofRequestCase_ == 3) {
-            oneofRequestCase_ = 0;
-            oneofRequest_ = null;
+          if (itemCase_ == 3) {
+            itemCase_ = 0;
+            item_ = null;
           }
           heartbeatBuilder_.clear();
         }
@@ -18351,11 +17266,11 @@ public final class WrTy {
        * <code>.com.xh.demo.grpc.Heartbeat heartbeat = 3;</code>
        */
       public com.xh.demo.grpc.WrTy.HeartbeatOrBuilder getHeartbeatOrBuilder() {
-        if ((oneofRequestCase_ == 3) && (heartbeatBuilder_ != null)) {
+        if ((itemCase_ == 3) && (heartbeatBuilder_ != null)) {
           return heartbeatBuilder_.getMessageOrBuilder();
         } else {
-          if (oneofRequestCase_ == 3) {
-            return (com.xh.demo.grpc.WrTy.Heartbeat) oneofRequest_;
+          if (itemCase_ == 3) {
+            return (com.xh.demo.grpc.WrTy.Heartbeat) item_;
           }
           return com.xh.demo.grpc.WrTy.Heartbeat.getDefaultInstance();
         }
@@ -18367,17 +17282,17 @@ public final class WrTy {
           com.xh.demo.grpc.WrTy.Heartbeat, com.xh.demo.grpc.WrTy.Heartbeat.Builder, com.xh.demo.grpc.WrTy.HeartbeatOrBuilder> 
           getHeartbeatFieldBuilder() {
         if (heartbeatBuilder_ == null) {
-          if (!(oneofRequestCase_ == 3)) {
-            oneofRequest_ = com.xh.demo.grpc.WrTy.Heartbeat.getDefaultInstance();
+          if (!(itemCase_ == 3)) {
+            item_ = com.xh.demo.grpc.WrTy.Heartbeat.getDefaultInstance();
           }
           heartbeatBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               com.xh.demo.grpc.WrTy.Heartbeat, com.xh.demo.grpc.WrTy.Heartbeat.Builder, com.xh.demo.grpc.WrTy.HeartbeatOrBuilder>(
-                  (com.xh.demo.grpc.WrTy.Heartbeat) oneofRequest_,
+                  (com.xh.demo.grpc.WrTy.Heartbeat) item_,
                   getParentForChildren(),
                   isClean());
-          oneofRequest_ = null;
+          item_ = null;
         }
-        oneofRequestCase_ = 3;
+        itemCase_ = 3;
         onChanged();;
         return heartbeatBuilder_;
       }
@@ -25091,7 +24006,7 @@ public final class WrTy {
       "<\n\017healthCheckUrls\030\n \001(\0132!.com.xh.demo.g" +
       "rpc.Delta.StringSetH\000\0224\n\010MetaData\030\013 \001(\0132" +
       " .com.xh.demo.grpc.Delta.MetaDataH\000B\r\n\013o" +
-      "neof_delta\"\371\002\n\010Interest\0227\n\004none\030\001 \001(\0132\'." +
+      "neof_delta\"\357\002\n\010Interest\0227\n\004none\030\001 \001(\0132\'." +
       "com.xh.demo.grpc.Interest.NoneInterestH\000" +
       "\0225\n\003all\030\002 \001(\0132&.com.xh.demo.grpc.Interes" +
       "t.AllInterestH\000\022?\n\010instance\030\006 \001(\0132+.com." +
@@ -25100,81 +24015,72 @@ public final class WrTy {
       "nceInterest\022=\n\010operator\030\001 \001(\0162+.com.xh.d" +
       "emo.grpc.Interest.InterestOperator\022\017\n\007pa" +
       "ttern\030\002 \001(\t\"\'\n\020InterestOperator\022\t\n\005Equal" +
-      "\020\000\022\010\n\004Like\020\001B\020\n\016interest_oneof\"\013\n\tHeartb" +
-      "eat\"\020\n\016HeartbeatReply\"\r\n\013ClientHello\".\n\026" +
-      "ReplicationClientHello\022\024\n\014registrySize\030\001" +
-      " \001(\005\"\r\n\013ServerHello\"\030\n\026ReplicationServer" +
-      "Hello\"\021\n\017Acknowledgement\"E\n\024InterestRegi" +
-      "stration\022-\n\tinterests\030\001 \003(\0132\032.com.xh.dem" +
-      "o.grpc.Interest\"C\n\013AddInstance\0224\n\014instan" +
-      "ceInfo\030\001 \001(\0132\036.com.xh.demo.grpc.Instance" +
-      "Info\"$\n\016DeleteInstance\022\022\n\ninstanceId\030\001 \001" +
-      "(\t\"=\n\022UpdateInstanceInfo\022\'\n\006deltas\030\001 \003(\013" +
-      "2\027.com.xh.demo.grpc.Delta\"\237\007\n\027ProtocolMe" +
-      "ssageEnvelope\022L\n\014protocolType\030\001 \001(\01626.co" +
-      "m.xh.demo.grpc.ProtocolMessageEnvelope.P" +
-      "rotocolType\022<\n\017acknowledgement\030\002 \001(\0132!.c" +
-      "om.xh.demo.grpc.AcknowledgementH\000\022:\n\016hea" +
-      "rtbeatReply\030\003 \001(\0132 .com.xh.demo.grpc.Hea" +
-      "rtbeatReplyH\000\0220\n\theartbeat\030\004 \001(\0132\033.com.x" +
-      "h.demo.grpc.HeartbeatH\000\0224\n\013clientHello\030\005" +
-      " \001(\0132\035.com.xh.demo.grpc.ClientHelloH\000\022J\n" +
-      "\026replicationClientHello\030\006 \001(\0132(.com.xh.d" +
-      "emo.grpc.ReplicationClientHelloH\000\0224\n\013ser" +
-      "verHello\030\007 \001(\0132\035.com.xh.demo.grpc.Server" +
-      "HelloH\000\022J\n\026replicationServerHello\030\010 \001(\0132" +
-      "(.com.xh.demo.grpc.ReplicationServerHell" +
-      "oH\000\0226\n\014instanceInfo\030\t \001(\0132\036.com.xh.demo." +
-      "grpc.InstanceInfoH\000\022F\n\024interestRegistrat" +
-      "ion\030\n \001(\0132&.com.xh.demo.grpc.InterestReg" +
-      "istrationH\000\0224\n\013addInstance\030\013 \001(\0132\035.com.x" +
-      "h.demo.grpc.AddInstanceH\000\022:\n\016deleteInsta" +
-      "nce\030\014 \001(\0132 .com.xh.demo.grpc.DeleteInsta" +
-      "nceH\000\022B\n\022updateInstanceInfo\030\r \001(\0132$.com." +
-      "xh.demo.grpc.UpdateInstanceInfoH\000\"?\n\014Pro" +
-      "tocolType\022\020\n\014Registration\020\000\022\014\n\010Interest\020" +
-      "\001\022\017\n\013Replication\020\002B\017\n\rmessage_oneOf\"\306\001\n\023" +
-      "RegistrationRequest\0224\n\013clientHello\030\001 \001(\013" +
-      "2\035.com.xh.demo.grpc.ClientHelloH\000\0226\n\014ins" +
-      "tanceInfo\030\002 \001(\0132\036.com.xh.demo.grpc.Insta" +
-      "nceInfoH\000\0220\n\theartbeat\030\003 \001(\0132\033.com.xh.de" +
-      "mo.grpc.HeartbeatH\000B\017\n\roneof_request\"\270\001\n" +
-      "\024RegistrationResponse\0224\n\013serverHello\030\001 \001" +
-      "(\0132\035.com.xh.demo.grpc.ServerHelloH\000\0220\n\th" +
-      "eartbeat\030\002 \001(\0132\033.com.xh.demo.grpc.Heartb" +
-      "eatH\000\0220\n\003ack\030\003 \001(\0132!.com.xh.demo.grpc.Ac" +
-      "knowledgementH\000B\006\n\004item\"\333\003\n\022ChangeNotifi" +
-      "cation\022I\n\003add\030\001 \001(\0132:.com.xh.demo.grpc.C" +
-      "hangeNotification.AddChangeNotificationH" +
-      "\000\022O\n\006modify\030\002 \001(\0132=.com.xh.demo.grpc.Cha" +
-      "ngeNotification.ModifyChangeNotification" +
-      "H\000\022O\n\006delete\030\003 \001(\0132=.com.xh.demo.grpc.Ch" +
-      "angeNotification.DeleteChangeNotificatio" +
-      "nH\000\032M\n\025AddChangeNotification\0224\n\014instance" +
-      "Info\030\001 \001(\0132\036.com.xh.demo.grpc.InstanceIn" +
-      "fo\032C\n\030ModifyChangeNotification\022\'\n\006deltas" +
-      "\030\001 \003(\0132\027.com.xh.demo.grpc.Delta\032.\n\030Delet" +
-      "eChangeNotification\022\022\n\ninstanceId\030\001 \001(\tB" +
-      "\024\n\022notification_oneof\"\312\001\n\020SubscribeReque" +
-      "st\0224\n\013clientHello\030\001 \001(\0132\035.com.xh.demo.gr" +
-      "pc.ClientHelloH\000\0220\n\theartbeat\030\002 \001(\0132\033.co" +
-      "m.xh.demo.grpc.HeartbeatH\000\022F\n\024interestRe" +
-      "gistration\030\003 \001(\0132&.com.xh.demo.grpc.Inte" +
-      "restRegistrationH\000B\006\n\004item\"\307\001\n\021Subscribe" +
-      "Response\0224\n\013serverHello\030\001 \001(\0132\035.com.xh.d" +
-      "emo.grpc.ServerHelloH\000\0220\n\theartbeat\030\002 \001(" +
-      "\0132\033.com.xh.demo.grpc.HeartbeatH\000\022B\n\022chan" +
-      "geNotification\030\003 \001(\0132$.com.xh.demo.grpc." +
-      "ChangeNotificationH\000B\006\n\004item2v\n\023Registra" +
-      "tionService\022_\n\010Register\022%.com.xh.demo.gr" +
-      "pc.RegistrationRequest\032&.com.xh.demo.grp" +
-      "c.RegistrationResponse\"\000(\0010\0012n\n\020Subscrib" +
-      "eService\022Z\n\tSubscribe\022\".com.xh.demo.grpc" +
+      "\020\000\022\010\n\004Like\020\001B\006\n\004item\"\013\n\tHeartbeat\"\020\n\016Hea" +
+      "rtbeatReply\"\r\n\013ClientHello\".\n\026Replicatio" +
+      "nClientHello\022\024\n\014registrySize\030\001 \001(\005\"\r\n\013Se" +
+      "rverHello\"\030\n\026ReplicationServerHello\"\021\n\017A" +
+      "cknowledgement\"E\n\024InterestRegistration\022-" +
+      "\n\tinterests\030\001 \003(\0132\032.com.xh.demo.grpc.Int" +
+      "erest\"C\n\013AddInstance\0224\n\014instanceInfo\030\001 \001" +
+      "(\0132\036.com.xh.demo.grpc.InstanceInfo\"$\n\016De" +
+      "leteInstance\022\022\n\ninstanceId\030\001 \001(\t\"=\n\022Upda" +
+      "teInstanceInfo\022\'\n\006deltas\030\001 \003(\0132\027.com.xh." +
+      "demo.grpc.Delta\"\320\004\n\027ProtocolMessageEnvel" +
+      "ope\022L\n\014protocolType\030\001 \001(\01626.com.xh.demo." +
+      "grpc.ProtocolMessageEnvelope.ProtocolTyp" +
+      "e\022<\n\017acknowledgement\030\002 \001(\0132!.com.xh.demo" +
+      ".grpc.AcknowledgementH\000\0220\n\theartbeat\030\004 \001" +
+      "(\0132\033.com.xh.demo.grpc.HeartbeatH\000\0224\n\013cli" +
+      "entHello\030\005 \001(\0132\035.com.xh.demo.grpc.Client" +
+      "HelloH\000\0224\n\013serverHello\030\007 \001(\0132\035.com.xh.de" +
+      "mo.grpc.ServerHelloH\000\0226\n\014instanceInfo\030\t " +
+      "\001(\0132\036.com.xh.demo.grpc.InstanceInfoH\000\022F\n" +
+      "\024interestRegistration\030\n \001(\0132&.com.xh.dem" +
+      "o.grpc.InterestRegistrationH\000\022B\n\022changeN" +
+      "otification\030\013 \001(\0132$.com.xh.demo.grpc.Cha" +
+      "ngeNotificationH\000\"?\n\014ProtocolType\022\020\n\014Reg" +
+      "istration\020\000\022\014\n\010Interest\020\001\022\017\n\013Replication" +
+      "\020\002B\006\n\004item\"\275\001\n\023RegistrationRequest\0224\n\013cl" +
+      "ientHello\030\001 \001(\0132\035.com.xh.demo.grpc.Clien" +
+      "tHelloH\000\0226\n\014instanceInfo\030\002 \001(\0132\036.com.xh." +
+      "demo.grpc.InstanceInfoH\000\0220\n\theartbeat\030\003 " +
+      "\001(\0132\033.com.xh.demo.grpc.HeartbeatH\000B\006\n\004it" +
+      "em\"\270\001\n\024RegistrationResponse\0224\n\013serverHel" +
+      "lo\030\001 \001(\0132\035.com.xh.demo.grpc.ServerHelloH" +
+      "\000\0220\n\theartbeat\030\002 \001(\0132\033.com.xh.demo.grpc." +
+      "HeartbeatH\000\0220\n\003ack\030\003 \001(\0132!.com.xh.demo.g" +
+      "rpc.AcknowledgementH\000B\006\n\004item\"\333\003\n\022Change" +
+      "Notification\022I\n\003add\030\001 \001(\0132:.com.xh.demo." +
+      "grpc.ChangeNotification.AddChangeNotific" +
+      "ationH\000\022O\n\006modify\030\002 \001(\0132=.com.xh.demo.gr" +
+      "pc.ChangeNotification.ModifyChangeNotifi" +
+      "cationH\000\022O\n\006delete\030\003 \001(\0132=.com.xh.demo.g" +
+      "rpc.ChangeNotification.DeleteChangeNotif" +
+      "icationH\000\032M\n\025AddChangeNotification\0224\n\014in" +
+      "stanceInfo\030\001 \001(\0132\036.com.xh.demo.grpc.Inst" +
+      "anceInfo\032C\n\030ModifyChangeNotification\022\'\n\006" +
+      "deltas\030\001 \003(\0132\027.com.xh.demo.grpc.Delta\032.\n" +
+      "\030DeleteChangeNotification\022\022\n\ninstanceId\030" +
+      "\001 \001(\tB\024\n\022notification_oneof\"\312\001\n\020Subscrib" +
+      "eRequest\0224\n\013clientHello\030\001 \001(\0132\035.com.xh.d" +
+      "emo.grpc.ClientHelloH\000\0220\n\theartbeat\030\002 \001(" +
+      "\0132\033.com.xh.demo.grpc.HeartbeatH\000\022F\n\024inte" +
+      "restRegistration\030\003 \001(\0132&.com.xh.demo.grp" +
+      "c.InterestRegistrationH\000B\006\n\004item\"\307\001\n\021Sub" +
+      "scribeResponse\0224\n\013serverHello\030\001 \001(\0132\035.co" +
+      "m.xh.demo.grpc.ServerHelloH\000\0220\n\theartbea" +
+      "t\030\002 \001(\0132\033.com.xh.demo.grpc.HeartbeatH\000\022B" +
+      "\n\022changeNotification\030\003 \001(\0132$.com.xh.demo" +
+      ".grpc.ChangeNotificationH\000B\006\n\004item2v\n\023Re" +
+      "gistrationService\022_\n\010Register\022%.com.xh.d" +
+      "emo.grpc.RegistrationRequest\032&.com.xh.de" +
+      "mo.grpc.RegistrationResponse\"\000(\0010\0012n\n\020Su" +
+      "bscribeService\022Z\n\tSubscribe\022\".com.xh.dem" +
+      "o.grpc.SubscribeRequest\032#.com.xh.demo.gr" +
+      "pc.SubscribeResponse\"\000(\0010\0012p\n\022Replicatio" +
+      "nService\022Z\n\tSubscribe\022\".com.xh.demo.grpc" +
       ".SubscribeRequest\032#.com.xh.demo.grpc.Sub" +
-      "scribeResponse\"\000(\0010\0012p\n\022ReplicationServi" +
-      "ce\022Z\n\tSubscribe\022\".com.xh.demo.grpc.Subsc" +
-      "ribeRequest\032#.com.xh.demo.grpc.Subscribe" +
-      "Response\"\000(\0010\001b\006proto3"
+      "scribeResponse\"\000(\0010\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -25235,7 +24141,7 @@ public final class WrTy {
     internal_static_com_xh_demo_grpc_Interest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_xh_demo_grpc_Interest_descriptor,
-        new java.lang.String[] { "None", "All", "Instance", "InterestOneof", });
+        new java.lang.String[] { "None", "All", "Instance", "Item", });
     internal_static_com_xh_demo_grpc_Interest_NoneInterest_descriptor =
       internal_static_com_xh_demo_grpc_Interest_descriptor.getNestedTypes().get(0);
     internal_static_com_xh_demo_grpc_Interest_NoneInterest_fieldAccessorTable = new
@@ -25325,13 +24231,13 @@ public final class WrTy {
     internal_static_com_xh_demo_grpc_ProtocolMessageEnvelope_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_xh_demo_grpc_ProtocolMessageEnvelope_descriptor,
-        new java.lang.String[] { "ProtocolType", "Acknowledgement", "HeartbeatReply", "Heartbeat", "ClientHello", "ReplicationClientHello", "ServerHello", "ReplicationServerHello", "InstanceInfo", "InterestRegistration", "AddInstance", "DeleteInstance", "UpdateInstanceInfo", "MessageOneOf", });
+        new java.lang.String[] { "ProtocolType", "Acknowledgement", "Heartbeat", "ClientHello", "ServerHello", "InstanceInfo", "InterestRegistration", "ChangeNotification", "Item", });
     internal_static_com_xh_demo_grpc_RegistrationRequest_descriptor =
       getDescriptor().getMessageTypes().get(15);
     internal_static_com_xh_demo_grpc_RegistrationRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_xh_demo_grpc_RegistrationRequest_descriptor,
-        new java.lang.String[] { "ClientHello", "InstanceInfo", "Heartbeat", "OneofRequest", });
+        new java.lang.String[] { "ClientHello", "InstanceInfo", "Heartbeat", "Item", });
     internal_static_com_xh_demo_grpc_RegistrationResponse_descriptor =
       getDescriptor().getMessageTypes().get(16);
     internal_static_com_xh_demo_grpc_RegistrationResponse_fieldAccessorTable = new

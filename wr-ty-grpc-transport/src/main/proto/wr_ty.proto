@@ -72,7 +72,7 @@ message Interest {
         string pattern = 2;
     }
 
-    oneof interest_oneof {
+    oneof item {
         NoneInterest none = 1;
         AllInterest all = 2;
         InstanceInterest instance = 6;
@@ -123,25 +123,19 @@ message ProtocolMessageEnvelope {
         Replication = 2;
     }
     ProtocolType protocolType = 1;
-
-    oneof message_oneOf {
+    oneof item {
         Acknowledgement acknowledgement = 2;
-        HeartbeatReply heartbeatReply = 3;
         Heartbeat heartbeat = 4;
         ClientHello clientHello = 5;
-        ReplicationClientHello replicationClientHello = 6;
         ServerHello serverHello = 7;
-        ReplicationServerHello replicationServerHello = 8;
         InstanceInfo instanceInfo = 9;
         InterestRegistration interestRegistration = 10;
-        AddInstance addInstance = 11;
-        DeleteInstance deleteInstance = 12;
-        UpdateInstanceInfo updateInstanceInfo = 13;
+        ChangeNotification changeNotification = 11;
     }
 }
 
 message RegistrationRequest {
-    oneof oneof_request {
+    oneof item {
         ClientHello clientHello = 1;
         InstanceInfo instanceInfo = 2;
         Heartbeat heartbeat = 3;

@@ -33,7 +33,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLong;
 
 import static com.wr.ty.grpc.util.ProtocolMessageEnvelopes.HEART_BEAT;
-import static com.xh.demo.grpc.WrTy.ProtocolMessageEnvelope.MessageOneOfCase.HEARTBEAT;
+import static com.xh.demo.grpc.WrTy.ProtocolMessageEnvelope.ItemCase.HEARTBEAT;
 
 
 /**
@@ -54,8 +54,8 @@ public class ServerHeartbeatHandler implements ChannelHandler {
      * @param heartbeatTimeoutMs
      * @param scheduler
      */
-    public ServerHeartbeatHandler(long heartbeatTimeoutMs, Scheduler scheduler) {
-        this.heartbeatTimeoutMs = Duration.ofMillis(heartbeatTimeoutMs);
+    public ServerHeartbeatHandler(Duration heartbeatTimeoutMs, Scheduler scheduler) {
+        this.heartbeatTimeoutMs = heartbeatTimeoutMs;
         this.scheduler = scheduler;
     }
 
@@ -73,7 +73,7 @@ public class ServerHeartbeatHandler implements ChannelHandler {
             // Intercept heartbeats from input
             Flux<WrTy.ProtocolMessageEnvelope> interceptedInput = inputStream
                     .flatMap(inputNotification -> {
-                        if (inputNotification.getMessageOneOfCase() == HEARTBEAT) {
+                        if (inputNotification.getItemCase() == HEARTBEAT) {
                             heartbeatReplies.onNext(HEART_BEAT); // Send back heartbeat
                             lastTimeoutUpdate.set(scheduler.now(TimeUnit.MILLISECONDS));
                             return Flux.empty();

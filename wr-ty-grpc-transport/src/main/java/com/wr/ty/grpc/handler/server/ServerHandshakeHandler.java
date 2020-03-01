@@ -26,7 +26,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import reactor.core.publisher.Flux;
 
-import static com.xh.demo.grpc.WrTy.ProtocolMessageEnvelope.MessageOneOfCase.CLIENTHELLO;
+import static com.xh.demo.grpc.WrTy.ProtocolMessageEnvelope.ItemCase.CLIENTHELLO;
 
 
 /**
@@ -36,12 +36,10 @@ public class ServerHandshakeHandler implements ChannelHandler {
 
     private static final Logger logger = LoggerFactory.getLogger(ServerHandshakeHandler.class);
 
-    private final SourceIdGenerator idGenerator;
 
     private ChannelContext channelContext;
 
-    public ServerHandshakeHandler(SourceIdGenerator idGenerator) {
-        this.idGenerator = idGenerator;
+    public ServerHandshakeHandler() {
     }
 
     @Override
@@ -56,11 +54,11 @@ public class ServerHandshakeHandler implements ChannelHandler {
     public Flux<WrTy.ProtocolMessageEnvelope> handle(Flux<WrTy.ProtocolMessageEnvelope> inputStream) {
         return Flux.create(fluxSink -> {
             //fluxSink order sent
-            Flux<WrTy.ProtocolMessageEnvelope> interceptedInput = inputStream.flatMap(inputNotification -> {
-                if (inputNotification.getMessageOneOfCase() != CLIENTHELLO) {
-                    return Flux.just(inputNotification);
+            Flux<WrTy.ProtocolMessageEnvelope> interceptedInput = inputStream.flatMap(value -> {
+                if (value.getItemCase() != CLIENTHELLO) {
+                    return Flux.just(value);
                 }
-                WrTy.ClientHello clientHello = inputNotification.getClientHello();
+                WrTy.ClientHello clientHello = value.getClientHello();
                 // reply hello
                 fluxSink.next(ProtocolMessageEnvelopes.SERVER_HELLO);
                 return Flux.empty();
