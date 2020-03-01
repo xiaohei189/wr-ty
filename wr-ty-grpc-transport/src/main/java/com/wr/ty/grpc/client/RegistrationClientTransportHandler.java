@@ -35,7 +35,6 @@ public class RegistrationClientTransportHandler implements ChannelHandler {
     @Override
     public void init(ChannelContext channelContext) {
         channelLogger = new ChannelLogger(logger, channelContext.getPipeline().getPipelineId());
-
     }
 
     @Override

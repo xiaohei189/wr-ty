@@ -62,4 +62,8 @@ public class ProtocolMessageEnvelopes {
     }
 
 
+    public static WrTy.ProtocolMessageEnvelope fromChangeNotification(WrTy.ChangeNotification value) {
+        WrTy.ProtocolMessageEnvelope messageEnvelope = WrTy.ProtocolMessageEnvelope.newBuilder().setChangeNotification(value).build();
+        return messageEnvelope;
+    }
 }

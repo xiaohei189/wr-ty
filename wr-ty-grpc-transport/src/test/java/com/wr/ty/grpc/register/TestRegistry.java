@@ -22,6 +22,16 @@ public class TestRegistry implements Registry {
         return testPublisher.flux();
     }
 
+    @Override
+    public int observers() {
+        return 0;
+    }
+
+    @Override
+    public void shutDown() {
+
+    }
+
     public TestPublisher getTestPublisher() {
         return this.testPublisher;
     }

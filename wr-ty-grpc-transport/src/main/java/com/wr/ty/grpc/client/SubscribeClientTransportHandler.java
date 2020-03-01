@@ -4,9 +4,8 @@ import com.wr.ty.grpc.StreamObserverFluxSink;
 import com.wr.ty.grpc.SubscriberStreamObserver;
 import com.wr.ty.grpc.core.channel.ChannelContext;
 import com.wr.ty.grpc.core.channel.ChannelHandler;
-import com.wr.ty.grpc.register.Registry;
 import com.wr.ty.grpc.util.ProtocolMessageEnvelopes;
-import com.xh.demo.grpc.ReplicationServiceGrpc;
+import com.xh.demo.grpc.SubscribeServiceGrpc;
 import com.xh.demo.grpc.WrTy;
 import io.grpc.Channel;
 import io.grpc.stub.StreamObserver;
@@ -21,10 +20,11 @@ import java.util.function.Function;
  * @author xiaohei
  * @date 2020/2/13 14:21
  */
-public class ReplicationClientTransportHandler implements ChannelHandler {
-    private final static Logger logger = LoggerFactory.getLogger(ReplicationClientTransportHandler.class);
+public class SubscribeClientTransportHandler implements ChannelHandler {
+    private final static Logger logger = LoggerFactory.getLogger(SubscribeClientTransportHandler.class);
 
-    final private ReplicationServiceGrpc.ReplicationServiceStub replicationServiceStub;
+    final private SubscribeServiceGrpc.SubscribeServiceStub subscribeServiceStub;
+
     private static final Function<WrTy.SubscribeRequest, WrTy.ProtocolMessageEnvelope> outMapper = value -> {
         switch (value.getItemCase()) {
             case HEARTBEAT:
@@ -51,29 +51,28 @@ public class ReplicationClientTransportHandler implements ChannelHandler {
         }
     };
 
-    public ReplicationClientTransportHandler(Channel channel) {
+    public SubscribeClientTransportHandler(Channel channel) {
         Objects.requireNonNull(channel);
-        this.replicationServiceStub = ReplicationServiceGrpc.newStub(channel);
+        this.subscribeServiceStub = SubscribeServiceGrpc.newStub(channel);
     }
 
     @Override
     public void init(ChannelContext channelContext) {
         if (channelContext.hasNext()) {
-            throw new IllegalStateException("ReplicationClientTransportHandler must be the last one in the pipeline");
+            throw new IllegalStateException("SubscribeClientTransportHandler must be the last one in the pipeline");
         }
     }
 
     @Override
     public Flux<WrTy.ProtocolMessageEnvelope> handle(Flux<WrTy.ProtocolMessageEnvelope> inputStream) {
-
         return Flux.create(fluxSink -> {
-            logger.debug("Subscription to ReplicationClientTransportHandler start");
+            logger.debug("Subscription to SubscribeClientTransportHandler start");
             StreamObserverFluxSink<WrTy.SubscribeResponse, WrTy.ProtocolMessageEnvelope> response = new StreamObserverFluxSink(fluxSink, inMapper);
-            StreamObserver<WrTy.SubscribeRequest> requestStream = replicationServiceStub.subscribe(response);
+            StreamObserver<WrTy.SubscribeRequest> requestStream = subscribeServiceStub.subscribe(response);
             SubscriberStreamObserver<WrTy.ProtocolMessageEnvelope, WrTy.SubscribeRequest> subscriber = new SubscriberStreamObserver(requestStream, outMapper);
             inputStream.subscribe(subscriber);
             fluxSink.onDispose(subscriber);
         });
-
     }
+
 }

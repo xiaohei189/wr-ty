@@ -63,8 +63,9 @@ public class ReplicationServerImpl extends ReplicationServiceGrpc.ReplicationSer
 
     public ReplicationServerImpl(Registry registry,
                                  TransportConfig config,
-                                 Scheduler scheduler,
-                                 PipelineNameGenerator pipelineNameGenerator) {
+                                 PipelineNameGenerator pipelineNameGenerator,
+                                 Scheduler scheduler
+    ) {
         Objects.requireNonNull(scheduler);
         Objects.requireNonNull(registry);
         this.register = registry;
