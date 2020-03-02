@@ -1,19 +1,3 @@
-/*
- * Copyright 2015 Netflix, Inc.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package com.wr.ty.grpc.handler.client;
 
 import com.wr.ty.grpc.ChannelLogger;
@@ -67,7 +51,7 @@ public class ClientHeartbeatHandler implements ChannelHandler {
 
     @Override
     public Flux<WrTy.ProtocolMessageEnvelope> handle(Flux<WrTy.ProtocolMessageEnvelope> inputStream) {
-        return Flux.create(fluxSink -> {
+        Flux<WrTy.ProtocolMessageEnvelope> flux = Flux.create(fluxSink -> {
             channelLogger.debug("Subscription to ClientHeartbeatHandler start");
             AtomicLong lastHeartbeatReply = new AtomicLong(-1);
             Flux<WrTy.ProtocolMessageEnvelope> heartbeatTask = Flux.interval(heartbeatIntervalMs, heartbeatIntervalMs, scheduler)
@@ -81,8 +65,6 @@ public class ClientHeartbeatHandler implements ChannelHandler {
             Flux<WrTy.ProtocolMessageEnvelope> intercepted = FluxUtil.mergeWhenAllActive(inputStream, heartbeatTask);
             Disposable disposable = channelContext.next()
                     .handle(intercepted)
-                    .publishOn(scheduler)
-                    .doOnCancel(() -> channelLogger.debug("Unsubscribing from ClientHeartbeatHandler"))
                     .subscribe(
                             next -> {
                                 if (next.getItemCase() == HEARTBEAT) {
@@ -104,6 +86,9 @@ public class ClientHeartbeatHandler implements ChannelHandler {
 
             fluxSink.onDispose(disposable);
         });
+
+        return flux.doOnCancel(() -> channelLogger.debug("UnSubscribing from ClientHeartbeatHandler"));
+
     }
 
     private boolean isLate(AtomicLong lastHeartbeatReply) {

@@ -61,10 +61,12 @@ public class RegistrationProcessorHandler implements ChannelHandler {
                         switch (signalType) {
                             case CANCEL:
                             case ON_COMPLETE:
-                                ChangeNotifications.newDeleteNotification(lastInstance.get());
+                                WrTy.ChangeNotification deleteNotification = ChangeNotifications.newDeleteNotification(lastInstance.get());
+                                registry.register(deleteNotification);
                                 break;
                             case ON_NEXT:
-                                ChangeNotifications.newAddNotification(lastInstance.get());
+                                WrTy.ChangeNotification addNotification = ChangeNotifications.newAddNotification(lastInstance.get());
+                                registry.register(addNotification);
                                 break;
                         }
                     }).subscribe();

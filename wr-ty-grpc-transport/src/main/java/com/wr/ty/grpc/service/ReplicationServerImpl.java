@@ -9,6 +9,7 @@ import com.wr.ty.grpc.handler.server.*;
 import com.wr.ty.grpc.register.Registry;
 import com.wr.ty.grpc.util.ProtocolMessageEnvelopes;
 import com.wr.ty.grpc.util.SourceIdGenerator;
+import com.wr.ty.grpc.util.SubscribeMessages;
 import com.xh.demo.grpc.ReplicationServiceGrpc;
 import com.xh.demo.grpc.WrTy;
 import io.grpc.stub.StreamObserver;
@@ -51,11 +52,11 @@ public class ReplicationServerImpl extends ReplicationServiceGrpc.ReplicationSer
         WrTy.ProtocolMessageEnvelope.ItemCase itemCase = value.getItemCase();
         switch (itemCase) {
             case SERVERHELLO:
-                return convertServerHello(value.getServerHello());
+                return SubscribeMessages.fromServerHello(value.getServerHello());
             case HEARTBEAT:
-                return convertHeartbeat(value.getHeartbeat());
+                return SubscribeMessages.fromHeartbeat(value.getHeartbeat());
             case CHANGENOTIFICATION:
-                return convertChangeNotification(value.getChangeNotification());
+                return SubscribeMessages.fromChangeNotification(value.getChangeNotification());
             default:
                 throw new RuntimeException("unknown message type");
         }

@@ -46,20 +46,6 @@ public class ProtocolMessageEnvelopes {
         return messageEnvelope;
     }
 
-    public static WrTy.SubscribeResponse convertServerHello(WrTy.ServerHello value) {
-        WrTy.SubscribeResponse messageEnvelope = WrTy.SubscribeResponse.newBuilder().setServerHello(value).build();
-        return messageEnvelope;
-    }
-
-    public static WrTy.SubscribeResponse convertHeartbeat(WrTy.Heartbeat value) {
-        WrTy.SubscribeResponse messageEnvelope = WrTy.SubscribeResponse.newBuilder().setHeartbeat(value).build();
-        return messageEnvelope;
-    }
-
-    public static WrTy.SubscribeResponse convertChangeNotification(WrTy.ChangeNotification value) {
-        WrTy.SubscribeResponse messageEnvelope = WrTy.SubscribeResponse.newBuilder().setChangeNotification(value).build();
-        return messageEnvelope;
-    }
 
 
     public static WrTy.ProtocolMessageEnvelope fromChangeNotification(WrTy.ChangeNotification value) {

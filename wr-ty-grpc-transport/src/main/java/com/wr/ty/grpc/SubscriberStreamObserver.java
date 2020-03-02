@@ -1,6 +1,8 @@
 package com.wr.ty.grpc;
 
 import io.grpc.stub.StreamObserver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import reactor.core.publisher.BaseSubscriber;
 
 import java.util.function.Function;
@@ -10,6 +12,7 @@ import java.util.function.Function;
  * @date 2020/3/1 21:26
  */
 public class SubscriberStreamObserver<IN, OUT> extends BaseSubscriber<IN> {
+   private final static Logger logger= LoggerFactory.getLogger(SubscriberStreamObserver.class);
     private final StreamObserver<OUT> stream;
     private final Function<IN, OUT> mapper;
 
@@ -24,17 +27,20 @@ public class SubscriberStreamObserver<IN, OUT> extends BaseSubscriber<IN> {
             OUT apply = mapper.apply(value);
             stream.onNext(apply);
         } catch (Throwable throwable) {
+            logger.error("",throwable);
             hookOnError(throwable);
         }
     }
 
     @Override
     protected void hookOnComplete() {
+        logger.debug("completed");
         stream.onCompleted();
     }
 
     @Override
     protected void hookOnError(Throwable throwable) {
+        logger.error("",throwable);
         stream.onError(throwable);
     }
 }

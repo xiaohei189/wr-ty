@@ -59,9 +59,9 @@ public class RegistrationClient {
                     channel = channelSupplier.apply(server);
                 }
                 return new ChannelPipeline(pipelineId,
+                        new LoggingChannelHandler(),
                         new ClientHandshakeHandler(),
                         new ClientHeartbeatHandler(transportConfig.heartbeatInterval(), transportConfig.heartbeatTimeout(), RegistrationClient.this.scheduler),
-                        new LoggingChannelHandler(),
                         new RegistrationClientTransportHandler(channel)
                 );
             });
@@ -79,18 +79,12 @@ public class RegistrationClient {
     };
 
     public Flux<String> register(Flux<WrTy.InstanceInfo> registrant) {
-        return Flux.create(fluxSink -> {
-            ChannelPipeline retryablePipeline = new ChannelPipeline("registration",
-                    new RetryableClientConnectHandler(pipelineFactory, this.transportConfig.autoConnectInterval(), scheduler)
-            );
-            disposable = retryablePipeline.getFirst()
-                    .handle(registrant.map(instance -> WrTy.ProtocolMessageEnvelope.newBuilder().setInstanceInfo(instance).build()))
-                    .doOnCancel(() -> {
-                        logger.debug("UnSubscribing registration client");
-                    })
-                    .subscribe();
-            fluxSink.onCancel(disposable);
+        Flux<String> flux = Flux.create(fluxSink -> {
+            RetryableClientConnectHandler retryableClientConnectHandler = new RetryableClientConnectHandler(pipelineFactory, this.transportConfig.autoConnectInterval(), scheduler);
+            disposable = retryableClientConnectHandler.handle(registrant.map(instance -> WrTy.ProtocolMessageEnvelope.newBuilder().setInstanceInfo(instance).build())).subscribe();
+            fluxSink.onDispose(disposable);
         });
+        return flux.doOnCancel(() -> logger.debug("UnSubscribing from RegistrationClient"));
     }
 
     public void shutDown() {

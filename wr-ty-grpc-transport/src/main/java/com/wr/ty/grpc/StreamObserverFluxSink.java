@@ -1,6 +1,8 @@
 package com.wr.ty.grpc;
 
 import io.grpc.stub.StreamObserver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import reactor.core.publisher.FluxSink;
 
 import java.util.function.Function;
@@ -10,6 +12,7 @@ import java.util.function.Function;
  * @date 2020/3/1 21:41
  */
 public class StreamObserverFluxSink<IN, OUT> implements StreamObserver<IN> {
+    private final static Logger logger = LoggerFactory.getLogger(StreamObserverFluxSink.class);
     private final FluxSink<OUT> fluxSink;
     private final Function<IN, OUT> mapper;
 
@@ -24,6 +27,7 @@ public class StreamObserverFluxSink<IN, OUT> implements StreamObserver<IN> {
             OUT apply = mapper.apply(o);
             fluxSink.next(apply);
         } catch (Throwable throwable) {
+            logger.error("in mapper convert error", throwable);
             fluxSink.error(throwable);
         }
 
@@ -32,10 +36,14 @@ public class StreamObserverFluxSink<IN, OUT> implements StreamObserver<IN> {
     @Override
     public void onError(Throwable throwable) {
         fluxSink.error(throwable);
+        logger.error("", throwable);
+
     }
 
     @Override
     public void onCompleted() {
+        logger.debug("complete");
+
         fluxSink.complete();
     }
 }

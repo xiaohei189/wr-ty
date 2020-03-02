@@ -9,15 +9,15 @@ import java.time.Duration;
 public interface TransportConfig {
 
     default Duration heartbeatInterval() {
-        return Duration.ofMillis(15 * 1000);
+        return Duration.ofSeconds(15);
     }
 
     default Duration heartbeatTimeout() {
-        return Duration.ofMillis(30 * 1000);
+        return Duration.ofSeconds(30);
     }
 
     default Duration autoConnectInterval() {
-        return Duration.ofMillis(15 * 1000);
+        return Duration.ofSeconds(15);
     }
 
 }

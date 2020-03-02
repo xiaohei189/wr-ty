@@ -39,8 +39,8 @@ public class RegistrationClientTransportHandler implements ChannelHandler {
 
     @Override
     public Flux<WrTy.ProtocolMessageEnvelope> handle(Flux<WrTy.ProtocolMessageEnvelope> inputStream) {
-        return Flux.create(fluxSink -> {
-            channelLogger.debug("Subscription to GrpcRegistrationClientTransportHandler start");
+        Flux<WrTy.ProtocolMessageEnvelope> flux = Flux.create(fluxSink -> {
+            channelLogger.debug("Subscription to RegistrationClientTransportHandler start");
 
             Queue<WrTy.ProtocolMessageEnvelope> updatesQueue = new ConcurrentLinkedQueue<WrTy.ProtocolMessageEnvelope>();
 
@@ -82,11 +82,10 @@ public class RegistrationClientTransportHandler implements ChannelHandler {
                         }
                     });
 
-            Disposable subscription = inputStream
-                    .doOnCancel(() -> {
-                        channelLogger.debug("Unsubscribing from registration update input stream");
-                        submittedRegistrationsObserver.onCompleted();
-                    })
+            inputStream.doOnCancel(() -> {
+                channelLogger.debug("UnSubscribing from RegistrationClientTransportHandler");
+                submittedRegistrationsObserver.onCompleted();
+            })
                     .subscribe(
                             value -> {
                                 WrTy.ProtocolMessageEnvelope.ItemCase itemCase = value.getItemCase();
@@ -105,8 +104,9 @@ public class RegistrationClientTransportHandler implements ChannelHandler {
                                 submittedRegistrationsObserver.onCompleted();
                             }
                     );
-            fluxSink.onCancel(subscription);
         });
+
+        return flux.doOnCancel(() -> channelLogger.debug("UnSubscribing from RegistrationClientTransportHandler"));
     }
 
 

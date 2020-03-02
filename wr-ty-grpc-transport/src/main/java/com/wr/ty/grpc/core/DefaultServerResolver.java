@@ -1,6 +1,7 @@
 package com.wr.ty.grpc.core;
 
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 /**
  * @author xiaohei
@@ -8,10 +9,10 @@ import reactor.core.publisher.Flux;
  */
 public class DefaultServerResolver implements ServerResolver {
     @Override
-    public Flux<Server> resolve() {
+    public Mono<Server> resolve() {
         Server server = new Server();
         server.setHostName("127.0.0.1");
         server.setPort(50051);
-        return Flux.just(server);
+        return Mono.just(server);
     }
 }

@@ -8,19 +8,13 @@ import com.wr.ty.grpc.core.channel.ChannelPipelineFactory;
 import com.xh.demo.grpc.WrTy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import reactor.core.Disposable;
-import reactor.core.publisher.EmitterProcessor;
 import reactor.core.publisher.Flux;
-import reactor.core.publisher.FluxSink;
 import reactor.core.scheduler.Scheduler;
 import reactor.retry.DefaultContext;
 import reactor.retry.Retry;
 
-import java.io.IOException;
 import java.time.Duration;
 import java.util.Objects;
-import java.util.Queue;
-import java.util.concurrent.LinkedBlockingQueue;
 
 /**
  * @author xiaohei
@@ -31,18 +25,16 @@ public class RetryableClientConnectHandler implements ChannelHandler {
 
     private static final Logger logger = LoggerFactory.getLogger(RetryableClientConnectHandler.class);
 
-    public static final IOException NOT_RECOGNIZED_INSTANCE = new IOException("Registration reply for not recognized instance");
-
-    private final ChannelPipelineFactory factory;
+    private final ChannelPipelineFactory pipelineFactory;
     private final Duration retryDelayMs;
     private final Scheduler scheduler;
 
 
-    public RetryableClientConnectHandler(ChannelPipelineFactory factory,
+    public RetryableClientConnectHandler(ChannelPipelineFactory pipelineFactory,
                                          Duration retryDelayMs,
                                          Scheduler scheduler) {
         Objects.requireNonNull(scheduler, "scheduler is null");
-        this.factory = factory;
+        this.pipelineFactory = pipelineFactory;
         this.retryDelayMs = retryDelayMs;
         this.scheduler = scheduler;
     }
@@ -55,57 +47,25 @@ public class RetryableClientConnectHandler implements ChannelHandler {
     }
 
     @Override
-    public Flux<WrTy.ProtocolMessageEnvelope> handle(Flux<WrTy.ProtocolMessageEnvelope> registrationUpdates) {
-        return Flux.create(fluxSink -> {
+    public Flux<WrTy.ProtocolMessageEnvelope> handle(Flux<WrTy.ProtocolMessageEnvelope> messageEnvelopeFlux) {
+        Flux<WrTy.ProtocolMessageEnvelope> flux = Flux.create(fluxSink -> {
             logger.debug("Subscription to RetryableRegistrationClientHandler started");
-            new RegistrationSession(registrationUpdates, fluxSink);
-        });
-    }
-
-    class RegistrationSession {
-        private final Queue<WrTy.ProtocolMessageEnvelope> unreportedUpdates = new LinkedBlockingQueue<>();
-        private final EmitterProcessor<WrTy.ProtocolMessageEnvelope> replySubject = EmitterProcessor.create();
-        private final Flux<WrTy.ProtocolMessageEnvelope> trackedUpdates;
-        private final Disposable pipelineSubscription;
-
-        RegistrationSession(Flux<WrTy.ProtocolMessageEnvelope> registrationUpdates, FluxSink<WrTy.ProtocolMessageEnvelope> fluxSink) {
-
-            this.trackedUpdates = registrationUpdates.doOnNext(next -> unreportedUpdates.add(next));
-            replySubject.subscribe(new SubscriberFluxSinkWrap(fluxSink));
-
+            SubscriberFluxSinkWrap subscriberFluxSinkWrap = new SubscriberFluxSinkWrap(fluxSink);
             Retry<Object> retry = Retry.any().fixedBackoff(retryDelayMs).retryMax(10).withBackoffScheduler(scheduler).doOnRetry(value -> {
                 DefaultContext context = (DefaultContext) value;
                 Throwable exception = value.exception();
                 logger.debug(" Reconnecting times {} internal pipeline terminated earlier with an error ({})", context.iteration(), exception.getMessage());
             });
-            pipelineSubscription = connectPipeline()
-                    .doOnError(e -> logger.info("Registration pipeline terminated due to an error", e))
-                    .retryWhen(retry)
-                    .doOnCancel(() -> logger.debug("RetryableRegistrationClientHandler internal pipeline unsubscribed"))
-                    .subscribe();
-            fluxSink.onCancel(pipelineSubscription);
-        }
-
-        private Flux<Void> connectPipeline() {
-            return factory.createPipeline()
+            pipelineFactory.createPipeline()
                     .block()
                     .getFirst()
-                    .handle(trackedUpdates)
-                    .flatMap(next -> drainUntilCurrentFound(next))
-                    .doOnSubscribe(value -> logger.debug("Creating new internal pipeline"));
-        }
+                    .handle(messageEnvelopeFlux)
+                    .retryWhen(retry)
+                    .doOnCancel(() -> logger.debug("UnSubscribing from RetryableClientConnectHandler innerPipeline"))
+                    .subscribe(subscriberFluxSinkWrap);
 
-        private Flux<Void> drainUntilCurrentFound(WrTy.ProtocolMessageEnvelope next) {
-            while (!unreportedUpdates.isEmpty()) {
-                WrTy.ProtocolMessageEnvelope head = unreportedUpdates.poll();
-                replySubject.onNext(head);
-                if (head.hasInstanceInfo()) {
-                    logger.debug("Received reply from internal pipeline matched with tracked instance {}", next.getInstanceInfo().getId());
-                    return Flux.empty();
-                }
-            }
-            logger.debug("Received reply from internal pipeline ({}) not matched with any tracked instance", next.getInstanceInfo().getId());
-            return Flux.error(NOT_RECOGNIZED_INSTANCE);
-        }
+        });
+        return flux.doOnCancel(() -> logger.debug("UnSubscribing from RetryableRegistrationClientHandler"));
     }
+
 }

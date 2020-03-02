@@ -17,12 +17,14 @@ import io.grpc.ManagedChannelBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import reactor.core.Disposable;
+import reactor.core.publisher.EmitterProcessor;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import reactor.core.scheduler.Scheduler;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import java.lang.reflect.Array;
 import java.util.Objects;
 import java.util.function.Function;
 
@@ -44,11 +46,9 @@ public class SubscribeClient {
     public SubscribeClient(@Nonnull Scheduler scheduler,
                            @Nonnull ServerResolver serverResolver,
                            @Nonnull TransportConfig transportConfig,
-                           @Nonnull Registry registry,
                            @Nullable Function<Server, Channel> channelFunction) {
         Objects.requireNonNull(scheduler);
         Objects.requireNonNull(serverResolver);
-        Objects.requireNonNull(registry);
         Objects.requireNonNull(transportConfig);
         this.channelSupplier = channelFunction;
         this.transportConfig = transportConfig;
@@ -93,13 +93,17 @@ public class SubscribeClient {
             ChannelPipeline retryablePipeline = new ChannelPipeline("interest",
                     new RetryableClientConnectHandler(transportPipelineFactory, this.transportConfig.autoConnectInterval(), scheduler)
             );
-            disposable = retryablePipeline.getFirst()
-                    .handle(Flux.just(protocolMessageEnvelope))
+             retryablePipeline.getFirst()
+                    .handle(Flux.create(emitter -> {
+                        emitter.next(protocolMessageEnvelope);
+                    }))
                     .doOnCancel(() -> {
                         logger.debug("UnSubscribing registration client");
-                    })
-                    .subscribe();
-            fluxSink.onCancel(disposable);
+                    }).log()
+                    .subscribe(value ->{
+                        System.out.println(value+"11111111");
+                    });
+//            fluxSink.onCancel(disposable);
         });
     }
 

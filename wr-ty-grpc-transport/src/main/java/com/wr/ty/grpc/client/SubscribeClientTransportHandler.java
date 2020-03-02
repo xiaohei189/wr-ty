@@ -16,6 +16,8 @@ import reactor.core.publisher.Flux;
 import java.util.Objects;
 import java.util.function.Function;
 
+import static com.wr.ty.grpc.util.SubscribeMessages.*;
+
 /**
  * @author xiaohei
  * @date 2020/2/13 14:21
@@ -25,14 +27,14 @@ public class SubscribeClientTransportHandler implements ChannelHandler {
 
     final private SubscribeServiceGrpc.SubscribeServiceStub subscribeServiceStub;
 
-    private static final Function<WrTy.SubscribeRequest, WrTy.ProtocolMessageEnvelope> outMapper = value -> {
+    private static final Function<WrTy.ProtocolMessageEnvelope, WrTy.SubscribeRequest> outMapper = value -> {
         switch (value.getItemCase()) {
             case HEARTBEAT:
-                return ProtocolMessageEnvelopes.HEART_BEAT;
+                return CLIENT_HEART;
             case CLIENTHELLO:
-                return ProtocolMessageEnvelopes.SERVER_HELLO;
+                return CLIENT_HELLO;
             case INTERESTREGISTRATION:
-                return ProtocolMessageEnvelopes.fromInterestRegistration(value.getInterestRegistration());
+                return fromInterestRegistration(value.getInterestRegistration());
             default:
                 throw new RuntimeException("Unexpected response kind");
         }
@@ -59,7 +61,7 @@ public class SubscribeClientTransportHandler implements ChannelHandler {
     @Override
     public void init(ChannelContext channelContext) {
         if (channelContext.hasNext()) {
-            throw new IllegalStateException("SubscribeClientTransportHandler must be the last one in the pipeline");
+            throw new IllegalStateException("SubscribeClientTransportHandler must be at the end");
         }
     }
 
@@ -71,7 +73,6 @@ public class SubscribeClientTransportHandler implements ChannelHandler {
             StreamObserver<WrTy.SubscribeRequest> requestStream = subscribeServiceStub.subscribe(response);
             SubscriberStreamObserver<WrTy.ProtocolMessageEnvelope, WrTy.SubscribeRequest> subscriber = new SubscriberStreamObserver(requestStream, outMapper);
             inputStream.subscribe(subscriber);
-            fluxSink.onDispose(subscriber);
         });
     }
 
