@@ -1,5 +1,6 @@
 package com.wr.ty.grpc.handler.client;
 
+import com.wr.ty.grpc.ChannelLogger;
 import com.wr.ty.grpc.core.channel.ChannelContext;
 import com.wr.ty.grpc.core.channel.ChannelHandler;
 import com.xh.demo.grpc.WrTy;
@@ -19,6 +20,7 @@ public class LoggingChannelHandler implements ChannelHandler {
     private ChannelContext channelContext;
 
     private String prefix;
+    private ChannelLogger channelLogger;
 
     @Override
     public void init(ChannelContext channelContext) {
@@ -26,50 +28,49 @@ public class LoggingChannelHandler implements ChannelHandler {
             throw new IllegalStateException("Expected next handler in the pipeline");
         }
         this.channelContext = channelContext;
-
-        prefix = '[' + channelContext.getPipeline().getPipelineId() + "] ";
+        channelLogger = new ChannelLogger(logger, channelContext.getPipeline().getPipelineId());
+        this.channelContext = channelContext;
     }
 
     @Override
     public Flux<WrTy.ProtocolMessageEnvelope> handle(Flux<WrTy.ProtocolMessageEnvelope> inputStream) {
-        return channelContext.next()
-                .handle(
-                        inputStream
-                                .doOnSubscribe(value -> logger.debug("{} Subscribed to input stream", prefix))
-                                .doOnCancel(() -> logger.debug("{} Unsubscribed from input stream", prefix))
-                                .doOnNext(value -> {
-                                    WrTy.ProtocolMessageEnvelope.ItemCase itemCase = value.getItemCase();
-                                    switch (itemCase) {
-                                        case HEARTBEAT:
-                                            logger.debug("{} Sending Heartbeat", prefix);
-                                            break;
-                                        case CLIENTHELLO:
-                                            logger.debug("{} Sending Hello", prefix);
-                                            break;
-                                        case INSTANCEINFO:
-                                            logger.debug("{} Sending Data", prefix);
-                                            break;
-                                    }
-                                })
-                                .doOnError(e -> logger.debug("{} Input terminated with an error", prefix, e))
-                                .doOnComplete(() -> logger.debug("{} Input onCompleted", prefix, null))
-                )
-                .doOnSubscribe(value -> logger.debug("{} Subscribed to reply stream", prefix, null))
-                .doOnCancel(() -> logger.debug("{} Unsubscribed from reply stream", prefix, null))
+        Flux<WrTy.ProtocolMessageEnvelope> messageEnvelopeFlux = inputStream
+                .doOnSubscribe(value -> channelLogger.debug("Subscribed to input stream"))
+                .doOnCancel(() -> channelLogger.debug("Unsubscribed from input stream"))
                 .doOnNext(value -> {
-                    switch (value.getItemCase()) {
+                    WrTy.ProtocolMessageEnvelope.ItemCase itemCase = value.getItemCase();
+                    switch (itemCase) {
                         case HEARTBEAT:
-                            logger.debug("{} Received Heartbeat", prefix, null);
+                            channelLogger.debug("Sending Heartbeat");
                             break;
                         case CLIENTHELLO:
-                            logger.debug("{} Received Hello", prefix);
+                            channelLogger.debug("Sending Hello");
                             break;
                         case INSTANCEINFO:
-                            logger.debug("{} Received Data={}", prefix, value.toString());
+                            channelLogger.debug("Sending Data");
                             break;
                     }
                 })
-                .doOnError(e -> logger.debug("{} Reply stream terminated with an error", prefix, e))
-                .doOnComplete(() -> logger.debug("{} Reply stream onCompleted", prefix));
+                .doOnError(e -> channelLogger.debug("Input terminated with an error", e))
+                .doOnComplete(() -> channelLogger.debug("Input onCompleted"));
+        return channelContext.next()
+                .handle(messageEnvelopeFlux)
+                .doOnSubscribe(value -> channelLogger.debug("Subscribed to reply stream"))
+                .doOnCancel(() -> channelLogger.debug("Unsubscribed from reply stream"))
+                .doOnNext(value -> {
+                    switch (value.getItemCase()) {
+                        case HEARTBEAT:
+                            channelLogger.debug(" Received Heartbeat");
+                            break;
+                        case CLIENTHELLO:
+                            channelLogger.debug(" Received Hello");
+                            break;
+                        case INSTANCEINFO:
+                            channelLogger.debug(" Received Data={}", value.toString());
+                            break;
+                    }
+                })
+                .doOnError(e -> channelLogger.debug("Reply stream terminated with an error", e))
+                .doOnComplete(() -> channelLogger.debug("Reply stream onCompleted"));
     }
 }

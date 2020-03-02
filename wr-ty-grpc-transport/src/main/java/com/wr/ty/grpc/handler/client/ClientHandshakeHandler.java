@@ -36,7 +36,6 @@ public class ClientHandshakeHandler implements ChannelHandler {
 
     private static final Logger logger = LoggerFactory.getLogger(ClientHandshakeHandler.class);
 
-    protected static final IllegalStateException UNEXPECTED_HANDSHAKE_REPLY = new IllegalStateException("Unexpected handshake reply");
     protected static final IllegalStateException DATA_BEFORE_HANDSHAKE_REPLY = new IllegalStateException("Data before handshake reply");
     private ChannelLogger channelLogger;
     protected ChannelContext channelContext;
@@ -47,7 +46,6 @@ public class ClientHandshakeHandler implements ChannelHandler {
             throw new IllegalStateException("Expected next element in the pipeline");
         }
         channelLogger = new ChannelLogger(logger, channelContext.getPipeline().getPipelineId());
-
         this.channelContext = channelContext;
     }
 
