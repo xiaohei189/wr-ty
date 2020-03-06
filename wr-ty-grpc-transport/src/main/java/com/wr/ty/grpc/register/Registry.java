@@ -1,7 +1,11 @@
 package com.wr.ty.grpc.register;
 
+import com.wr.ty.grpc.RegistrySubscriber;
+import com.wr.ty.grpc.SubscriberFluxSinkWrap;
+import com.wr.ty.grpc.handler.server.ServerSubscribeHandler;
 import com.xh.demo.grpc.WrTy;
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.FluxSink;
 
 /**
  * instance registry
@@ -25,7 +29,7 @@ public interface Registry {
      * @param interest
      * @return
      */
-    Flux<WrTy.ChangeNotification> subscribe(WrTy.Interest interest);
+    void subscribe(RegistrySubscriber subscriber, WrTy.Interest interest);
 
     /**
      * @return

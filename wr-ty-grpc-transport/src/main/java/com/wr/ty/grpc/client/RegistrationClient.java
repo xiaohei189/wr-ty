@@ -1,76 +1,72 @@
 package com.wr.ty.grpc.client;
 
+import com.wr.ty.grpc.core.PipelineNameGenerator;
 import com.wr.ty.grpc.core.Server;
 import com.wr.ty.grpc.core.ServerResolver;
+import com.wr.ty.grpc.core.channel.ChannelHandler;
 import com.wr.ty.grpc.core.channel.ChannelPipeline;
 import com.wr.ty.grpc.core.channel.ChannelPipelineFactory;
+import com.wr.ty.grpc.core.channel.DefaultChannelPipeline;
 import com.wr.ty.grpc.handler.client.ClientHandshakeHandler;
 import com.wr.ty.grpc.handler.client.ClientHeartbeatHandler;
-import com.wr.ty.grpc.handler.client.RetryableClientConnectHandler;
 import com.wr.ty.grpc.TransportConfig;
-import com.wr.ty.grpc.handler.client.LoggingChannelHandler;
 import com.xh.demo.grpc.WrTy;
 import io.grpc.Channel;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import reactor.core.Disposable;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import reactor.core.scheduler.Scheduler;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import java.util.Objects;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Function;
 
 /**
  * @author xiaohei
  * @date 2020/2/13 13:18
  */
-public class RegistrationClient {
-
-    private static final Logger logger = LoggerFactory.getLogger(RegistrationClient.class);
+public class RegistrationClient extends RetryConnectClient {
 
     private final ChannelPipelineFactory pipelineFactory;
-    private final Scheduler scheduler;
-    Disposable disposable;
-    Function<Server, Channel> channelSupplier;
-    TransportConfig transportConfig;
+    private final Function<Server, Channel> channelSupplier;
 
-    public RegistrationClient(@Nonnull Scheduler scheduler,
-                              @Nonnull ServerResolver serverResolver,
-                              @Nonnull TransportConfig transportConfig,
-                              @Nullable Function<Server, Channel> channelFunction) {
-        Objects.requireNonNull(scheduler);
-        Objects.requireNonNull(serverResolver);
-        Objects.requireNonNull(transportConfig);
+    public RegistrationClient(Scheduler scheduler,
+                              ServerResolver serverResolver,
+                              TransportConfig transportConfig,
+                              PipelineNameGenerator pipelineNameGenerator) {
+        this(scheduler, serverResolver, transportConfig, pipelineNameGenerator, null);
+    }
+
+    public RegistrationClient(Scheduler scheduler,
+                              ServerResolver serverResolver,
+                              TransportConfig transportConfig,
+                              PipelineNameGenerator pipelineNameGenerator,
+                              Function<Server, Channel> channelFunction) {
+        super(scheduler, transportConfig);
         this.channelSupplier = channelFunction;
-        this.transportConfig = transportConfig;
-        this.scheduler = scheduler;
         this.pipelineFactory = () -> {
             Mono<ChannelPipeline> channelPipeline = serverResolver.resolve().map(server -> {
-                String pipelineId = createPipelineId(server);
+                String pipelineId = pipelineNameGenerator.generate(createPipelineId(server));
                 Channel channel;
                 if (channelFunction == null) {
                     channel = createChannel.apply(server);
                 } else {
                     channel = channelSupplier.apply(server);
                 }
-                return new ChannelPipeline(pipelineId,
-                        new LoggingChannelHandler(),
-                        new ClientHandshakeHandler(),
-                        new ClientHeartbeatHandler(transportConfig.heartbeatInterval(), transportConfig.heartbeatTimeout(), RegistrationClient.this.scheduler),
-                        new RegistrationClientTransportHandler(channel)
-                );
+
+                List<ChannelHandler> handlers = new ArrayList<>();
+                handlers.add(new ClientHandshakeHandler());
+                handlers.add(new ClientHeartbeatHandler(transportConfig.heartbeatInterval(), transportConfig.heartbeatTimeout(), scheduler));
+                handlers.add(new RegistrationClientTransportHandler(channel));
+                return new DefaultChannelPipeline(pipelineId, 0, handlers);
             });
             return channelPipeline;
         };
     }
 
     private static String createPipelineId(Server server) {
-        return "registration pipelineId-" + server.getHostName() + ":" + server.getPort();
+        return "Registration pipelineId-" + server.getHostName() + ":" + server.getPort();
     }
 
     private static Function<Server, Channel> createChannel = value -> {
@@ -78,19 +74,15 @@ public class RegistrationClient {
         return channel;
     };
 
-    public Flux<String> register(Flux<WrTy.InstanceInfo> registrant) {
-        Flux<String> flux = Flux.create(fluxSink -> {
-            RetryableClientConnectHandler retryableClientConnectHandler = new RetryableClientConnectHandler(pipelineFactory, this.transportConfig.autoConnectInterval(), scheduler);
-            disposable = retryableClientConnectHandler.handle(registrant.map(instance -> WrTy.ProtocolMessageEnvelope.newBuilder().setInstanceInfo(instance).build())).subscribe();
-            fluxSink.onDispose(disposable);
-        });
-        return flux.doOnCancel(() -> logger.debug("UnSubscribing from RegistrationClient"));
+    public Mono<WrTy.ProtocolMessageEnvelope> register(Flux<WrTy.InstanceInfo> registrant) {
+        Flux<WrTy.ProtocolMessageEnvelope> messageEnvelopeFlux = registrant.map(instance -> WrTy.ProtocolMessageEnvelope.newBuilder().setInstanceInfo(instance).build());
+        return subscribe(messageEnvelopeFlux).ignoreElements();
     }
 
-    public void shutDown() {
-        if (disposable != null) {
-            disposable.dispose();
-        }
+    @Override
+    protected ChannelPipelineFactory channelPipelineFactory() {
+        return pipelineFactory;
     }
+
 
 }

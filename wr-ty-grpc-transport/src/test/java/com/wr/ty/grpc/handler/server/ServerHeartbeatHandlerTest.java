@@ -35,9 +35,9 @@ public class ServerHeartbeatHandlerTest {
 
     @Before
     public void setup() {
-        channelPipeline = new ChannelPipeline("heartbeat", handler, nextHandler);
-        testPublisher = TestPublisher.create();
-        reply = channelPipeline.getFirst().handle(testPublisher.flux());
+//        channelPipeline = new ChannelPipeline("heartbeat", handler, nextHandler);
+//        testPublisher = TestPublisher.create();
+//        reply = channelPipeline.getFirst().handle(testPublisher.flux());
     }
 
 

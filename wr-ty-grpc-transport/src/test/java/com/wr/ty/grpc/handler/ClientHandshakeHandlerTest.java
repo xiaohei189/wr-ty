@@ -1,6 +1,5 @@
 package com.wr.ty.grpc.handler;
 
-import com.wr.ty.grpc.core.channel.ChannelContext;
 import com.wr.ty.grpc.core.channel.ChannelHandler;
 import com.wr.ty.grpc.core.channel.ChannelPipeline;
 import com.wr.ty.grpc.handler.client.ClientHandshakeHandler;
@@ -31,9 +30,9 @@ public class ClientHandshakeHandlerTest {
     public void setup() {
         handler = new ClientHandshakeHandler();
         replayPublisher = TestPublisher.create();
-        channelPipeline = new ChannelPipeline("client handshake", handler, new PublisherChannelHandler(replayPublisher));
+//        channelPipeline = new ChannelPipeline("client handshake", handler, new PublisherChannelHandler(replayPublisher));
         publish = TestPublisher.create();
-        reply = channelPipeline.getFirst().handle(publish.flux());
+        reply = channelPipeline.handle(publish.flux());
     }
     @Test
     public void testHandshake() throws InterruptedException {
@@ -67,13 +66,9 @@ public class ClientHandshakeHandlerTest {
             this.flux = testPublisher.flux();
         }
 
-        @Override
-        public void init(ChannelContext channelContext) {
-
-        }
 
         @Override
-        public Flux<WrTy.ProtocolMessageEnvelope> handle(Flux<WrTy.ProtocolMessageEnvelope> inputStream) {
+        public Flux<WrTy.ProtocolMessageEnvelope> handle(Flux<WrTy.ProtocolMessageEnvelope> inputStream,ChannelPipeline pipeline) {
             return FluxUtil.mergeWhenAllActive(inputStream, flux);
         }
     }

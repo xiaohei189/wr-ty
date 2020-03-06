@@ -17,12 +17,10 @@
 package com.wr.ty.grpc.handler.server;
 
 import com.wr.ty.grpc.SubscriberFluxSinkWrap;
-import com.wr.ty.grpc.core.channel.ChannelContext;
 import com.wr.ty.grpc.core.channel.ChannelHandler;
+import com.wr.ty.grpc.core.channel.ChannelPipeline;
 import com.wr.ty.grpc.util.FluxUtil;
 import com.xh.demo.grpc.WrTy;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import reactor.core.publisher.EmitterProcessor;
 import reactor.core.publisher.Flux;
 import reactor.core.scheduler.Scheduler;
@@ -42,13 +40,11 @@ import static com.xh.demo.grpc.WrTy.ProtocolMessageEnvelope.ItemCase.HEARTBEAT;
 
 public class ServerHeartbeatHandler implements ChannelHandler {
 
-    private static final Logger logger = LoggerFactory.getLogger(ServerHeartbeatHandler.class);
     private static final IOException HEARTBEAT_TIMEOUT = new IOException("Heartbeat timeout");
 
     private final Duration heartbeatTimeoutMs;
     private final Scheduler scheduler;
 
-    private ChannelContext channelContext;
 
     /**
      * @param heartbeatTimeoutMs
@@ -59,13 +55,9 @@ public class ServerHeartbeatHandler implements ChannelHandler {
         this.scheduler = scheduler;
     }
 
-    @Override
-    public void init(ChannelContext channelContext) {
-        this.channelContext = channelContext;
-    }
 
     @Override
-    public Flux<WrTy.ProtocolMessageEnvelope> handle(Flux<WrTy.ProtocolMessageEnvelope> inputStream) {
+    public Flux<WrTy.ProtocolMessageEnvelope> handle(Flux<WrTy.ProtocolMessageEnvelope> inputStream, ChannelPipeline pipeline) {
         return Flux.create(fluxSink -> {
             EmitterProcessor<WrTy.ProtocolMessageEnvelope> heartbeatReplies = EmitterProcessor.create();
             AtomicLong lastTimeoutUpdate = new AtomicLong(scheduler.now(TimeUnit.MILLISECONDS));
@@ -99,7 +91,7 @@ public class ServerHeartbeatHandler implements ChannelHandler {
 //            ).takeWhile(value -> value.hasValue() || value.hasError()).dematerialize();
 
             FluxUtil.mergeWhenAllActive(
-                    channelContext.next().handle(interceptedInput),
+                    pipeline.handle(interceptedInput),
                     heartbeatReplies
                     , timeoutTrigger
 //                 when inner flux has one complete,complete all flux ,not wait for all flux complete

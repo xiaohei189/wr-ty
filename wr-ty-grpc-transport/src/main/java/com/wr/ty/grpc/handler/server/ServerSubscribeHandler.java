@@ -1,7 +1,9 @@
 package com.wr.ty.grpc.handler.server;
 
-import com.wr.ty.grpc.core.channel.ChannelContext;
+import com.wr.ty.grpc.RegistrySubscriber;
+import com.wr.ty.grpc.SubscriberFluxSinkWrap;
 import com.wr.ty.grpc.core.channel.ChannelHandler;
+import com.wr.ty.grpc.core.channel.ChannelPipeline;
 import com.wr.ty.grpc.register.Registry;
 import com.xh.demo.grpc.WrTy;
 import reactor.core.publisher.BaseSubscriber;
@@ -19,27 +21,19 @@ public class ServerSubscribeHandler implements ChannelHandler {
 
     private final Registry registry;
 
-    private SwitchSubscriber subscriber;
+    private RegistrySubscriber subscriber;
 
     public ServerSubscribeHandler(Registry registry) {
         this.registry = registry;
     }
 
     @Override
-    public void init(ChannelContext channelContext) {
-        if (channelContext.hasNext()) {
-            throw new RuntimeException("ServerSubscribeHandler must be at the end");
-        }
-    }
-
-    @Override
-    public Flux<WrTy.ProtocolMessageEnvelope> handle(Flux<WrTy.ProtocolMessageEnvelope> inputStream) {
+    public Flux<WrTy.ProtocolMessageEnvelope> handle(Flux<WrTy.ProtocolMessageEnvelope> inputStream, ChannelPipeline pipeline) {
         EmitterProcessor response = EmitterProcessor.create();
         FluxSink fluxSink = response.sink();
         inputStream.filter(value -> value.getItemCase() == INTERESTREGISTRATION).subscribe(value -> {
-            Flux<WrTy.ChangeNotification> notificationFlux = registry.subscribe(null);
-            subscriber = new SwitchSubscriber(fluxSink);
-            notificationFlux.subscribe(subscriber);
+            subscriber = new RegistrySubscriber(fluxSink);
+            registry.subscribe(subscriber, null);
         }, error -> {
             if (subscriber != null) {
                 subscriber.dispose();
@@ -54,28 +48,4 @@ public class ServerSubscribeHandler implements ChannelHandler {
         return response;
     }
 
-    static class SwitchSubscriber extends BaseSubscriber<WrTy.ChangeNotification> {
-
-        private final FluxSink<WrTy.ProtocolMessageEnvelope> fluxSink;
-
-        SwitchSubscriber(FluxSink fluxSink) {
-            this.fluxSink = fluxSink;
-        }
-
-        @Override
-        protected void hookOnNext(WrTy.ChangeNotification value) {
-            WrTy.ProtocolMessageEnvelope messageEnvelope = WrTy.ProtocolMessageEnvelope.newBuilder().setChangeNotification(value).build();
-            fluxSink.next(messageEnvelope);
-        }
-
-        @Override
-        protected void hookOnComplete() {
-            fluxSink.complete();
-        }
-
-        @Override
-        protected void hookOnError(Throwable throwable) {
-            fluxSink.error(throwable);
-        }
-    }
 }

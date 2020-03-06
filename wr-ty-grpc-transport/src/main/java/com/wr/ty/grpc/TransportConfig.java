@@ -20,4 +20,8 @@ public interface TransportConfig {
         return Duration.ofSeconds(15);
     }
 
+    default int maxRetryConnectTimes() {
+        return 10;
+    }
+
 }

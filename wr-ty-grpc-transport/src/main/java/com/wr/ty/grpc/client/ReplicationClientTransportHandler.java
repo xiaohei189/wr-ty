@@ -2,8 +2,8 @@ package com.wr.ty.grpc.client;
 
 import com.wr.ty.grpc.StreamObserverFluxSink;
 import com.wr.ty.grpc.SubscriberStreamObserver;
-import com.wr.ty.grpc.core.channel.ChannelContext;
 import com.wr.ty.grpc.core.channel.ChannelHandler;
+import com.wr.ty.grpc.core.channel.ChannelPipeline;
 import com.wr.ty.grpc.util.ProtocolMessageEnvelopes;
 import com.xh.demo.grpc.ReplicationServiceGrpc;
 import com.xh.demo.grpc.WrTy;
@@ -56,15 +56,10 @@ public class ReplicationClientTransportHandler implements ChannelHandler {
         this.replicationServiceStub = ReplicationServiceGrpc.newStub(channel);
     }
 
-    @Override
-    public void init(ChannelContext channelContext) {
-        if (channelContext.hasNext()) {
-            throw new IllegalStateException("ReplicationClientTransportHandler must be the last one in the pipeline");
-        }
-    }
+
 
     @Override
-    public Flux<WrTy.ProtocolMessageEnvelope> handle(Flux<WrTy.ProtocolMessageEnvelope> inputStream) {
+    public Flux<WrTy.ProtocolMessageEnvelope> handle(Flux<WrTy.ProtocolMessageEnvelope> inputStream, ChannelPipeline pipeline) {
 
         return Flux.create(fluxSink -> {
             logger.debug("Subscription to ReplicationClientTransportHandler start");

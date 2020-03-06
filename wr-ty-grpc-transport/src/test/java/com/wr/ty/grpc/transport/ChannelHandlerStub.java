@@ -1,7 +1,7 @@
 package com.wr.ty.grpc.transport;
 
-import com.wr.ty.grpc.core.channel.ChannelContext;
 import com.wr.ty.grpc.core.channel.ChannelHandler;
+import com.wr.ty.grpc.core.channel.ChannelPipeline;
 import com.xh.demo.grpc.WrTy;
 import reactor.core.publisher.Flux;
 
@@ -11,12 +11,10 @@ import reactor.core.publisher.Flux;
  */
 public class ChannelHandlerStub implements ChannelHandler {
 
-    @Override
-    public void init(ChannelContext channelContext) {
-    }
+
 
     @Override
-    public Flux<WrTy.ProtocolMessageEnvelope> handle(Flux<WrTy.ProtocolMessageEnvelope> inputStream) {
+    public Flux<WrTy.ProtocolMessageEnvelope> handle(Flux<WrTy.ProtocolMessageEnvelope> inputStream, ChannelPipeline pipeline) {
         return inputStream;
     }
 }

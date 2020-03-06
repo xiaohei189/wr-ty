@@ -1,6 +1,7 @@
 package com.wr.ty.grpc.client;
 
 import com.wr.ty.grpc.TransportConfig;
+import com.wr.ty.grpc.core.DefaultPipelineNameGenerator;
 import com.wr.ty.grpc.core.DefaultServerResolver;
 import com.xh.demo.grpc.RegistrationServiceGrpc;
 import com.xh.demo.grpc.WrTy;
@@ -60,19 +61,16 @@ public class RegistrationClientTest {
                 StreamObserver requestStream = new StreamObserver<WrTy.RegistrationRequest>() {
                     @Override
                     public void onNext(WrTy.RegistrationRequest value) {
-                        logger.debug("mock server receive message {}", value.toString());
                         propagateRequest.next(value);
                     }
 
                     @Override
                     public void onError(Throwable t) {
-                        logger.error("mock server receive error message ", t);
                         propagateRequest.error(t);
                     }
 
                     @Override
                     public void onCompleted() {
-                        logger.debug("mock server receive complete message");
                         propagateRequest.complete();
                     }
                 };
@@ -81,8 +79,7 @@ public class RegistrationClientTest {
         };
         serviceRegistry.addService(registrationImpl);
 
-        config = new TransportConfig() {
-        };
+        config = new TransportConfig() {};
         serverResolver = new DefaultServerResolver();
     }
 
@@ -99,7 +96,8 @@ public class RegistrationClientTest {
     @Test
     public void testCheckClientOutSequence() {
         TestPublisher<WrTy.InstanceInfo> publisher = TestPublisher.create();
-        RegistrationClient client = new RegistrationClient(scheduler, serverResolver, config, value -> channel);
+        DefaultPipelineNameGenerator nameGenerator = new DefaultPipelineNameGenerator();
+        RegistrationClient client = new RegistrationClient(scheduler, serverResolver, config,nameGenerator, value -> channel);
         // check client send message sequence
         StepVerifier.create(propagateRequest)
                 .then(() -> {
@@ -116,24 +114,5 @@ public class RegistrationClientTest {
                 .log()
                 .verify(timeOut);
     }
-
-//    @Test
-//    public void testClientHeartbeatTimeOut() {
-//        TestPublisher<WrTy.InstanceInfo> publisher = TestPublisher.create();
-//        RegistrationClient client = new RegistrationClient(scheduler, serverResolver, config, value -> channel);
-//        // check client send message sequence
-//        StepVerifier.create(propagateRequest)
-//                .then(() -> {
-//                    client.register(publisher.flux()).subscribe();
-//                    scheduler.advanceTimeBy(Duration.ofSeconds(45));// send heartbeat,heartbeat check
-//                    scheduler.advanceTime();
-//                })
-//                .expectNext(requestClientHello)
-//                .expectNext(requestHeartbeat)
-//                .expectNext(requestHeartbeat)
-//                .expectError()
-//                .log()
-//                .verify(timeOut);
-//    }
 
 }

@@ -1,30 +1,28 @@
 package com.wr.ty.grpc.client;
 
 import com.wr.ty.grpc.TransportConfig;
+import com.wr.ty.grpc.core.PipelineNameGenerator;
 import com.wr.ty.grpc.core.Server;
 import com.wr.ty.grpc.core.ServerResolver;
+import com.wr.ty.grpc.core.channel.ChannelHandler;
 import com.wr.ty.grpc.core.channel.ChannelPipeline;
 import com.wr.ty.grpc.core.channel.ChannelPipelineFactory;
+import com.wr.ty.grpc.core.channel.DefaultChannelPipeline;
 import com.wr.ty.grpc.handler.client.ClientHandshakeHandler;
 import com.wr.ty.grpc.handler.client.ClientHeartbeatHandler;
-import com.wr.ty.grpc.handler.client.LoggingChannelHandler;
-import com.wr.ty.grpc.handler.client.RetryableClientConnectHandler;
-import com.wr.ty.grpc.register.Registry;
 import com.xh.demo.grpc.WrTy;
 import io.grpc.Channel;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import reactor.core.Disposable;
-import reactor.core.publisher.EmitterProcessor;
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.FluxSink;
 import reactor.core.publisher.Mono;
 import reactor.core.scheduler.Scheduler;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import java.util.function.Function;
 
@@ -33,48 +31,58 @@ import java.util.function.Function;
  * @author xiaohei
  * @date 2020/2/13 13:18
  */
-public class SubscribeClient {
+public class SubscribeClient extends RetryConnectClient {
 
     private static final Logger logger = LoggerFactory.getLogger(SubscribeClient.class);
 
-    private final ChannelPipelineFactory transportPipelineFactory;
+    private final ChannelPipelineFactory pipelineFactory;
     private final Scheduler scheduler;
-    Disposable disposable;
+    FluxSink<WrTy.ProtocolMessageEnvelope> fluxSink;
     Function<Server, Channel> channelSupplier;
     TransportConfig transportConfig;
 
-    public SubscribeClient(@Nonnull Scheduler scheduler,
-                           @Nonnull ServerResolver serverResolver,
-                           @Nonnull TransportConfig transportConfig,
-                           @Nullable Function<Server, Channel> channelFunction) {
+    public SubscribeClient(Scheduler scheduler,
+                           ServerResolver serverResolver,
+                           TransportConfig transportConfig,
+                           PipelineNameGenerator pipelineNameGenerator) {
+        this(scheduler, serverResolver, transportConfig, pipelineNameGenerator, null);
+    }
+
+    public SubscribeClient(Scheduler scheduler,
+                           ServerResolver serverResolver,
+                           TransportConfig transportConfig,
+                           PipelineNameGenerator pipelineNameGenerator,
+                           Function<Server, Channel> channelFunction) {
+        super(scheduler, transportConfig);
         Objects.requireNonNull(scheduler);
         Objects.requireNonNull(serverResolver);
         Objects.requireNonNull(transportConfig);
         this.channelSupplier = channelFunction;
         this.transportConfig = transportConfig;
         this.scheduler = scheduler;
-        this.transportPipelineFactory = () -> {
+        this.pipelineFactory = () -> {
             Mono<ChannelPipeline> channelPipeline = serverResolver.resolve().map(server -> {
-                String pipelineId = createPipelineId(server);
+                String pipelineId = pipelineNameGenerator.generate(createPipelineId(server));
                 Channel channel;
                 if (channelFunction == null) {
                     channel = createChannel.apply(server);
                 } else {
                     channel = channelSupplier.apply(server);
                 }
-                return new ChannelPipeline(pipelineId,
-                        new ClientHandshakeHandler(),
-                        new ClientHeartbeatHandler(transportConfig.heartbeatInterval(), transportConfig.heartbeatTimeout(), scheduler),
-                        new LoggingChannelHandler(),
-                        new SubscribeClientTransportHandler(channel)
-                );
+
+
+                List<ChannelHandler> handlers = new ArrayList<>();
+                handlers.add(new ClientHandshakeHandler());
+                handlers.add(new ClientHeartbeatHandler(transportConfig.heartbeatInterval(), transportConfig.heartbeatTimeout(), scheduler));
+                handlers.add(new SubscribeClientTransportHandler(channel));
+                return new DefaultChannelPipeline(pipelineId, 0, handlers);
             });
             return channelPipeline;
         };
     }
 
     private static String createPipelineId(Server server) {
-        return "interest pipelineId-" + server.getHostName() + ":" + server.getPort();
+        return "Subscribe pipelineId-" + server.getHostName() + ":" + server.getPort();
     }
 
     private static Function<Server, Channel> createChannel = value -> {
@@ -82,35 +90,25 @@ public class SubscribeClient {
         return channel;
     };
 
-    public Flux<String> subscribe(WrTy.Interest... interests) {
+    public Flux<WrTy.ProtocolMessageEnvelope> subscribe(WrTy.Interest... interests) {
         WrTy.InterestRegistration.Builder builder = WrTy.InterestRegistration.newBuilder();
         for (int i = 0; i < interests.length; i++) {
             builder.addInterests(interests[i]);
         }
         WrTy.InterestRegistration interestRegistration = builder.build();
-        WrTy.ProtocolMessageEnvelope protocolMessageEnvelope = WrTy.ProtocolMessageEnvelope.newBuilder().setInterestRegistration(interestRegistration).build();
-        return Flux.create(fluxSink -> {
-            ChannelPipeline retryablePipeline = new ChannelPipeline("interest",
-                    new RetryableClientConnectHandler(transportPipelineFactory, this.transportConfig.autoConnectInterval(), scheduler)
-            );
-             retryablePipeline.getFirst()
-                    .handle(Flux.create(emitter -> {
-                        emitter.next(protocolMessageEnvelope);
-                    }))
-                    .doOnCancel(() -> {
-                        logger.debug("UnSubscribing registration client");
-                    }).log()
-                    .subscribe(value ->{
-                        System.out.println(value+"11111111");
-                    });
-//            fluxSink.onCancel(disposable);
+        WrTy.ProtocolMessageEnvelope protocolMessageEnvelope = WrTy.ProtocolMessageEnvelope.newBuilder()
+                .setInterestRegistration(interestRegistration).build();
+        Flux<WrTy.ProtocolMessageEnvelope> inputStream = Flux.create(fluxSink -> {
+            fluxSink.next(protocolMessageEnvelope);
+            this.fluxSink = fluxSink;
         });
+        return Flux.defer(() -> subscribe(inputStream));
     }
 
-    public void shutDown() {
-        if (disposable != null) {
-            disposable.dispose();
-        }
+    @Override
+    protected ChannelPipelineFactory channelPipelineFactory() {
+        return this.pipelineFactory;
     }
+
 
 }

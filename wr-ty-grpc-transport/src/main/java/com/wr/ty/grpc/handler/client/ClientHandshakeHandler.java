@@ -16,10 +16,9 @@
 
 package com.wr.ty.grpc.handler.client;
 
-import com.wr.ty.grpc.ChannelLogger;
 import com.wr.ty.grpc.SubscriberFluxSinkWrap;
-import com.wr.ty.grpc.core.channel.ChannelContext;
 import com.wr.ty.grpc.core.channel.ChannelHandler;
+import com.wr.ty.grpc.core.channel.ChannelPipeline;
 import com.wr.ty.grpc.util.ProtocolMessageEnvelopes;
 import com.xh.demo.grpc.WrTy;
 import org.slf4j.Logger;
@@ -33,49 +32,39 @@ import java.util.function.Function;
  *
  */
 public class ClientHandshakeHandler implements ChannelHandler {
-
-    private static final Logger logger = LoggerFactory.getLogger(ClientHandshakeHandler.class);
+    private final Logger logger = LoggerFactory.getLogger(ClientHandshakeHandler.class);
 
     protected static final IllegalStateException DATA_BEFORE_HANDSHAKE_REPLY = new IllegalStateException("Data before handshake reply");
-    private ChannelLogger channelLogger;
-    protected ChannelContext channelContext;
+    private String prefix;
+
 
     @Override
-    public void init(ChannelContext channelContext) {
-        if (!channelContext.hasNext()) {
-            throw new IllegalStateException("Expected next element in the pipeline");
-        }
-        channelLogger = new ChannelLogger(logger, channelContext.getPipeline().getPipelineId());
-        this.channelContext = channelContext;
-    }
+    public Flux<WrTy.ProtocolMessageEnvelope> handle(Flux<WrTy.ProtocolMessageEnvelope> inputStream, ChannelPipeline pipeline) {
 
-    @Override
-    public Flux<WrTy.ProtocolMessageEnvelope> handle(Flux<WrTy.ProtocolMessageEnvelope> inputStream) {
         return Flux.create(fluxSink -> {
-            channelLogger.debug("Subscription to ClientHandshakeHandler start");
+            prefix = pipeline.pipelineId();
             AtomicBoolean handshakeCompleted = new AtomicBoolean(false);
-            channelContext.next().handle(Flux.just(ProtocolMessageEnvelopes.CLIENT_HELLO).concatWith(inputStream))
+            pipeline.handle(Flux.just(ProtocolMessageEnvelopes.CLIENT_HELLO).concatWith(inputStream)).log()
                     .flatMap(handshakeVerifier(handshakeCompleted))
-                    .doOnCancel(() -> channelLogger.debug("Unsubscribing from ClientHandshakeHandler"))
                     .subscribe(new SubscriberFluxSinkWrap(fluxSink));
 
         });
     }
 
     protected Function<WrTy.ProtocolMessageEnvelope, Flux<WrTy.ProtocolMessageEnvelope>> handshakeVerifier(AtomicBoolean handshakeCompleted) {
-        return replyNotification -> {
-            if (replyNotification.getItemCase() == WrTy.ProtocolMessageEnvelope.ItemCase.SERVERHELLO) {
-                if (!handshakeCompleted.getAndSet(true)) {
-                    channelLogger.debug("Handshake has completed");
+        return value -> {
 
+            if (value.getItemCase() == WrTy.ProtocolMessageEnvelope.ItemCase.SERVERHELLO) {
+                if (!handshakeCompleted.getAndSet(true)) {
+                    logger.debug("{} Handshake has completed", prefix);
                     return Flux.empty();
                 }
             }
-            if (replyNotification.getItemCase() == WrTy.ProtocolMessageEnvelope.ItemCase.INSTANCEINFO && !handshakeCompleted.get()) {
-                channelLogger.error("Data sent from server before handshake has completed");
+            if (value.getItemCase() == WrTy.ProtocolMessageEnvelope.ItemCase.INSTANCEINFO && !handshakeCompleted.get()) {
+                logger.error("{} Data sent from server before handshake has completed", prefix);
                 return Flux.error(DATA_BEFORE_HANDSHAKE_REPLY);
             }
-            return Flux.just(replyNotification);
+            return Flux.just(value);
         };
     }
 }

@@ -27,9 +27,9 @@ public class ServerHandshakeHandlerTest {
 
     @Before
     public void setup() {
-        channelPipeline = new ChannelPipeline("handshake", handler, nextHandler);
+//        channelPipeline = new ChannelPipeline("handshake", handler, nextHandler);
         testPublisher = TestPublisher.create();
-        reply = channelPipeline.getFirst().handle(testPublisher.flux());
+        reply = channelPipeline.handle(testPublisher.flux());
     }
 
     @Test

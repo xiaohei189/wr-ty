@@ -11,6 +11,6 @@ public class DefaultPipelineNameGenerator implements PipelineNameGenerator {
 
     @Override
     public String generate(String name) {
-        return name + "---" + auto.incrementAndGet();
+        return auto.incrementAndGet() + " " + name +" ";
     }
 }

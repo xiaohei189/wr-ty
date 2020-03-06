@@ -1,8 +1,8 @@
 package com.wr.ty.grpc.handler.client;
 
-import com.wr.ty.grpc.ChannelLogger;
-import com.wr.ty.grpc.core.channel.ChannelContext;
+import com.wr.ty.grpc.SubscriberFluxSinkWrap;
 import com.wr.ty.grpc.core.channel.ChannelHandler;
+import com.wr.ty.grpc.core.channel.ChannelPipeline;
 import com.wr.ty.grpc.util.FluxUtil;
 import com.xh.demo.grpc.WrTy;
 import org.slf4j.Logger;
@@ -14,6 +14,7 @@ import reactor.core.scheduler.Scheduler;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.concurrent.atomic.AtomicLong;
+import java.util.logging.Level;
 
 import static com.wr.ty.grpc.util.ProtocolMessageEnvelopes.HEART_BEAT;
 import static com.xh.demo.grpc.WrTy.ProtocolMessageEnvelope.ItemCase.HEARTBEAT;
@@ -21,18 +22,14 @@ import static java.util.concurrent.TimeUnit.MILLISECONDS;
 
 public class ClientHeartbeatHandler implements ChannelHandler {
 
-    private static final Logger logger = LoggerFactory.getLogger(ClientHeartbeatHandler.class);
-    private ChannelLogger channelLogger;
-
-
     private static final Throwable HEARTBEAT_TIMEOUT = new IOException("Heartbeat timeout");
 
     private final Duration heartbeatIntervalMs;
     private final Duration heartbeatTimeoutMs;
     private final Scheduler scheduler;
+    private String prefix;
 
-    private ChannelContext channelContext;
-
+    private Logger logger = LoggerFactory.getLogger(ClientHeartbeatHandler.class);
 
     public ClientHeartbeatHandler(Duration heartbeatIntervalMs, Duration heartbeatTimeoutMs, Scheduler scheduler) {
         this.heartbeatIntervalMs = heartbeatIntervalMs;
@@ -41,55 +38,34 @@ public class ClientHeartbeatHandler implements ChannelHandler {
     }
 
     @Override
-    public void init(ChannelContext channelContext) {
-        if (!channelContext.hasNext()) {
-            throw new IllegalStateException("Expected next handler in the pipeline");
-        }
-        channelLogger = new ChannelLogger(logger, channelContext.getPipeline().getPipelineId());
-        this.channelContext = channelContext;
-    }
-
-    @Override
-    public Flux<WrTy.ProtocolMessageEnvelope> handle(Flux<WrTy.ProtocolMessageEnvelope> inputStream) {
-        Flux<WrTy.ProtocolMessageEnvelope> flux = Flux.create(fluxSink -> {
-            channelLogger.debug("Subscription to ClientHeartbeatHandler start");
+    public Flux<WrTy.ProtocolMessageEnvelope> handle(Flux<WrTy.ProtocolMessageEnvelope> inputStream, ChannelPipeline pipeline) {
+        return Flux.create(fluxSink -> {
+            prefix = pipeline.pipelineId();
             AtomicLong lastHeartbeatReply = new AtomicLong(-1);
             Flux<WrTy.ProtocolMessageEnvelope> heartbeatTask = Flux.interval(heartbeatIntervalMs, heartbeatIntervalMs, scheduler)
                     .flatMap(tick -> {
                         if (isLate(lastHeartbeatReply)) {
-                            channelLogger.debug("No heartbeat reply from server received in {} ms", heartbeatTimeoutMs);
+                            logger.debug("No heartbeat reply from server received in {} ms", heartbeatTimeoutMs);
                             return Flux.error(HEARTBEAT_TIMEOUT);
                         }
                         return Flux.just(HEART_BEAT);
                     });
             Flux<WrTy.ProtocolMessageEnvelope> intercepted = FluxUtil.mergeWhenAllActive(inputStream, heartbeatTask);
-            Disposable disposable = channelContext.next()
-                    .handle(intercepted)
-                    .subscribe(
-                            next -> {
-                                if (next.getItemCase() == HEARTBEAT) {
-                                    channelLogger.debug("Heartbeat reply from server received");
-                                    lastHeartbeatReply.set(scheduler.now(MILLISECONDS));
-                                } else {
-                                    fluxSink.next(next);
-                                }
-                            },
-                            e -> {
-                                channelLogger.debug("Subscription to ClientHeartbeatHandler completed with an error ({})", e.getMessage());
-                                fluxSink.error(e);
-                            },
-                            () -> {
-                                channelLogger.debug("Subscription to ClientHeartbeatHandler onCompleted");
-                                fluxSink.complete();
-                            }
-                    );
+            pipeline.handle(intercepted)
+                    .doOnNext(value -> {
+                        if (value.getItemCase() == HEARTBEAT) {
+                            logger.debug("{} Heartbeat reply from server received", prefix);
+                            lastHeartbeatReply.set(scheduler.now(MILLISECONDS));
+                        }
+                    })
+                    .filter(value -> value.getItemCase() != HEARTBEAT)
+                    .subscribe(new SubscriberFluxSinkWrap(fluxSink));
 
-            fluxSink.onDispose(disposable);
         });
 
-        return flux.doOnCancel(() -> channelLogger.debug("UnSubscribing from ClientHeartbeatHandler"));
 
     }
+
 
     private boolean isLate(AtomicLong lastHeartbeatReply) {
         if (lastHeartbeatReply.get() < 0) {
@@ -99,7 +75,7 @@ public class ClientHeartbeatHandler implements ChannelHandler {
         long currentTime = scheduler.now(MILLISECONDS);
         long lastTime = lastHeartbeatReply.get();
         long delay = currentTime - lastTime;
-        channelLogger.debug("heartbeat current time {}, lastTime {}, delay {}", currentTime, lastTime, delay);
+//        logger.debug("{} heartbeat current time {}, lastTime {}, delay {}", prefix, currentTime, lastTime, delay);
         return delay > heartbeatTimeoutMs.toMillis();
     }
 }

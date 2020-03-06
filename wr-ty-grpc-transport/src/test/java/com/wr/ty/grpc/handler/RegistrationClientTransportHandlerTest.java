@@ -85,7 +85,7 @@ public class RegistrationClientTransportHandlerTest {
         serviceRegistry.addService(registrationImpl);
         ChannelHandler handler = new RegistrationClientTransportHandler(channel);
         TestPublisher<WrTy.ProtocolMessageEnvelope> publisher = TestPublisher.create();
-        Flux<WrTy.ProtocolMessageEnvelope> response = handler.handle(publisher.flux());
+//        Flux<WrTy.ProtocolMessageEnvelope> response = handler.handle(publisher.flux());
         StreamObserver<WrTy.RegistrationRequest> request = registrationStub.register(new StreamObserver<WrTy.RegistrationResponse>() {
             @Override
             public void onNext(WrTy.RegistrationResponse value) {

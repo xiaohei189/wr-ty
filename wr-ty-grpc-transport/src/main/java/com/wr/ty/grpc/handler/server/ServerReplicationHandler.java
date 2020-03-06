@@ -1,7 +1,7 @@
 package com.wr.ty.grpc.handler.server;
 
-import com.wr.ty.grpc.core.channel.ChannelContext;
 import com.wr.ty.grpc.core.channel.ChannelHandler;
+import com.wr.ty.grpc.core.channel.ChannelPipeline;
 import com.xh.demo.grpc.WrTy;
 import reactor.core.publisher.Flux;
 
@@ -11,16 +11,10 @@ import static com.wr.ty.grpc.util.ProtocolMessageEnvelopes.createSubscribeAllReg
  * @author xiaohei
  * @date 2020/3/1 15:17
  */
-public class ServerReplicationHandler implements ChannelHandler {
-    private ChannelContext channelContext;
+public class ServerReplicationHandler  implements ChannelHandler {
 
     @Override
-    public void init(ChannelContext channelContext) {
-        this.channelContext=channelContext;
-    }
-
-    @Override
-    public Flux<WrTy.ProtocolMessageEnvelope> handle(Flux<WrTy.ProtocolMessageEnvelope> inputStream) {
+    public Flux<WrTy.ProtocolMessageEnvelope> handle(Flux<WrTy.ProtocolMessageEnvelope> inputStream, ChannelPipeline pipeline) {
 
         Flux<WrTy.ProtocolMessageEnvelope> envelopeFlux = inputStream.map(value -> {
             // subscribe all instance
@@ -28,6 +22,6 @@ public class ServerReplicationHandler implements ChannelHandler {
             return allRegistration;
         });
 
-        return channelContext.next().handle(envelopeFlux);
+        return pipeline.handle(envelopeFlux);
     }
 }

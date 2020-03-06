@@ -31,9 +31,9 @@ public class ClientHeartbeatHandlerTest {
     public void setup() {
         Duration duration = Duration.ofMillis(1000 * 5);
         handler = new ClientHeartbeatHandler(duration,duration, scheduler);
-        channelPipeline = new ChannelPipeline("client heart", handler, new ChannelHandlerStub());
-        inputPublic = TestPublisher.create();
-        reply = channelPipeline.getFirst().handle(inputPublic.flux());
+//        channelPipeline = new ChannelPipeline("client heart", handler, new ChannelHandlerStub());
+//        inputPublic = TestPublisher.create();
+//        reply = channelPipeline.getFirst().handle(inputPublic.flux());
     }
 
     @Test

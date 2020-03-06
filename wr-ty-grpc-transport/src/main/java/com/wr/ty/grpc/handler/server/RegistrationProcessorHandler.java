@@ -3,8 +3,8 @@
 package com.wr.ty.grpc.handler.server;
 
 
-import com.wr.ty.grpc.core.channel.ChannelContext;
 import com.wr.ty.grpc.core.channel.ChannelHandler;
+import com.wr.ty.grpc.core.channel.ChannelPipeline;
 import com.wr.ty.grpc.register.Registry;
 import com.wr.ty.grpc.util.ChangeNotifications;
 import com.xh.demo.grpc.WrTy;
@@ -14,38 +14,26 @@ import reactor.core.Disposable;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.SignalType;
 
-import java.io.IOException;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicReference;
 
 
 public class RegistrationProcessorHandler implements ChannelHandler {
 
-    private static final Logger logger = LoggerFactory.getLogger(RegistrationProcessorHandler.class);
-
-    private static final IOException REGISTRATION_ERROR = new IOException("Registration reply stream terminated with an error");
-
+    private Logger logger = LoggerFactory.getLogger(RegistrationProcessorHandler.class);
     private final Registry registry;
 
     public RegistrationProcessorHandler(Registry registry) {
-
         Objects.requireNonNull(registry);
         this.registry = registry;
     }
 
     @Override
-    public void init(ChannelContext channelContext) {
-        if (channelContext.hasNext()) {
-            throw new IllegalStateException("RegistrationProcessorBridgeHandler must be the last one in the pipeline");
-        }
-    }
-
-    @Override
-    public Flux<WrTy.ProtocolMessageEnvelope> handle(Flux<WrTy.ProtocolMessageEnvelope> registrationUpdates) {
+    public Flux<WrTy.ProtocolMessageEnvelope> handle(Flux<WrTy.ProtocolMessageEnvelope> inputStream, ChannelPipeline pipeline) {
         return Flux.create(fluxSink -> {
 
             AtomicReference<WrTy.InstanceInfo> lastInstance = new AtomicReference();
-            Disposable disposable = registrationUpdates
+            Disposable disposable = inputStream
                     .filter(value -> value.getItemCase() == WrTy.ProtocolMessageEnvelope.ItemCase.INSTANCEINFO)
                     .doOnNext(value -> {
                         fluxSink.next(value);// reply

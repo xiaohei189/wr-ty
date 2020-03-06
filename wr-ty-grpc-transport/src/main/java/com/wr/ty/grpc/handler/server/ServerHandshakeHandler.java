@@ -17,12 +17,10 @@
 package com.wr.ty.grpc.handler.server;
 
 import com.wr.ty.grpc.SubscriberFluxSinkWrap;
-import com.wr.ty.grpc.core.channel.ChannelContext;
 import com.wr.ty.grpc.core.channel.ChannelHandler;
+import com.wr.ty.grpc.core.channel.ChannelPipeline;
 import com.wr.ty.grpc.util.ProtocolMessageEnvelopes;
 import com.xh.demo.grpc.WrTy;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import reactor.core.publisher.Flux;
 
 import static com.xh.demo.grpc.WrTy.ProtocolMessageEnvelope.ItemCase.CLIENTHELLO;
@@ -31,26 +29,11 @@ import static com.xh.demo.grpc.WrTy.ProtocolMessageEnvelope.ItemCase.CLIENTHELLO
 /**
  *
  */
-public class ServerHandshakeHandler implements ChannelHandler {
+public class ServerHandshakeHandler  implements ChannelHandler {
 
-    private static final Logger logger = LoggerFactory.getLogger(ServerHandshakeHandler.class);
-
-
-    private ChannelContext channelContext;
-
-    public ServerHandshakeHandler() {
-    }
 
     @Override
-    public void init(ChannelContext channelContext) {
-        if (!channelContext.hasNext()) {
-            throw new IllegalStateException("ServerHandshakeHandler cannot be last handler in the pipeline");
-        }
-        this.channelContext = channelContext;
-    }
-
-    @Override
-    public Flux<WrTy.ProtocolMessageEnvelope> handle(Flux<WrTy.ProtocolMessageEnvelope> inputStream) {
+    public Flux<WrTy.ProtocolMessageEnvelope> handle(Flux<WrTy.ProtocolMessageEnvelope> inputStream, ChannelPipeline pipeline) {
         return Flux.create(fluxSink -> {
             //fluxSink order sent
             Flux<WrTy.ProtocolMessageEnvelope> interceptedInput = inputStream.flatMap(value -> {
@@ -62,7 +45,9 @@ public class ServerHandshakeHandler implements ChannelHandler {
                 fluxSink.next(ProtocolMessageEnvelopes.SERVER_HELLO);
                 return Flux.empty();
             });
-            channelContext.next().handle(interceptedInput).subscribe(new SubscriberFluxSinkWrap<>(fluxSink));
+            pipeline.handle(interceptedInput).subscribe(new SubscriberFluxSinkWrap<>(fluxSink));
         });
     }
+
+
 }

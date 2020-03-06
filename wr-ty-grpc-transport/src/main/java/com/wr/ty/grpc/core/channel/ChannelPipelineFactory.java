@@ -7,6 +7,7 @@ import reactor.core.publisher.Mono;
  * @author xiaohei
  * @date 2020/2/12 14:00
  */
+@FunctionalInterface
 public interface ChannelPipelineFactory {
     Mono<ChannelPipeline> createPipeline();
 }

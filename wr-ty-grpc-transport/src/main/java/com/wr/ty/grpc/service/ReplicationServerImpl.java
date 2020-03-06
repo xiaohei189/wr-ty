@@ -3,8 +3,10 @@ package com.wr.ty.grpc.service;
 import com.wr.ty.grpc.Session;
 import com.wr.ty.grpc.TransportConfig;
 import com.wr.ty.grpc.core.PipelineNameGenerator;
+import com.wr.ty.grpc.core.channel.ChannelHandler;
 import com.wr.ty.grpc.core.channel.ChannelPipeline;
 import com.wr.ty.grpc.core.channel.ChannelPipelineFactory;
+import com.wr.ty.grpc.core.channel.DefaultChannelPipeline;
 import com.wr.ty.grpc.handler.server.*;
 import com.wr.ty.grpc.register.Registry;
 import com.wr.ty.grpc.util.ProtocolMessageEnvelopes;
@@ -18,6 +20,8 @@ import org.slf4j.LoggerFactory;
 import reactor.core.publisher.Mono;
 import reactor.core.scheduler.Scheduler;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import java.util.function.Function;
 
@@ -70,16 +74,15 @@ public class ReplicationServerImpl extends ReplicationServiceGrpc.ReplicationSer
         Objects.requireNonNull(scheduler);
         Objects.requireNonNull(registry);
         this.register = registry;
-        SourceIdGenerator idGenerator = new SourceIdGenerator();
         this.channelPipelineFactory = () -> Mono.create(fluxSink -> {
-            String pipeline = pipelineNameGenerator.generate("registration pipeline");
-            fluxSink.success(new ChannelPipeline(pipeline,
-                    new ServerLoggingChannelHandler(),
-                    new ServerHeartbeatHandler(config.heartbeatTimeout(), scheduler),
-                    new ServerHandshakeHandler(),
-                    new ServerReplicationHandler(),
-                    new ServerSubscribeHandler(register)
-            ));
+            String pipelineId = pipelineNameGenerator.generate("registration pipeline");
+            List<ChannelHandler> handlers = new ArrayList<>();
+            handlers.add(new ServerHeartbeatHandler(config.heartbeatTimeout(), scheduler));
+            handlers.add(new ServerHandshakeHandler());
+            handlers.add(new ServerReplicationHandler());
+            handlers.add(new ServerSubscribeHandler(register));
+            DefaultChannelPipeline pipeline = new DefaultChannelPipeline(pipelineId, 0, handlers);
+            fluxSink.success(pipeline);
 
         });
 

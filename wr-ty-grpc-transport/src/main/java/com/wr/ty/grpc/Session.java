@@ -52,7 +52,7 @@ public class Session<IN, OUT> implements StreamObserver<IN> {
     }
 
     private Disposable connectPipeline() {
-        return pipeline.getFirst().handle(inputStream.map(inputMap)).map(outMap)
+        return pipeline.handle(inputStream.map(inputMap)).map(outMap)
                 .doOnCancel(() -> logger.debug("session pipeline cancel"))
                 .subscribe(value -> {
                             responseObserver.onNext(value);

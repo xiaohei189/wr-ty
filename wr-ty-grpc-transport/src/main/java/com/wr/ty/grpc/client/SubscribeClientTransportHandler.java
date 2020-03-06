@@ -2,8 +2,8 @@ package com.wr.ty.grpc.client;
 
 import com.wr.ty.grpc.StreamObserverFluxSink;
 import com.wr.ty.grpc.SubscriberStreamObserver;
-import com.wr.ty.grpc.core.channel.ChannelContext;
 import com.wr.ty.grpc.core.channel.ChannelHandler;
+import com.wr.ty.grpc.core.channel.ChannelPipeline;
 import com.wr.ty.grpc.util.ProtocolMessageEnvelopes;
 import com.xh.demo.grpc.SubscribeServiceGrpc;
 import com.xh.demo.grpc.WrTy;
@@ -58,15 +58,9 @@ public class SubscribeClientTransportHandler implements ChannelHandler {
         this.subscribeServiceStub = SubscribeServiceGrpc.newStub(channel);
     }
 
-    @Override
-    public void init(ChannelContext channelContext) {
-        if (channelContext.hasNext()) {
-            throw new IllegalStateException("SubscribeClientTransportHandler must be at the end");
-        }
-    }
 
     @Override
-    public Flux<WrTy.ProtocolMessageEnvelope> handle(Flux<WrTy.ProtocolMessageEnvelope> inputStream) {
+    public Flux<WrTy.ProtocolMessageEnvelope> handle(Flux<WrTy.ProtocolMessageEnvelope> inputStream, ChannelPipeline pipeline) {
         return Flux.create(fluxSink -> {
             logger.debug("Subscription to SubscribeClientTransportHandler start");
             StreamObserverFluxSink<WrTy.SubscribeResponse, WrTy.ProtocolMessageEnvelope> response = new StreamObserverFluxSink(fluxSink, inMapper);

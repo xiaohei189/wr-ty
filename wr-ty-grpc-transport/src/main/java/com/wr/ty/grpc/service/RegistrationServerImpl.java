@@ -2,15 +2,18 @@ package com.wr.ty.grpc.service;
 
 import com.wr.ty.grpc.Session;
 import com.wr.ty.grpc.TransportConfig;
+import com.wr.ty.grpc.client.RegistrationClientTransportHandler;
 import com.wr.ty.grpc.core.PipelineNameGenerator;
+import com.wr.ty.grpc.core.channel.ChannelHandler;
 import com.wr.ty.grpc.core.channel.ChannelPipeline;
 import com.wr.ty.grpc.core.channel.ChannelPipelineFactory;
+import com.wr.ty.grpc.core.channel.DefaultChannelPipeline;
+import com.wr.ty.grpc.handler.client.ClientHandshakeHandler;
+import com.wr.ty.grpc.handler.client.ClientHeartbeatHandler;
 import com.wr.ty.grpc.handler.server.RegistrationProcessorHandler;
 import com.wr.ty.grpc.handler.server.ServerHandshakeHandler;
 import com.wr.ty.grpc.handler.server.ServerHeartbeatHandler;
-import com.wr.ty.grpc.handler.server.ServerLoggingChannelHandler;
 import com.wr.ty.grpc.register.Registry;
-import com.wr.ty.grpc.util.SourceIdGenerator;
 import com.xh.demo.grpc.RegistrationServiceGrpc;
 import com.xh.demo.grpc.WrTy;
 import io.grpc.stub.StreamObserver;
@@ -19,6 +22,8 @@ import org.slf4j.LoggerFactory;
 import reactor.core.publisher.Mono;
 import reactor.core.scheduler.Scheduler;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import java.util.function.Function;
 
@@ -73,13 +78,13 @@ public class RegistrationServerImpl extends RegistrationServiceGrpc.Registration
         Objects.requireNonNull(registry);
         this.register = registry;
         this.pipelineFactory = () -> Mono.create(fluxSink -> {
-            String pipelineName = pipelineNameGenerator.generate("registrationServer@");
-            fluxSink.success(new ChannelPipeline(pipelineName,
-                    new ServerLoggingChannelHandler(),
-                    new ServerHeartbeatHandler(config.heartbeatTimeout(), scheduler),
-                    new ServerHandshakeHandler(),
-                    new RegistrationProcessorHandler(RegistrationServerImpl.this.register)
-            ));
+            String pipelineId = pipelineNameGenerator.generate("registrationServer@");
+            List<ChannelHandler> handlers = new ArrayList<>();
+            handlers.add(new ServerHeartbeatHandler(config.heartbeatTimeout(), scheduler));
+            handlers.add(new ServerHandshakeHandler());
+            handlers.add(new RegistrationProcessorHandler(RegistrationServerImpl.this.register));
+            DefaultChannelPipeline pipeline = new DefaultChannelPipeline(pipelineId, 0, handlers);
+            fluxSink.success(pipeline);
         });
 
     }

@@ -3,12 +3,12 @@ package com.wr.ty.grpc.client;
 import com.wr.ty.grpc.TransportConfig;
 import com.wr.ty.grpc.core.Server;
 import com.wr.ty.grpc.core.ServerResolver;
+import com.wr.ty.grpc.core.channel.ChannelHandler;
 import com.wr.ty.grpc.core.channel.ChannelPipeline;
 import com.wr.ty.grpc.core.channel.ChannelPipelineFactory;
+import com.wr.ty.grpc.core.channel.DefaultChannelPipeline;
 import com.wr.ty.grpc.handler.client.ClientHandshakeHandler;
 import com.wr.ty.grpc.handler.client.ClientHeartbeatHandler;
-import com.wr.ty.grpc.handler.client.LoggingChannelHandler;
-import com.wr.ty.grpc.handler.client.RetryableClientConnectHandler;
 import com.wr.ty.grpc.register.Registry;
 import com.xh.demo.grpc.WrTy;
 import io.grpc.Channel;
@@ -21,8 +21,8 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import reactor.core.scheduler.Scheduler;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import java.util.function.Function;
 
@@ -30,27 +30,25 @@ import java.util.function.Function;
  * @author xiaohei
  * @date 2020/2/13 13:18
  */
-public class ReplicationClient {
+public class ReplicationClient extends RetryConnectClient {
 
     private static final Logger logger = LoggerFactory.getLogger(ReplicationClient.class);
 
     private final ChannelPipelineFactory pipelineFactory;
-    private final Scheduler scheduler;
-    Disposable disposable;
     Function<Server, Channel> channelSupplier;
     TransportConfig transportConfig;
 
-    public ReplicationClient(@Nonnull Scheduler scheduler,
-                             @Nonnull Registry registry,
-                             @Nonnull ServerResolver serverResolver,
-                             @Nonnull TransportConfig transportConfig,
-                             @Nullable Function<Server, Channel> channelFunction) {
+    public ReplicationClient(Scheduler scheduler,
+                             Registry registry,
+                             ServerResolver serverResolver,
+                             TransportConfig transportConfig,
+                             Function<Server, Channel> channelFunction) {
+        super(scheduler, transportConfig);
         Objects.requireNonNull(scheduler);
         Objects.requireNonNull(serverResolver);
         Objects.requireNonNull(transportConfig);
         this.channelSupplier = channelFunction;
         this.transportConfig = transportConfig;
-        this.scheduler = scheduler;
         this.pipelineFactory = () -> {
             Mono<ChannelPipeline> pipelineMono = serverResolver.resolve().map(server -> {
                 String pipelineId = createPipelineId(server);
@@ -60,12 +58,13 @@ public class ReplicationClient {
                 } else {
                     channel = channelSupplier.apply(server);
                 }
-                return new ChannelPipeline(pipelineId,
-                        new ClientHandshakeHandler(),
-                        new ClientHeartbeatHandler(transportConfig.heartbeatInterval(), transportConfig.heartbeatTimeout(), ReplicationClient.this.scheduler),
-                        new LoggingChannelHandler(),
-                        new ReplicationClientHandler(registry),
-                        new ReplicationClientTransportHandler(channel));
+                List<ChannelHandler> handlers = new ArrayList<>();
+                handlers.add(new ClientHandshakeHandler());
+                handlers.add(new ClientHeartbeatHandler(transportConfig.heartbeatInterval(), transportConfig.heartbeatTimeout(), scheduler));
+                handlers.add(new ReplicationClientHandler(registry));
+                handlers.add(new ReplicationClientTransportHandler(channel));
+                return new DefaultChannelPipeline(pipelineId, 0, handlers);
+
             });
             return pipelineMono;
         };
@@ -80,25 +79,15 @@ public class ReplicationClient {
         return channel;
     };
 
-    public Flux<String> register(Flux<WrTy.InstanceInfo> registrant) {
-        return Flux.create(fluxSink -> {
-            ChannelPipeline retryablePipeline = new ChannelPipeline("registration",
-                    new RetryableClientConnectHandler(pipelineFactory, this.transportConfig.autoConnectInterval(), scheduler)
-            );
-            disposable = retryablePipeline.getFirst()
-                    .handle(registrant.map(instance -> WrTy.ProtocolMessageEnvelope.newBuilder().setInstanceInfo(instance).build()))
-                    .doOnCancel(() -> {
-                        logger.debug("UnSubscribing registration client");
-                    })
-                    .subscribe();
-            fluxSink.onCancel(disposable);
-        });
+    public Flux<WrTy.ProtocolMessageEnvelope> register(Flux<WrTy.InstanceInfo> registrant) {
+        Flux<WrTy.ProtocolMessageEnvelope> envelopeFlux = registrant.map(instance -> WrTy.ProtocolMessageEnvelope.newBuilder().setInstanceInfo(instance).build());
+
+        return Flux.defer(() -> subscribe(envelopeFlux));
     }
 
-    public void shutDown() {
-        if (disposable != null) {
-            disposable.dispose();
-        }
-    }
 
+    @Override
+    protected ChannelPipelineFactory channelPipelineFactory() {
+        return this.pipelineFactory;
+    }
 }

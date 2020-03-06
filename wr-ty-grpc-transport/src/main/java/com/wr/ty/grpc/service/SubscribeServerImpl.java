@@ -3,11 +3,11 @@ package com.wr.ty.grpc.service;
 import com.wr.ty.grpc.Session;
 import com.wr.ty.grpc.TransportConfig;
 import com.wr.ty.grpc.core.PipelineNameGenerator;
-import com.wr.ty.grpc.core.channel.ChannelPipeline;
+import com.wr.ty.grpc.core.channel.ChannelHandler;
 import com.wr.ty.grpc.core.channel.ChannelPipelineFactory;
+import com.wr.ty.grpc.core.channel.DefaultChannelPipeline;
 import com.wr.ty.grpc.handler.server.ServerHandshakeHandler;
 import com.wr.ty.grpc.handler.server.ServerHeartbeatHandler;
-import com.wr.ty.grpc.handler.server.ServerLoggingChannelHandler;
 import com.wr.ty.grpc.handler.server.ServerSubscribeHandler;
 import com.wr.ty.grpc.register.Registry;
 import com.wr.ty.grpc.util.ProtocolMessageEnvelopes;
@@ -20,10 +20,12 @@ import org.slf4j.LoggerFactory;
 import reactor.core.publisher.Mono;
 import reactor.core.scheduler.Scheduler;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import java.util.function.Function;
 
-import static com.wr.ty.grpc.util.ProtocolMessageEnvelopes.*;
+import static com.wr.ty.grpc.util.ProtocolMessageEnvelopes.fromInterestRegistration;
 
 /**
  * @author xiaohei
@@ -72,14 +74,13 @@ public class SubscribeServerImpl extends SubscribeServiceImplBase {
         Objects.requireNonNull(registry);
         this.register = registry;
         this.pipelineFactory = () -> Mono.create(fluxSink -> {
-            String generate = pipelineNameGenerator.generate("subscribeServer@");
-            fluxSink.success(new ChannelPipeline(generate,
-                    new ServerLoggingChannelHandler(),
-                    new ServerHeartbeatHandler(config.heartbeatTimeout(), scheduler),
-                    new ServerHandshakeHandler(),
-                    new ServerSubscribeHandler(register)
-            ));
-
+            String pipelineId = pipelineNameGenerator.generate("subscribeServer@");
+            List<ChannelHandler> handlers = new ArrayList<>();
+            handlers.add(new ServerHeartbeatHandler(config.heartbeatTimeout(), scheduler));
+            handlers.add(new ServerHandshakeHandler());
+            handlers.add(new ServerSubscribeHandler(register));
+            DefaultChannelPipeline pipeline = new DefaultChannelPipeline(pipelineId, 0, handlers);
+            fluxSink.success(pipeline);
         });
 
     }

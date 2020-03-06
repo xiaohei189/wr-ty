@@ -42,4 +42,21 @@ public class FluxUtilTest {
                 .expectError()
                 .verify(Duration.ofSeconds(5));
     }
+
+    @Test
+    public void loggerTest() {
+        Flux.create(fluxSink -> {
+            Flux.create(emitter -> {
+                fluxSink.next(1);
+                fluxSink.next(1);
+                fluxSink.next(1);
+                fluxSink.complete();
+            }).log("add").subscribe(fluxSink::next, fluxSink::error, fluxSink::complete);
+        }).log("category").subscribe(value -> {
+
+            System.out.println(value);
+        });
+    }
+
+
 }
