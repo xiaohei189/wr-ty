@@ -10,6 +10,8 @@ wr-ty 是一款基于AP理论的服务发现框架，其使用grpc 作为传输�
 
 ## 架构
 
+![wr-ty-architect](wr-ty-architect.jpg)
+
 ## 实现功能列表
 
 ## 安装
