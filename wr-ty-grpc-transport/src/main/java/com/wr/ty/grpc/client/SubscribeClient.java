@@ -74,7 +74,7 @@ public class SubscribeClient extends RetryConnectClient {
                 List<ChannelHandler> handlers = new ArrayList<>();
                 handlers.add(new ClientHandshakeHandler());
                 handlers.add(new ClientHeartbeatHandler(transportConfig.heartbeatInterval(), transportConfig.heartbeatTimeout(), scheduler));
-                handlers.add(new SubscribeClientTransportHandler(channel));
+//                handlers.add(new SubscribeClientTransportHandler(channel));
                 return new DefaultChannelPipeline(pipelineId, 0, handlers);
             });
             return channelPipeline;

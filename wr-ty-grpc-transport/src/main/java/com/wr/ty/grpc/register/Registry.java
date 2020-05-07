@@ -1,5 +1,6 @@
 package com.wr.ty.grpc.register;
 
+import com.wr.ty.grpc.InterestSubscriber;
 import com.wr.ty.grpc.RegistrySubscriber;
 import com.wr.ty.grpc.SubscriberFluxSinkWrap;
 import com.wr.ty.grpc.handler.server.ServerSubscribeHandler;
@@ -30,6 +31,9 @@ public interface Registry {
      * @return
      */
     void subscribe(RegistrySubscriber subscriber, WrTy.Interest interest);
+
+    default void subscribe(InterestSubscriber subscriber) {
+    }
 
     /**
      * @return

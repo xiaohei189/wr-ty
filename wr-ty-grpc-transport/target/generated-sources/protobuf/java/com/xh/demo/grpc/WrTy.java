@@ -16218,6 +16218,4406 @@ public final class WrTy {
 
   }
 
+  public interface ResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.xh.demo.grpc.Response)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>.com.xh.demo.grpc.Response.ProtocolType protocolType = 1;</code>
+     */
+    int getProtocolTypeValue();
+    /**
+     * <code>.com.xh.demo.grpc.Response.ProtocolType protocolType = 1;</code>
+     */
+    com.xh.demo.grpc.WrTy.Response.ProtocolType getProtocolType();
+
+    /**
+     * <code>.com.xh.demo.grpc.Acknowledgement acknowledgement = 2;</code>
+     */
+    boolean hasAcknowledgement();
+    /**
+     * <code>.com.xh.demo.grpc.Acknowledgement acknowledgement = 2;</code>
+     */
+    com.xh.demo.grpc.WrTy.Acknowledgement getAcknowledgement();
+    /**
+     * <code>.com.xh.demo.grpc.Acknowledgement acknowledgement = 2;</code>
+     */
+    com.xh.demo.grpc.WrTy.AcknowledgementOrBuilder getAcknowledgementOrBuilder();
+
+    /**
+     * <code>.com.xh.demo.grpc.Heartbeat heartbeat = 4;</code>
+     */
+    boolean hasHeartbeat();
+    /**
+     * <code>.com.xh.demo.grpc.Heartbeat heartbeat = 4;</code>
+     */
+    com.xh.demo.grpc.WrTy.Heartbeat getHeartbeat();
+    /**
+     * <code>.com.xh.demo.grpc.Heartbeat heartbeat = 4;</code>
+     */
+    com.xh.demo.grpc.WrTy.HeartbeatOrBuilder getHeartbeatOrBuilder();
+
+    /**
+     * <code>.com.xh.demo.grpc.ClientHello clientHello = 5;</code>
+     */
+    boolean hasClientHello();
+    /**
+     * <code>.com.xh.demo.grpc.ClientHello clientHello = 5;</code>
+     */
+    com.xh.demo.grpc.WrTy.ClientHello getClientHello();
+    /**
+     * <code>.com.xh.demo.grpc.ClientHello clientHello = 5;</code>
+     */
+    com.xh.demo.grpc.WrTy.ClientHelloOrBuilder getClientHelloOrBuilder();
+
+    /**
+     * <code>.com.xh.demo.grpc.ServerHello serverHello = 7;</code>
+     */
+    boolean hasServerHello();
+    /**
+     * <code>.com.xh.demo.grpc.ServerHello serverHello = 7;</code>
+     */
+    com.xh.demo.grpc.WrTy.ServerHello getServerHello();
+    /**
+     * <code>.com.xh.demo.grpc.ServerHello serverHello = 7;</code>
+     */
+    com.xh.demo.grpc.WrTy.ServerHelloOrBuilder getServerHelloOrBuilder();
+
+    /**
+     * <code>.com.xh.demo.grpc.InstanceInfo instanceInfo = 9;</code>
+     */
+    boolean hasInstanceInfo();
+    /**
+     * <code>.com.xh.demo.grpc.InstanceInfo instanceInfo = 9;</code>
+     */
+    com.xh.demo.grpc.WrTy.InstanceInfo getInstanceInfo();
+    /**
+     * <code>.com.xh.demo.grpc.InstanceInfo instanceInfo = 9;</code>
+     */
+    com.xh.demo.grpc.WrTy.InstanceInfoOrBuilder getInstanceInfoOrBuilder();
+
+    /**
+     * <code>.com.xh.demo.grpc.InterestRegistration interestRegistration = 10;</code>
+     */
+    boolean hasInterestRegistration();
+    /**
+     * <code>.com.xh.demo.grpc.InterestRegistration interestRegistration = 10;</code>
+     */
+    com.xh.demo.grpc.WrTy.InterestRegistration getInterestRegistration();
+    /**
+     * <code>.com.xh.demo.grpc.InterestRegistration interestRegistration = 10;</code>
+     */
+    com.xh.demo.grpc.WrTy.InterestRegistrationOrBuilder getInterestRegistrationOrBuilder();
+
+    /**
+     * <code>.com.xh.demo.grpc.ChangeNotification changeNotification = 11;</code>
+     */
+    boolean hasChangeNotification();
+    /**
+     * <code>.com.xh.demo.grpc.ChangeNotification changeNotification = 11;</code>
+     */
+    com.xh.demo.grpc.WrTy.ChangeNotification getChangeNotification();
+    /**
+     * <code>.com.xh.demo.grpc.ChangeNotification changeNotification = 11;</code>
+     */
+    com.xh.demo.grpc.WrTy.ChangeNotificationOrBuilder getChangeNotificationOrBuilder();
+
+    public com.xh.demo.grpc.WrTy.Response.ItemCase getItemCase();
+  }
+  /**
+   * Protobuf type {@code com.xh.demo.grpc.Response}
+   */
+  public  static final class Response extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.xh.demo.grpc.Response)
+      ResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use Response.newBuilder() to construct.
+    private Response(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Response() {
+      protocolType_ = 0;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Response(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              int rawValue = input.readEnum();
+
+              protocolType_ = rawValue;
+              break;
+            }
+            case 18: {
+              com.xh.demo.grpc.WrTy.Acknowledgement.Builder subBuilder = null;
+              if (itemCase_ == 2) {
+                subBuilder = ((com.xh.demo.grpc.WrTy.Acknowledgement) item_).toBuilder();
+              }
+              item_ =
+                  input.readMessage(com.xh.demo.grpc.WrTy.Acknowledgement.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((com.xh.demo.grpc.WrTy.Acknowledgement) item_);
+                item_ = subBuilder.buildPartial();
+              }
+              itemCase_ = 2;
+              break;
+            }
+            case 34: {
+              com.xh.demo.grpc.WrTy.Heartbeat.Builder subBuilder = null;
+              if (itemCase_ == 4) {
+                subBuilder = ((com.xh.demo.grpc.WrTy.Heartbeat) item_).toBuilder();
+              }
+              item_ =
+                  input.readMessage(com.xh.demo.grpc.WrTy.Heartbeat.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((com.xh.demo.grpc.WrTy.Heartbeat) item_);
+                item_ = subBuilder.buildPartial();
+              }
+              itemCase_ = 4;
+              break;
+            }
+            case 42: {
+              com.xh.demo.grpc.WrTy.ClientHello.Builder subBuilder = null;
+              if (itemCase_ == 5) {
+                subBuilder = ((com.xh.demo.grpc.WrTy.ClientHello) item_).toBuilder();
+              }
+              item_ =
+                  input.readMessage(com.xh.demo.grpc.WrTy.ClientHello.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((com.xh.demo.grpc.WrTy.ClientHello) item_);
+                item_ = subBuilder.buildPartial();
+              }
+              itemCase_ = 5;
+              break;
+            }
+            case 58: {
+              com.xh.demo.grpc.WrTy.ServerHello.Builder subBuilder = null;
+              if (itemCase_ == 7) {
+                subBuilder = ((com.xh.demo.grpc.WrTy.ServerHello) item_).toBuilder();
+              }
+              item_ =
+                  input.readMessage(com.xh.demo.grpc.WrTy.ServerHello.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((com.xh.demo.grpc.WrTy.ServerHello) item_);
+                item_ = subBuilder.buildPartial();
+              }
+              itemCase_ = 7;
+              break;
+            }
+            case 74: {
+              com.xh.demo.grpc.WrTy.InstanceInfo.Builder subBuilder = null;
+              if (itemCase_ == 9) {
+                subBuilder = ((com.xh.demo.grpc.WrTy.InstanceInfo) item_).toBuilder();
+              }
+              item_ =
+                  input.readMessage(com.xh.demo.grpc.WrTy.InstanceInfo.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((com.xh.demo.grpc.WrTy.InstanceInfo) item_);
+                item_ = subBuilder.buildPartial();
+              }
+              itemCase_ = 9;
+              break;
+            }
+            case 82: {
+              com.xh.demo.grpc.WrTy.InterestRegistration.Builder subBuilder = null;
+              if (itemCase_ == 10) {
+                subBuilder = ((com.xh.demo.grpc.WrTy.InterestRegistration) item_).toBuilder();
+              }
+              item_ =
+                  input.readMessage(com.xh.demo.grpc.WrTy.InterestRegistration.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((com.xh.demo.grpc.WrTy.InterestRegistration) item_);
+                item_ = subBuilder.buildPartial();
+              }
+              itemCase_ = 10;
+              break;
+            }
+            case 90: {
+              com.xh.demo.grpc.WrTy.ChangeNotification.Builder subBuilder = null;
+              if (itemCase_ == 11) {
+                subBuilder = ((com.xh.demo.grpc.WrTy.ChangeNotification) item_).toBuilder();
+              }
+              item_ =
+                  input.readMessage(com.xh.demo.grpc.WrTy.ChangeNotification.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((com.xh.demo.grpc.WrTy.ChangeNotification) item_);
+                item_ = subBuilder.buildPartial();
+              }
+              itemCase_ = 11;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.xh.demo.grpc.WrTy.internal_static_com_xh_demo_grpc_Response_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.xh.demo.grpc.WrTy.internal_static_com_xh_demo_grpc_Response_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.xh.demo.grpc.WrTy.Response.class, com.xh.demo.grpc.WrTy.Response.Builder.class);
+    }
+
+    /**
+     * Protobuf enum {@code com.xh.demo.grpc.Response.ProtocolType}
+     */
+    public enum ProtocolType
+        implements com.google.protobuf.ProtocolMessageEnum {
+      /**
+       * <code>Registration = 0;</code>
+       */
+      Registration(0),
+      /**
+       * <code>Interest = 1;</code>
+       */
+      Interest(1),
+      /**
+       * <code>Replication = 2;</code>
+       */
+      Replication(2),
+      UNRECOGNIZED(-1),
+      ;
+
+      /**
+       * <code>Registration = 0;</code>
+       */
+      public static final int Registration_VALUE = 0;
+      /**
+       * <code>Interest = 1;</code>
+       */
+      public static final int Interest_VALUE = 1;
+      /**
+       * <code>Replication = 2;</code>
+       */
+      public static final int Replication_VALUE = 2;
+
+
+      public final int getNumber() {
+        if (this == UNRECOGNIZED) {
+          throw new java.lang.IllegalArgumentException(
+              "Can't get the number of an unknown enum value.");
+        }
+        return value;
+      }
+
+      /**
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static ProtocolType valueOf(int value) {
+        return forNumber(value);
+      }
+
+      public static ProtocolType forNumber(int value) {
+        switch (value) {
+          case 0: return Registration;
+          case 1: return Interest;
+          case 2: return Replication;
+          default: return null;
+        }
+      }
+
+      public static com.google.protobuf.Internal.EnumLiteMap<ProtocolType>
+          internalGetValueMap() {
+        return internalValueMap;
+      }
+      private static final com.google.protobuf.Internal.EnumLiteMap<
+          ProtocolType> internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<ProtocolType>() {
+              public ProtocolType findValueByNumber(int number) {
+                return ProtocolType.forNumber(number);
+              }
+            };
+
+      public final com.google.protobuf.Descriptors.EnumValueDescriptor
+          getValueDescriptor() {
+        return getDescriptor().getValues().get(ordinal());
+      }
+      public final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptorForType() {
+        return getDescriptor();
+      }
+      public static final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptor() {
+        return com.xh.demo.grpc.WrTy.Response.getDescriptor().getEnumTypes().get(0);
+      }
+
+      private static final ProtocolType[] VALUES = values();
+
+      public static ProtocolType valueOf(
+          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+        if (desc.getType() != getDescriptor()) {
+          throw new java.lang.IllegalArgumentException(
+            "EnumValueDescriptor is not for this type.");
+        }
+        if (desc.getIndex() == -1) {
+          return UNRECOGNIZED;
+        }
+        return VALUES[desc.getIndex()];
+      }
+
+      private final int value;
+
+      private ProtocolType(int value) {
+        this.value = value;
+      }
+
+      // @@protoc_insertion_point(enum_scope:com.xh.demo.grpc.Response.ProtocolType)
+    }
+
+    private int itemCase_ = 0;
+    private java.lang.Object item_;
+    public enum ItemCase
+        implements com.google.protobuf.Internal.EnumLite {
+      ACKNOWLEDGEMENT(2),
+      HEARTBEAT(4),
+      CLIENTHELLO(5),
+      SERVERHELLO(7),
+      INSTANCEINFO(9),
+      INTERESTREGISTRATION(10),
+      CHANGENOTIFICATION(11),
+      ITEM_NOT_SET(0);
+      private final int value;
+      private ItemCase(int value) {
+        this.value = value;
+      }
+      /**
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static ItemCase valueOf(int value) {
+        return forNumber(value);
+      }
+
+      public static ItemCase forNumber(int value) {
+        switch (value) {
+          case 2: return ACKNOWLEDGEMENT;
+          case 4: return HEARTBEAT;
+          case 5: return CLIENTHELLO;
+          case 7: return SERVERHELLO;
+          case 9: return INSTANCEINFO;
+          case 10: return INTERESTREGISTRATION;
+          case 11: return CHANGENOTIFICATION;
+          case 0: return ITEM_NOT_SET;
+          default: return null;
+        }
+      }
+      public int getNumber() {
+        return this.value;
+      }
+    };
+
+    public ItemCase
+    getItemCase() {
+      return ItemCase.forNumber(
+          itemCase_);
+    }
+
+    public static final int PROTOCOLTYPE_FIELD_NUMBER = 1;
+    private int protocolType_;
+    /**
+     * <code>.com.xh.demo.grpc.Response.ProtocolType protocolType = 1;</code>
+     */
+    public int getProtocolTypeValue() {
+      return protocolType_;
+    }
+    /**
+     * <code>.com.xh.demo.grpc.Response.ProtocolType protocolType = 1;</code>
+     */
+    public com.xh.demo.grpc.WrTy.Response.ProtocolType getProtocolType() {
+      @SuppressWarnings("deprecation")
+      com.xh.demo.grpc.WrTy.Response.ProtocolType result = com.xh.demo.grpc.WrTy.Response.ProtocolType.valueOf(protocolType_);
+      return result == null ? com.xh.demo.grpc.WrTy.Response.ProtocolType.UNRECOGNIZED : result;
+    }
+
+    public static final int ACKNOWLEDGEMENT_FIELD_NUMBER = 2;
+    /**
+     * <code>.com.xh.demo.grpc.Acknowledgement acknowledgement = 2;</code>
+     */
+    public boolean hasAcknowledgement() {
+      return itemCase_ == 2;
+    }
+    /**
+     * <code>.com.xh.demo.grpc.Acknowledgement acknowledgement = 2;</code>
+     */
+    public com.xh.demo.grpc.WrTy.Acknowledgement getAcknowledgement() {
+      if (itemCase_ == 2) {
+         return (com.xh.demo.grpc.WrTy.Acknowledgement) item_;
+      }
+      return com.xh.demo.grpc.WrTy.Acknowledgement.getDefaultInstance();
+    }
+    /**
+     * <code>.com.xh.demo.grpc.Acknowledgement acknowledgement = 2;</code>
+     */
+    public com.xh.demo.grpc.WrTy.AcknowledgementOrBuilder getAcknowledgementOrBuilder() {
+      if (itemCase_ == 2) {
+         return (com.xh.demo.grpc.WrTy.Acknowledgement) item_;
+      }
+      return com.xh.demo.grpc.WrTy.Acknowledgement.getDefaultInstance();
+    }
+
+    public static final int HEARTBEAT_FIELD_NUMBER = 4;
+    /**
+     * <code>.com.xh.demo.grpc.Heartbeat heartbeat = 4;</code>
+     */
+    public boolean hasHeartbeat() {
+      return itemCase_ == 4;
+    }
+    /**
+     * <code>.com.xh.demo.grpc.Heartbeat heartbeat = 4;</code>
+     */
+    public com.xh.demo.grpc.WrTy.Heartbeat getHeartbeat() {
+      if (itemCase_ == 4) {
+         return (com.xh.demo.grpc.WrTy.Heartbeat) item_;
+      }
+      return com.xh.demo.grpc.WrTy.Heartbeat.getDefaultInstance();
+    }
+    /**
+     * <code>.com.xh.demo.grpc.Heartbeat heartbeat = 4;</code>
+     */
+    public com.xh.demo.grpc.WrTy.HeartbeatOrBuilder getHeartbeatOrBuilder() {
+      if (itemCase_ == 4) {
+         return (com.xh.demo.grpc.WrTy.Heartbeat) item_;
+      }
+      return com.xh.demo.grpc.WrTy.Heartbeat.getDefaultInstance();
+    }
+
+    public static final int CLIENTHELLO_FIELD_NUMBER = 5;
+    /**
+     * <code>.com.xh.demo.grpc.ClientHello clientHello = 5;</code>
+     */
+    public boolean hasClientHello() {
+      return itemCase_ == 5;
+    }
+    /**
+     * <code>.com.xh.demo.grpc.ClientHello clientHello = 5;</code>
+     */
+    public com.xh.demo.grpc.WrTy.ClientHello getClientHello() {
+      if (itemCase_ == 5) {
+         return (com.xh.demo.grpc.WrTy.ClientHello) item_;
+      }
+      return com.xh.demo.grpc.WrTy.ClientHello.getDefaultInstance();
+    }
+    /**
+     * <code>.com.xh.demo.grpc.ClientHello clientHello = 5;</code>
+     */
+    public com.xh.demo.grpc.WrTy.ClientHelloOrBuilder getClientHelloOrBuilder() {
+      if (itemCase_ == 5) {
+         return (com.xh.demo.grpc.WrTy.ClientHello) item_;
+      }
+      return com.xh.demo.grpc.WrTy.ClientHello.getDefaultInstance();
+    }
+
+    public static final int SERVERHELLO_FIELD_NUMBER = 7;
+    /**
+     * <code>.com.xh.demo.grpc.ServerHello serverHello = 7;</code>
+     */
+    public boolean hasServerHello() {
+      return itemCase_ == 7;
+    }
+    /**
+     * <code>.com.xh.demo.grpc.ServerHello serverHello = 7;</code>
+     */
+    public com.xh.demo.grpc.WrTy.ServerHello getServerHello() {
+      if (itemCase_ == 7) {
+         return (com.xh.demo.grpc.WrTy.ServerHello) item_;
+      }
+      return com.xh.demo.grpc.WrTy.ServerHello.getDefaultInstance();
+    }
+    /**
+     * <code>.com.xh.demo.grpc.ServerHello serverHello = 7;</code>
+     */
+    public com.xh.demo.grpc.WrTy.ServerHelloOrBuilder getServerHelloOrBuilder() {
+      if (itemCase_ == 7) {
+         return (com.xh.demo.grpc.WrTy.ServerHello) item_;
+      }
+      return com.xh.demo.grpc.WrTy.ServerHello.getDefaultInstance();
+    }
+
+    public static final int INSTANCEINFO_FIELD_NUMBER = 9;
+    /**
+     * <code>.com.xh.demo.grpc.InstanceInfo instanceInfo = 9;</code>
+     */
+    public boolean hasInstanceInfo() {
+      return itemCase_ == 9;
+    }
+    /**
+     * <code>.com.xh.demo.grpc.InstanceInfo instanceInfo = 9;</code>
+     */
+    public com.xh.demo.grpc.WrTy.InstanceInfo getInstanceInfo() {
+      if (itemCase_ == 9) {
+         return (com.xh.demo.grpc.WrTy.InstanceInfo) item_;
+      }
+      return com.xh.demo.grpc.WrTy.InstanceInfo.getDefaultInstance();
+    }
+    /**
+     * <code>.com.xh.demo.grpc.InstanceInfo instanceInfo = 9;</code>
+     */
+    public com.xh.demo.grpc.WrTy.InstanceInfoOrBuilder getInstanceInfoOrBuilder() {
+      if (itemCase_ == 9) {
+         return (com.xh.demo.grpc.WrTy.InstanceInfo) item_;
+      }
+      return com.xh.demo.grpc.WrTy.InstanceInfo.getDefaultInstance();
+    }
+
+    public static final int INTERESTREGISTRATION_FIELD_NUMBER = 10;
+    /**
+     * <code>.com.xh.demo.grpc.InterestRegistration interestRegistration = 10;</code>
+     */
+    public boolean hasInterestRegistration() {
+      return itemCase_ == 10;
+    }
+    /**
+     * <code>.com.xh.demo.grpc.InterestRegistration interestRegistration = 10;</code>
+     */
+    public com.xh.demo.grpc.WrTy.InterestRegistration getInterestRegistration() {
+      if (itemCase_ == 10) {
+         return (com.xh.demo.grpc.WrTy.InterestRegistration) item_;
+      }
+      return com.xh.demo.grpc.WrTy.InterestRegistration.getDefaultInstance();
+    }
+    /**
+     * <code>.com.xh.demo.grpc.InterestRegistration interestRegistration = 10;</code>
+     */
+    public com.xh.demo.grpc.WrTy.InterestRegistrationOrBuilder getInterestRegistrationOrBuilder() {
+      if (itemCase_ == 10) {
+         return (com.xh.demo.grpc.WrTy.InterestRegistration) item_;
+      }
+      return com.xh.demo.grpc.WrTy.InterestRegistration.getDefaultInstance();
+    }
+
+    public static final int CHANGENOTIFICATION_FIELD_NUMBER = 11;
+    /**
+     * <code>.com.xh.demo.grpc.ChangeNotification changeNotification = 11;</code>
+     */
+    public boolean hasChangeNotification() {
+      return itemCase_ == 11;
+    }
+    /**
+     * <code>.com.xh.demo.grpc.ChangeNotification changeNotification = 11;</code>
+     */
+    public com.xh.demo.grpc.WrTy.ChangeNotification getChangeNotification() {
+      if (itemCase_ == 11) {
+         return (com.xh.demo.grpc.WrTy.ChangeNotification) item_;
+      }
+      return com.xh.demo.grpc.WrTy.ChangeNotification.getDefaultInstance();
+    }
+    /**
+     * <code>.com.xh.demo.grpc.ChangeNotification changeNotification = 11;</code>
+     */
+    public com.xh.demo.grpc.WrTy.ChangeNotificationOrBuilder getChangeNotificationOrBuilder() {
+      if (itemCase_ == 11) {
+         return (com.xh.demo.grpc.WrTy.ChangeNotification) item_;
+      }
+      return com.xh.demo.grpc.WrTy.ChangeNotification.getDefaultInstance();
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (protocolType_ != com.xh.demo.grpc.WrTy.Response.ProtocolType.Registration.getNumber()) {
+        output.writeEnum(1, protocolType_);
+      }
+      if (itemCase_ == 2) {
+        output.writeMessage(2, (com.xh.demo.grpc.WrTy.Acknowledgement) item_);
+      }
+      if (itemCase_ == 4) {
+        output.writeMessage(4, (com.xh.demo.grpc.WrTy.Heartbeat) item_);
+      }
+      if (itemCase_ == 5) {
+        output.writeMessage(5, (com.xh.demo.grpc.WrTy.ClientHello) item_);
+      }
+      if (itemCase_ == 7) {
+        output.writeMessage(7, (com.xh.demo.grpc.WrTy.ServerHello) item_);
+      }
+      if (itemCase_ == 9) {
+        output.writeMessage(9, (com.xh.demo.grpc.WrTy.InstanceInfo) item_);
+      }
+      if (itemCase_ == 10) {
+        output.writeMessage(10, (com.xh.demo.grpc.WrTy.InterestRegistration) item_);
+      }
+      if (itemCase_ == 11) {
+        output.writeMessage(11, (com.xh.demo.grpc.WrTy.ChangeNotification) item_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (protocolType_ != com.xh.demo.grpc.WrTy.Response.ProtocolType.Registration.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(1, protocolType_);
+      }
+      if (itemCase_ == 2) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, (com.xh.demo.grpc.WrTy.Acknowledgement) item_);
+      }
+      if (itemCase_ == 4) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, (com.xh.demo.grpc.WrTy.Heartbeat) item_);
+      }
+      if (itemCase_ == 5) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(5, (com.xh.demo.grpc.WrTy.ClientHello) item_);
+      }
+      if (itemCase_ == 7) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(7, (com.xh.demo.grpc.WrTy.ServerHello) item_);
+      }
+      if (itemCase_ == 9) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(9, (com.xh.demo.grpc.WrTy.InstanceInfo) item_);
+      }
+      if (itemCase_ == 10) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(10, (com.xh.demo.grpc.WrTy.InterestRegistration) item_);
+      }
+      if (itemCase_ == 11) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(11, (com.xh.demo.grpc.WrTy.ChangeNotification) item_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.xh.demo.grpc.WrTy.Response)) {
+        return super.equals(obj);
+      }
+      com.xh.demo.grpc.WrTy.Response other = (com.xh.demo.grpc.WrTy.Response) obj;
+
+      if (protocolType_ != other.protocolType_) return false;
+      if (!getItemCase().equals(other.getItemCase())) return false;
+      switch (itemCase_) {
+        case 2:
+          if (!getAcknowledgement()
+              .equals(other.getAcknowledgement())) return false;
+          break;
+        case 4:
+          if (!getHeartbeat()
+              .equals(other.getHeartbeat())) return false;
+          break;
+        case 5:
+          if (!getClientHello()
+              .equals(other.getClientHello())) return false;
+          break;
+        case 7:
+          if (!getServerHello()
+              .equals(other.getServerHello())) return false;
+          break;
+        case 9:
+          if (!getInstanceInfo()
+              .equals(other.getInstanceInfo())) return false;
+          break;
+        case 10:
+          if (!getInterestRegistration()
+              .equals(other.getInterestRegistration())) return false;
+          break;
+        case 11:
+          if (!getChangeNotification()
+              .equals(other.getChangeNotification())) return false;
+          break;
+        case 0:
+        default:
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + PROTOCOLTYPE_FIELD_NUMBER;
+      hash = (53 * hash) + protocolType_;
+      switch (itemCase_) {
+        case 2:
+          hash = (37 * hash) + ACKNOWLEDGEMENT_FIELD_NUMBER;
+          hash = (53 * hash) + getAcknowledgement().hashCode();
+          break;
+        case 4:
+          hash = (37 * hash) + HEARTBEAT_FIELD_NUMBER;
+          hash = (53 * hash) + getHeartbeat().hashCode();
+          break;
+        case 5:
+          hash = (37 * hash) + CLIENTHELLO_FIELD_NUMBER;
+          hash = (53 * hash) + getClientHello().hashCode();
+          break;
+        case 7:
+          hash = (37 * hash) + SERVERHELLO_FIELD_NUMBER;
+          hash = (53 * hash) + getServerHello().hashCode();
+          break;
+        case 9:
+          hash = (37 * hash) + INSTANCEINFO_FIELD_NUMBER;
+          hash = (53 * hash) + getInstanceInfo().hashCode();
+          break;
+        case 10:
+          hash = (37 * hash) + INTERESTREGISTRATION_FIELD_NUMBER;
+          hash = (53 * hash) + getInterestRegistration().hashCode();
+          break;
+        case 11:
+          hash = (37 * hash) + CHANGENOTIFICATION_FIELD_NUMBER;
+          hash = (53 * hash) + getChangeNotification().hashCode();
+          break;
+        case 0:
+        default:
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.xh.demo.grpc.WrTy.Response parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.xh.demo.grpc.WrTy.Response parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.xh.demo.grpc.WrTy.Response parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.xh.demo.grpc.WrTy.Response parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.xh.demo.grpc.WrTy.Response parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.xh.demo.grpc.WrTy.Response parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.xh.demo.grpc.WrTy.Response parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.xh.demo.grpc.WrTy.Response parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.xh.demo.grpc.WrTy.Response parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.xh.demo.grpc.WrTy.Response parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.xh.demo.grpc.WrTy.Response parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.xh.demo.grpc.WrTy.Response parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.xh.demo.grpc.WrTy.Response prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.xh.demo.grpc.Response}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.xh.demo.grpc.Response)
+        com.xh.demo.grpc.WrTy.ResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.xh.demo.grpc.WrTy.internal_static_com_xh_demo_grpc_Response_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.xh.demo.grpc.WrTy.internal_static_com_xh_demo_grpc_Response_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.xh.demo.grpc.WrTy.Response.class, com.xh.demo.grpc.WrTy.Response.Builder.class);
+      }
+
+      // Construct using com.xh.demo.grpc.WrTy.Response.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        protocolType_ = 0;
+
+        itemCase_ = 0;
+        item_ = null;
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.xh.demo.grpc.WrTy.internal_static_com_xh_demo_grpc_Response_descriptor;
+      }
+
+      @java.lang.Override
+      public com.xh.demo.grpc.WrTy.Response getDefaultInstanceForType() {
+        return com.xh.demo.grpc.WrTy.Response.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.xh.demo.grpc.WrTy.Response build() {
+        com.xh.demo.grpc.WrTy.Response result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.xh.demo.grpc.WrTy.Response buildPartial() {
+        com.xh.demo.grpc.WrTy.Response result = new com.xh.demo.grpc.WrTy.Response(this);
+        result.protocolType_ = protocolType_;
+        if (itemCase_ == 2) {
+          if (acknowledgementBuilder_ == null) {
+            result.item_ = item_;
+          } else {
+            result.item_ = acknowledgementBuilder_.build();
+          }
+        }
+        if (itemCase_ == 4) {
+          if (heartbeatBuilder_ == null) {
+            result.item_ = item_;
+          } else {
+            result.item_ = heartbeatBuilder_.build();
+          }
+        }
+        if (itemCase_ == 5) {
+          if (clientHelloBuilder_ == null) {
+            result.item_ = item_;
+          } else {
+            result.item_ = clientHelloBuilder_.build();
+          }
+        }
+        if (itemCase_ == 7) {
+          if (serverHelloBuilder_ == null) {
+            result.item_ = item_;
+          } else {
+            result.item_ = serverHelloBuilder_.build();
+          }
+        }
+        if (itemCase_ == 9) {
+          if (instanceInfoBuilder_ == null) {
+            result.item_ = item_;
+          } else {
+            result.item_ = instanceInfoBuilder_.build();
+          }
+        }
+        if (itemCase_ == 10) {
+          if (interestRegistrationBuilder_ == null) {
+            result.item_ = item_;
+          } else {
+            result.item_ = interestRegistrationBuilder_.build();
+          }
+        }
+        if (itemCase_ == 11) {
+          if (changeNotificationBuilder_ == null) {
+            result.item_ = item_;
+          } else {
+            result.item_ = changeNotificationBuilder_.build();
+          }
+        }
+        result.itemCase_ = itemCase_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.xh.demo.grpc.WrTy.Response) {
+          return mergeFrom((com.xh.demo.grpc.WrTy.Response)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.xh.demo.grpc.WrTy.Response other) {
+        if (other == com.xh.demo.grpc.WrTy.Response.getDefaultInstance()) return this;
+        if (other.protocolType_ != 0) {
+          setProtocolTypeValue(other.getProtocolTypeValue());
+        }
+        switch (other.getItemCase()) {
+          case ACKNOWLEDGEMENT: {
+            mergeAcknowledgement(other.getAcknowledgement());
+            break;
+          }
+          case HEARTBEAT: {
+            mergeHeartbeat(other.getHeartbeat());
+            break;
+          }
+          case CLIENTHELLO: {
+            mergeClientHello(other.getClientHello());
+            break;
+          }
+          case SERVERHELLO: {
+            mergeServerHello(other.getServerHello());
+            break;
+          }
+          case INSTANCEINFO: {
+            mergeInstanceInfo(other.getInstanceInfo());
+            break;
+          }
+          case INTERESTREGISTRATION: {
+            mergeInterestRegistration(other.getInterestRegistration());
+            break;
+          }
+          case CHANGENOTIFICATION: {
+            mergeChangeNotification(other.getChangeNotification());
+            break;
+          }
+          case ITEM_NOT_SET: {
+            break;
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.xh.demo.grpc.WrTy.Response parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.xh.demo.grpc.WrTy.Response) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int itemCase_ = 0;
+      private java.lang.Object item_;
+      public ItemCase
+          getItemCase() {
+        return ItemCase.forNumber(
+            itemCase_);
+      }
+
+      public Builder clearItem() {
+        itemCase_ = 0;
+        item_ = null;
+        onChanged();
+        return this;
+      }
+
+
+      private int protocolType_ = 0;
+      /**
+       * <code>.com.xh.demo.grpc.Response.ProtocolType protocolType = 1;</code>
+       */
+      public int getProtocolTypeValue() {
+        return protocolType_;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.Response.ProtocolType protocolType = 1;</code>
+       */
+      public Builder setProtocolTypeValue(int value) {
+        protocolType_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.Response.ProtocolType protocolType = 1;</code>
+       */
+      public com.xh.demo.grpc.WrTy.Response.ProtocolType getProtocolType() {
+        @SuppressWarnings("deprecation")
+        com.xh.demo.grpc.WrTy.Response.ProtocolType result = com.xh.demo.grpc.WrTy.Response.ProtocolType.valueOf(protocolType_);
+        return result == null ? com.xh.demo.grpc.WrTy.Response.ProtocolType.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.Response.ProtocolType protocolType = 1;</code>
+       */
+      public Builder setProtocolType(com.xh.demo.grpc.WrTy.Response.ProtocolType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        protocolType_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.Response.ProtocolType protocolType = 1;</code>
+       */
+      public Builder clearProtocolType() {
+        
+        protocolType_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.xh.demo.grpc.WrTy.Acknowledgement, com.xh.demo.grpc.WrTy.Acknowledgement.Builder, com.xh.demo.grpc.WrTy.AcknowledgementOrBuilder> acknowledgementBuilder_;
+      /**
+       * <code>.com.xh.demo.grpc.Acknowledgement acknowledgement = 2;</code>
+       */
+      public boolean hasAcknowledgement() {
+        return itemCase_ == 2;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.Acknowledgement acknowledgement = 2;</code>
+       */
+      public com.xh.demo.grpc.WrTy.Acknowledgement getAcknowledgement() {
+        if (acknowledgementBuilder_ == null) {
+          if (itemCase_ == 2) {
+            return (com.xh.demo.grpc.WrTy.Acknowledgement) item_;
+          }
+          return com.xh.demo.grpc.WrTy.Acknowledgement.getDefaultInstance();
+        } else {
+          if (itemCase_ == 2) {
+            return acknowledgementBuilder_.getMessage();
+          }
+          return com.xh.demo.grpc.WrTy.Acknowledgement.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.com.xh.demo.grpc.Acknowledgement acknowledgement = 2;</code>
+       */
+      public Builder setAcknowledgement(com.xh.demo.grpc.WrTy.Acknowledgement value) {
+        if (acknowledgementBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          item_ = value;
+          onChanged();
+        } else {
+          acknowledgementBuilder_.setMessage(value);
+        }
+        itemCase_ = 2;
+        return this;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.Acknowledgement acknowledgement = 2;</code>
+       */
+      public Builder setAcknowledgement(
+          com.xh.demo.grpc.WrTy.Acknowledgement.Builder builderForValue) {
+        if (acknowledgementBuilder_ == null) {
+          item_ = builderForValue.build();
+          onChanged();
+        } else {
+          acknowledgementBuilder_.setMessage(builderForValue.build());
+        }
+        itemCase_ = 2;
+        return this;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.Acknowledgement acknowledgement = 2;</code>
+       */
+      public Builder mergeAcknowledgement(com.xh.demo.grpc.WrTy.Acknowledgement value) {
+        if (acknowledgementBuilder_ == null) {
+          if (itemCase_ == 2 &&
+              item_ != com.xh.demo.grpc.WrTy.Acknowledgement.getDefaultInstance()) {
+            item_ = com.xh.demo.grpc.WrTy.Acknowledgement.newBuilder((com.xh.demo.grpc.WrTy.Acknowledgement) item_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            item_ = value;
+          }
+          onChanged();
+        } else {
+          if (itemCase_ == 2) {
+            acknowledgementBuilder_.mergeFrom(value);
+          }
+          acknowledgementBuilder_.setMessage(value);
+        }
+        itemCase_ = 2;
+        return this;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.Acknowledgement acknowledgement = 2;</code>
+       */
+      public Builder clearAcknowledgement() {
+        if (acknowledgementBuilder_ == null) {
+          if (itemCase_ == 2) {
+            itemCase_ = 0;
+            item_ = null;
+            onChanged();
+          }
+        } else {
+          if (itemCase_ == 2) {
+            itemCase_ = 0;
+            item_ = null;
+          }
+          acknowledgementBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.Acknowledgement acknowledgement = 2;</code>
+       */
+      public com.xh.demo.grpc.WrTy.Acknowledgement.Builder getAcknowledgementBuilder() {
+        return getAcknowledgementFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.com.xh.demo.grpc.Acknowledgement acknowledgement = 2;</code>
+       */
+      public com.xh.demo.grpc.WrTy.AcknowledgementOrBuilder getAcknowledgementOrBuilder() {
+        if ((itemCase_ == 2) && (acknowledgementBuilder_ != null)) {
+          return acknowledgementBuilder_.getMessageOrBuilder();
+        } else {
+          if (itemCase_ == 2) {
+            return (com.xh.demo.grpc.WrTy.Acknowledgement) item_;
+          }
+          return com.xh.demo.grpc.WrTy.Acknowledgement.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.com.xh.demo.grpc.Acknowledgement acknowledgement = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.xh.demo.grpc.WrTy.Acknowledgement, com.xh.demo.grpc.WrTy.Acknowledgement.Builder, com.xh.demo.grpc.WrTy.AcknowledgementOrBuilder> 
+          getAcknowledgementFieldBuilder() {
+        if (acknowledgementBuilder_ == null) {
+          if (!(itemCase_ == 2)) {
+            item_ = com.xh.demo.grpc.WrTy.Acknowledgement.getDefaultInstance();
+          }
+          acknowledgementBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.xh.demo.grpc.WrTy.Acknowledgement, com.xh.demo.grpc.WrTy.Acknowledgement.Builder, com.xh.demo.grpc.WrTy.AcknowledgementOrBuilder>(
+                  (com.xh.demo.grpc.WrTy.Acknowledgement) item_,
+                  getParentForChildren(),
+                  isClean());
+          item_ = null;
+        }
+        itemCase_ = 2;
+        onChanged();;
+        return acknowledgementBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.xh.demo.grpc.WrTy.Heartbeat, com.xh.demo.grpc.WrTy.Heartbeat.Builder, com.xh.demo.grpc.WrTy.HeartbeatOrBuilder> heartbeatBuilder_;
+      /**
+       * <code>.com.xh.demo.grpc.Heartbeat heartbeat = 4;</code>
+       */
+      public boolean hasHeartbeat() {
+        return itemCase_ == 4;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.Heartbeat heartbeat = 4;</code>
+       */
+      public com.xh.demo.grpc.WrTy.Heartbeat getHeartbeat() {
+        if (heartbeatBuilder_ == null) {
+          if (itemCase_ == 4) {
+            return (com.xh.demo.grpc.WrTy.Heartbeat) item_;
+          }
+          return com.xh.demo.grpc.WrTy.Heartbeat.getDefaultInstance();
+        } else {
+          if (itemCase_ == 4) {
+            return heartbeatBuilder_.getMessage();
+          }
+          return com.xh.demo.grpc.WrTy.Heartbeat.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.com.xh.demo.grpc.Heartbeat heartbeat = 4;</code>
+       */
+      public Builder setHeartbeat(com.xh.demo.grpc.WrTy.Heartbeat value) {
+        if (heartbeatBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          item_ = value;
+          onChanged();
+        } else {
+          heartbeatBuilder_.setMessage(value);
+        }
+        itemCase_ = 4;
+        return this;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.Heartbeat heartbeat = 4;</code>
+       */
+      public Builder setHeartbeat(
+          com.xh.demo.grpc.WrTy.Heartbeat.Builder builderForValue) {
+        if (heartbeatBuilder_ == null) {
+          item_ = builderForValue.build();
+          onChanged();
+        } else {
+          heartbeatBuilder_.setMessage(builderForValue.build());
+        }
+        itemCase_ = 4;
+        return this;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.Heartbeat heartbeat = 4;</code>
+       */
+      public Builder mergeHeartbeat(com.xh.demo.grpc.WrTy.Heartbeat value) {
+        if (heartbeatBuilder_ == null) {
+          if (itemCase_ == 4 &&
+              item_ != com.xh.demo.grpc.WrTy.Heartbeat.getDefaultInstance()) {
+            item_ = com.xh.demo.grpc.WrTy.Heartbeat.newBuilder((com.xh.demo.grpc.WrTy.Heartbeat) item_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            item_ = value;
+          }
+          onChanged();
+        } else {
+          if (itemCase_ == 4) {
+            heartbeatBuilder_.mergeFrom(value);
+          }
+          heartbeatBuilder_.setMessage(value);
+        }
+        itemCase_ = 4;
+        return this;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.Heartbeat heartbeat = 4;</code>
+       */
+      public Builder clearHeartbeat() {
+        if (heartbeatBuilder_ == null) {
+          if (itemCase_ == 4) {
+            itemCase_ = 0;
+            item_ = null;
+            onChanged();
+          }
+        } else {
+          if (itemCase_ == 4) {
+            itemCase_ = 0;
+            item_ = null;
+          }
+          heartbeatBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.Heartbeat heartbeat = 4;</code>
+       */
+      public com.xh.demo.grpc.WrTy.Heartbeat.Builder getHeartbeatBuilder() {
+        return getHeartbeatFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.com.xh.demo.grpc.Heartbeat heartbeat = 4;</code>
+       */
+      public com.xh.demo.grpc.WrTy.HeartbeatOrBuilder getHeartbeatOrBuilder() {
+        if ((itemCase_ == 4) && (heartbeatBuilder_ != null)) {
+          return heartbeatBuilder_.getMessageOrBuilder();
+        } else {
+          if (itemCase_ == 4) {
+            return (com.xh.demo.grpc.WrTy.Heartbeat) item_;
+          }
+          return com.xh.demo.grpc.WrTy.Heartbeat.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.com.xh.demo.grpc.Heartbeat heartbeat = 4;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.xh.demo.grpc.WrTy.Heartbeat, com.xh.demo.grpc.WrTy.Heartbeat.Builder, com.xh.demo.grpc.WrTy.HeartbeatOrBuilder> 
+          getHeartbeatFieldBuilder() {
+        if (heartbeatBuilder_ == null) {
+          if (!(itemCase_ == 4)) {
+            item_ = com.xh.demo.grpc.WrTy.Heartbeat.getDefaultInstance();
+          }
+          heartbeatBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.xh.demo.grpc.WrTy.Heartbeat, com.xh.demo.grpc.WrTy.Heartbeat.Builder, com.xh.demo.grpc.WrTy.HeartbeatOrBuilder>(
+                  (com.xh.demo.grpc.WrTy.Heartbeat) item_,
+                  getParentForChildren(),
+                  isClean());
+          item_ = null;
+        }
+        itemCase_ = 4;
+        onChanged();;
+        return heartbeatBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.xh.demo.grpc.WrTy.ClientHello, com.xh.demo.grpc.WrTy.ClientHello.Builder, com.xh.demo.grpc.WrTy.ClientHelloOrBuilder> clientHelloBuilder_;
+      /**
+       * <code>.com.xh.demo.grpc.ClientHello clientHello = 5;</code>
+       */
+      public boolean hasClientHello() {
+        return itemCase_ == 5;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.ClientHello clientHello = 5;</code>
+       */
+      public com.xh.demo.grpc.WrTy.ClientHello getClientHello() {
+        if (clientHelloBuilder_ == null) {
+          if (itemCase_ == 5) {
+            return (com.xh.demo.grpc.WrTy.ClientHello) item_;
+          }
+          return com.xh.demo.grpc.WrTy.ClientHello.getDefaultInstance();
+        } else {
+          if (itemCase_ == 5) {
+            return clientHelloBuilder_.getMessage();
+          }
+          return com.xh.demo.grpc.WrTy.ClientHello.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.com.xh.demo.grpc.ClientHello clientHello = 5;</code>
+       */
+      public Builder setClientHello(com.xh.demo.grpc.WrTy.ClientHello value) {
+        if (clientHelloBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          item_ = value;
+          onChanged();
+        } else {
+          clientHelloBuilder_.setMessage(value);
+        }
+        itemCase_ = 5;
+        return this;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.ClientHello clientHello = 5;</code>
+       */
+      public Builder setClientHello(
+          com.xh.demo.grpc.WrTy.ClientHello.Builder builderForValue) {
+        if (clientHelloBuilder_ == null) {
+          item_ = builderForValue.build();
+          onChanged();
+        } else {
+          clientHelloBuilder_.setMessage(builderForValue.build());
+        }
+        itemCase_ = 5;
+        return this;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.ClientHello clientHello = 5;</code>
+       */
+      public Builder mergeClientHello(com.xh.demo.grpc.WrTy.ClientHello value) {
+        if (clientHelloBuilder_ == null) {
+          if (itemCase_ == 5 &&
+              item_ != com.xh.demo.grpc.WrTy.ClientHello.getDefaultInstance()) {
+            item_ = com.xh.demo.grpc.WrTy.ClientHello.newBuilder((com.xh.demo.grpc.WrTy.ClientHello) item_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            item_ = value;
+          }
+          onChanged();
+        } else {
+          if (itemCase_ == 5) {
+            clientHelloBuilder_.mergeFrom(value);
+          }
+          clientHelloBuilder_.setMessage(value);
+        }
+        itemCase_ = 5;
+        return this;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.ClientHello clientHello = 5;</code>
+       */
+      public Builder clearClientHello() {
+        if (clientHelloBuilder_ == null) {
+          if (itemCase_ == 5) {
+            itemCase_ = 0;
+            item_ = null;
+            onChanged();
+          }
+        } else {
+          if (itemCase_ == 5) {
+            itemCase_ = 0;
+            item_ = null;
+          }
+          clientHelloBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.ClientHello clientHello = 5;</code>
+       */
+      public com.xh.demo.grpc.WrTy.ClientHello.Builder getClientHelloBuilder() {
+        return getClientHelloFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.com.xh.demo.grpc.ClientHello clientHello = 5;</code>
+       */
+      public com.xh.demo.grpc.WrTy.ClientHelloOrBuilder getClientHelloOrBuilder() {
+        if ((itemCase_ == 5) && (clientHelloBuilder_ != null)) {
+          return clientHelloBuilder_.getMessageOrBuilder();
+        } else {
+          if (itemCase_ == 5) {
+            return (com.xh.demo.grpc.WrTy.ClientHello) item_;
+          }
+          return com.xh.demo.grpc.WrTy.ClientHello.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.com.xh.demo.grpc.ClientHello clientHello = 5;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.xh.demo.grpc.WrTy.ClientHello, com.xh.demo.grpc.WrTy.ClientHello.Builder, com.xh.demo.grpc.WrTy.ClientHelloOrBuilder> 
+          getClientHelloFieldBuilder() {
+        if (clientHelloBuilder_ == null) {
+          if (!(itemCase_ == 5)) {
+            item_ = com.xh.demo.grpc.WrTy.ClientHello.getDefaultInstance();
+          }
+          clientHelloBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.xh.demo.grpc.WrTy.ClientHello, com.xh.demo.grpc.WrTy.ClientHello.Builder, com.xh.demo.grpc.WrTy.ClientHelloOrBuilder>(
+                  (com.xh.demo.grpc.WrTy.ClientHello) item_,
+                  getParentForChildren(),
+                  isClean());
+          item_ = null;
+        }
+        itemCase_ = 5;
+        onChanged();;
+        return clientHelloBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.xh.demo.grpc.WrTy.ServerHello, com.xh.demo.grpc.WrTy.ServerHello.Builder, com.xh.demo.grpc.WrTy.ServerHelloOrBuilder> serverHelloBuilder_;
+      /**
+       * <code>.com.xh.demo.grpc.ServerHello serverHello = 7;</code>
+       */
+      public boolean hasServerHello() {
+        return itemCase_ == 7;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.ServerHello serverHello = 7;</code>
+       */
+      public com.xh.demo.grpc.WrTy.ServerHello getServerHello() {
+        if (serverHelloBuilder_ == null) {
+          if (itemCase_ == 7) {
+            return (com.xh.demo.grpc.WrTy.ServerHello) item_;
+          }
+          return com.xh.demo.grpc.WrTy.ServerHello.getDefaultInstance();
+        } else {
+          if (itemCase_ == 7) {
+            return serverHelloBuilder_.getMessage();
+          }
+          return com.xh.demo.grpc.WrTy.ServerHello.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.com.xh.demo.grpc.ServerHello serverHello = 7;</code>
+       */
+      public Builder setServerHello(com.xh.demo.grpc.WrTy.ServerHello value) {
+        if (serverHelloBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          item_ = value;
+          onChanged();
+        } else {
+          serverHelloBuilder_.setMessage(value);
+        }
+        itemCase_ = 7;
+        return this;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.ServerHello serverHello = 7;</code>
+       */
+      public Builder setServerHello(
+          com.xh.demo.grpc.WrTy.ServerHello.Builder builderForValue) {
+        if (serverHelloBuilder_ == null) {
+          item_ = builderForValue.build();
+          onChanged();
+        } else {
+          serverHelloBuilder_.setMessage(builderForValue.build());
+        }
+        itemCase_ = 7;
+        return this;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.ServerHello serverHello = 7;</code>
+       */
+      public Builder mergeServerHello(com.xh.demo.grpc.WrTy.ServerHello value) {
+        if (serverHelloBuilder_ == null) {
+          if (itemCase_ == 7 &&
+              item_ != com.xh.demo.grpc.WrTy.ServerHello.getDefaultInstance()) {
+            item_ = com.xh.demo.grpc.WrTy.ServerHello.newBuilder((com.xh.demo.grpc.WrTy.ServerHello) item_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            item_ = value;
+          }
+          onChanged();
+        } else {
+          if (itemCase_ == 7) {
+            serverHelloBuilder_.mergeFrom(value);
+          }
+          serverHelloBuilder_.setMessage(value);
+        }
+        itemCase_ = 7;
+        return this;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.ServerHello serverHello = 7;</code>
+       */
+      public Builder clearServerHello() {
+        if (serverHelloBuilder_ == null) {
+          if (itemCase_ == 7) {
+            itemCase_ = 0;
+            item_ = null;
+            onChanged();
+          }
+        } else {
+          if (itemCase_ == 7) {
+            itemCase_ = 0;
+            item_ = null;
+          }
+          serverHelloBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.ServerHello serverHello = 7;</code>
+       */
+      public com.xh.demo.grpc.WrTy.ServerHello.Builder getServerHelloBuilder() {
+        return getServerHelloFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.com.xh.demo.grpc.ServerHello serverHello = 7;</code>
+       */
+      public com.xh.demo.grpc.WrTy.ServerHelloOrBuilder getServerHelloOrBuilder() {
+        if ((itemCase_ == 7) && (serverHelloBuilder_ != null)) {
+          return serverHelloBuilder_.getMessageOrBuilder();
+        } else {
+          if (itemCase_ == 7) {
+            return (com.xh.demo.grpc.WrTy.ServerHello) item_;
+          }
+          return com.xh.demo.grpc.WrTy.ServerHello.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.com.xh.demo.grpc.ServerHello serverHello = 7;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.xh.demo.grpc.WrTy.ServerHello, com.xh.demo.grpc.WrTy.ServerHello.Builder, com.xh.demo.grpc.WrTy.ServerHelloOrBuilder> 
+          getServerHelloFieldBuilder() {
+        if (serverHelloBuilder_ == null) {
+          if (!(itemCase_ == 7)) {
+            item_ = com.xh.demo.grpc.WrTy.ServerHello.getDefaultInstance();
+          }
+          serverHelloBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.xh.demo.grpc.WrTy.ServerHello, com.xh.demo.grpc.WrTy.ServerHello.Builder, com.xh.demo.grpc.WrTy.ServerHelloOrBuilder>(
+                  (com.xh.demo.grpc.WrTy.ServerHello) item_,
+                  getParentForChildren(),
+                  isClean());
+          item_ = null;
+        }
+        itemCase_ = 7;
+        onChanged();;
+        return serverHelloBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.xh.demo.grpc.WrTy.InstanceInfo, com.xh.demo.grpc.WrTy.InstanceInfo.Builder, com.xh.demo.grpc.WrTy.InstanceInfoOrBuilder> instanceInfoBuilder_;
+      /**
+       * <code>.com.xh.demo.grpc.InstanceInfo instanceInfo = 9;</code>
+       */
+      public boolean hasInstanceInfo() {
+        return itemCase_ == 9;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.InstanceInfo instanceInfo = 9;</code>
+       */
+      public com.xh.demo.grpc.WrTy.InstanceInfo getInstanceInfo() {
+        if (instanceInfoBuilder_ == null) {
+          if (itemCase_ == 9) {
+            return (com.xh.demo.grpc.WrTy.InstanceInfo) item_;
+          }
+          return com.xh.demo.grpc.WrTy.InstanceInfo.getDefaultInstance();
+        } else {
+          if (itemCase_ == 9) {
+            return instanceInfoBuilder_.getMessage();
+          }
+          return com.xh.demo.grpc.WrTy.InstanceInfo.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.com.xh.demo.grpc.InstanceInfo instanceInfo = 9;</code>
+       */
+      public Builder setInstanceInfo(com.xh.demo.grpc.WrTy.InstanceInfo value) {
+        if (instanceInfoBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          item_ = value;
+          onChanged();
+        } else {
+          instanceInfoBuilder_.setMessage(value);
+        }
+        itemCase_ = 9;
+        return this;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.InstanceInfo instanceInfo = 9;</code>
+       */
+      public Builder setInstanceInfo(
+          com.xh.demo.grpc.WrTy.InstanceInfo.Builder builderForValue) {
+        if (instanceInfoBuilder_ == null) {
+          item_ = builderForValue.build();
+          onChanged();
+        } else {
+          instanceInfoBuilder_.setMessage(builderForValue.build());
+        }
+        itemCase_ = 9;
+        return this;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.InstanceInfo instanceInfo = 9;</code>
+       */
+      public Builder mergeInstanceInfo(com.xh.demo.grpc.WrTy.InstanceInfo value) {
+        if (instanceInfoBuilder_ == null) {
+          if (itemCase_ == 9 &&
+              item_ != com.xh.demo.grpc.WrTy.InstanceInfo.getDefaultInstance()) {
+            item_ = com.xh.demo.grpc.WrTy.InstanceInfo.newBuilder((com.xh.demo.grpc.WrTy.InstanceInfo) item_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            item_ = value;
+          }
+          onChanged();
+        } else {
+          if (itemCase_ == 9) {
+            instanceInfoBuilder_.mergeFrom(value);
+          }
+          instanceInfoBuilder_.setMessage(value);
+        }
+        itemCase_ = 9;
+        return this;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.InstanceInfo instanceInfo = 9;</code>
+       */
+      public Builder clearInstanceInfo() {
+        if (instanceInfoBuilder_ == null) {
+          if (itemCase_ == 9) {
+            itemCase_ = 0;
+            item_ = null;
+            onChanged();
+          }
+        } else {
+          if (itemCase_ == 9) {
+            itemCase_ = 0;
+            item_ = null;
+          }
+          instanceInfoBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.InstanceInfo instanceInfo = 9;</code>
+       */
+      public com.xh.demo.grpc.WrTy.InstanceInfo.Builder getInstanceInfoBuilder() {
+        return getInstanceInfoFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.com.xh.demo.grpc.InstanceInfo instanceInfo = 9;</code>
+       */
+      public com.xh.demo.grpc.WrTy.InstanceInfoOrBuilder getInstanceInfoOrBuilder() {
+        if ((itemCase_ == 9) && (instanceInfoBuilder_ != null)) {
+          return instanceInfoBuilder_.getMessageOrBuilder();
+        } else {
+          if (itemCase_ == 9) {
+            return (com.xh.demo.grpc.WrTy.InstanceInfo) item_;
+          }
+          return com.xh.demo.grpc.WrTy.InstanceInfo.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.com.xh.demo.grpc.InstanceInfo instanceInfo = 9;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.xh.demo.grpc.WrTy.InstanceInfo, com.xh.demo.grpc.WrTy.InstanceInfo.Builder, com.xh.demo.grpc.WrTy.InstanceInfoOrBuilder> 
+          getInstanceInfoFieldBuilder() {
+        if (instanceInfoBuilder_ == null) {
+          if (!(itemCase_ == 9)) {
+            item_ = com.xh.demo.grpc.WrTy.InstanceInfo.getDefaultInstance();
+          }
+          instanceInfoBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.xh.demo.grpc.WrTy.InstanceInfo, com.xh.demo.grpc.WrTy.InstanceInfo.Builder, com.xh.demo.grpc.WrTy.InstanceInfoOrBuilder>(
+                  (com.xh.demo.grpc.WrTy.InstanceInfo) item_,
+                  getParentForChildren(),
+                  isClean());
+          item_ = null;
+        }
+        itemCase_ = 9;
+        onChanged();;
+        return instanceInfoBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.xh.demo.grpc.WrTy.InterestRegistration, com.xh.demo.grpc.WrTy.InterestRegistration.Builder, com.xh.demo.grpc.WrTy.InterestRegistrationOrBuilder> interestRegistrationBuilder_;
+      /**
+       * <code>.com.xh.demo.grpc.InterestRegistration interestRegistration = 10;</code>
+       */
+      public boolean hasInterestRegistration() {
+        return itemCase_ == 10;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.InterestRegistration interestRegistration = 10;</code>
+       */
+      public com.xh.demo.grpc.WrTy.InterestRegistration getInterestRegistration() {
+        if (interestRegistrationBuilder_ == null) {
+          if (itemCase_ == 10) {
+            return (com.xh.demo.grpc.WrTy.InterestRegistration) item_;
+          }
+          return com.xh.demo.grpc.WrTy.InterestRegistration.getDefaultInstance();
+        } else {
+          if (itemCase_ == 10) {
+            return interestRegistrationBuilder_.getMessage();
+          }
+          return com.xh.demo.grpc.WrTy.InterestRegistration.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.com.xh.demo.grpc.InterestRegistration interestRegistration = 10;</code>
+       */
+      public Builder setInterestRegistration(com.xh.demo.grpc.WrTy.InterestRegistration value) {
+        if (interestRegistrationBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          item_ = value;
+          onChanged();
+        } else {
+          interestRegistrationBuilder_.setMessage(value);
+        }
+        itemCase_ = 10;
+        return this;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.InterestRegistration interestRegistration = 10;</code>
+       */
+      public Builder setInterestRegistration(
+          com.xh.demo.grpc.WrTy.InterestRegistration.Builder builderForValue) {
+        if (interestRegistrationBuilder_ == null) {
+          item_ = builderForValue.build();
+          onChanged();
+        } else {
+          interestRegistrationBuilder_.setMessage(builderForValue.build());
+        }
+        itemCase_ = 10;
+        return this;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.InterestRegistration interestRegistration = 10;</code>
+       */
+      public Builder mergeInterestRegistration(com.xh.demo.grpc.WrTy.InterestRegistration value) {
+        if (interestRegistrationBuilder_ == null) {
+          if (itemCase_ == 10 &&
+              item_ != com.xh.demo.grpc.WrTy.InterestRegistration.getDefaultInstance()) {
+            item_ = com.xh.demo.grpc.WrTy.InterestRegistration.newBuilder((com.xh.demo.grpc.WrTy.InterestRegistration) item_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            item_ = value;
+          }
+          onChanged();
+        } else {
+          if (itemCase_ == 10) {
+            interestRegistrationBuilder_.mergeFrom(value);
+          }
+          interestRegistrationBuilder_.setMessage(value);
+        }
+        itemCase_ = 10;
+        return this;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.InterestRegistration interestRegistration = 10;</code>
+       */
+      public Builder clearInterestRegistration() {
+        if (interestRegistrationBuilder_ == null) {
+          if (itemCase_ == 10) {
+            itemCase_ = 0;
+            item_ = null;
+            onChanged();
+          }
+        } else {
+          if (itemCase_ == 10) {
+            itemCase_ = 0;
+            item_ = null;
+          }
+          interestRegistrationBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.InterestRegistration interestRegistration = 10;</code>
+       */
+      public com.xh.demo.grpc.WrTy.InterestRegistration.Builder getInterestRegistrationBuilder() {
+        return getInterestRegistrationFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.com.xh.demo.grpc.InterestRegistration interestRegistration = 10;</code>
+       */
+      public com.xh.demo.grpc.WrTy.InterestRegistrationOrBuilder getInterestRegistrationOrBuilder() {
+        if ((itemCase_ == 10) && (interestRegistrationBuilder_ != null)) {
+          return interestRegistrationBuilder_.getMessageOrBuilder();
+        } else {
+          if (itemCase_ == 10) {
+            return (com.xh.demo.grpc.WrTy.InterestRegistration) item_;
+          }
+          return com.xh.demo.grpc.WrTy.InterestRegistration.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.com.xh.demo.grpc.InterestRegistration interestRegistration = 10;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.xh.demo.grpc.WrTy.InterestRegistration, com.xh.demo.grpc.WrTy.InterestRegistration.Builder, com.xh.demo.grpc.WrTy.InterestRegistrationOrBuilder> 
+          getInterestRegistrationFieldBuilder() {
+        if (interestRegistrationBuilder_ == null) {
+          if (!(itemCase_ == 10)) {
+            item_ = com.xh.demo.grpc.WrTy.InterestRegistration.getDefaultInstance();
+          }
+          interestRegistrationBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.xh.demo.grpc.WrTy.InterestRegistration, com.xh.demo.grpc.WrTy.InterestRegistration.Builder, com.xh.demo.grpc.WrTy.InterestRegistrationOrBuilder>(
+                  (com.xh.demo.grpc.WrTy.InterestRegistration) item_,
+                  getParentForChildren(),
+                  isClean());
+          item_ = null;
+        }
+        itemCase_ = 10;
+        onChanged();;
+        return interestRegistrationBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.xh.demo.grpc.WrTy.ChangeNotification, com.xh.demo.grpc.WrTy.ChangeNotification.Builder, com.xh.demo.grpc.WrTy.ChangeNotificationOrBuilder> changeNotificationBuilder_;
+      /**
+       * <code>.com.xh.demo.grpc.ChangeNotification changeNotification = 11;</code>
+       */
+      public boolean hasChangeNotification() {
+        return itemCase_ == 11;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.ChangeNotification changeNotification = 11;</code>
+       */
+      public com.xh.demo.grpc.WrTy.ChangeNotification getChangeNotification() {
+        if (changeNotificationBuilder_ == null) {
+          if (itemCase_ == 11) {
+            return (com.xh.demo.grpc.WrTy.ChangeNotification) item_;
+          }
+          return com.xh.demo.grpc.WrTy.ChangeNotification.getDefaultInstance();
+        } else {
+          if (itemCase_ == 11) {
+            return changeNotificationBuilder_.getMessage();
+          }
+          return com.xh.demo.grpc.WrTy.ChangeNotification.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.com.xh.demo.grpc.ChangeNotification changeNotification = 11;</code>
+       */
+      public Builder setChangeNotification(com.xh.demo.grpc.WrTy.ChangeNotification value) {
+        if (changeNotificationBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          item_ = value;
+          onChanged();
+        } else {
+          changeNotificationBuilder_.setMessage(value);
+        }
+        itemCase_ = 11;
+        return this;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.ChangeNotification changeNotification = 11;</code>
+       */
+      public Builder setChangeNotification(
+          com.xh.demo.grpc.WrTy.ChangeNotification.Builder builderForValue) {
+        if (changeNotificationBuilder_ == null) {
+          item_ = builderForValue.build();
+          onChanged();
+        } else {
+          changeNotificationBuilder_.setMessage(builderForValue.build());
+        }
+        itemCase_ = 11;
+        return this;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.ChangeNotification changeNotification = 11;</code>
+       */
+      public Builder mergeChangeNotification(com.xh.demo.grpc.WrTy.ChangeNotification value) {
+        if (changeNotificationBuilder_ == null) {
+          if (itemCase_ == 11 &&
+              item_ != com.xh.demo.grpc.WrTy.ChangeNotification.getDefaultInstance()) {
+            item_ = com.xh.demo.grpc.WrTy.ChangeNotification.newBuilder((com.xh.demo.grpc.WrTy.ChangeNotification) item_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            item_ = value;
+          }
+          onChanged();
+        } else {
+          if (itemCase_ == 11) {
+            changeNotificationBuilder_.mergeFrom(value);
+          }
+          changeNotificationBuilder_.setMessage(value);
+        }
+        itemCase_ = 11;
+        return this;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.ChangeNotification changeNotification = 11;</code>
+       */
+      public Builder clearChangeNotification() {
+        if (changeNotificationBuilder_ == null) {
+          if (itemCase_ == 11) {
+            itemCase_ = 0;
+            item_ = null;
+            onChanged();
+          }
+        } else {
+          if (itemCase_ == 11) {
+            itemCase_ = 0;
+            item_ = null;
+          }
+          changeNotificationBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.ChangeNotification changeNotification = 11;</code>
+       */
+      public com.xh.demo.grpc.WrTy.ChangeNotification.Builder getChangeNotificationBuilder() {
+        return getChangeNotificationFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.com.xh.demo.grpc.ChangeNotification changeNotification = 11;</code>
+       */
+      public com.xh.demo.grpc.WrTy.ChangeNotificationOrBuilder getChangeNotificationOrBuilder() {
+        if ((itemCase_ == 11) && (changeNotificationBuilder_ != null)) {
+          return changeNotificationBuilder_.getMessageOrBuilder();
+        } else {
+          if (itemCase_ == 11) {
+            return (com.xh.demo.grpc.WrTy.ChangeNotification) item_;
+          }
+          return com.xh.demo.grpc.WrTy.ChangeNotification.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.com.xh.demo.grpc.ChangeNotification changeNotification = 11;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.xh.demo.grpc.WrTy.ChangeNotification, com.xh.demo.grpc.WrTy.ChangeNotification.Builder, com.xh.demo.grpc.WrTy.ChangeNotificationOrBuilder> 
+          getChangeNotificationFieldBuilder() {
+        if (changeNotificationBuilder_ == null) {
+          if (!(itemCase_ == 11)) {
+            item_ = com.xh.demo.grpc.WrTy.ChangeNotification.getDefaultInstance();
+          }
+          changeNotificationBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.xh.demo.grpc.WrTy.ChangeNotification, com.xh.demo.grpc.WrTy.ChangeNotification.Builder, com.xh.demo.grpc.WrTy.ChangeNotificationOrBuilder>(
+                  (com.xh.demo.grpc.WrTy.ChangeNotification) item_,
+                  getParentForChildren(),
+                  isClean());
+          item_ = null;
+        }
+        itemCase_ = 11;
+        onChanged();;
+        return changeNotificationBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.xh.demo.grpc.Response)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.xh.demo.grpc.Response)
+    private static final com.xh.demo.grpc.WrTy.Response DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.xh.demo.grpc.WrTy.Response();
+    }
+
+    public static com.xh.demo.grpc.WrTy.Response getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Response>
+        PARSER = new com.google.protobuf.AbstractParser<Response>() {
+      @java.lang.Override
+      public Response parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Response(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Response> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Response> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.xh.demo.grpc.WrTy.Response getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface RequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.xh.demo.grpc.Request)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>.com.xh.demo.grpc.Request.ProtocolType protocolType = 1;</code>
+     */
+    int getProtocolTypeValue();
+    /**
+     * <code>.com.xh.demo.grpc.Request.ProtocolType protocolType = 1;</code>
+     */
+    com.xh.demo.grpc.WrTy.Request.ProtocolType getProtocolType();
+
+    /**
+     * <code>.com.xh.demo.grpc.Acknowledgement acknowledgement = 2;</code>
+     */
+    boolean hasAcknowledgement();
+    /**
+     * <code>.com.xh.demo.grpc.Acknowledgement acknowledgement = 2;</code>
+     */
+    com.xh.demo.grpc.WrTy.Acknowledgement getAcknowledgement();
+    /**
+     * <code>.com.xh.demo.grpc.Acknowledgement acknowledgement = 2;</code>
+     */
+    com.xh.demo.grpc.WrTy.AcknowledgementOrBuilder getAcknowledgementOrBuilder();
+
+    /**
+     * <code>.com.xh.demo.grpc.Heartbeat heartbeat = 4;</code>
+     */
+    boolean hasHeartbeat();
+    /**
+     * <code>.com.xh.demo.grpc.Heartbeat heartbeat = 4;</code>
+     */
+    com.xh.demo.grpc.WrTy.Heartbeat getHeartbeat();
+    /**
+     * <code>.com.xh.demo.grpc.Heartbeat heartbeat = 4;</code>
+     */
+    com.xh.demo.grpc.WrTy.HeartbeatOrBuilder getHeartbeatOrBuilder();
+
+    /**
+     * <code>.com.xh.demo.grpc.ClientHello clientHello = 5;</code>
+     */
+    boolean hasClientHello();
+    /**
+     * <code>.com.xh.demo.grpc.ClientHello clientHello = 5;</code>
+     */
+    com.xh.demo.grpc.WrTy.ClientHello getClientHello();
+    /**
+     * <code>.com.xh.demo.grpc.ClientHello clientHello = 5;</code>
+     */
+    com.xh.demo.grpc.WrTy.ClientHelloOrBuilder getClientHelloOrBuilder();
+
+    /**
+     * <code>.com.xh.demo.grpc.ServerHello serverHello = 7;</code>
+     */
+    boolean hasServerHello();
+    /**
+     * <code>.com.xh.demo.grpc.ServerHello serverHello = 7;</code>
+     */
+    com.xh.demo.grpc.WrTy.ServerHello getServerHello();
+    /**
+     * <code>.com.xh.demo.grpc.ServerHello serverHello = 7;</code>
+     */
+    com.xh.demo.grpc.WrTy.ServerHelloOrBuilder getServerHelloOrBuilder();
+
+    /**
+     * <code>.com.xh.demo.grpc.InstanceInfo instanceInfo = 9;</code>
+     */
+    boolean hasInstanceInfo();
+    /**
+     * <code>.com.xh.demo.grpc.InstanceInfo instanceInfo = 9;</code>
+     */
+    com.xh.demo.grpc.WrTy.InstanceInfo getInstanceInfo();
+    /**
+     * <code>.com.xh.demo.grpc.InstanceInfo instanceInfo = 9;</code>
+     */
+    com.xh.demo.grpc.WrTy.InstanceInfoOrBuilder getInstanceInfoOrBuilder();
+
+    /**
+     * <code>.com.xh.demo.grpc.InterestRegistration interestRegistration = 10;</code>
+     */
+    boolean hasInterestRegistration();
+    /**
+     * <code>.com.xh.demo.grpc.InterestRegistration interestRegistration = 10;</code>
+     */
+    com.xh.demo.grpc.WrTy.InterestRegistration getInterestRegistration();
+    /**
+     * <code>.com.xh.demo.grpc.InterestRegistration interestRegistration = 10;</code>
+     */
+    com.xh.demo.grpc.WrTy.InterestRegistrationOrBuilder getInterestRegistrationOrBuilder();
+
+    /**
+     * <code>.com.xh.demo.grpc.ChangeNotification changeNotification = 11;</code>
+     */
+    boolean hasChangeNotification();
+    /**
+     * <code>.com.xh.demo.grpc.ChangeNotification changeNotification = 11;</code>
+     */
+    com.xh.demo.grpc.WrTy.ChangeNotification getChangeNotification();
+    /**
+     * <code>.com.xh.demo.grpc.ChangeNotification changeNotification = 11;</code>
+     */
+    com.xh.demo.grpc.WrTy.ChangeNotificationOrBuilder getChangeNotificationOrBuilder();
+
+    public com.xh.demo.grpc.WrTy.Request.ItemCase getItemCase();
+  }
+  /**
+   * Protobuf type {@code com.xh.demo.grpc.Request}
+   */
+  public  static final class Request extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.xh.demo.grpc.Request)
+      RequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use Request.newBuilder() to construct.
+    private Request(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Request() {
+      protocolType_ = 0;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Request(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              int rawValue = input.readEnum();
+
+              protocolType_ = rawValue;
+              break;
+            }
+            case 18: {
+              com.xh.demo.grpc.WrTy.Acknowledgement.Builder subBuilder = null;
+              if (itemCase_ == 2) {
+                subBuilder = ((com.xh.demo.grpc.WrTy.Acknowledgement) item_).toBuilder();
+              }
+              item_ =
+                  input.readMessage(com.xh.demo.grpc.WrTy.Acknowledgement.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((com.xh.demo.grpc.WrTy.Acknowledgement) item_);
+                item_ = subBuilder.buildPartial();
+              }
+              itemCase_ = 2;
+              break;
+            }
+            case 34: {
+              com.xh.demo.grpc.WrTy.Heartbeat.Builder subBuilder = null;
+              if (itemCase_ == 4) {
+                subBuilder = ((com.xh.demo.grpc.WrTy.Heartbeat) item_).toBuilder();
+              }
+              item_ =
+                  input.readMessage(com.xh.demo.grpc.WrTy.Heartbeat.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((com.xh.demo.grpc.WrTy.Heartbeat) item_);
+                item_ = subBuilder.buildPartial();
+              }
+              itemCase_ = 4;
+              break;
+            }
+            case 42: {
+              com.xh.demo.grpc.WrTy.ClientHello.Builder subBuilder = null;
+              if (itemCase_ == 5) {
+                subBuilder = ((com.xh.demo.grpc.WrTy.ClientHello) item_).toBuilder();
+              }
+              item_ =
+                  input.readMessage(com.xh.demo.grpc.WrTy.ClientHello.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((com.xh.demo.grpc.WrTy.ClientHello) item_);
+                item_ = subBuilder.buildPartial();
+              }
+              itemCase_ = 5;
+              break;
+            }
+            case 58: {
+              com.xh.demo.grpc.WrTy.ServerHello.Builder subBuilder = null;
+              if (itemCase_ == 7) {
+                subBuilder = ((com.xh.demo.grpc.WrTy.ServerHello) item_).toBuilder();
+              }
+              item_ =
+                  input.readMessage(com.xh.demo.grpc.WrTy.ServerHello.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((com.xh.demo.grpc.WrTy.ServerHello) item_);
+                item_ = subBuilder.buildPartial();
+              }
+              itemCase_ = 7;
+              break;
+            }
+            case 74: {
+              com.xh.demo.grpc.WrTy.InstanceInfo.Builder subBuilder = null;
+              if (itemCase_ == 9) {
+                subBuilder = ((com.xh.demo.grpc.WrTy.InstanceInfo) item_).toBuilder();
+              }
+              item_ =
+                  input.readMessage(com.xh.demo.grpc.WrTy.InstanceInfo.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((com.xh.demo.grpc.WrTy.InstanceInfo) item_);
+                item_ = subBuilder.buildPartial();
+              }
+              itemCase_ = 9;
+              break;
+            }
+            case 82: {
+              com.xh.demo.grpc.WrTy.InterestRegistration.Builder subBuilder = null;
+              if (itemCase_ == 10) {
+                subBuilder = ((com.xh.demo.grpc.WrTy.InterestRegistration) item_).toBuilder();
+              }
+              item_ =
+                  input.readMessage(com.xh.demo.grpc.WrTy.InterestRegistration.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((com.xh.demo.grpc.WrTy.InterestRegistration) item_);
+                item_ = subBuilder.buildPartial();
+              }
+              itemCase_ = 10;
+              break;
+            }
+            case 90: {
+              com.xh.demo.grpc.WrTy.ChangeNotification.Builder subBuilder = null;
+              if (itemCase_ == 11) {
+                subBuilder = ((com.xh.demo.grpc.WrTy.ChangeNotification) item_).toBuilder();
+              }
+              item_ =
+                  input.readMessage(com.xh.demo.grpc.WrTy.ChangeNotification.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((com.xh.demo.grpc.WrTy.ChangeNotification) item_);
+                item_ = subBuilder.buildPartial();
+              }
+              itemCase_ = 11;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.xh.demo.grpc.WrTy.internal_static_com_xh_demo_grpc_Request_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.xh.demo.grpc.WrTy.internal_static_com_xh_demo_grpc_Request_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.xh.demo.grpc.WrTy.Request.class, com.xh.demo.grpc.WrTy.Request.Builder.class);
+    }
+
+    /**
+     * Protobuf enum {@code com.xh.demo.grpc.Request.ProtocolType}
+     */
+    public enum ProtocolType
+        implements com.google.protobuf.ProtocolMessageEnum {
+      /**
+       * <code>Registration = 0;</code>
+       */
+      Registration(0),
+      /**
+       * <code>Interest = 1;</code>
+       */
+      Interest(1),
+      /**
+       * <code>Replication = 2;</code>
+       */
+      Replication(2),
+      UNRECOGNIZED(-1),
+      ;
+
+      /**
+       * <code>Registration = 0;</code>
+       */
+      public static final int Registration_VALUE = 0;
+      /**
+       * <code>Interest = 1;</code>
+       */
+      public static final int Interest_VALUE = 1;
+      /**
+       * <code>Replication = 2;</code>
+       */
+      public static final int Replication_VALUE = 2;
+
+
+      public final int getNumber() {
+        if (this == UNRECOGNIZED) {
+          throw new java.lang.IllegalArgumentException(
+              "Can't get the number of an unknown enum value.");
+        }
+        return value;
+      }
+
+      /**
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static ProtocolType valueOf(int value) {
+        return forNumber(value);
+      }
+
+      public static ProtocolType forNumber(int value) {
+        switch (value) {
+          case 0: return Registration;
+          case 1: return Interest;
+          case 2: return Replication;
+          default: return null;
+        }
+      }
+
+      public static com.google.protobuf.Internal.EnumLiteMap<ProtocolType>
+          internalGetValueMap() {
+        return internalValueMap;
+      }
+      private static final com.google.protobuf.Internal.EnumLiteMap<
+          ProtocolType> internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<ProtocolType>() {
+              public ProtocolType findValueByNumber(int number) {
+                return ProtocolType.forNumber(number);
+              }
+            };
+
+      public final com.google.protobuf.Descriptors.EnumValueDescriptor
+          getValueDescriptor() {
+        return getDescriptor().getValues().get(ordinal());
+      }
+      public final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptorForType() {
+        return getDescriptor();
+      }
+      public static final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptor() {
+        return com.xh.demo.grpc.WrTy.Request.getDescriptor().getEnumTypes().get(0);
+      }
+
+      private static final ProtocolType[] VALUES = values();
+
+      public static ProtocolType valueOf(
+          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+        if (desc.getType() != getDescriptor()) {
+          throw new java.lang.IllegalArgumentException(
+            "EnumValueDescriptor is not for this type.");
+        }
+        if (desc.getIndex() == -1) {
+          return UNRECOGNIZED;
+        }
+        return VALUES[desc.getIndex()];
+      }
+
+      private final int value;
+
+      private ProtocolType(int value) {
+        this.value = value;
+      }
+
+      // @@protoc_insertion_point(enum_scope:com.xh.demo.grpc.Request.ProtocolType)
+    }
+
+    private int itemCase_ = 0;
+    private java.lang.Object item_;
+    public enum ItemCase
+        implements com.google.protobuf.Internal.EnumLite {
+      ACKNOWLEDGEMENT(2),
+      HEARTBEAT(4),
+      CLIENTHELLO(5),
+      SERVERHELLO(7),
+      INSTANCEINFO(9),
+      INTERESTREGISTRATION(10),
+      CHANGENOTIFICATION(11),
+      ITEM_NOT_SET(0);
+      private final int value;
+      private ItemCase(int value) {
+        this.value = value;
+      }
+      /**
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static ItemCase valueOf(int value) {
+        return forNumber(value);
+      }
+
+      public static ItemCase forNumber(int value) {
+        switch (value) {
+          case 2: return ACKNOWLEDGEMENT;
+          case 4: return HEARTBEAT;
+          case 5: return CLIENTHELLO;
+          case 7: return SERVERHELLO;
+          case 9: return INSTANCEINFO;
+          case 10: return INTERESTREGISTRATION;
+          case 11: return CHANGENOTIFICATION;
+          case 0: return ITEM_NOT_SET;
+          default: return null;
+        }
+      }
+      public int getNumber() {
+        return this.value;
+      }
+    };
+
+    public ItemCase
+    getItemCase() {
+      return ItemCase.forNumber(
+          itemCase_);
+    }
+
+    public static final int PROTOCOLTYPE_FIELD_NUMBER = 1;
+    private int protocolType_;
+    /**
+     * <code>.com.xh.demo.grpc.Request.ProtocolType protocolType = 1;</code>
+     */
+    public int getProtocolTypeValue() {
+      return protocolType_;
+    }
+    /**
+     * <code>.com.xh.demo.grpc.Request.ProtocolType protocolType = 1;</code>
+     */
+    public com.xh.demo.grpc.WrTy.Request.ProtocolType getProtocolType() {
+      @SuppressWarnings("deprecation")
+      com.xh.demo.grpc.WrTy.Request.ProtocolType result = com.xh.demo.grpc.WrTy.Request.ProtocolType.valueOf(protocolType_);
+      return result == null ? com.xh.demo.grpc.WrTy.Request.ProtocolType.UNRECOGNIZED : result;
+    }
+
+    public static final int ACKNOWLEDGEMENT_FIELD_NUMBER = 2;
+    /**
+     * <code>.com.xh.demo.grpc.Acknowledgement acknowledgement = 2;</code>
+     */
+    public boolean hasAcknowledgement() {
+      return itemCase_ == 2;
+    }
+    /**
+     * <code>.com.xh.demo.grpc.Acknowledgement acknowledgement = 2;</code>
+     */
+    public com.xh.demo.grpc.WrTy.Acknowledgement getAcknowledgement() {
+      if (itemCase_ == 2) {
+         return (com.xh.demo.grpc.WrTy.Acknowledgement) item_;
+      }
+      return com.xh.demo.grpc.WrTy.Acknowledgement.getDefaultInstance();
+    }
+    /**
+     * <code>.com.xh.demo.grpc.Acknowledgement acknowledgement = 2;</code>
+     */
+    public com.xh.demo.grpc.WrTy.AcknowledgementOrBuilder getAcknowledgementOrBuilder() {
+      if (itemCase_ == 2) {
+         return (com.xh.demo.grpc.WrTy.Acknowledgement) item_;
+      }
+      return com.xh.demo.grpc.WrTy.Acknowledgement.getDefaultInstance();
+    }
+
+    public static final int HEARTBEAT_FIELD_NUMBER = 4;
+    /**
+     * <code>.com.xh.demo.grpc.Heartbeat heartbeat = 4;</code>
+     */
+    public boolean hasHeartbeat() {
+      return itemCase_ == 4;
+    }
+    /**
+     * <code>.com.xh.demo.grpc.Heartbeat heartbeat = 4;</code>
+     */
+    public com.xh.demo.grpc.WrTy.Heartbeat getHeartbeat() {
+      if (itemCase_ == 4) {
+         return (com.xh.demo.grpc.WrTy.Heartbeat) item_;
+      }
+      return com.xh.demo.grpc.WrTy.Heartbeat.getDefaultInstance();
+    }
+    /**
+     * <code>.com.xh.demo.grpc.Heartbeat heartbeat = 4;</code>
+     */
+    public com.xh.demo.grpc.WrTy.HeartbeatOrBuilder getHeartbeatOrBuilder() {
+      if (itemCase_ == 4) {
+         return (com.xh.demo.grpc.WrTy.Heartbeat) item_;
+      }
+      return com.xh.demo.grpc.WrTy.Heartbeat.getDefaultInstance();
+    }
+
+    public static final int CLIENTHELLO_FIELD_NUMBER = 5;
+    /**
+     * <code>.com.xh.demo.grpc.ClientHello clientHello = 5;</code>
+     */
+    public boolean hasClientHello() {
+      return itemCase_ == 5;
+    }
+    /**
+     * <code>.com.xh.demo.grpc.ClientHello clientHello = 5;</code>
+     */
+    public com.xh.demo.grpc.WrTy.ClientHello getClientHello() {
+      if (itemCase_ == 5) {
+         return (com.xh.demo.grpc.WrTy.ClientHello) item_;
+      }
+      return com.xh.demo.grpc.WrTy.ClientHello.getDefaultInstance();
+    }
+    /**
+     * <code>.com.xh.demo.grpc.ClientHello clientHello = 5;</code>
+     */
+    public com.xh.demo.grpc.WrTy.ClientHelloOrBuilder getClientHelloOrBuilder() {
+      if (itemCase_ == 5) {
+         return (com.xh.demo.grpc.WrTy.ClientHello) item_;
+      }
+      return com.xh.demo.grpc.WrTy.ClientHello.getDefaultInstance();
+    }
+
+    public static final int SERVERHELLO_FIELD_NUMBER = 7;
+    /**
+     * <code>.com.xh.demo.grpc.ServerHello serverHello = 7;</code>
+     */
+    public boolean hasServerHello() {
+      return itemCase_ == 7;
+    }
+    /**
+     * <code>.com.xh.demo.grpc.ServerHello serverHello = 7;</code>
+     */
+    public com.xh.demo.grpc.WrTy.ServerHello getServerHello() {
+      if (itemCase_ == 7) {
+         return (com.xh.demo.grpc.WrTy.ServerHello) item_;
+      }
+      return com.xh.demo.grpc.WrTy.ServerHello.getDefaultInstance();
+    }
+    /**
+     * <code>.com.xh.demo.grpc.ServerHello serverHello = 7;</code>
+     */
+    public com.xh.demo.grpc.WrTy.ServerHelloOrBuilder getServerHelloOrBuilder() {
+      if (itemCase_ == 7) {
+         return (com.xh.demo.grpc.WrTy.ServerHello) item_;
+      }
+      return com.xh.demo.grpc.WrTy.ServerHello.getDefaultInstance();
+    }
+
+    public static final int INSTANCEINFO_FIELD_NUMBER = 9;
+    /**
+     * <code>.com.xh.demo.grpc.InstanceInfo instanceInfo = 9;</code>
+     */
+    public boolean hasInstanceInfo() {
+      return itemCase_ == 9;
+    }
+    /**
+     * <code>.com.xh.demo.grpc.InstanceInfo instanceInfo = 9;</code>
+     */
+    public com.xh.demo.grpc.WrTy.InstanceInfo getInstanceInfo() {
+      if (itemCase_ == 9) {
+         return (com.xh.demo.grpc.WrTy.InstanceInfo) item_;
+      }
+      return com.xh.demo.grpc.WrTy.InstanceInfo.getDefaultInstance();
+    }
+    /**
+     * <code>.com.xh.demo.grpc.InstanceInfo instanceInfo = 9;</code>
+     */
+    public com.xh.demo.grpc.WrTy.InstanceInfoOrBuilder getInstanceInfoOrBuilder() {
+      if (itemCase_ == 9) {
+         return (com.xh.demo.grpc.WrTy.InstanceInfo) item_;
+      }
+      return com.xh.demo.grpc.WrTy.InstanceInfo.getDefaultInstance();
+    }
+
+    public static final int INTERESTREGISTRATION_FIELD_NUMBER = 10;
+    /**
+     * <code>.com.xh.demo.grpc.InterestRegistration interestRegistration = 10;</code>
+     */
+    public boolean hasInterestRegistration() {
+      return itemCase_ == 10;
+    }
+    /**
+     * <code>.com.xh.demo.grpc.InterestRegistration interestRegistration = 10;</code>
+     */
+    public com.xh.demo.grpc.WrTy.InterestRegistration getInterestRegistration() {
+      if (itemCase_ == 10) {
+         return (com.xh.demo.grpc.WrTy.InterestRegistration) item_;
+      }
+      return com.xh.demo.grpc.WrTy.InterestRegistration.getDefaultInstance();
+    }
+    /**
+     * <code>.com.xh.demo.grpc.InterestRegistration interestRegistration = 10;</code>
+     */
+    public com.xh.demo.grpc.WrTy.InterestRegistrationOrBuilder getInterestRegistrationOrBuilder() {
+      if (itemCase_ == 10) {
+         return (com.xh.demo.grpc.WrTy.InterestRegistration) item_;
+      }
+      return com.xh.demo.grpc.WrTy.InterestRegistration.getDefaultInstance();
+    }
+
+    public static final int CHANGENOTIFICATION_FIELD_NUMBER = 11;
+    /**
+     * <code>.com.xh.demo.grpc.ChangeNotification changeNotification = 11;</code>
+     */
+    public boolean hasChangeNotification() {
+      return itemCase_ == 11;
+    }
+    /**
+     * <code>.com.xh.demo.grpc.ChangeNotification changeNotification = 11;</code>
+     */
+    public com.xh.demo.grpc.WrTy.ChangeNotification getChangeNotification() {
+      if (itemCase_ == 11) {
+         return (com.xh.demo.grpc.WrTy.ChangeNotification) item_;
+      }
+      return com.xh.demo.grpc.WrTy.ChangeNotification.getDefaultInstance();
+    }
+    /**
+     * <code>.com.xh.demo.grpc.ChangeNotification changeNotification = 11;</code>
+     */
+    public com.xh.demo.grpc.WrTy.ChangeNotificationOrBuilder getChangeNotificationOrBuilder() {
+      if (itemCase_ == 11) {
+         return (com.xh.demo.grpc.WrTy.ChangeNotification) item_;
+      }
+      return com.xh.demo.grpc.WrTy.ChangeNotification.getDefaultInstance();
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (protocolType_ != com.xh.demo.grpc.WrTy.Request.ProtocolType.Registration.getNumber()) {
+        output.writeEnum(1, protocolType_);
+      }
+      if (itemCase_ == 2) {
+        output.writeMessage(2, (com.xh.demo.grpc.WrTy.Acknowledgement) item_);
+      }
+      if (itemCase_ == 4) {
+        output.writeMessage(4, (com.xh.demo.grpc.WrTy.Heartbeat) item_);
+      }
+      if (itemCase_ == 5) {
+        output.writeMessage(5, (com.xh.demo.grpc.WrTy.ClientHello) item_);
+      }
+      if (itemCase_ == 7) {
+        output.writeMessage(7, (com.xh.demo.grpc.WrTy.ServerHello) item_);
+      }
+      if (itemCase_ == 9) {
+        output.writeMessage(9, (com.xh.demo.grpc.WrTy.InstanceInfo) item_);
+      }
+      if (itemCase_ == 10) {
+        output.writeMessage(10, (com.xh.demo.grpc.WrTy.InterestRegistration) item_);
+      }
+      if (itemCase_ == 11) {
+        output.writeMessage(11, (com.xh.demo.grpc.WrTy.ChangeNotification) item_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (protocolType_ != com.xh.demo.grpc.WrTy.Request.ProtocolType.Registration.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(1, protocolType_);
+      }
+      if (itemCase_ == 2) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, (com.xh.demo.grpc.WrTy.Acknowledgement) item_);
+      }
+      if (itemCase_ == 4) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, (com.xh.demo.grpc.WrTy.Heartbeat) item_);
+      }
+      if (itemCase_ == 5) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(5, (com.xh.demo.grpc.WrTy.ClientHello) item_);
+      }
+      if (itemCase_ == 7) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(7, (com.xh.demo.grpc.WrTy.ServerHello) item_);
+      }
+      if (itemCase_ == 9) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(9, (com.xh.demo.grpc.WrTy.InstanceInfo) item_);
+      }
+      if (itemCase_ == 10) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(10, (com.xh.demo.grpc.WrTy.InterestRegistration) item_);
+      }
+      if (itemCase_ == 11) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(11, (com.xh.demo.grpc.WrTy.ChangeNotification) item_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.xh.demo.grpc.WrTy.Request)) {
+        return super.equals(obj);
+      }
+      com.xh.demo.grpc.WrTy.Request other = (com.xh.demo.grpc.WrTy.Request) obj;
+
+      if (protocolType_ != other.protocolType_) return false;
+      if (!getItemCase().equals(other.getItemCase())) return false;
+      switch (itemCase_) {
+        case 2:
+          if (!getAcknowledgement()
+              .equals(other.getAcknowledgement())) return false;
+          break;
+        case 4:
+          if (!getHeartbeat()
+              .equals(other.getHeartbeat())) return false;
+          break;
+        case 5:
+          if (!getClientHello()
+              .equals(other.getClientHello())) return false;
+          break;
+        case 7:
+          if (!getServerHello()
+              .equals(other.getServerHello())) return false;
+          break;
+        case 9:
+          if (!getInstanceInfo()
+              .equals(other.getInstanceInfo())) return false;
+          break;
+        case 10:
+          if (!getInterestRegistration()
+              .equals(other.getInterestRegistration())) return false;
+          break;
+        case 11:
+          if (!getChangeNotification()
+              .equals(other.getChangeNotification())) return false;
+          break;
+        case 0:
+        default:
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + PROTOCOLTYPE_FIELD_NUMBER;
+      hash = (53 * hash) + protocolType_;
+      switch (itemCase_) {
+        case 2:
+          hash = (37 * hash) + ACKNOWLEDGEMENT_FIELD_NUMBER;
+          hash = (53 * hash) + getAcknowledgement().hashCode();
+          break;
+        case 4:
+          hash = (37 * hash) + HEARTBEAT_FIELD_NUMBER;
+          hash = (53 * hash) + getHeartbeat().hashCode();
+          break;
+        case 5:
+          hash = (37 * hash) + CLIENTHELLO_FIELD_NUMBER;
+          hash = (53 * hash) + getClientHello().hashCode();
+          break;
+        case 7:
+          hash = (37 * hash) + SERVERHELLO_FIELD_NUMBER;
+          hash = (53 * hash) + getServerHello().hashCode();
+          break;
+        case 9:
+          hash = (37 * hash) + INSTANCEINFO_FIELD_NUMBER;
+          hash = (53 * hash) + getInstanceInfo().hashCode();
+          break;
+        case 10:
+          hash = (37 * hash) + INTERESTREGISTRATION_FIELD_NUMBER;
+          hash = (53 * hash) + getInterestRegistration().hashCode();
+          break;
+        case 11:
+          hash = (37 * hash) + CHANGENOTIFICATION_FIELD_NUMBER;
+          hash = (53 * hash) + getChangeNotification().hashCode();
+          break;
+        case 0:
+        default:
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.xh.demo.grpc.WrTy.Request parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.xh.demo.grpc.WrTy.Request parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.xh.demo.grpc.WrTy.Request parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.xh.demo.grpc.WrTy.Request parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.xh.demo.grpc.WrTy.Request parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.xh.demo.grpc.WrTy.Request parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.xh.demo.grpc.WrTy.Request parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.xh.demo.grpc.WrTy.Request parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.xh.demo.grpc.WrTy.Request parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.xh.demo.grpc.WrTy.Request parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.xh.demo.grpc.WrTy.Request parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.xh.demo.grpc.WrTy.Request parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.xh.demo.grpc.WrTy.Request prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.xh.demo.grpc.Request}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.xh.demo.grpc.Request)
+        com.xh.demo.grpc.WrTy.RequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.xh.demo.grpc.WrTy.internal_static_com_xh_demo_grpc_Request_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.xh.demo.grpc.WrTy.internal_static_com_xh_demo_grpc_Request_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.xh.demo.grpc.WrTy.Request.class, com.xh.demo.grpc.WrTy.Request.Builder.class);
+      }
+
+      // Construct using com.xh.demo.grpc.WrTy.Request.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        protocolType_ = 0;
+
+        itemCase_ = 0;
+        item_ = null;
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.xh.demo.grpc.WrTy.internal_static_com_xh_demo_grpc_Request_descriptor;
+      }
+
+      @java.lang.Override
+      public com.xh.demo.grpc.WrTy.Request getDefaultInstanceForType() {
+        return com.xh.demo.grpc.WrTy.Request.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.xh.demo.grpc.WrTy.Request build() {
+        com.xh.demo.grpc.WrTy.Request result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.xh.demo.grpc.WrTy.Request buildPartial() {
+        com.xh.demo.grpc.WrTy.Request result = new com.xh.demo.grpc.WrTy.Request(this);
+        result.protocolType_ = protocolType_;
+        if (itemCase_ == 2) {
+          if (acknowledgementBuilder_ == null) {
+            result.item_ = item_;
+          } else {
+            result.item_ = acknowledgementBuilder_.build();
+          }
+        }
+        if (itemCase_ == 4) {
+          if (heartbeatBuilder_ == null) {
+            result.item_ = item_;
+          } else {
+            result.item_ = heartbeatBuilder_.build();
+          }
+        }
+        if (itemCase_ == 5) {
+          if (clientHelloBuilder_ == null) {
+            result.item_ = item_;
+          } else {
+            result.item_ = clientHelloBuilder_.build();
+          }
+        }
+        if (itemCase_ == 7) {
+          if (serverHelloBuilder_ == null) {
+            result.item_ = item_;
+          } else {
+            result.item_ = serverHelloBuilder_.build();
+          }
+        }
+        if (itemCase_ == 9) {
+          if (instanceInfoBuilder_ == null) {
+            result.item_ = item_;
+          } else {
+            result.item_ = instanceInfoBuilder_.build();
+          }
+        }
+        if (itemCase_ == 10) {
+          if (interestRegistrationBuilder_ == null) {
+            result.item_ = item_;
+          } else {
+            result.item_ = interestRegistrationBuilder_.build();
+          }
+        }
+        if (itemCase_ == 11) {
+          if (changeNotificationBuilder_ == null) {
+            result.item_ = item_;
+          } else {
+            result.item_ = changeNotificationBuilder_.build();
+          }
+        }
+        result.itemCase_ = itemCase_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.xh.demo.grpc.WrTy.Request) {
+          return mergeFrom((com.xh.demo.grpc.WrTy.Request)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.xh.demo.grpc.WrTy.Request other) {
+        if (other == com.xh.demo.grpc.WrTy.Request.getDefaultInstance()) return this;
+        if (other.protocolType_ != 0) {
+          setProtocolTypeValue(other.getProtocolTypeValue());
+        }
+        switch (other.getItemCase()) {
+          case ACKNOWLEDGEMENT: {
+            mergeAcknowledgement(other.getAcknowledgement());
+            break;
+          }
+          case HEARTBEAT: {
+            mergeHeartbeat(other.getHeartbeat());
+            break;
+          }
+          case CLIENTHELLO: {
+            mergeClientHello(other.getClientHello());
+            break;
+          }
+          case SERVERHELLO: {
+            mergeServerHello(other.getServerHello());
+            break;
+          }
+          case INSTANCEINFO: {
+            mergeInstanceInfo(other.getInstanceInfo());
+            break;
+          }
+          case INTERESTREGISTRATION: {
+            mergeInterestRegistration(other.getInterestRegistration());
+            break;
+          }
+          case CHANGENOTIFICATION: {
+            mergeChangeNotification(other.getChangeNotification());
+            break;
+          }
+          case ITEM_NOT_SET: {
+            break;
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.xh.demo.grpc.WrTy.Request parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.xh.demo.grpc.WrTy.Request) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int itemCase_ = 0;
+      private java.lang.Object item_;
+      public ItemCase
+          getItemCase() {
+        return ItemCase.forNumber(
+            itemCase_);
+      }
+
+      public Builder clearItem() {
+        itemCase_ = 0;
+        item_ = null;
+        onChanged();
+        return this;
+      }
+
+
+      private int protocolType_ = 0;
+      /**
+       * <code>.com.xh.demo.grpc.Request.ProtocolType protocolType = 1;</code>
+       */
+      public int getProtocolTypeValue() {
+        return protocolType_;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.Request.ProtocolType protocolType = 1;</code>
+       */
+      public Builder setProtocolTypeValue(int value) {
+        protocolType_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.Request.ProtocolType protocolType = 1;</code>
+       */
+      public com.xh.demo.grpc.WrTy.Request.ProtocolType getProtocolType() {
+        @SuppressWarnings("deprecation")
+        com.xh.demo.grpc.WrTy.Request.ProtocolType result = com.xh.demo.grpc.WrTy.Request.ProtocolType.valueOf(protocolType_);
+        return result == null ? com.xh.demo.grpc.WrTy.Request.ProtocolType.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.Request.ProtocolType protocolType = 1;</code>
+       */
+      public Builder setProtocolType(com.xh.demo.grpc.WrTy.Request.ProtocolType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        protocolType_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.Request.ProtocolType protocolType = 1;</code>
+       */
+      public Builder clearProtocolType() {
+        
+        protocolType_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.xh.demo.grpc.WrTy.Acknowledgement, com.xh.demo.grpc.WrTy.Acknowledgement.Builder, com.xh.demo.grpc.WrTy.AcknowledgementOrBuilder> acknowledgementBuilder_;
+      /**
+       * <code>.com.xh.demo.grpc.Acknowledgement acknowledgement = 2;</code>
+       */
+      public boolean hasAcknowledgement() {
+        return itemCase_ == 2;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.Acknowledgement acknowledgement = 2;</code>
+       */
+      public com.xh.demo.grpc.WrTy.Acknowledgement getAcknowledgement() {
+        if (acknowledgementBuilder_ == null) {
+          if (itemCase_ == 2) {
+            return (com.xh.demo.grpc.WrTy.Acknowledgement) item_;
+          }
+          return com.xh.demo.grpc.WrTy.Acknowledgement.getDefaultInstance();
+        } else {
+          if (itemCase_ == 2) {
+            return acknowledgementBuilder_.getMessage();
+          }
+          return com.xh.demo.grpc.WrTy.Acknowledgement.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.com.xh.demo.grpc.Acknowledgement acknowledgement = 2;</code>
+       */
+      public Builder setAcknowledgement(com.xh.demo.grpc.WrTy.Acknowledgement value) {
+        if (acknowledgementBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          item_ = value;
+          onChanged();
+        } else {
+          acknowledgementBuilder_.setMessage(value);
+        }
+        itemCase_ = 2;
+        return this;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.Acknowledgement acknowledgement = 2;</code>
+       */
+      public Builder setAcknowledgement(
+          com.xh.demo.grpc.WrTy.Acknowledgement.Builder builderForValue) {
+        if (acknowledgementBuilder_ == null) {
+          item_ = builderForValue.build();
+          onChanged();
+        } else {
+          acknowledgementBuilder_.setMessage(builderForValue.build());
+        }
+        itemCase_ = 2;
+        return this;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.Acknowledgement acknowledgement = 2;</code>
+       */
+      public Builder mergeAcknowledgement(com.xh.demo.grpc.WrTy.Acknowledgement value) {
+        if (acknowledgementBuilder_ == null) {
+          if (itemCase_ == 2 &&
+              item_ != com.xh.demo.grpc.WrTy.Acknowledgement.getDefaultInstance()) {
+            item_ = com.xh.demo.grpc.WrTy.Acknowledgement.newBuilder((com.xh.demo.grpc.WrTy.Acknowledgement) item_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            item_ = value;
+          }
+          onChanged();
+        } else {
+          if (itemCase_ == 2) {
+            acknowledgementBuilder_.mergeFrom(value);
+          }
+          acknowledgementBuilder_.setMessage(value);
+        }
+        itemCase_ = 2;
+        return this;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.Acknowledgement acknowledgement = 2;</code>
+       */
+      public Builder clearAcknowledgement() {
+        if (acknowledgementBuilder_ == null) {
+          if (itemCase_ == 2) {
+            itemCase_ = 0;
+            item_ = null;
+            onChanged();
+          }
+        } else {
+          if (itemCase_ == 2) {
+            itemCase_ = 0;
+            item_ = null;
+          }
+          acknowledgementBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.Acknowledgement acknowledgement = 2;</code>
+       */
+      public com.xh.demo.grpc.WrTy.Acknowledgement.Builder getAcknowledgementBuilder() {
+        return getAcknowledgementFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.com.xh.demo.grpc.Acknowledgement acknowledgement = 2;</code>
+       */
+      public com.xh.demo.grpc.WrTy.AcknowledgementOrBuilder getAcknowledgementOrBuilder() {
+        if ((itemCase_ == 2) && (acknowledgementBuilder_ != null)) {
+          return acknowledgementBuilder_.getMessageOrBuilder();
+        } else {
+          if (itemCase_ == 2) {
+            return (com.xh.demo.grpc.WrTy.Acknowledgement) item_;
+          }
+          return com.xh.demo.grpc.WrTy.Acknowledgement.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.com.xh.demo.grpc.Acknowledgement acknowledgement = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.xh.demo.grpc.WrTy.Acknowledgement, com.xh.demo.grpc.WrTy.Acknowledgement.Builder, com.xh.demo.grpc.WrTy.AcknowledgementOrBuilder> 
+          getAcknowledgementFieldBuilder() {
+        if (acknowledgementBuilder_ == null) {
+          if (!(itemCase_ == 2)) {
+            item_ = com.xh.demo.grpc.WrTy.Acknowledgement.getDefaultInstance();
+          }
+          acknowledgementBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.xh.demo.grpc.WrTy.Acknowledgement, com.xh.demo.grpc.WrTy.Acknowledgement.Builder, com.xh.demo.grpc.WrTy.AcknowledgementOrBuilder>(
+                  (com.xh.demo.grpc.WrTy.Acknowledgement) item_,
+                  getParentForChildren(),
+                  isClean());
+          item_ = null;
+        }
+        itemCase_ = 2;
+        onChanged();;
+        return acknowledgementBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.xh.demo.grpc.WrTy.Heartbeat, com.xh.demo.grpc.WrTy.Heartbeat.Builder, com.xh.demo.grpc.WrTy.HeartbeatOrBuilder> heartbeatBuilder_;
+      /**
+       * <code>.com.xh.demo.grpc.Heartbeat heartbeat = 4;</code>
+       */
+      public boolean hasHeartbeat() {
+        return itemCase_ == 4;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.Heartbeat heartbeat = 4;</code>
+       */
+      public com.xh.demo.grpc.WrTy.Heartbeat getHeartbeat() {
+        if (heartbeatBuilder_ == null) {
+          if (itemCase_ == 4) {
+            return (com.xh.demo.grpc.WrTy.Heartbeat) item_;
+          }
+          return com.xh.demo.grpc.WrTy.Heartbeat.getDefaultInstance();
+        } else {
+          if (itemCase_ == 4) {
+            return heartbeatBuilder_.getMessage();
+          }
+          return com.xh.demo.grpc.WrTy.Heartbeat.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.com.xh.demo.grpc.Heartbeat heartbeat = 4;</code>
+       */
+      public Builder setHeartbeat(com.xh.demo.grpc.WrTy.Heartbeat value) {
+        if (heartbeatBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          item_ = value;
+          onChanged();
+        } else {
+          heartbeatBuilder_.setMessage(value);
+        }
+        itemCase_ = 4;
+        return this;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.Heartbeat heartbeat = 4;</code>
+       */
+      public Builder setHeartbeat(
+          com.xh.demo.grpc.WrTy.Heartbeat.Builder builderForValue) {
+        if (heartbeatBuilder_ == null) {
+          item_ = builderForValue.build();
+          onChanged();
+        } else {
+          heartbeatBuilder_.setMessage(builderForValue.build());
+        }
+        itemCase_ = 4;
+        return this;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.Heartbeat heartbeat = 4;</code>
+       */
+      public Builder mergeHeartbeat(com.xh.demo.grpc.WrTy.Heartbeat value) {
+        if (heartbeatBuilder_ == null) {
+          if (itemCase_ == 4 &&
+              item_ != com.xh.demo.grpc.WrTy.Heartbeat.getDefaultInstance()) {
+            item_ = com.xh.demo.grpc.WrTy.Heartbeat.newBuilder((com.xh.demo.grpc.WrTy.Heartbeat) item_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            item_ = value;
+          }
+          onChanged();
+        } else {
+          if (itemCase_ == 4) {
+            heartbeatBuilder_.mergeFrom(value);
+          }
+          heartbeatBuilder_.setMessage(value);
+        }
+        itemCase_ = 4;
+        return this;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.Heartbeat heartbeat = 4;</code>
+       */
+      public Builder clearHeartbeat() {
+        if (heartbeatBuilder_ == null) {
+          if (itemCase_ == 4) {
+            itemCase_ = 0;
+            item_ = null;
+            onChanged();
+          }
+        } else {
+          if (itemCase_ == 4) {
+            itemCase_ = 0;
+            item_ = null;
+          }
+          heartbeatBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.Heartbeat heartbeat = 4;</code>
+       */
+      public com.xh.demo.grpc.WrTy.Heartbeat.Builder getHeartbeatBuilder() {
+        return getHeartbeatFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.com.xh.demo.grpc.Heartbeat heartbeat = 4;</code>
+       */
+      public com.xh.demo.grpc.WrTy.HeartbeatOrBuilder getHeartbeatOrBuilder() {
+        if ((itemCase_ == 4) && (heartbeatBuilder_ != null)) {
+          return heartbeatBuilder_.getMessageOrBuilder();
+        } else {
+          if (itemCase_ == 4) {
+            return (com.xh.demo.grpc.WrTy.Heartbeat) item_;
+          }
+          return com.xh.demo.grpc.WrTy.Heartbeat.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.com.xh.demo.grpc.Heartbeat heartbeat = 4;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.xh.demo.grpc.WrTy.Heartbeat, com.xh.demo.grpc.WrTy.Heartbeat.Builder, com.xh.demo.grpc.WrTy.HeartbeatOrBuilder> 
+          getHeartbeatFieldBuilder() {
+        if (heartbeatBuilder_ == null) {
+          if (!(itemCase_ == 4)) {
+            item_ = com.xh.demo.grpc.WrTy.Heartbeat.getDefaultInstance();
+          }
+          heartbeatBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.xh.demo.grpc.WrTy.Heartbeat, com.xh.demo.grpc.WrTy.Heartbeat.Builder, com.xh.demo.grpc.WrTy.HeartbeatOrBuilder>(
+                  (com.xh.demo.grpc.WrTy.Heartbeat) item_,
+                  getParentForChildren(),
+                  isClean());
+          item_ = null;
+        }
+        itemCase_ = 4;
+        onChanged();;
+        return heartbeatBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.xh.demo.grpc.WrTy.ClientHello, com.xh.demo.grpc.WrTy.ClientHello.Builder, com.xh.demo.grpc.WrTy.ClientHelloOrBuilder> clientHelloBuilder_;
+      /**
+       * <code>.com.xh.demo.grpc.ClientHello clientHello = 5;</code>
+       */
+      public boolean hasClientHello() {
+        return itemCase_ == 5;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.ClientHello clientHello = 5;</code>
+       */
+      public com.xh.demo.grpc.WrTy.ClientHello getClientHello() {
+        if (clientHelloBuilder_ == null) {
+          if (itemCase_ == 5) {
+            return (com.xh.demo.grpc.WrTy.ClientHello) item_;
+          }
+          return com.xh.demo.grpc.WrTy.ClientHello.getDefaultInstance();
+        } else {
+          if (itemCase_ == 5) {
+            return clientHelloBuilder_.getMessage();
+          }
+          return com.xh.demo.grpc.WrTy.ClientHello.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.com.xh.demo.grpc.ClientHello clientHello = 5;</code>
+       */
+      public Builder setClientHello(com.xh.demo.grpc.WrTy.ClientHello value) {
+        if (clientHelloBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          item_ = value;
+          onChanged();
+        } else {
+          clientHelloBuilder_.setMessage(value);
+        }
+        itemCase_ = 5;
+        return this;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.ClientHello clientHello = 5;</code>
+       */
+      public Builder setClientHello(
+          com.xh.demo.grpc.WrTy.ClientHello.Builder builderForValue) {
+        if (clientHelloBuilder_ == null) {
+          item_ = builderForValue.build();
+          onChanged();
+        } else {
+          clientHelloBuilder_.setMessage(builderForValue.build());
+        }
+        itemCase_ = 5;
+        return this;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.ClientHello clientHello = 5;</code>
+       */
+      public Builder mergeClientHello(com.xh.demo.grpc.WrTy.ClientHello value) {
+        if (clientHelloBuilder_ == null) {
+          if (itemCase_ == 5 &&
+              item_ != com.xh.demo.grpc.WrTy.ClientHello.getDefaultInstance()) {
+            item_ = com.xh.demo.grpc.WrTy.ClientHello.newBuilder((com.xh.demo.grpc.WrTy.ClientHello) item_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            item_ = value;
+          }
+          onChanged();
+        } else {
+          if (itemCase_ == 5) {
+            clientHelloBuilder_.mergeFrom(value);
+          }
+          clientHelloBuilder_.setMessage(value);
+        }
+        itemCase_ = 5;
+        return this;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.ClientHello clientHello = 5;</code>
+       */
+      public Builder clearClientHello() {
+        if (clientHelloBuilder_ == null) {
+          if (itemCase_ == 5) {
+            itemCase_ = 0;
+            item_ = null;
+            onChanged();
+          }
+        } else {
+          if (itemCase_ == 5) {
+            itemCase_ = 0;
+            item_ = null;
+          }
+          clientHelloBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.ClientHello clientHello = 5;</code>
+       */
+      public com.xh.demo.grpc.WrTy.ClientHello.Builder getClientHelloBuilder() {
+        return getClientHelloFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.com.xh.demo.grpc.ClientHello clientHello = 5;</code>
+       */
+      public com.xh.demo.grpc.WrTy.ClientHelloOrBuilder getClientHelloOrBuilder() {
+        if ((itemCase_ == 5) && (clientHelloBuilder_ != null)) {
+          return clientHelloBuilder_.getMessageOrBuilder();
+        } else {
+          if (itemCase_ == 5) {
+            return (com.xh.demo.grpc.WrTy.ClientHello) item_;
+          }
+          return com.xh.demo.grpc.WrTy.ClientHello.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.com.xh.demo.grpc.ClientHello clientHello = 5;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.xh.demo.grpc.WrTy.ClientHello, com.xh.demo.grpc.WrTy.ClientHello.Builder, com.xh.demo.grpc.WrTy.ClientHelloOrBuilder> 
+          getClientHelloFieldBuilder() {
+        if (clientHelloBuilder_ == null) {
+          if (!(itemCase_ == 5)) {
+            item_ = com.xh.demo.grpc.WrTy.ClientHello.getDefaultInstance();
+          }
+          clientHelloBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.xh.demo.grpc.WrTy.ClientHello, com.xh.demo.grpc.WrTy.ClientHello.Builder, com.xh.demo.grpc.WrTy.ClientHelloOrBuilder>(
+                  (com.xh.demo.grpc.WrTy.ClientHello) item_,
+                  getParentForChildren(),
+                  isClean());
+          item_ = null;
+        }
+        itemCase_ = 5;
+        onChanged();;
+        return clientHelloBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.xh.demo.grpc.WrTy.ServerHello, com.xh.demo.grpc.WrTy.ServerHello.Builder, com.xh.demo.grpc.WrTy.ServerHelloOrBuilder> serverHelloBuilder_;
+      /**
+       * <code>.com.xh.demo.grpc.ServerHello serverHello = 7;</code>
+       */
+      public boolean hasServerHello() {
+        return itemCase_ == 7;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.ServerHello serverHello = 7;</code>
+       */
+      public com.xh.demo.grpc.WrTy.ServerHello getServerHello() {
+        if (serverHelloBuilder_ == null) {
+          if (itemCase_ == 7) {
+            return (com.xh.demo.grpc.WrTy.ServerHello) item_;
+          }
+          return com.xh.demo.grpc.WrTy.ServerHello.getDefaultInstance();
+        } else {
+          if (itemCase_ == 7) {
+            return serverHelloBuilder_.getMessage();
+          }
+          return com.xh.demo.grpc.WrTy.ServerHello.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.com.xh.demo.grpc.ServerHello serverHello = 7;</code>
+       */
+      public Builder setServerHello(com.xh.demo.grpc.WrTy.ServerHello value) {
+        if (serverHelloBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          item_ = value;
+          onChanged();
+        } else {
+          serverHelloBuilder_.setMessage(value);
+        }
+        itemCase_ = 7;
+        return this;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.ServerHello serverHello = 7;</code>
+       */
+      public Builder setServerHello(
+          com.xh.demo.grpc.WrTy.ServerHello.Builder builderForValue) {
+        if (serverHelloBuilder_ == null) {
+          item_ = builderForValue.build();
+          onChanged();
+        } else {
+          serverHelloBuilder_.setMessage(builderForValue.build());
+        }
+        itemCase_ = 7;
+        return this;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.ServerHello serverHello = 7;</code>
+       */
+      public Builder mergeServerHello(com.xh.demo.grpc.WrTy.ServerHello value) {
+        if (serverHelloBuilder_ == null) {
+          if (itemCase_ == 7 &&
+              item_ != com.xh.demo.grpc.WrTy.ServerHello.getDefaultInstance()) {
+            item_ = com.xh.demo.grpc.WrTy.ServerHello.newBuilder((com.xh.demo.grpc.WrTy.ServerHello) item_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            item_ = value;
+          }
+          onChanged();
+        } else {
+          if (itemCase_ == 7) {
+            serverHelloBuilder_.mergeFrom(value);
+          }
+          serverHelloBuilder_.setMessage(value);
+        }
+        itemCase_ = 7;
+        return this;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.ServerHello serverHello = 7;</code>
+       */
+      public Builder clearServerHello() {
+        if (serverHelloBuilder_ == null) {
+          if (itemCase_ == 7) {
+            itemCase_ = 0;
+            item_ = null;
+            onChanged();
+          }
+        } else {
+          if (itemCase_ == 7) {
+            itemCase_ = 0;
+            item_ = null;
+          }
+          serverHelloBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.ServerHello serverHello = 7;</code>
+       */
+      public com.xh.demo.grpc.WrTy.ServerHello.Builder getServerHelloBuilder() {
+        return getServerHelloFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.com.xh.demo.grpc.ServerHello serverHello = 7;</code>
+       */
+      public com.xh.demo.grpc.WrTy.ServerHelloOrBuilder getServerHelloOrBuilder() {
+        if ((itemCase_ == 7) && (serverHelloBuilder_ != null)) {
+          return serverHelloBuilder_.getMessageOrBuilder();
+        } else {
+          if (itemCase_ == 7) {
+            return (com.xh.demo.grpc.WrTy.ServerHello) item_;
+          }
+          return com.xh.demo.grpc.WrTy.ServerHello.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.com.xh.demo.grpc.ServerHello serverHello = 7;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.xh.demo.grpc.WrTy.ServerHello, com.xh.demo.grpc.WrTy.ServerHello.Builder, com.xh.demo.grpc.WrTy.ServerHelloOrBuilder> 
+          getServerHelloFieldBuilder() {
+        if (serverHelloBuilder_ == null) {
+          if (!(itemCase_ == 7)) {
+            item_ = com.xh.demo.grpc.WrTy.ServerHello.getDefaultInstance();
+          }
+          serverHelloBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.xh.demo.grpc.WrTy.ServerHello, com.xh.demo.grpc.WrTy.ServerHello.Builder, com.xh.demo.grpc.WrTy.ServerHelloOrBuilder>(
+                  (com.xh.demo.grpc.WrTy.ServerHello) item_,
+                  getParentForChildren(),
+                  isClean());
+          item_ = null;
+        }
+        itemCase_ = 7;
+        onChanged();;
+        return serverHelloBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.xh.demo.grpc.WrTy.InstanceInfo, com.xh.demo.grpc.WrTy.InstanceInfo.Builder, com.xh.demo.grpc.WrTy.InstanceInfoOrBuilder> instanceInfoBuilder_;
+      /**
+       * <code>.com.xh.demo.grpc.InstanceInfo instanceInfo = 9;</code>
+       */
+      public boolean hasInstanceInfo() {
+        return itemCase_ == 9;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.InstanceInfo instanceInfo = 9;</code>
+       */
+      public com.xh.demo.grpc.WrTy.InstanceInfo getInstanceInfo() {
+        if (instanceInfoBuilder_ == null) {
+          if (itemCase_ == 9) {
+            return (com.xh.demo.grpc.WrTy.InstanceInfo) item_;
+          }
+          return com.xh.demo.grpc.WrTy.InstanceInfo.getDefaultInstance();
+        } else {
+          if (itemCase_ == 9) {
+            return instanceInfoBuilder_.getMessage();
+          }
+          return com.xh.demo.grpc.WrTy.InstanceInfo.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.com.xh.demo.grpc.InstanceInfo instanceInfo = 9;</code>
+       */
+      public Builder setInstanceInfo(com.xh.demo.grpc.WrTy.InstanceInfo value) {
+        if (instanceInfoBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          item_ = value;
+          onChanged();
+        } else {
+          instanceInfoBuilder_.setMessage(value);
+        }
+        itemCase_ = 9;
+        return this;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.InstanceInfo instanceInfo = 9;</code>
+       */
+      public Builder setInstanceInfo(
+          com.xh.demo.grpc.WrTy.InstanceInfo.Builder builderForValue) {
+        if (instanceInfoBuilder_ == null) {
+          item_ = builderForValue.build();
+          onChanged();
+        } else {
+          instanceInfoBuilder_.setMessage(builderForValue.build());
+        }
+        itemCase_ = 9;
+        return this;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.InstanceInfo instanceInfo = 9;</code>
+       */
+      public Builder mergeInstanceInfo(com.xh.demo.grpc.WrTy.InstanceInfo value) {
+        if (instanceInfoBuilder_ == null) {
+          if (itemCase_ == 9 &&
+              item_ != com.xh.demo.grpc.WrTy.InstanceInfo.getDefaultInstance()) {
+            item_ = com.xh.demo.grpc.WrTy.InstanceInfo.newBuilder((com.xh.demo.grpc.WrTy.InstanceInfo) item_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            item_ = value;
+          }
+          onChanged();
+        } else {
+          if (itemCase_ == 9) {
+            instanceInfoBuilder_.mergeFrom(value);
+          }
+          instanceInfoBuilder_.setMessage(value);
+        }
+        itemCase_ = 9;
+        return this;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.InstanceInfo instanceInfo = 9;</code>
+       */
+      public Builder clearInstanceInfo() {
+        if (instanceInfoBuilder_ == null) {
+          if (itemCase_ == 9) {
+            itemCase_ = 0;
+            item_ = null;
+            onChanged();
+          }
+        } else {
+          if (itemCase_ == 9) {
+            itemCase_ = 0;
+            item_ = null;
+          }
+          instanceInfoBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.InstanceInfo instanceInfo = 9;</code>
+       */
+      public com.xh.demo.grpc.WrTy.InstanceInfo.Builder getInstanceInfoBuilder() {
+        return getInstanceInfoFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.com.xh.demo.grpc.InstanceInfo instanceInfo = 9;</code>
+       */
+      public com.xh.demo.grpc.WrTy.InstanceInfoOrBuilder getInstanceInfoOrBuilder() {
+        if ((itemCase_ == 9) && (instanceInfoBuilder_ != null)) {
+          return instanceInfoBuilder_.getMessageOrBuilder();
+        } else {
+          if (itemCase_ == 9) {
+            return (com.xh.demo.grpc.WrTy.InstanceInfo) item_;
+          }
+          return com.xh.demo.grpc.WrTy.InstanceInfo.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.com.xh.demo.grpc.InstanceInfo instanceInfo = 9;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.xh.demo.grpc.WrTy.InstanceInfo, com.xh.demo.grpc.WrTy.InstanceInfo.Builder, com.xh.demo.grpc.WrTy.InstanceInfoOrBuilder> 
+          getInstanceInfoFieldBuilder() {
+        if (instanceInfoBuilder_ == null) {
+          if (!(itemCase_ == 9)) {
+            item_ = com.xh.demo.grpc.WrTy.InstanceInfo.getDefaultInstance();
+          }
+          instanceInfoBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.xh.demo.grpc.WrTy.InstanceInfo, com.xh.demo.grpc.WrTy.InstanceInfo.Builder, com.xh.demo.grpc.WrTy.InstanceInfoOrBuilder>(
+                  (com.xh.demo.grpc.WrTy.InstanceInfo) item_,
+                  getParentForChildren(),
+                  isClean());
+          item_ = null;
+        }
+        itemCase_ = 9;
+        onChanged();;
+        return instanceInfoBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.xh.demo.grpc.WrTy.InterestRegistration, com.xh.demo.grpc.WrTy.InterestRegistration.Builder, com.xh.demo.grpc.WrTy.InterestRegistrationOrBuilder> interestRegistrationBuilder_;
+      /**
+       * <code>.com.xh.demo.grpc.InterestRegistration interestRegistration = 10;</code>
+       */
+      public boolean hasInterestRegistration() {
+        return itemCase_ == 10;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.InterestRegistration interestRegistration = 10;</code>
+       */
+      public com.xh.demo.grpc.WrTy.InterestRegistration getInterestRegistration() {
+        if (interestRegistrationBuilder_ == null) {
+          if (itemCase_ == 10) {
+            return (com.xh.demo.grpc.WrTy.InterestRegistration) item_;
+          }
+          return com.xh.demo.grpc.WrTy.InterestRegistration.getDefaultInstance();
+        } else {
+          if (itemCase_ == 10) {
+            return interestRegistrationBuilder_.getMessage();
+          }
+          return com.xh.demo.grpc.WrTy.InterestRegistration.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.com.xh.demo.grpc.InterestRegistration interestRegistration = 10;</code>
+       */
+      public Builder setInterestRegistration(com.xh.demo.grpc.WrTy.InterestRegistration value) {
+        if (interestRegistrationBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          item_ = value;
+          onChanged();
+        } else {
+          interestRegistrationBuilder_.setMessage(value);
+        }
+        itemCase_ = 10;
+        return this;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.InterestRegistration interestRegistration = 10;</code>
+       */
+      public Builder setInterestRegistration(
+          com.xh.demo.grpc.WrTy.InterestRegistration.Builder builderForValue) {
+        if (interestRegistrationBuilder_ == null) {
+          item_ = builderForValue.build();
+          onChanged();
+        } else {
+          interestRegistrationBuilder_.setMessage(builderForValue.build());
+        }
+        itemCase_ = 10;
+        return this;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.InterestRegistration interestRegistration = 10;</code>
+       */
+      public Builder mergeInterestRegistration(com.xh.demo.grpc.WrTy.InterestRegistration value) {
+        if (interestRegistrationBuilder_ == null) {
+          if (itemCase_ == 10 &&
+              item_ != com.xh.demo.grpc.WrTy.InterestRegistration.getDefaultInstance()) {
+            item_ = com.xh.demo.grpc.WrTy.InterestRegistration.newBuilder((com.xh.demo.grpc.WrTy.InterestRegistration) item_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            item_ = value;
+          }
+          onChanged();
+        } else {
+          if (itemCase_ == 10) {
+            interestRegistrationBuilder_.mergeFrom(value);
+          }
+          interestRegistrationBuilder_.setMessage(value);
+        }
+        itemCase_ = 10;
+        return this;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.InterestRegistration interestRegistration = 10;</code>
+       */
+      public Builder clearInterestRegistration() {
+        if (interestRegistrationBuilder_ == null) {
+          if (itemCase_ == 10) {
+            itemCase_ = 0;
+            item_ = null;
+            onChanged();
+          }
+        } else {
+          if (itemCase_ == 10) {
+            itemCase_ = 0;
+            item_ = null;
+          }
+          interestRegistrationBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.InterestRegistration interestRegistration = 10;</code>
+       */
+      public com.xh.demo.grpc.WrTy.InterestRegistration.Builder getInterestRegistrationBuilder() {
+        return getInterestRegistrationFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.com.xh.demo.grpc.InterestRegistration interestRegistration = 10;</code>
+       */
+      public com.xh.demo.grpc.WrTy.InterestRegistrationOrBuilder getInterestRegistrationOrBuilder() {
+        if ((itemCase_ == 10) && (interestRegistrationBuilder_ != null)) {
+          return interestRegistrationBuilder_.getMessageOrBuilder();
+        } else {
+          if (itemCase_ == 10) {
+            return (com.xh.demo.grpc.WrTy.InterestRegistration) item_;
+          }
+          return com.xh.demo.grpc.WrTy.InterestRegistration.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.com.xh.demo.grpc.InterestRegistration interestRegistration = 10;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.xh.demo.grpc.WrTy.InterestRegistration, com.xh.demo.grpc.WrTy.InterestRegistration.Builder, com.xh.demo.grpc.WrTy.InterestRegistrationOrBuilder> 
+          getInterestRegistrationFieldBuilder() {
+        if (interestRegistrationBuilder_ == null) {
+          if (!(itemCase_ == 10)) {
+            item_ = com.xh.demo.grpc.WrTy.InterestRegistration.getDefaultInstance();
+          }
+          interestRegistrationBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.xh.demo.grpc.WrTy.InterestRegistration, com.xh.demo.grpc.WrTy.InterestRegistration.Builder, com.xh.demo.grpc.WrTy.InterestRegistrationOrBuilder>(
+                  (com.xh.demo.grpc.WrTy.InterestRegistration) item_,
+                  getParentForChildren(),
+                  isClean());
+          item_ = null;
+        }
+        itemCase_ = 10;
+        onChanged();;
+        return interestRegistrationBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.xh.demo.grpc.WrTy.ChangeNotification, com.xh.demo.grpc.WrTy.ChangeNotification.Builder, com.xh.demo.grpc.WrTy.ChangeNotificationOrBuilder> changeNotificationBuilder_;
+      /**
+       * <code>.com.xh.demo.grpc.ChangeNotification changeNotification = 11;</code>
+       */
+      public boolean hasChangeNotification() {
+        return itemCase_ == 11;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.ChangeNotification changeNotification = 11;</code>
+       */
+      public com.xh.demo.grpc.WrTy.ChangeNotification getChangeNotification() {
+        if (changeNotificationBuilder_ == null) {
+          if (itemCase_ == 11) {
+            return (com.xh.demo.grpc.WrTy.ChangeNotification) item_;
+          }
+          return com.xh.demo.grpc.WrTy.ChangeNotification.getDefaultInstance();
+        } else {
+          if (itemCase_ == 11) {
+            return changeNotificationBuilder_.getMessage();
+          }
+          return com.xh.demo.grpc.WrTy.ChangeNotification.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.com.xh.demo.grpc.ChangeNotification changeNotification = 11;</code>
+       */
+      public Builder setChangeNotification(com.xh.demo.grpc.WrTy.ChangeNotification value) {
+        if (changeNotificationBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          item_ = value;
+          onChanged();
+        } else {
+          changeNotificationBuilder_.setMessage(value);
+        }
+        itemCase_ = 11;
+        return this;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.ChangeNotification changeNotification = 11;</code>
+       */
+      public Builder setChangeNotification(
+          com.xh.demo.grpc.WrTy.ChangeNotification.Builder builderForValue) {
+        if (changeNotificationBuilder_ == null) {
+          item_ = builderForValue.build();
+          onChanged();
+        } else {
+          changeNotificationBuilder_.setMessage(builderForValue.build());
+        }
+        itemCase_ = 11;
+        return this;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.ChangeNotification changeNotification = 11;</code>
+       */
+      public Builder mergeChangeNotification(com.xh.demo.grpc.WrTy.ChangeNotification value) {
+        if (changeNotificationBuilder_ == null) {
+          if (itemCase_ == 11 &&
+              item_ != com.xh.demo.grpc.WrTy.ChangeNotification.getDefaultInstance()) {
+            item_ = com.xh.demo.grpc.WrTy.ChangeNotification.newBuilder((com.xh.demo.grpc.WrTy.ChangeNotification) item_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            item_ = value;
+          }
+          onChanged();
+        } else {
+          if (itemCase_ == 11) {
+            changeNotificationBuilder_.mergeFrom(value);
+          }
+          changeNotificationBuilder_.setMessage(value);
+        }
+        itemCase_ = 11;
+        return this;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.ChangeNotification changeNotification = 11;</code>
+       */
+      public Builder clearChangeNotification() {
+        if (changeNotificationBuilder_ == null) {
+          if (itemCase_ == 11) {
+            itemCase_ = 0;
+            item_ = null;
+            onChanged();
+          }
+        } else {
+          if (itemCase_ == 11) {
+            itemCase_ = 0;
+            item_ = null;
+          }
+          changeNotificationBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.ChangeNotification changeNotification = 11;</code>
+       */
+      public com.xh.demo.grpc.WrTy.ChangeNotification.Builder getChangeNotificationBuilder() {
+        return getChangeNotificationFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.com.xh.demo.grpc.ChangeNotification changeNotification = 11;</code>
+       */
+      public com.xh.demo.grpc.WrTy.ChangeNotificationOrBuilder getChangeNotificationOrBuilder() {
+        if ((itemCase_ == 11) && (changeNotificationBuilder_ != null)) {
+          return changeNotificationBuilder_.getMessageOrBuilder();
+        } else {
+          if (itemCase_ == 11) {
+            return (com.xh.demo.grpc.WrTy.ChangeNotification) item_;
+          }
+          return com.xh.demo.grpc.WrTy.ChangeNotification.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.com.xh.demo.grpc.ChangeNotification changeNotification = 11;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.xh.demo.grpc.WrTy.ChangeNotification, com.xh.demo.grpc.WrTy.ChangeNotification.Builder, com.xh.demo.grpc.WrTy.ChangeNotificationOrBuilder> 
+          getChangeNotificationFieldBuilder() {
+        if (changeNotificationBuilder_ == null) {
+          if (!(itemCase_ == 11)) {
+            item_ = com.xh.demo.grpc.WrTy.ChangeNotification.getDefaultInstance();
+          }
+          changeNotificationBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.xh.demo.grpc.WrTy.ChangeNotification, com.xh.demo.grpc.WrTy.ChangeNotification.Builder, com.xh.demo.grpc.WrTy.ChangeNotificationOrBuilder>(
+                  (com.xh.demo.grpc.WrTy.ChangeNotification) item_,
+                  getParentForChildren(),
+                  isClean());
+          item_ = null;
+        }
+        itemCase_ = 11;
+        onChanged();;
+        return changeNotificationBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.xh.demo.grpc.Request)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.xh.demo.grpc.Request)
+    private static final com.xh.demo.grpc.WrTy.Request DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.xh.demo.grpc.WrTy.Request();
+    }
+
+    public static com.xh.demo.grpc.WrTy.Request getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Request>
+        PARSER = new com.google.protobuf.AbstractParser<Request>() {
+      @java.lang.Override
+      public Request parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Request(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Request> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Request> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.xh.demo.grpc.WrTy.Request getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface RegistrationRequestOrBuilder extends
       // @@protoc_insertion_point(interface_extends:com.xh.demo.grpc.RegistrationRequest)
       com.google.protobuf.MessageOrBuilder {
@@ -21555,6 +25955,1519 @@ public final class WrTy {
 
   }
 
+  public interface SubscriptionOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.xh.demo.grpc.Subscription)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string pattern = 1;</code>
+     */
+    java.lang.String getPattern();
+    /**
+     * <code>string pattern = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getPatternBytes();
+
+    /**
+     * <code>.com.xh.demo.grpc.Subscription.MatchType matchType = 2;</code>
+     */
+    int getMatchTypeValue();
+    /**
+     * <code>.com.xh.demo.grpc.Subscription.MatchType matchType = 2;</code>
+     */
+    com.xh.demo.grpc.WrTy.Subscription.MatchType getMatchType();
+  }
+  /**
+   * Protobuf type {@code com.xh.demo.grpc.Subscription}
+   */
+  public  static final class Subscription extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.xh.demo.grpc.Subscription)
+      SubscriptionOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use Subscription.newBuilder() to construct.
+    private Subscription(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Subscription() {
+      pattern_ = "";
+      matchType_ = 0;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Subscription(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              pattern_ = s;
+              break;
+            }
+            case 16: {
+              int rawValue = input.readEnum();
+
+              matchType_ = rawValue;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.xh.demo.grpc.WrTy.internal_static_com_xh_demo_grpc_Subscription_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.xh.demo.grpc.WrTy.internal_static_com_xh_demo_grpc_Subscription_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.xh.demo.grpc.WrTy.Subscription.class, com.xh.demo.grpc.WrTy.Subscription.Builder.class);
+    }
+
+    /**
+     * Protobuf enum {@code com.xh.demo.grpc.Subscription.MatchType}
+     */
+    public enum MatchType
+        implements com.google.protobuf.ProtocolMessageEnum {
+      /**
+       * <code>InstanceId = 0;</code>
+       */
+      InstanceId(0),
+      UNRECOGNIZED(-1),
+      ;
+
+      /**
+       * <code>InstanceId = 0;</code>
+       */
+      public static final int InstanceId_VALUE = 0;
+
+
+      public final int getNumber() {
+        if (this == UNRECOGNIZED) {
+          throw new java.lang.IllegalArgumentException(
+              "Can't get the number of an unknown enum value.");
+        }
+        return value;
+      }
+
+      /**
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static MatchType valueOf(int value) {
+        return forNumber(value);
+      }
+
+      public static MatchType forNumber(int value) {
+        switch (value) {
+          case 0: return InstanceId;
+          default: return null;
+        }
+      }
+
+      public static com.google.protobuf.Internal.EnumLiteMap<MatchType>
+          internalGetValueMap() {
+        return internalValueMap;
+      }
+      private static final com.google.protobuf.Internal.EnumLiteMap<
+          MatchType> internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<MatchType>() {
+              public MatchType findValueByNumber(int number) {
+                return MatchType.forNumber(number);
+              }
+            };
+
+      public final com.google.protobuf.Descriptors.EnumValueDescriptor
+          getValueDescriptor() {
+        return getDescriptor().getValues().get(ordinal());
+      }
+      public final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptorForType() {
+        return getDescriptor();
+      }
+      public static final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptor() {
+        return com.xh.demo.grpc.WrTy.Subscription.getDescriptor().getEnumTypes().get(0);
+      }
+
+      private static final MatchType[] VALUES = values();
+
+      public static MatchType valueOf(
+          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+        if (desc.getType() != getDescriptor()) {
+          throw new java.lang.IllegalArgumentException(
+            "EnumValueDescriptor is not for this type.");
+        }
+        if (desc.getIndex() == -1) {
+          return UNRECOGNIZED;
+        }
+        return VALUES[desc.getIndex()];
+      }
+
+      private final int value;
+
+      private MatchType(int value) {
+        this.value = value;
+      }
+
+      // @@protoc_insertion_point(enum_scope:com.xh.demo.grpc.Subscription.MatchType)
+    }
+
+    public static final int PATTERN_FIELD_NUMBER = 1;
+    private volatile java.lang.Object pattern_;
+    /**
+     * <code>string pattern = 1;</code>
+     */
+    public java.lang.String getPattern() {
+      java.lang.Object ref = pattern_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        pattern_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string pattern = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPatternBytes() {
+      java.lang.Object ref = pattern_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        pattern_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int MATCHTYPE_FIELD_NUMBER = 2;
+    private int matchType_;
+    /**
+     * <code>.com.xh.demo.grpc.Subscription.MatchType matchType = 2;</code>
+     */
+    public int getMatchTypeValue() {
+      return matchType_;
+    }
+    /**
+     * <code>.com.xh.demo.grpc.Subscription.MatchType matchType = 2;</code>
+     */
+    public com.xh.demo.grpc.WrTy.Subscription.MatchType getMatchType() {
+      @SuppressWarnings("deprecation")
+      com.xh.demo.grpc.WrTy.Subscription.MatchType result = com.xh.demo.grpc.WrTy.Subscription.MatchType.valueOf(matchType_);
+      return result == null ? com.xh.demo.grpc.WrTy.Subscription.MatchType.UNRECOGNIZED : result;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getPatternBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, pattern_);
+      }
+      if (matchType_ != com.xh.demo.grpc.WrTy.Subscription.MatchType.InstanceId.getNumber()) {
+        output.writeEnum(2, matchType_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getPatternBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, pattern_);
+      }
+      if (matchType_ != com.xh.demo.grpc.WrTy.Subscription.MatchType.InstanceId.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(2, matchType_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.xh.demo.grpc.WrTy.Subscription)) {
+        return super.equals(obj);
+      }
+      com.xh.demo.grpc.WrTy.Subscription other = (com.xh.demo.grpc.WrTy.Subscription) obj;
+
+      if (!getPattern()
+          .equals(other.getPattern())) return false;
+      if (matchType_ != other.matchType_) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + PATTERN_FIELD_NUMBER;
+      hash = (53 * hash) + getPattern().hashCode();
+      hash = (37 * hash) + MATCHTYPE_FIELD_NUMBER;
+      hash = (53 * hash) + matchType_;
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.xh.demo.grpc.WrTy.Subscription parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.xh.demo.grpc.WrTy.Subscription parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.xh.demo.grpc.WrTy.Subscription parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.xh.demo.grpc.WrTy.Subscription parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.xh.demo.grpc.WrTy.Subscription parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.xh.demo.grpc.WrTy.Subscription parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.xh.demo.grpc.WrTy.Subscription parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.xh.demo.grpc.WrTy.Subscription parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.xh.demo.grpc.WrTy.Subscription parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.xh.demo.grpc.WrTy.Subscription parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.xh.demo.grpc.WrTy.Subscription parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.xh.demo.grpc.WrTy.Subscription parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.xh.demo.grpc.WrTy.Subscription prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.xh.demo.grpc.Subscription}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.xh.demo.grpc.Subscription)
+        com.xh.demo.grpc.WrTy.SubscriptionOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.xh.demo.grpc.WrTy.internal_static_com_xh_demo_grpc_Subscription_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.xh.demo.grpc.WrTy.internal_static_com_xh_demo_grpc_Subscription_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.xh.demo.grpc.WrTy.Subscription.class, com.xh.demo.grpc.WrTy.Subscription.Builder.class);
+      }
+
+      // Construct using com.xh.demo.grpc.WrTy.Subscription.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        pattern_ = "";
+
+        matchType_ = 0;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.xh.demo.grpc.WrTy.internal_static_com_xh_demo_grpc_Subscription_descriptor;
+      }
+
+      @java.lang.Override
+      public com.xh.demo.grpc.WrTy.Subscription getDefaultInstanceForType() {
+        return com.xh.demo.grpc.WrTy.Subscription.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.xh.demo.grpc.WrTy.Subscription build() {
+        com.xh.demo.grpc.WrTy.Subscription result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.xh.demo.grpc.WrTy.Subscription buildPartial() {
+        com.xh.demo.grpc.WrTy.Subscription result = new com.xh.demo.grpc.WrTy.Subscription(this);
+        result.pattern_ = pattern_;
+        result.matchType_ = matchType_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.xh.demo.grpc.WrTy.Subscription) {
+          return mergeFrom((com.xh.demo.grpc.WrTy.Subscription)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.xh.demo.grpc.WrTy.Subscription other) {
+        if (other == com.xh.demo.grpc.WrTy.Subscription.getDefaultInstance()) return this;
+        if (!other.getPattern().isEmpty()) {
+          pattern_ = other.pattern_;
+          onChanged();
+        }
+        if (other.matchType_ != 0) {
+          setMatchTypeValue(other.getMatchTypeValue());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.xh.demo.grpc.WrTy.Subscription parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.xh.demo.grpc.WrTy.Subscription) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object pattern_ = "";
+      /**
+       * <code>string pattern = 1;</code>
+       */
+      public java.lang.String getPattern() {
+        java.lang.Object ref = pattern_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          pattern_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string pattern = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getPatternBytes() {
+        java.lang.Object ref = pattern_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          pattern_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string pattern = 1;</code>
+       */
+      public Builder setPattern(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        pattern_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string pattern = 1;</code>
+       */
+      public Builder clearPattern() {
+        
+        pattern_ = getDefaultInstance().getPattern();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string pattern = 1;</code>
+       */
+      public Builder setPatternBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        pattern_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int matchType_ = 0;
+      /**
+       * <code>.com.xh.demo.grpc.Subscription.MatchType matchType = 2;</code>
+       */
+      public int getMatchTypeValue() {
+        return matchType_;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.Subscription.MatchType matchType = 2;</code>
+       */
+      public Builder setMatchTypeValue(int value) {
+        matchType_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.Subscription.MatchType matchType = 2;</code>
+       */
+      public com.xh.demo.grpc.WrTy.Subscription.MatchType getMatchType() {
+        @SuppressWarnings("deprecation")
+        com.xh.demo.grpc.WrTy.Subscription.MatchType result = com.xh.demo.grpc.WrTy.Subscription.MatchType.valueOf(matchType_);
+        return result == null ? com.xh.demo.grpc.WrTy.Subscription.MatchType.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.Subscription.MatchType matchType = 2;</code>
+       */
+      public Builder setMatchType(com.xh.demo.grpc.WrTy.Subscription.MatchType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        matchType_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.com.xh.demo.grpc.Subscription.MatchType matchType = 2;</code>
+       */
+      public Builder clearMatchType() {
+        
+        matchType_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.xh.demo.grpc.Subscription)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.xh.demo.grpc.Subscription)
+    private static final com.xh.demo.grpc.WrTy.Subscription DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.xh.demo.grpc.WrTy.Subscription();
+    }
+
+    public static com.xh.demo.grpc.WrTy.Subscription getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Subscription>
+        PARSER = new com.google.protobuf.AbstractParser<Subscription>() {
+      @java.lang.Override
+      public Subscription parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Subscription(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Subscription> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Subscription> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.xh.demo.grpc.WrTy.Subscription getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface SubscriptionsOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.xh.demo.grpc.Subscriptions)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated .com.xh.demo.grpc.Subscription subscriptions = 1;</code>
+     */
+    java.util.List<com.xh.demo.grpc.WrTy.Subscription> 
+        getSubscriptionsList();
+    /**
+     * <code>repeated .com.xh.demo.grpc.Subscription subscriptions = 1;</code>
+     */
+    com.xh.demo.grpc.WrTy.Subscription getSubscriptions(int index);
+    /**
+     * <code>repeated .com.xh.demo.grpc.Subscription subscriptions = 1;</code>
+     */
+    int getSubscriptionsCount();
+    /**
+     * <code>repeated .com.xh.demo.grpc.Subscription subscriptions = 1;</code>
+     */
+    java.util.List<? extends com.xh.demo.grpc.WrTy.SubscriptionOrBuilder> 
+        getSubscriptionsOrBuilderList();
+    /**
+     * <code>repeated .com.xh.demo.grpc.Subscription subscriptions = 1;</code>
+     */
+    com.xh.demo.grpc.WrTy.SubscriptionOrBuilder getSubscriptionsOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code com.xh.demo.grpc.Subscriptions}
+   */
+  public  static final class Subscriptions extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.xh.demo.grpc.Subscriptions)
+      SubscriptionsOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use Subscriptions.newBuilder() to construct.
+    private Subscriptions(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Subscriptions() {
+      subscriptions_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Subscriptions(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                subscriptions_ = new java.util.ArrayList<com.xh.demo.grpc.WrTy.Subscription>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              subscriptions_.add(
+                  input.readMessage(com.xh.demo.grpc.WrTy.Subscription.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          subscriptions_ = java.util.Collections.unmodifiableList(subscriptions_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.xh.demo.grpc.WrTy.internal_static_com_xh_demo_grpc_Subscriptions_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.xh.demo.grpc.WrTy.internal_static_com_xh_demo_grpc_Subscriptions_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.xh.demo.grpc.WrTy.Subscriptions.class, com.xh.demo.grpc.WrTy.Subscriptions.Builder.class);
+    }
+
+    public static final int SUBSCRIPTIONS_FIELD_NUMBER = 1;
+    private java.util.List<com.xh.demo.grpc.WrTy.Subscription> subscriptions_;
+    /**
+     * <code>repeated .com.xh.demo.grpc.Subscription subscriptions = 1;</code>
+     */
+    public java.util.List<com.xh.demo.grpc.WrTy.Subscription> getSubscriptionsList() {
+      return subscriptions_;
+    }
+    /**
+     * <code>repeated .com.xh.demo.grpc.Subscription subscriptions = 1;</code>
+     */
+    public java.util.List<? extends com.xh.demo.grpc.WrTy.SubscriptionOrBuilder> 
+        getSubscriptionsOrBuilderList() {
+      return subscriptions_;
+    }
+    /**
+     * <code>repeated .com.xh.demo.grpc.Subscription subscriptions = 1;</code>
+     */
+    public int getSubscriptionsCount() {
+      return subscriptions_.size();
+    }
+    /**
+     * <code>repeated .com.xh.demo.grpc.Subscription subscriptions = 1;</code>
+     */
+    public com.xh.demo.grpc.WrTy.Subscription getSubscriptions(int index) {
+      return subscriptions_.get(index);
+    }
+    /**
+     * <code>repeated .com.xh.demo.grpc.Subscription subscriptions = 1;</code>
+     */
+    public com.xh.demo.grpc.WrTy.SubscriptionOrBuilder getSubscriptionsOrBuilder(
+        int index) {
+      return subscriptions_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < subscriptions_.size(); i++) {
+        output.writeMessage(1, subscriptions_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < subscriptions_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, subscriptions_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.xh.demo.grpc.WrTy.Subscriptions)) {
+        return super.equals(obj);
+      }
+      com.xh.demo.grpc.WrTy.Subscriptions other = (com.xh.demo.grpc.WrTy.Subscriptions) obj;
+
+      if (!getSubscriptionsList()
+          .equals(other.getSubscriptionsList())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getSubscriptionsCount() > 0) {
+        hash = (37 * hash) + SUBSCRIPTIONS_FIELD_NUMBER;
+        hash = (53 * hash) + getSubscriptionsList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.xh.demo.grpc.WrTy.Subscriptions parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.xh.demo.grpc.WrTy.Subscriptions parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.xh.demo.grpc.WrTy.Subscriptions parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.xh.demo.grpc.WrTy.Subscriptions parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.xh.demo.grpc.WrTy.Subscriptions parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.xh.demo.grpc.WrTy.Subscriptions parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.xh.demo.grpc.WrTy.Subscriptions parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.xh.demo.grpc.WrTy.Subscriptions parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.xh.demo.grpc.WrTy.Subscriptions parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.xh.demo.grpc.WrTy.Subscriptions parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.xh.demo.grpc.WrTy.Subscriptions parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.xh.demo.grpc.WrTy.Subscriptions parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.xh.demo.grpc.WrTy.Subscriptions prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.xh.demo.grpc.Subscriptions}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.xh.demo.grpc.Subscriptions)
+        com.xh.demo.grpc.WrTy.SubscriptionsOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.xh.demo.grpc.WrTy.internal_static_com_xh_demo_grpc_Subscriptions_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.xh.demo.grpc.WrTy.internal_static_com_xh_demo_grpc_Subscriptions_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.xh.demo.grpc.WrTy.Subscriptions.class, com.xh.demo.grpc.WrTy.Subscriptions.Builder.class);
+      }
+
+      // Construct using com.xh.demo.grpc.WrTy.Subscriptions.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getSubscriptionsFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (subscriptionsBuilder_ == null) {
+          subscriptions_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          subscriptionsBuilder_.clear();
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.xh.demo.grpc.WrTy.internal_static_com_xh_demo_grpc_Subscriptions_descriptor;
+      }
+
+      @java.lang.Override
+      public com.xh.demo.grpc.WrTy.Subscriptions getDefaultInstanceForType() {
+        return com.xh.demo.grpc.WrTy.Subscriptions.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.xh.demo.grpc.WrTy.Subscriptions build() {
+        com.xh.demo.grpc.WrTy.Subscriptions result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.xh.demo.grpc.WrTy.Subscriptions buildPartial() {
+        com.xh.demo.grpc.WrTy.Subscriptions result = new com.xh.demo.grpc.WrTy.Subscriptions(this);
+        int from_bitField0_ = bitField0_;
+        if (subscriptionsBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0)) {
+            subscriptions_ = java.util.Collections.unmodifiableList(subscriptions_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.subscriptions_ = subscriptions_;
+        } else {
+          result.subscriptions_ = subscriptionsBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.xh.demo.grpc.WrTy.Subscriptions) {
+          return mergeFrom((com.xh.demo.grpc.WrTy.Subscriptions)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.xh.demo.grpc.WrTy.Subscriptions other) {
+        if (other == com.xh.demo.grpc.WrTy.Subscriptions.getDefaultInstance()) return this;
+        if (subscriptionsBuilder_ == null) {
+          if (!other.subscriptions_.isEmpty()) {
+            if (subscriptions_.isEmpty()) {
+              subscriptions_ = other.subscriptions_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureSubscriptionsIsMutable();
+              subscriptions_.addAll(other.subscriptions_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.subscriptions_.isEmpty()) {
+            if (subscriptionsBuilder_.isEmpty()) {
+              subscriptionsBuilder_.dispose();
+              subscriptionsBuilder_ = null;
+              subscriptions_ = other.subscriptions_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              subscriptionsBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getSubscriptionsFieldBuilder() : null;
+            } else {
+              subscriptionsBuilder_.addAllMessages(other.subscriptions_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.xh.demo.grpc.WrTy.Subscriptions parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.xh.demo.grpc.WrTy.Subscriptions) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<com.xh.demo.grpc.WrTy.Subscription> subscriptions_ =
+        java.util.Collections.emptyList();
+      private void ensureSubscriptionsIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          subscriptions_ = new java.util.ArrayList<com.xh.demo.grpc.WrTy.Subscription>(subscriptions_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.xh.demo.grpc.WrTy.Subscription, com.xh.demo.grpc.WrTy.Subscription.Builder, com.xh.demo.grpc.WrTy.SubscriptionOrBuilder> subscriptionsBuilder_;
+
+      /**
+       * <code>repeated .com.xh.demo.grpc.Subscription subscriptions = 1;</code>
+       */
+      public java.util.List<com.xh.demo.grpc.WrTy.Subscription> getSubscriptionsList() {
+        if (subscriptionsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(subscriptions_);
+        } else {
+          return subscriptionsBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .com.xh.demo.grpc.Subscription subscriptions = 1;</code>
+       */
+      public int getSubscriptionsCount() {
+        if (subscriptionsBuilder_ == null) {
+          return subscriptions_.size();
+        } else {
+          return subscriptionsBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .com.xh.demo.grpc.Subscription subscriptions = 1;</code>
+       */
+      public com.xh.demo.grpc.WrTy.Subscription getSubscriptions(int index) {
+        if (subscriptionsBuilder_ == null) {
+          return subscriptions_.get(index);
+        } else {
+          return subscriptionsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .com.xh.demo.grpc.Subscription subscriptions = 1;</code>
+       */
+      public Builder setSubscriptions(
+          int index, com.xh.demo.grpc.WrTy.Subscription value) {
+        if (subscriptionsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureSubscriptionsIsMutable();
+          subscriptions_.set(index, value);
+          onChanged();
+        } else {
+          subscriptionsBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.xh.demo.grpc.Subscription subscriptions = 1;</code>
+       */
+      public Builder setSubscriptions(
+          int index, com.xh.demo.grpc.WrTy.Subscription.Builder builderForValue) {
+        if (subscriptionsBuilder_ == null) {
+          ensureSubscriptionsIsMutable();
+          subscriptions_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          subscriptionsBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.xh.demo.grpc.Subscription subscriptions = 1;</code>
+       */
+      public Builder addSubscriptions(com.xh.demo.grpc.WrTy.Subscription value) {
+        if (subscriptionsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureSubscriptionsIsMutable();
+          subscriptions_.add(value);
+          onChanged();
+        } else {
+          subscriptionsBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.xh.demo.grpc.Subscription subscriptions = 1;</code>
+       */
+      public Builder addSubscriptions(
+          int index, com.xh.demo.grpc.WrTy.Subscription value) {
+        if (subscriptionsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureSubscriptionsIsMutable();
+          subscriptions_.add(index, value);
+          onChanged();
+        } else {
+          subscriptionsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.xh.demo.grpc.Subscription subscriptions = 1;</code>
+       */
+      public Builder addSubscriptions(
+          com.xh.demo.grpc.WrTy.Subscription.Builder builderForValue) {
+        if (subscriptionsBuilder_ == null) {
+          ensureSubscriptionsIsMutable();
+          subscriptions_.add(builderForValue.build());
+          onChanged();
+        } else {
+          subscriptionsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.xh.demo.grpc.Subscription subscriptions = 1;</code>
+       */
+      public Builder addSubscriptions(
+          int index, com.xh.demo.grpc.WrTy.Subscription.Builder builderForValue) {
+        if (subscriptionsBuilder_ == null) {
+          ensureSubscriptionsIsMutable();
+          subscriptions_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          subscriptionsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.xh.demo.grpc.Subscription subscriptions = 1;</code>
+       */
+      public Builder addAllSubscriptions(
+          java.lang.Iterable<? extends com.xh.demo.grpc.WrTy.Subscription> values) {
+        if (subscriptionsBuilder_ == null) {
+          ensureSubscriptionsIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, subscriptions_);
+          onChanged();
+        } else {
+          subscriptionsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.xh.demo.grpc.Subscription subscriptions = 1;</code>
+       */
+      public Builder clearSubscriptions() {
+        if (subscriptionsBuilder_ == null) {
+          subscriptions_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          subscriptionsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.xh.demo.grpc.Subscription subscriptions = 1;</code>
+       */
+      public Builder removeSubscriptions(int index) {
+        if (subscriptionsBuilder_ == null) {
+          ensureSubscriptionsIsMutable();
+          subscriptions_.remove(index);
+          onChanged();
+        } else {
+          subscriptionsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.xh.demo.grpc.Subscription subscriptions = 1;</code>
+       */
+      public com.xh.demo.grpc.WrTy.Subscription.Builder getSubscriptionsBuilder(
+          int index) {
+        return getSubscriptionsFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .com.xh.demo.grpc.Subscription subscriptions = 1;</code>
+       */
+      public com.xh.demo.grpc.WrTy.SubscriptionOrBuilder getSubscriptionsOrBuilder(
+          int index) {
+        if (subscriptionsBuilder_ == null) {
+          return subscriptions_.get(index);  } else {
+          return subscriptionsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .com.xh.demo.grpc.Subscription subscriptions = 1;</code>
+       */
+      public java.util.List<? extends com.xh.demo.grpc.WrTy.SubscriptionOrBuilder> 
+           getSubscriptionsOrBuilderList() {
+        if (subscriptionsBuilder_ != null) {
+          return subscriptionsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(subscriptions_);
+        }
+      }
+      /**
+       * <code>repeated .com.xh.demo.grpc.Subscription subscriptions = 1;</code>
+       */
+      public com.xh.demo.grpc.WrTy.Subscription.Builder addSubscriptionsBuilder() {
+        return getSubscriptionsFieldBuilder().addBuilder(
+            com.xh.demo.grpc.WrTy.Subscription.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .com.xh.demo.grpc.Subscription subscriptions = 1;</code>
+       */
+      public com.xh.demo.grpc.WrTy.Subscription.Builder addSubscriptionsBuilder(
+          int index) {
+        return getSubscriptionsFieldBuilder().addBuilder(
+            index, com.xh.demo.grpc.WrTy.Subscription.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .com.xh.demo.grpc.Subscription subscriptions = 1;</code>
+       */
+      public java.util.List<com.xh.demo.grpc.WrTy.Subscription.Builder> 
+           getSubscriptionsBuilderList() {
+        return getSubscriptionsFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.xh.demo.grpc.WrTy.Subscription, com.xh.demo.grpc.WrTy.Subscription.Builder, com.xh.demo.grpc.WrTy.SubscriptionOrBuilder> 
+          getSubscriptionsFieldBuilder() {
+        if (subscriptionsBuilder_ == null) {
+          subscriptionsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              com.xh.demo.grpc.WrTy.Subscription, com.xh.demo.grpc.WrTy.Subscription.Builder, com.xh.demo.grpc.WrTy.SubscriptionOrBuilder>(
+                  subscriptions_,
+                  ((bitField0_ & 0x00000001) != 0),
+                  getParentForChildren(),
+                  isClean());
+          subscriptions_ = null;
+        }
+        return subscriptionsBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.xh.demo.grpc.Subscriptions)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.xh.demo.grpc.Subscriptions)
+    private static final com.xh.demo.grpc.WrTy.Subscriptions DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.xh.demo.grpc.WrTy.Subscriptions();
+    }
+
+    public static com.xh.demo.grpc.WrTy.Subscriptions getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Subscriptions>
+        PARSER = new com.google.protobuf.AbstractParser<Subscriptions>() {
+      @java.lang.Override
+      public Subscriptions parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Subscriptions(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Subscriptions> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Subscriptions> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.xh.demo.grpc.WrTy.Subscriptions getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface SubscribeRequestOrBuilder extends
       // @@protoc_insertion_point(interface_extends:com.xh.demo.grpc.SubscribeRequest)
       com.google.protobuf.MessageOrBuilder {
@@ -21586,17 +27499,17 @@ public final class WrTy {
     com.xh.demo.grpc.WrTy.HeartbeatOrBuilder getHeartbeatOrBuilder();
 
     /**
-     * <code>.com.xh.demo.grpc.InterestRegistration interestRegistration = 3;</code>
+     * <code>.com.xh.demo.grpc.Subscriptions subscriptions = 3;</code>
      */
-    boolean hasInterestRegistration();
+    boolean hasSubscriptions();
     /**
-     * <code>.com.xh.demo.grpc.InterestRegistration interestRegistration = 3;</code>
+     * <code>.com.xh.demo.grpc.Subscriptions subscriptions = 3;</code>
      */
-    com.xh.demo.grpc.WrTy.InterestRegistration getInterestRegistration();
+    com.xh.demo.grpc.WrTy.Subscriptions getSubscriptions();
     /**
-     * <code>.com.xh.demo.grpc.InterestRegistration interestRegistration = 3;</code>
+     * <code>.com.xh.demo.grpc.Subscriptions subscriptions = 3;</code>
      */
-    com.xh.demo.grpc.WrTy.InterestRegistrationOrBuilder getInterestRegistrationOrBuilder();
+    com.xh.demo.grpc.WrTy.SubscriptionsOrBuilder getSubscriptionsOrBuilder();
 
     public com.xh.demo.grpc.WrTy.SubscribeRequest.ItemCase getItemCase();
   }
@@ -21668,14 +27581,14 @@ public final class WrTy {
               break;
             }
             case 26: {
-              com.xh.demo.grpc.WrTy.InterestRegistration.Builder subBuilder = null;
+              com.xh.demo.grpc.WrTy.Subscriptions.Builder subBuilder = null;
               if (itemCase_ == 3) {
-                subBuilder = ((com.xh.demo.grpc.WrTy.InterestRegistration) item_).toBuilder();
+                subBuilder = ((com.xh.demo.grpc.WrTy.Subscriptions) item_).toBuilder();
               }
               item_ =
-                  input.readMessage(com.xh.demo.grpc.WrTy.InterestRegistration.parser(), extensionRegistry);
+                  input.readMessage(com.xh.demo.grpc.WrTy.Subscriptions.parser(), extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom((com.xh.demo.grpc.WrTy.InterestRegistration) item_);
+                subBuilder.mergeFrom((com.xh.demo.grpc.WrTy.Subscriptions) item_);
                 item_ = subBuilder.buildPartial();
               }
               itemCase_ = 3;
@@ -21719,7 +27632,7 @@ public final class WrTy {
         implements com.google.protobuf.Internal.EnumLite {
       CLIENTHELLO(1),
       HEARTBEAT(2),
-      INTERESTREGISTRATION(3),
+      SUBSCRIPTIONS(3),
       ITEM_NOT_SET(0);
       private final int value;
       private ItemCase(int value) {
@@ -21737,7 +27650,7 @@ public final class WrTy {
         switch (value) {
           case 1: return CLIENTHELLO;
           case 2: return HEARTBEAT;
-          case 3: return INTERESTREGISTRATION;
+          case 3: return SUBSCRIPTIONS;
           case 0: return ITEM_NOT_SET;
           default: return null;
         }
@@ -21805,30 +27718,30 @@ public final class WrTy {
       return com.xh.demo.grpc.WrTy.Heartbeat.getDefaultInstance();
     }
 
-    public static final int INTERESTREGISTRATION_FIELD_NUMBER = 3;
+    public static final int SUBSCRIPTIONS_FIELD_NUMBER = 3;
     /**
-     * <code>.com.xh.demo.grpc.InterestRegistration interestRegistration = 3;</code>
+     * <code>.com.xh.demo.grpc.Subscriptions subscriptions = 3;</code>
      */
-    public boolean hasInterestRegistration() {
+    public boolean hasSubscriptions() {
       return itemCase_ == 3;
     }
     /**
-     * <code>.com.xh.demo.grpc.InterestRegistration interestRegistration = 3;</code>
+     * <code>.com.xh.demo.grpc.Subscriptions subscriptions = 3;</code>
      */
-    public com.xh.demo.grpc.WrTy.InterestRegistration getInterestRegistration() {
+    public com.xh.demo.grpc.WrTy.Subscriptions getSubscriptions() {
       if (itemCase_ == 3) {
-         return (com.xh.demo.grpc.WrTy.InterestRegistration) item_;
+         return (com.xh.demo.grpc.WrTy.Subscriptions) item_;
       }
-      return com.xh.demo.grpc.WrTy.InterestRegistration.getDefaultInstance();
+      return com.xh.demo.grpc.WrTy.Subscriptions.getDefaultInstance();
     }
     /**
-     * <code>.com.xh.demo.grpc.InterestRegistration interestRegistration = 3;</code>
+     * <code>.com.xh.demo.grpc.Subscriptions subscriptions = 3;</code>
      */
-    public com.xh.demo.grpc.WrTy.InterestRegistrationOrBuilder getInterestRegistrationOrBuilder() {
+    public com.xh.demo.grpc.WrTy.SubscriptionsOrBuilder getSubscriptionsOrBuilder() {
       if (itemCase_ == 3) {
-         return (com.xh.demo.grpc.WrTy.InterestRegistration) item_;
+         return (com.xh.demo.grpc.WrTy.Subscriptions) item_;
       }
-      return com.xh.demo.grpc.WrTy.InterestRegistration.getDefaultInstance();
+      return com.xh.demo.grpc.WrTy.Subscriptions.getDefaultInstance();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -21852,7 +27765,7 @@ public final class WrTy {
         output.writeMessage(2, (com.xh.demo.grpc.WrTy.Heartbeat) item_);
       }
       if (itemCase_ == 3) {
-        output.writeMessage(3, (com.xh.demo.grpc.WrTy.InterestRegistration) item_);
+        output.writeMessage(3, (com.xh.demo.grpc.WrTy.Subscriptions) item_);
       }
       unknownFields.writeTo(output);
     }
@@ -21873,7 +27786,7 @@ public final class WrTy {
       }
       if (itemCase_ == 3) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, (com.xh.demo.grpc.WrTy.InterestRegistration) item_);
+          .computeMessageSize(3, (com.xh.demo.grpc.WrTy.Subscriptions) item_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -21901,8 +27814,8 @@ public final class WrTy {
               .equals(other.getHeartbeat())) return false;
           break;
         case 3:
-          if (!getInterestRegistration()
-              .equals(other.getInterestRegistration())) return false;
+          if (!getSubscriptions()
+              .equals(other.getSubscriptions())) return false;
           break;
         case 0:
         default:
@@ -21928,8 +27841,8 @@ public final class WrTy {
           hash = (53 * hash) + getHeartbeat().hashCode();
           break;
         case 3:
-          hash = (37 * hash) + INTERESTREGISTRATION_FIELD_NUMBER;
-          hash = (53 * hash) + getInterestRegistration().hashCode();
+          hash = (37 * hash) + SUBSCRIPTIONS_FIELD_NUMBER;
+          hash = (53 * hash) + getSubscriptions().hashCode();
           break;
         case 0:
         default:
@@ -22110,10 +28023,10 @@ public final class WrTy {
           }
         }
         if (itemCase_ == 3) {
-          if (interestRegistrationBuilder_ == null) {
+          if (subscriptionsBuilder_ == null) {
             result.item_ = item_;
           } else {
-            result.item_ = interestRegistrationBuilder_.build();
+            result.item_ = subscriptionsBuilder_.build();
           }
         }
         result.itemCase_ = itemCase_;
@@ -22174,8 +28087,8 @@ public final class WrTy {
             mergeHeartbeat(other.getHeartbeat());
             break;
           }
-          case INTERESTREGISTRATION: {
-            mergeInterestRegistration(other.getInterestRegistration());
+          case SUBSCRIPTIONS: {
+            mergeSubscriptions(other.getSubscriptions());
             break;
           }
           case ITEM_NOT_SET: {
@@ -22499,67 +28412,67 @@ public final class WrTy {
       }
 
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.xh.demo.grpc.WrTy.InterestRegistration, com.xh.demo.grpc.WrTy.InterestRegistration.Builder, com.xh.demo.grpc.WrTy.InterestRegistrationOrBuilder> interestRegistrationBuilder_;
+          com.xh.demo.grpc.WrTy.Subscriptions, com.xh.demo.grpc.WrTy.Subscriptions.Builder, com.xh.demo.grpc.WrTy.SubscriptionsOrBuilder> subscriptionsBuilder_;
       /**
-       * <code>.com.xh.demo.grpc.InterestRegistration interestRegistration = 3;</code>
+       * <code>.com.xh.demo.grpc.Subscriptions subscriptions = 3;</code>
        */
-      public boolean hasInterestRegistration() {
+      public boolean hasSubscriptions() {
         return itemCase_ == 3;
       }
       /**
-       * <code>.com.xh.demo.grpc.InterestRegistration interestRegistration = 3;</code>
+       * <code>.com.xh.demo.grpc.Subscriptions subscriptions = 3;</code>
        */
-      public com.xh.demo.grpc.WrTy.InterestRegistration getInterestRegistration() {
-        if (interestRegistrationBuilder_ == null) {
+      public com.xh.demo.grpc.WrTy.Subscriptions getSubscriptions() {
+        if (subscriptionsBuilder_ == null) {
           if (itemCase_ == 3) {
-            return (com.xh.demo.grpc.WrTy.InterestRegistration) item_;
+            return (com.xh.demo.grpc.WrTy.Subscriptions) item_;
           }
-          return com.xh.demo.grpc.WrTy.InterestRegistration.getDefaultInstance();
+          return com.xh.demo.grpc.WrTy.Subscriptions.getDefaultInstance();
         } else {
           if (itemCase_ == 3) {
-            return interestRegistrationBuilder_.getMessage();
+            return subscriptionsBuilder_.getMessage();
           }
-          return com.xh.demo.grpc.WrTy.InterestRegistration.getDefaultInstance();
+          return com.xh.demo.grpc.WrTy.Subscriptions.getDefaultInstance();
         }
       }
       /**
-       * <code>.com.xh.demo.grpc.InterestRegistration interestRegistration = 3;</code>
+       * <code>.com.xh.demo.grpc.Subscriptions subscriptions = 3;</code>
        */
-      public Builder setInterestRegistration(com.xh.demo.grpc.WrTy.InterestRegistration value) {
-        if (interestRegistrationBuilder_ == null) {
+      public Builder setSubscriptions(com.xh.demo.grpc.WrTy.Subscriptions value) {
+        if (subscriptionsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
           item_ = value;
           onChanged();
         } else {
-          interestRegistrationBuilder_.setMessage(value);
+          subscriptionsBuilder_.setMessage(value);
         }
         itemCase_ = 3;
         return this;
       }
       /**
-       * <code>.com.xh.demo.grpc.InterestRegistration interestRegistration = 3;</code>
+       * <code>.com.xh.demo.grpc.Subscriptions subscriptions = 3;</code>
        */
-      public Builder setInterestRegistration(
-          com.xh.demo.grpc.WrTy.InterestRegistration.Builder builderForValue) {
-        if (interestRegistrationBuilder_ == null) {
+      public Builder setSubscriptions(
+          com.xh.demo.grpc.WrTy.Subscriptions.Builder builderForValue) {
+        if (subscriptionsBuilder_ == null) {
           item_ = builderForValue.build();
           onChanged();
         } else {
-          interestRegistrationBuilder_.setMessage(builderForValue.build());
+          subscriptionsBuilder_.setMessage(builderForValue.build());
         }
         itemCase_ = 3;
         return this;
       }
       /**
-       * <code>.com.xh.demo.grpc.InterestRegistration interestRegistration = 3;</code>
+       * <code>.com.xh.demo.grpc.Subscriptions subscriptions = 3;</code>
        */
-      public Builder mergeInterestRegistration(com.xh.demo.grpc.WrTy.InterestRegistration value) {
-        if (interestRegistrationBuilder_ == null) {
+      public Builder mergeSubscriptions(com.xh.demo.grpc.WrTy.Subscriptions value) {
+        if (subscriptionsBuilder_ == null) {
           if (itemCase_ == 3 &&
-              item_ != com.xh.demo.grpc.WrTy.InterestRegistration.getDefaultInstance()) {
-            item_ = com.xh.demo.grpc.WrTy.InterestRegistration.newBuilder((com.xh.demo.grpc.WrTy.InterestRegistration) item_)
+              item_ != com.xh.demo.grpc.WrTy.Subscriptions.getDefaultInstance()) {
+            item_ = com.xh.demo.grpc.WrTy.Subscriptions.newBuilder((com.xh.demo.grpc.WrTy.Subscriptions) item_)
                 .mergeFrom(value).buildPartial();
           } else {
             item_ = value;
@@ -22567,18 +28480,18 @@ public final class WrTy {
           onChanged();
         } else {
           if (itemCase_ == 3) {
-            interestRegistrationBuilder_.mergeFrom(value);
+            subscriptionsBuilder_.mergeFrom(value);
           }
-          interestRegistrationBuilder_.setMessage(value);
+          subscriptionsBuilder_.setMessage(value);
         }
         itemCase_ = 3;
         return this;
       }
       /**
-       * <code>.com.xh.demo.grpc.InterestRegistration interestRegistration = 3;</code>
+       * <code>.com.xh.demo.grpc.Subscriptions subscriptions = 3;</code>
        */
-      public Builder clearInterestRegistration() {
-        if (interestRegistrationBuilder_ == null) {
+      public Builder clearSubscriptions() {
+        if (subscriptionsBuilder_ == null) {
           if (itemCase_ == 3) {
             itemCase_ = 0;
             item_ = null;
@@ -22589,49 +28502,49 @@ public final class WrTy {
             itemCase_ = 0;
             item_ = null;
           }
-          interestRegistrationBuilder_.clear();
+          subscriptionsBuilder_.clear();
         }
         return this;
       }
       /**
-       * <code>.com.xh.demo.grpc.InterestRegistration interestRegistration = 3;</code>
+       * <code>.com.xh.demo.grpc.Subscriptions subscriptions = 3;</code>
        */
-      public com.xh.demo.grpc.WrTy.InterestRegistration.Builder getInterestRegistrationBuilder() {
-        return getInterestRegistrationFieldBuilder().getBuilder();
+      public com.xh.demo.grpc.WrTy.Subscriptions.Builder getSubscriptionsBuilder() {
+        return getSubscriptionsFieldBuilder().getBuilder();
       }
       /**
-       * <code>.com.xh.demo.grpc.InterestRegistration interestRegistration = 3;</code>
+       * <code>.com.xh.demo.grpc.Subscriptions subscriptions = 3;</code>
        */
-      public com.xh.demo.grpc.WrTy.InterestRegistrationOrBuilder getInterestRegistrationOrBuilder() {
-        if ((itemCase_ == 3) && (interestRegistrationBuilder_ != null)) {
-          return interestRegistrationBuilder_.getMessageOrBuilder();
+      public com.xh.demo.grpc.WrTy.SubscriptionsOrBuilder getSubscriptionsOrBuilder() {
+        if ((itemCase_ == 3) && (subscriptionsBuilder_ != null)) {
+          return subscriptionsBuilder_.getMessageOrBuilder();
         } else {
           if (itemCase_ == 3) {
-            return (com.xh.demo.grpc.WrTy.InterestRegistration) item_;
+            return (com.xh.demo.grpc.WrTy.Subscriptions) item_;
           }
-          return com.xh.demo.grpc.WrTy.InterestRegistration.getDefaultInstance();
+          return com.xh.demo.grpc.WrTy.Subscriptions.getDefaultInstance();
         }
       }
       /**
-       * <code>.com.xh.demo.grpc.InterestRegistration interestRegistration = 3;</code>
+       * <code>.com.xh.demo.grpc.Subscriptions subscriptions = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.xh.demo.grpc.WrTy.InterestRegistration, com.xh.demo.grpc.WrTy.InterestRegistration.Builder, com.xh.demo.grpc.WrTy.InterestRegistrationOrBuilder> 
-          getInterestRegistrationFieldBuilder() {
-        if (interestRegistrationBuilder_ == null) {
+          com.xh.demo.grpc.WrTy.Subscriptions, com.xh.demo.grpc.WrTy.Subscriptions.Builder, com.xh.demo.grpc.WrTy.SubscriptionsOrBuilder> 
+          getSubscriptionsFieldBuilder() {
+        if (subscriptionsBuilder_ == null) {
           if (!(itemCase_ == 3)) {
-            item_ = com.xh.demo.grpc.WrTy.InterestRegistration.getDefaultInstance();
+            item_ = com.xh.demo.grpc.WrTy.Subscriptions.getDefaultInstance();
           }
-          interestRegistrationBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.xh.demo.grpc.WrTy.InterestRegistration, com.xh.demo.grpc.WrTy.InterestRegistration.Builder, com.xh.demo.grpc.WrTy.InterestRegistrationOrBuilder>(
-                  (com.xh.demo.grpc.WrTy.InterestRegistration) item_,
+          subscriptionsBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.xh.demo.grpc.WrTy.Subscriptions, com.xh.demo.grpc.WrTy.Subscriptions.Builder, com.xh.demo.grpc.WrTy.SubscriptionsOrBuilder>(
+                  (com.xh.demo.grpc.WrTy.Subscriptions) item_,
                   getParentForChildren(),
                   isClean());
           item_ = null;
         }
         itemCase_ = 3;
         onChanged();;
-        return interestRegistrationBuilder_;
+        return subscriptionsBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -23933,6 +29846,16 @@ public final class WrTy {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_xh_demo_grpc_ProtocolMessageEnvelope_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_xh_demo_grpc_Response_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_xh_demo_grpc_Response_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_xh_demo_grpc_Request_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_xh_demo_grpc_Request_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_xh_demo_grpc_RegistrationRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -23962,6 +29885,16 @@ public final class WrTy {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_xh_demo_grpc_ChangeNotification_DeleteChangeNotification_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_xh_demo_grpc_Subscription_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_xh_demo_grpc_Subscription_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_xh_demo_grpc_Subscriptions_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_xh_demo_grpc_Subscriptions_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_xh_demo_grpc_SubscribeRequest_descriptor;
   private static final 
@@ -24040,47 +29973,76 @@ public final class WrTy {
       "otification\030\013 \001(\0132$.com.xh.demo.grpc.Cha" +
       "ngeNotificationH\000\"?\n\014ProtocolType\022\020\n\014Reg" +
       "istration\020\000\022\014\n\010Interest\020\001\022\017\n\013Replication" +
-      "\020\002B\006\n\004item\"\275\001\n\023RegistrationRequest\0224\n\013cl" +
-      "ientHello\030\001 \001(\0132\035.com.xh.demo.grpc.Clien" +
-      "tHelloH\000\0226\n\014instanceInfo\030\002 \001(\0132\036.com.xh." +
-      "demo.grpc.InstanceInfoH\000\0220\n\theartbeat\030\003 " +
-      "\001(\0132\033.com.xh.demo.grpc.HeartbeatH\000B\006\n\004it" +
-      "em\"\270\001\n\024RegistrationResponse\0224\n\013serverHel" +
-      "lo\030\001 \001(\0132\035.com.xh.demo.grpc.ServerHelloH" +
-      "\000\0220\n\theartbeat\030\002 \001(\0132\033.com.xh.demo.grpc." +
-      "HeartbeatH\000\0220\n\003ack\030\003 \001(\0132!.com.xh.demo.g" +
-      "rpc.AcknowledgementH\000B\006\n\004item\"\333\003\n\022Change" +
-      "Notification\022I\n\003add\030\001 \001(\0132:.com.xh.demo." +
-      "grpc.ChangeNotification.AddChangeNotific" +
-      "ationH\000\022O\n\006modify\030\002 \001(\0132=.com.xh.demo.gr" +
-      "pc.ChangeNotification.ModifyChangeNotifi" +
-      "cationH\000\022O\n\006delete\030\003 \001(\0132=.com.xh.demo.g" +
-      "rpc.ChangeNotification.DeleteChangeNotif" +
-      "icationH\000\032M\n\025AddChangeNotification\0224\n\014in" +
-      "stanceInfo\030\001 \001(\0132\036.com.xh.demo.grpc.Inst" +
-      "anceInfo\032C\n\030ModifyChangeNotification\022\'\n\006" +
-      "deltas\030\001 \003(\0132\027.com.xh.demo.grpc.Delta\032.\n" +
-      "\030DeleteChangeNotification\022\022\n\ninstanceId\030" +
-      "\001 \001(\tB\024\n\022notification_oneof\"\312\001\n\020Subscrib" +
-      "eRequest\0224\n\013clientHello\030\001 \001(\0132\035.com.xh.d" +
-      "emo.grpc.ClientHelloH\000\0220\n\theartbeat\030\002 \001(" +
-      "\0132\033.com.xh.demo.grpc.HeartbeatH\000\022F\n\024inte" +
-      "restRegistration\030\003 \001(\0132&.com.xh.demo.grp" +
-      "c.InterestRegistrationH\000B\006\n\004item\"\307\001\n\021Sub" +
-      "scribeResponse\0224\n\013serverHello\030\001 \001(\0132\035.co" +
-      "m.xh.demo.grpc.ServerHelloH\000\0220\n\theartbea" +
-      "t\030\002 \001(\0132\033.com.xh.demo.grpc.HeartbeatH\000\022B" +
-      "\n\022changeNotification\030\003 \001(\0132$.com.xh.demo" +
-      ".grpc.ChangeNotificationH\000B\006\n\004item2v\n\023Re" +
-      "gistrationService\022_\n\010Register\022%.com.xh.d" +
-      "emo.grpc.RegistrationRequest\032&.com.xh.de" +
-      "mo.grpc.RegistrationResponse\"\000(\0010\0012n\n\020Su" +
-      "bscribeService\022Z\n\tSubscribe\022\".com.xh.dem" +
-      "o.grpc.SubscribeRequest\032#.com.xh.demo.gr" +
-      "pc.SubscribeResponse\"\000(\0010\0012p\n\022Replicatio" +
-      "nService\022Z\n\tSubscribe\022\".com.xh.demo.grpc" +
-      ".SubscribeRequest\032#.com.xh.demo.grpc.Sub" +
-      "scribeResponse\"\000(\0010\001b\006proto3"
+      "\020\002B\006\n\004item\"\262\004\n\010Response\022=\n\014protocolType\030" +
+      "\001 \001(\0162\'.com.xh.demo.grpc.Response.Protoc" +
+      "olType\022<\n\017acknowledgement\030\002 \001(\0132!.com.xh" +
+      ".demo.grpc.AcknowledgementH\000\0220\n\theartbea" +
+      "t\030\004 \001(\0132\033.com.xh.demo.grpc.HeartbeatH\000\0224" +
+      "\n\013clientHello\030\005 \001(\0132\035.com.xh.demo.grpc.C" +
+      "lientHelloH\000\0224\n\013serverHello\030\007 \001(\0132\035.com." +
+      "xh.demo.grpc.ServerHelloH\000\0226\n\014instanceIn" +
+      "fo\030\t \001(\0132\036.com.xh.demo.grpc.InstanceInfo" +
+      "H\000\022F\n\024interestRegistration\030\n \001(\0132&.com.x" +
+      "h.demo.grpc.InterestRegistrationH\000\022B\n\022ch" +
+      "angeNotification\030\013 \001(\0132$.com.xh.demo.grp" +
+      "c.ChangeNotificationH\000\"?\n\014ProtocolType\022\020" +
+      "\n\014Registration\020\000\022\014\n\010Interest\020\001\022\017\n\013Replic" +
+      "ation\020\002B\006\n\004item\"\260\004\n\007Request\022<\n\014protocolT" +
+      "ype\030\001 \001(\0162&.com.xh.demo.grpc.Request.Pro" +
+      "tocolType\022<\n\017acknowledgement\030\002 \001(\0132!.com" +
+      ".xh.demo.grpc.AcknowledgementH\000\0220\n\theart" +
+      "beat\030\004 \001(\0132\033.com.xh.demo.grpc.HeartbeatH" +
+      "\000\0224\n\013clientHello\030\005 \001(\0132\035.com.xh.demo.grp" +
+      "c.ClientHelloH\000\0224\n\013serverHello\030\007 \001(\0132\035.c" +
+      "om.xh.demo.grpc.ServerHelloH\000\0226\n\014instanc" +
+      "eInfo\030\t \001(\0132\036.com.xh.demo.grpc.InstanceI" +
+      "nfoH\000\022F\n\024interestRegistration\030\n \001(\0132&.co" +
+      "m.xh.demo.grpc.InterestRegistrationH\000\022B\n" +
+      "\022changeNotification\030\013 \001(\0132$.com.xh.demo." +
+      "grpc.ChangeNotificationH\000\"?\n\014ProtocolTyp" +
+      "e\022\020\n\014Registration\020\000\022\014\n\010Interest\020\001\022\017\n\013Rep" +
+      "lication\020\002B\006\n\004item\"\275\001\n\023RegistrationReque" +
+      "st\0224\n\013clientHello\030\001 \001(\0132\035.com.xh.demo.gr" +
+      "pc.ClientHelloH\000\0226\n\014instanceInfo\030\002 \001(\0132\036" +
+      ".com.xh.demo.grpc.InstanceInfoH\000\0220\n\thear" +
+      "tbeat\030\003 \001(\0132\033.com.xh.demo.grpc.Heartbeat" +
+      "H\000B\006\n\004item\"\270\001\n\024RegistrationResponse\0224\n\013s" +
+      "erverHello\030\001 \001(\0132\035.com.xh.demo.grpc.Serv" +
+      "erHelloH\000\0220\n\theartbeat\030\002 \001(\0132\033.com.xh.de" +
+      "mo.grpc.HeartbeatH\000\0220\n\003ack\030\003 \001(\0132!.com.x" +
+      "h.demo.grpc.AcknowledgementH\000B\006\n\004item\"\333\003" +
+      "\n\022ChangeNotification\022I\n\003add\030\001 \001(\0132:.com." +
+      "xh.demo.grpc.ChangeNotification.AddChang" +
+      "eNotificationH\000\022O\n\006modify\030\002 \001(\0132=.com.xh" +
+      ".demo.grpc.ChangeNotification.ModifyChan" +
+      "geNotificationH\000\022O\n\006delete\030\003 \001(\0132=.com.x" +
+      "h.demo.grpc.ChangeNotification.DeleteCha" +
+      "ngeNotificationH\000\032M\n\025AddChangeNotificati" +
+      "on\0224\n\014instanceInfo\030\001 \001(\0132\036.com.xh.demo.g" +
+      "rpc.InstanceInfo\032C\n\030ModifyChangeNotifica" +
+      "tion\022\'\n\006deltas\030\001 \003(\0132\027.com.xh.demo.grpc." +
+      "Delta\032.\n\030DeleteChangeNotification\022\022\n\nins" +
+      "tanceId\030\001 \001(\tB\024\n\022notification_oneof\"y\n\014S" +
+      "ubscription\022\017\n\007pattern\030\001 \001(\t\022;\n\tmatchTyp" +
+      "e\030\002 \001(\0162(.com.xh.demo.grpc.Subscription." +
+      "MatchType\"\033\n\tMatchType\022\016\n\nInstanceId\020\000\"F" +
+      "\n\rSubscriptions\0225\n\rsubscriptions\030\001 \003(\0132\036" +
+      ".com.xh.demo.grpc.Subscription\"\274\001\n\020Subsc" +
+      "ribeRequest\0224\n\013clientHello\030\001 \001(\0132\035.com.x" +
+      "h.demo.grpc.ClientHelloH\000\0220\n\theartbeat\030\002" +
+      " \001(\0132\033.com.xh.demo.grpc.HeartbeatH\000\0228\n\rs" +
+      "ubscriptions\030\003 \001(\0132\037.com.xh.demo.grpc.Su" +
+      "bscriptionsH\000B\006\n\004item\"\307\001\n\021SubscribeRespo" +
+      "nse\0224\n\013serverHello\030\001 \001(\0132\035.com.xh.demo.g" +
+      "rpc.ServerHelloH\000\0220\n\theartbeat\030\002 \001(\0132\033.c" +
+      "om.xh.demo.grpc.HeartbeatH\000\022B\n\022changeNot" +
+      "ification\030\003 \001(\0132$.com.xh.demo.grpc.Chang" +
+      "eNotificationH\000B\006\n\004item2p\n\021SubscriberSer" +
+      "vice\022[\n\nsubscriber\022\".com.xh.demo.grpc.Su" +
+      "bscribeRequest\032#.com.xh.demo.grpc.Subscr" +
+      "ibeResponse\"\000(\0010\0012U\n\013WrTyChannel\022F\n\007Conn" +
+      "ect\022\031.com.xh.demo.grpc.Request\032\032.com.xh." +
+      "demo.grpc.Response\"\000(\0010\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -24232,20 +30194,32 @@ public final class WrTy {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_xh_demo_grpc_ProtocolMessageEnvelope_descriptor,
         new java.lang.String[] { "ProtocolType", "Acknowledgement", "Heartbeat", "ClientHello", "ServerHello", "InstanceInfo", "InterestRegistration", "ChangeNotification", "Item", });
-    internal_static_com_xh_demo_grpc_RegistrationRequest_descriptor =
+    internal_static_com_xh_demo_grpc_Response_descriptor =
       getDescriptor().getMessageTypes().get(15);
+    internal_static_com_xh_demo_grpc_Response_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_xh_demo_grpc_Response_descriptor,
+        new java.lang.String[] { "ProtocolType", "Acknowledgement", "Heartbeat", "ClientHello", "ServerHello", "InstanceInfo", "InterestRegistration", "ChangeNotification", "Item", });
+    internal_static_com_xh_demo_grpc_Request_descriptor =
+      getDescriptor().getMessageTypes().get(16);
+    internal_static_com_xh_demo_grpc_Request_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_xh_demo_grpc_Request_descriptor,
+        new java.lang.String[] { "ProtocolType", "Acknowledgement", "Heartbeat", "ClientHello", "ServerHello", "InstanceInfo", "InterestRegistration", "ChangeNotification", "Item", });
+    internal_static_com_xh_demo_grpc_RegistrationRequest_descriptor =
+      getDescriptor().getMessageTypes().get(17);
     internal_static_com_xh_demo_grpc_RegistrationRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_xh_demo_grpc_RegistrationRequest_descriptor,
         new java.lang.String[] { "ClientHello", "InstanceInfo", "Heartbeat", "Item", });
     internal_static_com_xh_demo_grpc_RegistrationResponse_descriptor =
-      getDescriptor().getMessageTypes().get(16);
+      getDescriptor().getMessageTypes().get(18);
     internal_static_com_xh_demo_grpc_RegistrationResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_xh_demo_grpc_RegistrationResponse_descriptor,
         new java.lang.String[] { "ServerHello", "Heartbeat", "Ack", "Item", });
     internal_static_com_xh_demo_grpc_ChangeNotification_descriptor =
-      getDescriptor().getMessageTypes().get(17);
+      getDescriptor().getMessageTypes().get(19);
     internal_static_com_xh_demo_grpc_ChangeNotification_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_xh_demo_grpc_ChangeNotification_descriptor,
@@ -24268,14 +30242,26 @@ public final class WrTy {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_xh_demo_grpc_ChangeNotification_DeleteChangeNotification_descriptor,
         new java.lang.String[] { "InstanceId", });
+    internal_static_com_xh_demo_grpc_Subscription_descriptor =
+      getDescriptor().getMessageTypes().get(20);
+    internal_static_com_xh_demo_grpc_Subscription_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_xh_demo_grpc_Subscription_descriptor,
+        new java.lang.String[] { "Pattern", "MatchType", });
+    internal_static_com_xh_demo_grpc_Subscriptions_descriptor =
+      getDescriptor().getMessageTypes().get(21);
+    internal_static_com_xh_demo_grpc_Subscriptions_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_xh_demo_grpc_Subscriptions_descriptor,
+        new java.lang.String[] { "Subscriptions", });
     internal_static_com_xh_demo_grpc_SubscribeRequest_descriptor =
-      getDescriptor().getMessageTypes().get(18);
+      getDescriptor().getMessageTypes().get(22);
     internal_static_com_xh_demo_grpc_SubscribeRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_xh_demo_grpc_SubscribeRequest_descriptor,
-        new java.lang.String[] { "ClientHello", "Heartbeat", "InterestRegistration", "Item", });
+        new java.lang.String[] { "ClientHello", "Heartbeat", "Subscriptions", "Item", });
     internal_static_com_xh_demo_grpc_SubscribeResponse_descriptor =
-      getDescriptor().getMessageTypes().get(19);
+      getDescriptor().getMessageTypes().get(23);
     internal_static_com_xh_demo_grpc_SubscribeResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_xh_demo_grpc_SubscribeResponse_descriptor,

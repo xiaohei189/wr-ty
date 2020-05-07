@@ -72,7 +72,7 @@ message Interest {
         string pattern = 2;
     }
 
-    oneof interest_oneof {
+    oneof item {
         NoneInterest none = 1;
         AllInterest all = 2;
         InstanceInterest instance = 6;
@@ -123,25 +123,53 @@ message ProtocolMessageEnvelope {
         Replication = 2;
     }
     ProtocolType protocolType = 1;
-
-    oneof message_oneOf {
+    oneof item {
         Acknowledgement acknowledgement = 2;
-        HeartbeatReply heartbeatReply = 3;
         Heartbeat heartbeat = 4;
         ClientHello clientHello = 5;
-        ReplicationClientHello replicationClientHello = 6;
         ServerHello serverHello = 7;
-        ReplicationServerHello replicationServerHello = 8;
         InstanceInfo instanceInfo = 9;
         InterestRegistration interestRegistration = 10;
-        AddInstance addInstance = 11;
-        DeleteInstance deleteInstance = 12;
-        UpdateInstanceInfo updateInstanceInfo = 13;
+        ChangeNotification changeNotification = 11;
     }
 }
 
+message Response {
+    enum ProtocolType {
+        Registration = 0;
+        Interest = 1;
+        Replication = 2;
+    }
+    ProtocolType protocolType = 1;
+    oneof item {
+        Acknowledgement acknowledgement = 2;
+        Heartbeat heartbeat = 4;
+        ClientHello clientHello = 5;
+        ServerHello serverHello = 7;
+        InstanceInfo instanceInfo = 9;
+        InterestRegistration interestRegistration = 10;
+        ChangeNotification changeNotification = 11;
+    }
+}
+message Request {
+    enum ProtocolType {
+        Registration = 0;
+        Interest = 1;
+        Replication = 2;
+    }
+    ProtocolType protocolType = 1;
+    oneof item {
+        Acknowledgement acknowledgement = 2;
+        Heartbeat heartbeat = 4;
+        ClientHello clientHello = 5;
+        ServerHello serverHello = 7;
+        InstanceInfo instanceInfo = 9;
+        InterestRegistration interestRegistration = 10;
+        ChangeNotification changeNotification = 11;
+    }
+}
 message RegistrationRequest {
-    oneof oneof_request {
+    oneof item {
         ClientHello clientHello = 1;
         InstanceInfo instanceInfo = 2;
         Heartbeat heartbeat = 3;
@@ -173,15 +201,24 @@ message ChangeNotification {
     }
 }
 
-message InterestRequest {
+message Subscription {
+    enum MatchType {
+        InstanceId = 0;
+    }
+    string pattern = 1;
+    MatchType matchType = 2;
+}
+message Subscriptions {
+    repeated Subscription subscriptions = 1;
+}
+message SubscribeRequest {
     oneof item {
         ClientHello clientHello = 1;
         Heartbeat heartbeat = 2;
-        InterestRegistration interestRegistration = 3;
+        Subscriptions subscriptions = 3;
     }
 }
-
-message InterestResponse {
+message SubscribeResponse {
     oneof item {
         ServerHello serverHello = 1;
         Heartbeat heartbeat = 2;
@@ -189,41 +226,14 @@ message InterestResponse {
     }
 }
 
-/**
- * Replication protocol messages
- */
+service SubscriberService {
 
-message ReplicationRequest {
-    oneof item {
-        ReplicationClientHello clientHello = 1;
-        Heartbeat heartbeat = 2;
-        ChangeNotification changeNotification = 3;
+    rpc subscriber (stream SubscribeRequest) returns (stream SubscribeResponse) {
+    }
+}
+service WrTyChannel {
+
+    rpc Connect (stream Request) returns (stream Response) {
     }
 }
 
-message ReplicationResponse {
-    oneof item {
-        ReplicationServerHello serverHello = 1;
-        Heartbeat heartbeat = 2;
-    }
-}
-
-/**
- * Services
- */
-
-service RegistrationService {
-
-    rpc Register (stream RegistrationRequest) returns (stream RegistrationResponse) {
-    }
-}
-
-service InterestService {
-    rpc Subscribe (stream InterestRequest) returns (stream InterestResponse) {
-    }
-}
-
-service ReplicationService {
-    rpc Subscribe (stream ReplicationRequest) returns (stream ReplicationResponse) {
-    }
-}

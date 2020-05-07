@@ -7,15 +7,27 @@
     <groupId>com-github-wr</groupId>
     <artifactId>wr-ty-grpc-transport</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.2.2.RELEASE</version>
+    </parent>
 
     <properties>
         <grpc.version>1.21.0</grpc.version><!-- CURRENT_GRPC_VERSION -->
         <protobuf.version>3.7.1</protobuf.version>
         <protoc.version>3.7.1</protoc.version>
-
+        <reactive.grpc.version>1.0.0</reactive.grpc.version>
     </properties>
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Hoxton.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
             <dependency>
                 <groupId>io.projectreactor</groupId>
                 <artifactId>reactor-bom</artifactId>
@@ -87,6 +99,25 @@
             <artifactId>logback-core</artifactId>
             <version>1.2.3</version>
         </dependency>
+        <dependency>
+            <groupId>com.salesforce.servicelibs</groupId>
+            <artifactId>rxgrpc-stub</artifactId>
+            <version>${reactive.grpc.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.salesforce.servicelibs</groupId>
+            <artifactId>reactor-grpc-stub</artifactId>
+            <version>${reactive.grpc.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-commons</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
 
         <!--        test-->
         <dependency>
@@ -140,25 +171,19 @@
                             <goal>compile</goal>
                             <goal>compile-custom</goal>
                         </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-enforcer-plugin</artifactId>
-                <version>1.4.1</version>
-                <executions>
-                    <execution>
-                        <id>enforce</id>
-                        <goals>
-                            <goal>enforce</goal>
-                        </goals>
                         <configuration>
-                            <rules>
-                                <requireUpperBoundDeps/>
-                            </rules>
+                            <protocPlugins>
+                                <protocPlugin>
+                                    <id>reactor-grpc</id>
+                                    <groupId>com.salesforce.servicelibs</groupId>
+                                    <artifactId>reactor-grpc</artifactId>
+                                    <version>1.0.0</version>
+                                    <mainClass>com.salesforce.reactorgrpc.ReactorGrpcGenerator</mainClass>
+                                </protocPlugin>
+                            </protocPlugins>
                         </configuration>
                     </execution>
+
                 </executions>
             </plugin>
             <plugin>

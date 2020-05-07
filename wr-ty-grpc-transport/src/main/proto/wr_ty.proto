@@ -134,6 +134,40 @@ message ProtocolMessageEnvelope {
     }
 }
 
+message Response {
+    enum ProtocolType {
+        Registration = 0;
+        Interest = 1;
+        Replication = 2;
+    }
+    ProtocolType protocolType = 1;
+    oneof item {
+        Acknowledgement acknowledgement = 2;
+        Heartbeat heartbeat = 4;
+        ClientHello clientHello = 5;
+        ServerHello serverHello = 7;
+        InstanceInfo instanceInfo = 9;
+        InterestRegistration interestRegistration = 10;
+        ChangeNotification changeNotification = 11;
+    }
+}
+message Request {
+    enum ProtocolType {
+        Registration = 0;
+        Interest = 1;
+        Replication = 2;
+    }
+    ProtocolType protocolType = 1;
+    oneof item {
+        Acknowledgement acknowledgement = 2;
+        Heartbeat heartbeat = 4;
+        ClientHello clientHello = 5;
+        ServerHello serverHello = 7;
+        InstanceInfo instanceInfo = 9;
+        InterestRegistration interestRegistration = 10;
+        ChangeNotification changeNotification = 11;
+    }
+}
 message RegistrationRequest {
     oneof item {
         ClientHello clientHello = 1;
@@ -166,11 +200,22 @@ message ChangeNotification {
         DeleteChangeNotification delete = 3;
     }
 }
+
+message Subscription {
+    enum MatchType {
+        InstanceId = 0;
+    }
+    string pattern = 1;
+    MatchType matchType = 2;
+}
+message Subscriptions {
+    repeated Subscription subscriptions = 1;
+}
 message SubscribeRequest {
     oneof item {
         ClientHello clientHello = 1;
         Heartbeat heartbeat = 2;
-        InterestRegistration interestRegistration = 3;
+        Subscriptions subscriptions = 3;
     }
 }
 message SubscribeResponse {
@@ -181,24 +226,14 @@ message SubscribeResponse {
     }
 }
 
-/**
- * Services
- */
+service SubscriberService {
 
-service RegistrationService {
+    rpc subscriber (stream SubscribeRequest) returns (stream SubscribeResponse) {
+    }
+}
+service WrTyChannel {
 
-    rpc Register (stream RegistrationRequest) returns (stream RegistrationResponse) {
+    rpc Connect (stream Request) returns (stream Response) {
     }
 }
 
-service SubscribeService {
-    rpc Subscribe (stream SubscribeRequest) returns (stream SubscribeResponse) {
-    }
-}
-/**
- * special SubscribeService only Subscribe all
-*/
-service ReplicationService {
-    rpc Subscribe (stream SubscribeRequest) returns (stream SubscribeResponse) {
-    }
-}

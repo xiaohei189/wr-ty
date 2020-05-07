@@ -54,7 +54,7 @@ public class DefaultRegistry implements Registry {
         try {
             readLock.lock();
             Collection<WrTy.ChangeNotification> values = instanceDataSource.values().stream().map(value -> ChangeNotifications.newAddNotification(value)).collect(Collectors.toList());
-            Flux<WrTy.ChangeNotification> changeNotificationFlux = Flux.fromIterable(values).concatWith(registryTopic);
+            Flux<WrTy.ChangeNotification> changeNotificationFlux = Flux.fromIterable(values).merge(registryTopic);
             changeNotificationFlux.subscribe(subscriber);
         } finally {
             readLock.unlock();

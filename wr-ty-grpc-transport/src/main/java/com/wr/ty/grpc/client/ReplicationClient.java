@@ -62,7 +62,7 @@ public class ReplicationClient extends RetryConnectClient {
                 handlers.add(new ClientHandshakeHandler());
                 handlers.add(new ClientHeartbeatHandler(transportConfig.heartbeatInterval(), transportConfig.heartbeatTimeout(), scheduler));
                 handlers.add(new ReplicationClientHandler(registry));
-                handlers.add(new ReplicationClientTransportHandler(channel));
+//                handlers.add(new ReplicationClientTransportHandler(channel));
                 return new DefaultChannelPipeline(pipelineId, 0, handlers);
 
             });

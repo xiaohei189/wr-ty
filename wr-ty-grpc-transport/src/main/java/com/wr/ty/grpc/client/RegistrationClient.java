@@ -58,7 +58,7 @@ public class RegistrationClient extends RetryConnectClient {
                 List<ChannelHandler> handlers = new ArrayList<>();
                 handlers.add(new ClientHandshakeHandler());
                 handlers.add(new ClientHeartbeatHandler(transportConfig.heartbeatInterval(), transportConfig.heartbeatTimeout(), scheduler));
-                handlers.add(new RegistrationClientTransportHandler(channel));
+//                handlers.add(new RegistrationClientTransportHandler(channel));
                 return new DefaultChannelPipeline(pipelineId, 0, handlers);
             });
             return channelPipeline;
