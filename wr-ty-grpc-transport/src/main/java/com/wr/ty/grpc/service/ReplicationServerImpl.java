@@ -8,7 +8,7 @@
 //import com.wr.ty.grpc.core.channel.ChannelPipelineFactory;
 //import com.wr.ty.grpc.core.channel.DefaultChannelPipeline;
 //import com.wr.ty.grpc.handler.server.*;
-//import com.wr.ty.grpc.register.Registry;
+//import com.wr.ty.api.Registry;
 //import com.wr.ty.grpc.util.ProtocolMessageEnvelopes;
 //import com.wr.ty.grpc.util.SourceIdGenerator;
 //import com.wr.ty.grpc.util.SubscribeMessages;

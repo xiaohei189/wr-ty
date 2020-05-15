@@ -5,7 +5,7 @@ package com.wr.ty.grpc.handler.server;
 
 import com.wr.ty.grpc.core.channel.ChannelHandler;
 import com.wr.ty.grpc.core.channel.ChannelPipeline;
-import com.wr.ty.grpc.register.Registry;
+import com.wr.ty.api.Registry;
 import com.wr.ty.grpc.util.ChangeNotifications;
 import com.xh.demo.grpc.WrTy;
 import org.slf4j.Logger;

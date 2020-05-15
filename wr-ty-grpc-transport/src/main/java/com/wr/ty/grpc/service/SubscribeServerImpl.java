@@ -9,7 +9,7 @@
 //import com.wr.ty.grpc.handler.server.ServerHandshakeHandler;
 //import com.wr.ty.grpc.handler.server.ServerHeartbeatHandler;
 //import com.wr.ty.grpc.handler.server.ServerSubscribeHandler;
-//import com.wr.ty.grpc.register.Registry;
+//import com.wr.ty.api.Registry;
 //import com.wr.ty.grpc.util.ProtocolMessageEnvelopes;
 //import com.wr.ty.grpc.util.SubscribeMessages;
 //import com.xh.demo.grpc.SubscribeServiceGrpc.SubscribeServiceImplBase;

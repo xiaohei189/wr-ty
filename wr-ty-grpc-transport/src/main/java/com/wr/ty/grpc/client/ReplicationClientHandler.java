@@ -2,7 +2,7 @@ package com.wr.ty.grpc.client;
 
 import com.wr.ty.grpc.core.channel.ChannelHandler;
 import com.wr.ty.grpc.core.channel.ChannelPipeline;
-import com.wr.ty.grpc.register.Registry;
+import com.wr.ty.api.Registry;
 import com.xh.demo.grpc.WrTy;
 import reactor.core.publisher.Flux;
 

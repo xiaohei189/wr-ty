@@ -18,8 +18,8 @@
 //
 //import com.wr.ty.grpc.TransportConfig;
 //import com.wr.ty.grpc.core.DefaultPipelineNameGenerator;
-//import com.wr.ty.grpc.register.DefaultRegistry;
-//import com.wr.ty.grpc.register.Registry;
+//import com.wr.ty.DefaultRegistry;
+//import com.wr.ty.api.Registry;
 //import com.wr.ty.grpc.service.RegistrationServerImpl;
 //import com.wr.ty.grpc.service.ReplicationServerImpl;
 //import com.wr.ty.grpc.service.SubscribeServerImpl;
